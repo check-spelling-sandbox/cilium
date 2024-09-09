@@ -1,0 +1,250 @@
+# See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
+
+# Automatically suggested patterns
+
+# hit-count: 18323 file-count: 1095
+# version suffix <word>v#
+(?:(?<=[A-Z]{2})V|(?<=[a-z]{2}|[A-Z]{2})v)\d+(?:\b|(?=[a-zA-Z_]))
+
+# hit-count: 4142 file-count: 144
+# Compiler flags (Unix, Java/Scala)
+# Use if you have things like `-Pdocker` and want to treat them as `docker`
+(?:^|[\t ,>"'`=(])-(?:(?:J-|)[WX]|D(?!ROP)|f(?=sign|arg|no))(?=[A-Z]{2,}|[A-Z][a-z]|[a-z]{2,})
+
+\\u[0-9a-f]{4}
+
+# hit-count: 2203 file-count: 166
+# hex digits including css/html color classes:
+(?:[\\0][xX]|[uU]\+|#x?|%23)[0-9_a-fA-FgGrR]*?[a-fA-FgGrR]{2,}[0-9_a-fA-FgGrR]*(?:[uUlL]{0,3}|[iu]\d+)\b
+
+# hit-count: 1377 file-count: 318
+# https/http/file urls
+(?:\b(?:https?|ftp|file)://)[-A-Za-z0-9+&@#/*%?=~_|!:,.;]+[-A-Za-z0-9+&@#/*%=~_|]
+
+# hit-count: 1142 file-count: 212
+# hex runs
+\b[0-9a-fA-F]{16,}\b
+
+# hit-count: 377 file-count: 62
+# GitHub actions
+\buses:\s+[-\w.]+/[-\w./]+@[-\w.]+
+
+# hit-count: 265 file-count: 52
+# IPv6
+\b(?:[0-9a-fA-F]{0,4}:){3,7}[0-9a-fA-F]{0,4}\b
+
+# hit-count: 222 file-count: 32
+# in check-spelling@v0.0.22+, printf markers aren't automatically consumed
+# printf markers
+(?<!\\)\\[nrt](?=[a-z]{2,})
+
+# hit-count: 208 file-count: 64
+# uuid:
+\b[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}\b
+
+# hit-count: 184 file-count: 83
+# C network byte conversions
+(?:\d|\bh)to(?!ken)(?=[a-z])|to(?=[adhiklpun]\()
+
+# hit-count: 95 file-count: 51
+# libraries
+(?:\b|_)lib(?:re(?=office)|)(?!era[lt]|ero|erty|rar(?:i(?:an|es)|y))(?=[a-z])
+
+# hit-count: 85 file-count: 26
+# kubernetes pod status lists
+# https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase
+\w+(?:-\w+)+\s+\d+/\d+\s+(?:Running|Pending|Succeeded|Failed|Unknown)\s+
+
+# hit-count: 75 file-count: 44
+# sha
+sha\d+:[0-9]*[a-f]{3,}[0-9a-f]*
+
+# hit-count: 67 file-count: 36
+# IServiceProvider / isAThing
+(?:\b|_)(?:(?:ns|)I(?!P)|isA)(?=(?:[A-Z][a-z]{2,})+(?:[A-Z\d]|\b))
+
+# hit-count: 59 file-count: 19
+# kubernetes object suffix
+-[0-9a-f]{10}-\w{5}\s
+
+# hit-count: 54 file-count: 12
+# AWS VPC
+vpc-\w+
+
+# hit-count: 25 file-count: 14
+# tar arguments
+\b(?:\\n|)g?tar(?:\.exe|)(?:(?:\s+--[-a-zA-Z]+|\s+-[a-zA-Z]+|\s[ABGJMOPRSUWZacdfh-pr-xz]+\b)(?:=[^ ]*|))+
+
+# hit-count: 21 file-count: 7
+# curl arguments
+\b(?:\\n|)curl(?:\.exe|)(?:\s+-[a-zA-Z]{1,2}\b)*(?:\s+-[a-zA-Z]{3,})(?:\s+-[a-zA-Z]+)*
+
+# hit-count: 20 file-count: 14
+# go install
+go install(?:\s+[a-z]+\.[-@\w/.]+)+
+
+# hit-count: 13 file-count: 7
+# This does not cover multiline strings, if your repository has them,
+# you'll want to remove the `(?=.*?")` suffix.
+# The `(?=.*?")` suffix should limit the false positives rate
+# printf
+%(?:(?:(?:hh?|ll?|[jzt])?[diuoxn]|l?[cs]|L?[fega]|p)(?=[a-z]{2,})|(?:X|L?[FEGA])(?=[a-zA-Z]{2,}))(?!%)(?=[_a-zA-Z]+(?!%)\b)(?=.*?['"])
+
+# hit-count: 11 file-count: 11
+# set arguments
+\b(?:bash|sh|set)(?:\s+-[abefimouxE]{1,2})*\s+-[abefimouxE]{3,}(?:\s+-[abefimouxE]+)*
+
+# hit-count: 11 file-count: 5
+# regex choice
+\(\?:[^)]+\|[^)]+\)
+
+# hit-count: 10 file-count: 3
+# Non-English
+[a-zA-Z]*[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3}[a-zA-ZÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]*|[a-zA-Z]{3,}[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]|[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3,}
+
+# hit-count: 9 file-count: 3
+# tput arguments -- https://man7.org/linux/man-pages/man5/terminfo.5.html -- technically they can be more than 5 chars long...
+\btput\s+(?:(?:-[SV]|-T\s*\w+)\s+)*\w{3,5}\b
+
+# hit-count: 7 file-count: 5
+# scala imports
+^import (?:[\w.]|\{\w*?(?:,\s*(?:\w*|\*))+\})+
+
+# hit-count: 7 file-count: 1
+# integrity
+integrity=(['"])(?:\s*sha\d+-[-a-zA-Z=;:/0-9+]{40,})+\g{-1}
+
+# hit-count: 6 file-count: 6
+# Go regular expressions
+regexp?\.MustCompile\(`[^`]*`\)
+
+# hit-count: 5 file-count: 3
+# Docker images
+^\s*FROM\s+\S+:\S+(?:\s+AS\s+\S+|)
+
+# hit-count: 5 file-count: 2
+# python
+PyGithub|\b(?i)py(?!gments|gmy|lon|ramid|ro|th)(?=[a-z]{2,})
+
+# hit-count: 3 file-count: 2
+# git index header
+index (?:[0-9a-z]{7,40},|)[0-9a-z]{7,40}\.\.[0-9a-z]{7,40}
+
+# hit-count: 3 file-count: 2
+# file permissions
+['"`\s][-bcdLlpsw](?:[-r][-w][-Ssx]){2}[-r][-w][-SsTtx]\+?['"`\s]
+
+# hit-count: 3 file-count: 2
+# go.sum
+\bh1:\S+
+
+# hit-count: 3 file-count: 1
+# GHSA
+GHSA(?:-[0-9a-z]{4}){3}
+
+# hit-count: 2 file-count: 1
+# Python string prefix / binary prefix
+# Note that there's a high false positive rate, remove the `?=` and search for the regex to see if the matches seem like reasonable strings
+(?<!['"])\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)['"](?=[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})
+
+# hit-count: 1 file-count: 1
+# data url
+\bdata:[-a-zA-Z=;:/0-9+]*,\S*
+
+# hit-count: 1 file-count: 1
+# getopts
+\bgetopts\s+(?:"[^"]+"|'[^']+')
+
+# hit-count: 1 file-count: 1
+# Lorem
+# Update Lorem based on your content (requires `ge` and `w` from https://github.com/jsoref/spelling; and `review` from https://github.com/check-spelling/check-spelling/wiki/Looking-for-items-locally )
+# grep '^[^#].*lorem' .github/actions/spelling/patterns.txt|perl -pne 's/.*i..\?://;s/\).*//' |tr '|' "\n"|sort -f |xargs -n1 ge|perl -pne 's/^[^:]*://'|sort -u|w|sed -e 's/ .*//'|w|review -
+# Warning, while `(?i)` is very neat and fancy, if you have some binary files that aren't proper unicode, you might run into:
+# ... Operation "substitution (s///)" returns its argument for non-Unicode code point 0x1C19AE (the code point will vary).
+# ... You could manually change `(?i)X...` to use `[Xx]...`
+# ... or you could add the files to your `excludes` file (a version after 0.0.19 should identify the file path)
+(?:(?:\w|\s|[,.])*\b(?i)(?:amet|consectetur|cursus|dolor|eros|ipsum|lacus|libero|ligula|lorem|magna|neque|nulla|suscipit|tempus)\b(?:\w|\s|[,.])*)
+
+# container images
+image(?:: |=)[-\w./:@]+
+
+# gcr
+``gcr\..*?``
+
+\bip a a\b
+
+CILIUM(?=[A-Za-z])|[Cc]ilium(?:bgp|cluster|config|envoy|node|peer(?:ing|)|wide)*(?=[a-z])
+
+\b(?:\w+-){2,}[0-9a-f]+-\w{5}\b
+
+# TCPFlags
+\| \w{3} \| \[bool\]\(#bool\) \|  \|  \|
+
+Hostname: [-\w.]+\b$
+"uid": ".*?"
+
+"public-key": ".*?"
+
+notMatching := .*$
+
+^\s*[7f][0-9a-f]+ (?:\w{2,} \(.*?\)|\w \w+(?:|\s+\[.*?\]))
+(?:|[-\w]+\s+\d+/\d+\s+)[-\w]+\s+[-\w]+\s+\d+d\d+h
+
+^\s+[QL]: \@.*$
+
+[-\w]+/[-w\w]+(?::\d+|)\s+\(\w+(?::\d+)\)
+
+# dated log lines
+^\s*(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [ \d]\d (?:\d\d:){2}\d\d\.\d{3}:.*
+
+Key\s+=\s+".*?"
+
+lxc[0-9a-f]+
+
+# CODEOWNERS
+^(?:[-*]|/[-\w/_.*]+)(?:\s+@\w+/[-\w]+)+
+
+# Questionably acceptable forms of `in to`
+# Personally, I prefer `log into`, but people object
+# https://www.tprteaching.com/log-into-log-in-to-login/
+\b(?:(?:[Ll]og(?:g(?=[a-z])|)|[Ss]ign)(?:ed|ing)?) in to\b
+
+# to opt in
+\bto opt in\b
+
+# acceptable duplicates
+# ls directory listings
+[-bcdlpsw](?:[-r][-w][-SsTtx]){3}[\.+*]?\s+\d+\s+\S+\s+\S+\s+[.\d]+(?:[KMGT]|)\s+
+# mount
+\bmount\s+-t\s+(\w+)\s+\g{-1}\b
+# C types and repeated CSS values
+\s(auto|buffalo|center|div|inherit|long|LONG|nil|none|normal|root|SCTP|Socket|solid|status|TCP|thin|transparent|UDP|very)(?: \g{-1})+\s
+# C struct
+\bstruct\s+(\w+)\s+\g{-1}\b
+# go templates
+\s(\w+)\s+\g{-1}\s+\`(?:graphql|group|inject|json|protobuf|yaml):
+# doxygen / javadoc / .net
+(?:[\\@](?:arg|brief|defgroup|groupname|link|t?param|return|retval)|(?:public|private|\[Parameter(?:\(.+\)|)\])(?:\s+(?:static|override|readonly|required|virtual))*)(?:\s+\{\w+\}|)\s+(\w+)\s+\g{-1}\s
+# go struct type descriptions
+^// (\w+)\s\g{-1}\b
+
+# macOS file path
+/MacOS
+
+# Python package registry has incorrect spelling for macOS / Mac OS X
+"Operating System :: MacOS :: MacOS X"
+
+# "company" in Germany
+\bGmbH\b
+
+# IntelliJ
+\bIntelliJ\b
+
+# Commit message -- Signed-off-by and friends
+^\s*(?:(?:Based-on-patch|Co-authored|Helped|Mentored|Reported|Reviewed|Signed-off)-by|Thanks-to): (?:[^<]*<[^>]*>|[^<]*)\s*$
+
+# Autogenerated revert commit message
+^This reverts commit [0-9a-f]{40}\.$
+
+# ignore long runs of a single character:
+\b([A-Za-z])\g{-1}{3,}\b
