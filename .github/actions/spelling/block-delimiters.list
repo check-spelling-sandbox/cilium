@@ -1,0 +1,47 @@
+# Public Keys
+-----BEGIN PUBLIC KEY-----
+-----END PUBLIC KEY-----
+
+# RSA Private Key
+-----BEGIN RSA PRIVATE KEY-----
+-----END RSA PRIVATE KEY-----
+
+# GPG Public Key
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+-----END PGP PUBLIC KEY BLOCK-----
+
+# GPG Signature
+-----BEGIN PGP SIGNATURE-----
+-----END PGP SIGNATURE-----
+
+# Certificates
+-----BEGIN CERTIFICATE-----
+-----END CERTIFICATE-----
+
+# cgroup
+mountInfoContent = `
+`
+
+# Documentation/bpf/resources.rst
+Incomplete list:
+Further Documents
+
+# cilium-cli/connectivity/check/frr.go
+"service integrated-vtysh-config"
+},
+
+# go imports
+import (
+)
+
+# Documentation/bpf/progtypes.rst
+**Drivers supporting native XDP**
+**Drivers supporting offloaded XDP**
+
+# MAINTAINERS.md
+Cilium Committers
+Cilium & Hubble Emeritus Committers
+
+# pkg/mountinfo/mountinfo_test.go
+mountInfoContent = `
+`
