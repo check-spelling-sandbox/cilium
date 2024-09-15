@@ -35,7 +35,7 @@ func MakeUID() string {
 }
 
 // RenderTemplate renders a text/template string into a buffer.
-// Returns eturn an error if the template cannot be validated.
+// Returns an error if the template cannot be validated.
 func RenderTemplate(tmplt string) (*bytes.Buffer, error) {
 	t, err := template.New("").Parse(tmplt)
 	if err != nil {

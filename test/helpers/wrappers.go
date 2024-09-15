@@ -69,7 +69,7 @@ func CurlFailNoStats(endpoint string, optionalValues ...any) string {
 		CurlConnectTimeout, CurlMaxTimeout, endpoint)
 }
 
-// CurlWithHTTPCode retunrs the string representation of the curl command which
+// CurlWithHTTPCode returns the string representation of the curl command which
 // only outputs the HTTP code returned by its execution against the specified
 // endpoint. It takes a variadic optionalValues argument. This is passed on to
 // fmt.Sprintf() and uses into the curl message. See note about optionalValues
