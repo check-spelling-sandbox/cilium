@@ -156,7 +156,7 @@ func getMonitorParser(conn net.Conn, version listener.Version) (parser eventPars
 			pl  payload.Payload
 			dec = gob.NewDecoder(conn)
 		)
-		// This implemenents the newer 1.2 API. Each listener maintains its own gob
+		// This implements the newer 1.2 API. Each listener maintains its own gob
 		// session, and type information is only ever sent once.
 		return func() (*payload.Payload, error) {
 			if err := pl.DecodeBinary(dec); err != nil {
