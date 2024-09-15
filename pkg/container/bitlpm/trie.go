@@ -81,7 +81,7 @@ type Trie[K Key[K], T any] interface {
 	// that can be used to produce the 'Next' key/value pair in sequence,
 	// starting from the key with the shortest common prefix with 'key'.
 	DescendantShortestPrefixFirstIterator(prefix uint, key K) descendantSPFIterator[K, T]
-	// Upsert updates or inserts the trie with a a prefix, key,
+	// Upsert updates or inserts the trie with a prefix, key,
 	// and value. The method returns true if the key is new, and
 	// false if the key already existed.
 	//
