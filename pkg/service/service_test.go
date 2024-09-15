@@ -814,7 +814,7 @@ func TestRestoreServiceWithStaleBackends(t *testing.T) {
 func TestHealthCheckNodePort(t *testing.T) {
 	m := setupManagerTestSuite(t)
 
-	// Create two frontends, one for LoadBalaner and one for ClusterIP.
+	// Create two frontends, one for LoadBalancer and one for ClusterIP.
 	// This is used to emulate how we get K8s services from the K8s watcher,
 	// i.e. one service per frontend (even if it is logically the same service)
 	loadBalancerIP := *lb.NewL3n4AddrID(lb.TCP, cmtypes.MustParseAddrCluster("1.1.1.1"), 80, lb.ScopeExternal, 0)
