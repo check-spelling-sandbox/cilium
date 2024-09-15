@@ -120,7 +120,7 @@ type Options struct {
 	CNIConfigMapName string
 	// The labels used to target Tetragon pods.
 	TetragonLabelSelector string
-	// The labels used to target Tetragon oeprator pods.
+	// The labels used to target Tetragon operator pods.
 	TetragonOperatorLabelSelector string
 	// The namespace Namespace is running in.
 	TetragonNamespace string
