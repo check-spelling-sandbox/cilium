@@ -409,7 +409,7 @@ func TestEqual(t *testing.T) {
 			beqa := tt.b.Equal(tt.a)
 
 			assert.Equalf(t, aeqb, beqa, "equal isn't commutative (a.Equal(b) is %t, but b.Equal(a) is %t)", aeqb, beqa)
-			assert.Equalf(t, tt.equal, aeqb, "exepectd a.Equal(b) to be %t", tt.equal)
+			assert.Equalf(t, tt.equal, aeqb, "expectd a.Equal(b) to be %t", tt.equal)
 		})
 	}
 }
