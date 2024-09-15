@@ -792,7 +792,7 @@ func TestNodeManagerInstanceNotRunning(t *testing.T) {
 	require.NoError(t, err)
 	require.NotNil(t, mngr)
 
-	// Announce node, ENI attachement will fail
+	// Announce node, ENI attachment will fail
 	cn := newCiliumNode("node1", withTestDefaults(), withInstanceID(instanceID), withInstanceType("m4.large"),
 		withFirstInterfaceIndex(1), withIPAMPreAllocate(8))
 	mngr.Upsert(cn)

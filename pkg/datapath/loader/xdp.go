@@ -43,7 +43,7 @@ const (
 
 // xdpAttachedModeToFlag maps the attach mode that is returned in the metadata when
 // querying netlink devices to the attach flags that were used to configure the
-// xdp program attachement.
+// xdp program attachment.
 func xdpAttachedModeToFlag(mode uint32) link.XDPAttachFlags {
 	switch mode {
 	case xdpAttachedDriver:
