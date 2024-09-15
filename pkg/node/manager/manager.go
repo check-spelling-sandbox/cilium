@@ -1003,7 +1003,7 @@ func (m *manager) NodeDeleted(n nodeTypes.Node) {
 	var errs error
 	m.Iter(func(nh datapath.NodeHandler) {
 		if err := nh.NodeDelete(n); err != nil {
-			// For now we log the error and continue. Eventually we will want to encorporate
+			// For now we log the error and continue. Eventually we will want to incorporate
 			// this into the node managers health status.
 			// However this is a bit tricky - as leftover node deletes are not retries so this will
 			// need to be accompanied by some kind of retry mechanism.
