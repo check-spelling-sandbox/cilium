@@ -278,7 +278,7 @@ func newCRDState(crds []string) crdState {
 // we don't want each agent to fetch the full CRDs across the cluster, because
 // they potentially contain large validation schemas.
 //
-// This function also removes removes unnecessary calls from the upstream
+// This function also removes unnecessary calls from the upstream
 // version that set the namespace and the resource when performing `Get`.
 //
 //   - If the resource was set, the following error was observed:
