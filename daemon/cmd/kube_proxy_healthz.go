@@ -43,7 +43,7 @@ func (d *Daemon) startKubeProxyHealthzHTTPService(addr string) {
 	if errors.Is(err, unix.EADDRNOTAVAIL) {
 		log.WithFields(addrField).Info("KubeProxy healthz server not available")
 	} else if err != nil {
-		log.WithFields(addrField).WithError(err).Fatal("hint: kube-proxy should not be running nor listening on the same healthz-bind-address.")
+		log.WithFields(addrField).WithError(err).Fatal("hint: kube-proxy should neither be running nor listening on the same healthz-bind-address.")
 	}
 
 	mux := http.NewServeMux()
