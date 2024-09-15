@@ -101,7 +101,7 @@ apt-get update
 echo "Install Kubernetes ----------"
 install_kubernetes
 
-echo "Install Clium-CLI ----------"
+echo "Install Cilium-CLI ----------"
 install_ciliumcli
 
 echo "Install KIND ----------"
