@@ -157,7 +157,7 @@ var (
 	}
 	// xfrmStateCache is a cache of XFRM states to avoid querying each time.
 	// This is especially important for backgroundSync that is used to validate
-	// if the XFRM state is correct, without usually modyfing anything.
+	// if the XFRM state is correct, without usually modifying anything.
 	// The cache is invalidated whenever a new XFRM state is added/updated/removed,
 	// but also in case of TTL expiration.
 	// It provides XfrmStateAdd/Update/Del wrappers that ensure cache
