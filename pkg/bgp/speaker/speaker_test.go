@@ -94,7 +94,7 @@ func TestSpeakerOnUpdateService(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm we recorded the correct metallb service name
@@ -178,7 +178,7 @@ func TestSpeakerOnDeleteService(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm we recorded the correct metallb service name
@@ -264,7 +264,7 @@ func TestSpeakerOnUpdateEndpoints(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm we recorded the correct metallb service name
@@ -380,7 +380,7 @@ func TestSpeakerOnUpdateNode(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm the recorded Labels and bgp advertisements
@@ -484,7 +484,7 @@ func TestSpeakerOnDeleteNode(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm we recorded an empty slice of advertisements
