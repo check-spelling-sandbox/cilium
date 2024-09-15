@@ -41,7 +41,7 @@ var (
 // clusterID is the type of the key to use in the metadata CIDRTrieMap
 type clusterID uint32
 
-// metadata contains the ipcache metadata. Mainily it holds a map which maps IP
+// metadata contains the ipcache metadata. Mainly it holds a map which maps IP
 // prefixes (x.x.x.x/32) to a set of information (prefixInfo).
 //
 // When allocating an identity to associate with each prefix, the
