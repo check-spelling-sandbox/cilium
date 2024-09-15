@@ -21,7 +21,7 @@ func TestLocalLock(t *testing.T) {
 
 	locks := pathLocks{lockPaths: map[string]lockOwner{}}
 
-	// Acquie lock1
+	// Acquire lock1
 	id1, err := locks.lock(context.Background(), path)
 	require.NoError(t, err)
 
