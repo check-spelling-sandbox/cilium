@@ -88,7 +88,7 @@ func (o *objectCache) UpdateDatapathHash(nodeCfg *datapath.LocalNodeConfiguratio
 	return nil
 }
 
-// serialize access to an abitrary key.
+// serialize access to an arbitrary key.
 //
 // The caller must call Unlock on the returned object.
 func (o *objectCache) serialize(key string) *cachedSpec {
