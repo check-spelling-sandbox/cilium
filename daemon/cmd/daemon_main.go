@@ -1772,7 +1772,7 @@ func newDaemonPromise(params daemonParams) (promise.Promise[*Daemon], promise.Pr
 				}
 			}
 
-			// 'option.Config' is assumed to be stable at this point, execpt for
+			// 'option.Config' is assumed to be stable at this point, except for
 			// 'option.Config.Opts' that are explicitly deemed to be runtime-changeable
 			params.CfgResolver.Resolve(option.Config)
 			policyManagerResolver.Resolve(daemon)
