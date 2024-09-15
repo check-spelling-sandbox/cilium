@@ -171,7 +171,7 @@ if __name__ == "__main__":
                 else:
                     skipped[pkg] = 1
                 continue
-        print("{} occurences. Sample stack trace:".format(len(stack)))
+        print("{} occurrences. Sample stack trace:".format(len(stack)))
         print("\n".join(stack[0]).replace(cilium_source, source_dir))
 
     if len(skipped) > 0:
