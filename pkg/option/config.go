@@ -2146,7 +2146,7 @@ type DaemonConfig struct {
 
 	// PolicyAuditMode enables non-drop mode for installed policies. In
 	// audit mode packets affected by policies will not be dropped.
-	// Policy related decisions can be checked via the poicy verdict messages.
+	// Policy related decisions can be checked via the policy verdict messages.
 	PolicyAuditMode bool
 
 	// PolicyAccounting enable policy accounting
