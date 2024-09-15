@@ -147,7 +147,7 @@ func TestWorkqueueSyncStore(t *testing.T) {
 	store.UpsertKey(ctx, NewKVPair("key3", "value3"))
 	require.Equal(t, NewKVPair("/foo/bar/key3", "value3"), eventually(backend.updated))
 
-	// Upserts for the same key should be coalescenced. In this case, it is guaranteed
+	// Upserts for the same key should be coalesced. In this case, it is guaranteed
 	// to happen since the first upsert blocks until we read from the channel.
 	store.UpsertKey(ctx, NewKVPair("key4", "value4"))
 	store.UpsertKey(ctx, NewKVPair("key1", "valueA"))
