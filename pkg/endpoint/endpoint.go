@@ -2238,7 +2238,7 @@ func (e *Endpoint) identityLabelsChanged(ctx context.Context) (regenTriggered bo
 		// The identity of the endpoint is changing, delay the use of
 		// the identity by a grace period to give all other cluster
 		// nodes a chance to adjust their policies first. This requires
-		// to unlock the endpoit and then lock it again.
+		// to unlock the endpoint and then lock it again.
 		//
 		// If the identity change is from init -> *, don't delay the
 		// use of the identity as we want the init duration to be as

@@ -27,7 +27,7 @@ const (
 // fake services with this form `$svcName-$clusterName` whereas the actual Service
 // doesn't contain the $clusterName. So this client is used to intercept
 // list/watch calls to also make sure that we fake the service name referenced
-// by EndpoinSlices and will revert those changes at the create/update level to make
+// by EndpointSlices and will revert those changes at the create/update level to make
 // sure that the correct data is written to the Kubernetes API.
 type meshClient struct {
 	k8sClient.Clientset

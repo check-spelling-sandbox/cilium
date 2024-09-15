@@ -65,7 +65,7 @@ func (r *nodeSvcLBReconciler) SetupWithManager(mgr ctrl.Manager) error {
 		Complete(r)
 }
 
-// enqueueRequestForEndpointSlice enqueue the service if a corresponding Enndpoint Slice is updated
+// enqueueRequestForEndpointSlice enqueue the service if a corresponding Endpoint Slice is updated
 func (r *nodeSvcLBReconciler) enqueueRequestForEndpointSlice() handler.EventHandler {
 	return handler.EnqueueRequestsFromMapFunc(func(ctx context.Context, o client.Object) []reconcile.Request {
 		scopedLog := r.Logger.WithFields(logrus.Fields{
