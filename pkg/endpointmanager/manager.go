@@ -413,7 +413,7 @@ func (mgr *endpointManager) unexpose(ep *endpoint.Endpoint) {
 }
 
 // removeEndpoint stops the active handling of events by the specified endpoint,
-// and prevents the endpoint from being globally acccessible via other packages.
+// and prevents the endpoint from being globally accessible via other packages.
 func (mgr *endpointManager) removeEndpoint(ep *endpoint.Endpoint, conf endpoint.DeleteConfig) []error {
 	mgr.unexpose(ep)
 	result := ep.Delete(conf)
@@ -428,7 +428,7 @@ func (mgr *endpointManager) removeEndpoint(ep *endpoint.Endpoint, conf endpoint.
 }
 
 // RemoveEndpoint stops the active handling of events by the specified endpoint,
-// and prevents the endpoint from being globally acccessible via other packages.
+// and prevents the endpoint from being globally accessible via other packages.
 func (mgr *endpointManager) RemoveEndpoint(ep *endpoint.Endpoint, conf endpoint.DeleteConfig) []error {
 	return mgr.deleteEndpoint(ep, conf)
 }
