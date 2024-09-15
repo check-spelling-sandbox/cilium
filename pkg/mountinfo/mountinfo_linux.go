@@ -30,7 +30,7 @@ func IsMountFS(mntType int64, path string) (bool, bool, error) {
 	err := unix.Lstat(path, &st)
 	if err != nil {
 		if errors.Is(err, unix.ENOENT) {
-			// non-existent path can't be a mount point
+			// nonexistent path can't be a mount point
 			return false, false, nil
 		}
 		return false, false, &os.PathError{Op: "lstat", Path: path, Err: err}

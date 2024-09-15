@@ -3493,7 +3493,7 @@ func InitConfig(logger *slog.Logger, cmd *cobra.Command, programName, configName
 
 		if Config.ConfigDir != "" {
 			if _, err := os.Stat(Config.ConfigDir); os.IsNotExist(err) {
-				logging.Fatal(logger, fmt.Sprintf("Non-existent configuration directory %s", Config.ConfigDir))
+				logging.Fatal(logger, fmt.Sprintf("Nonexistent configuration directory %s", Config.ConfigDir))
 			}
 
 			if m, err := ReadDirConfig(logger, Config.ConfigDir); err != nil {

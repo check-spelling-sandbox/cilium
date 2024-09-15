@@ -134,7 +134,7 @@ func (d *LocalIdentityRestorer) dumpOldIPCache() (map[netip.Prefix]identity.Nume
 	ipcachemap.IPCacheMap(d.params.MetricsRegistry).Close()
 
 	if err != nil {
-		// ignore non-existent cache
+		// ignore nonexistent cache
 		if errors.Is(err, fs.ErrNotExist) {
 			err = nil
 		}

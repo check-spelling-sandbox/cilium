@@ -1062,7 +1062,7 @@ func (s *xdsServer) removeListener(name string, wg *completion.WaitGroup, isProx
 		}
 	} else {
 		// Bail out if this listener does not exist
-		s.logger.Error("Envoy: Attempt to remove non-existent listener",
+		s.logger.Error("Envoy: Attempt to remove nonexistent listener",
 			logfields.Listener, name,
 		)
 	}
