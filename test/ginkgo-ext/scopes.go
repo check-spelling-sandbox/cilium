@@ -141,7 +141,7 @@ func (s *scope) decrementSafely() {
 	}
 }
 
-func CurrnetScopeCounter() int32 {
+func CurrentScopeCounter() int32 {
 	currentScope.mutex.Lock()
 	defer currentScope.mutex.Unlock()
 	return currentScope.counter

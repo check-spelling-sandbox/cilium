@@ -715,7 +715,7 @@ func (c *DNSCache) MarshalJSON() ([]byte, error) {
 }
 
 // UnmarshalJSON rebuilds a DNSCache from serialized JSON.
-// Note: This is destructive to any currect data. Use UpdateFromCache for bulk
+// Note: This is destructive to any current data. Use UpdateFromCache for bulk
 // updates.
 func (c *DNSCache) UnmarshalJSON(raw []byte) error {
 	lookups := make([]*cacheEntry, 0)
@@ -1204,7 +1204,7 @@ func (zombies *DNSZombieMappings) MarshalJSON() ([]byte, error) {
 // UnmarshalJSON rebuilds a DNSZombieMappings from serialized JSON. It resets
 // the AliveAt timestamps, requiring a CT GC cycle to occur before any zombies
 // are deleted (by not being marked alive).
-// Note: This is destructive to any currect data
+// Note: This is destructive to any current data
 func (zombies *DNSZombieMappings) UnmarshalJSON(raw []byte) error {
 	zombies.Lock()
 	defer zombies.Unlock()
