@@ -332,7 +332,7 @@ func (d *Daemon) releaseRestoredIdentities() {
 			Prefix:   prefix,
 			Resource: restoredCIDRResource,
 			Metadata: []ipcache.IPMetadata{
-				ipcachetypes.RequestedIdentity(0), // remove requsted ID, if present
+				ipcachetypes.RequestedIdentity(0), // remove requested ID, if present
 				labels.Labels{},                   // remove labels, if present
 			},
 		})
