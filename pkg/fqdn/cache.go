@@ -37,7 +37,7 @@ type cacheEntry struct {
 	// LookupTime is when the data begins being valid
 	LookupTime time.Time `json:"lookup-time,omitempty"`
 
-	// ExpirationTime is a calcutated time when the DNS data stops being valid.
+	// ExpirationTime is a calculated time when the DNS data stops being valid.
 	// It is simply LookupTime + TTL
 	ExpirationTime time.Time `json:"expiration-time,omitempty"`
 
