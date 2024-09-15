@@ -311,7 +311,7 @@ func (ops *bpfOps) pruneBackendMaps() error {
 		beValue = beValue.ToHost()
 		addr := beValueToAddr(beValue)
 
-		// TODO TCP/UDP differentation.
+		// TODO TCP/UDP differentiation.
 		addr.L4Addr.Protocol = loadbalancer.TCP
 		if _, ok := ops.backendStates[addr]; !ok {
 			addr.L4Addr.Protocol = loadbalancer.UDP
