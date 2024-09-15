@@ -372,7 +372,7 @@ func DeleteK8sResourceWithWait[T any](ctx context.Context, t *Test, k8sClient k8
 
 	err := k8sClient.Delete(ctx, resourceName, metav1.DeleteOptions{})
 	if err != nil && !k8serrors.IsNotFound(err) {
-		t.Fatalf("Failed to delete k8s resorce %s: %v", resourceName, err)
+		t.Fatalf("Failed to delete k8s resource %s: %v", resourceName, err)
 	}
 	for {
 		_, err = k8sClient.Get(ctx, resourceName, metav1.GetOptions{})
@@ -380,7 +380,7 @@ func DeleteK8sResourceWithWait[T any](ctx context.Context, t *Test, k8sClient k8
 			return // got expected not found
 		}
 		if err = w.Retry(err); err != nil {
-			t.Fatalf("Failed to ensure k8s resorce %s is deleted: %v", resourceName, err)
+			t.Fatalf("Failed to ensure k8s resource %s is deleted: %v", resourceName, err)
 		}
 	}
 }
