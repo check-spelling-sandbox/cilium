@@ -487,7 +487,7 @@ func (m *AckingResourceMutatorWrapper) HandleResourceVersionAck(ackVersion uint6
 						delete(pending.remainingNodesResources, nodeIP)
 					}
 					if len(pending.remainingNodesResources) == 0 {
-						// completedComparision. Notify and remove from pending list.
+						// completedComparison. Notify and remove from pending list.
 						if pending.version <= ackVersion {
 							m.metrics.IncreaseACK(typeURL)
 							scopedLogger.Debug(fmt.Sprintf("completing ACK: %v", pending))
