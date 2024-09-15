@@ -159,7 +159,7 @@ func (m *manager) init() error {
 }
 
 func setBaselineSysctls(p bandwidthManagerParams) error {
-	// Ensure interger type sysctls are no smaller than our baseline settings
+	// Ensure integer type sysctls are no smaller than our baseline settings
 	baseIntSettings := []struct {
 		name []string
 		val  int64
