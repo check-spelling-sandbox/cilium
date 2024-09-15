@@ -619,7 +619,7 @@ func (a *Allocator) lockedAllocate(ctx context.Context, key AllocatorKey) (idpoo
 	key2 := key
 	key, err = a.backend.AllocateIDIfLocked(ctx, id, key2, lock)
 	if err != nil {
-		// Creation failed. Another agent most likely beat us to allocting this
+		// Creation failed. Another agent most likely beat us to allocating this
 		// ID, retry.
 		releaseKeyAndID()
 		return 0, false, false, fmt.Errorf("unable to allocate ID %s for key %s: %w", strID, key2, err)
