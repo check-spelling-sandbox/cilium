@@ -878,7 +878,7 @@ func parse(selector string, _ *field.Path) (internalSelector, error) {
 	if err != nil {
 		return nil, err
 	}
-	sort.Sort(ByKey(items)) // sort to grant determistic parsing
+	sort.Sort(ByKey(items)) // sort to grant deterministic parsing
 	return internalSelector(items), err
 }
 
