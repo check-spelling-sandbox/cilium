@@ -527,7 +527,7 @@ const (
 	MaxInternalTimerDelay = "max-internal-timer-delay"
 
 	// MonitorAggregationName specifies the MonitorAggregationLevel on the
-	// comandline.
+	// commandline.
 	MonitorAggregationName = "monitor-aggregation"
 
 	// MonitorAggregationInterval configures interval for monitor-aggregation
