@@ -1558,7 +1558,7 @@ type DaemonConfig struct {
 	MonitorAggregationInterval time.Duration
 
 	// MonitorAggregationFlags determines which TCP flags that the monitor
-	// aggregation ensures reports are generated for when monitor-aggragation
+	// aggregation ensures reports are generated for when monitor-aggregation
 	// is enabled. Network byte-order.
 	MonitorAggregationFlags uint16
 
