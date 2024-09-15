@@ -219,7 +219,7 @@ func (l4policy L4DirectionPolicy) toMapState(p *EndpointPolicy) {
 	})
 }
 
-// createRedirectsFunc returns 'nil' if map changes should not be applied immemdiately,
+// createRedirectsFunc returns 'nil' if map changes should not be applied immediately,
 // otherwise the returned map is to be used to find redirect ports for map updates.
 type createRedirectsFunc func(*L4Filter) map[string]uint16
 
