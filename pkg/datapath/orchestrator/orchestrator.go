@@ -132,7 +132,7 @@ func newOrchestrator(params orchestratorParams) *orchestrator {
 }
 
 func (o *orchestrator) reconciler(ctx context.Context, health cell.Health) error {
-	// We depend on settings modified by the Daemon startup. Once the Deamon is initialized this promise
+	// We depend on settings modified by the Daemon startup. Once the Daemon is initialized this promise
 	// is resolved and we are guaranteed to have the correct settings.
 	health.OK("Waiting for agent config")
 	agentConfig, err := o.params.ConfigPromise.Await(ctx)
