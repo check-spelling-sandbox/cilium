@@ -577,14 +577,14 @@ func (n *Node) ResyncInterfacesAndIPs(ctx context.Context, scopedLog *logrus.Ent
 
 			// 3. Finally, we iterate any already existing interfaces and add on any extra
 			//		capacity to account for leftover prefix delegated /28 ip slots.
-			leftoverPrefixCapcity, effectiveLimits := n.getEffectiveIPLimits(e, limits.IPv4)
+			leftoverPrefixCapacity, effectiveLimits := n.getEffectiveIPLimits(e, limits.IPv4)
 			if e.IsExcludedBySpec(n.k8sObj.Spec.ENI) {
 				// If this ENI is excluded by the CN Spec, we remove it from the total
 				// capacity.
 				stats.NodeCapacity -= effectiveLimits
 				return nil
 			} else {
-				stats.NodeCapacity += leftoverPrefixCapcity
+				stats.NodeCapacity += leftoverPrefixCapacity
 			}
 
 			availableOnENI := math.IntMax(effectiveLimits-len(e.Addresses), 0)
