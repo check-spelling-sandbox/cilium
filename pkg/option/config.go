@@ -794,7 +794,7 @@ const (
 	// EnableEncryptionStrictMode is the name of the option to enable strict encryption mode.
 	EnableEncryptionStrictMode = "enable-encryption-strict-mode"
 
-	// EncryptionStrictModeCIDR is the CIDR in which the strict ecryption mode should be enforced.
+	// EncryptionStrictModeCIDR is the CIDR in which the strict encryption mode should be enforced.
 	EncryptionStrictModeCIDR = "encryption-strict-mode-cidr"
 
 	// EncryptionStrictModeAllowRemoteNodeIdentities allows dynamic lookup of remote node identities.
