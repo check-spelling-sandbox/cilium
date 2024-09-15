@@ -126,7 +126,7 @@ type Identities interface {
 	GetPrefix(identity.NumericIdentity) netip.Prefix
 }
 
-// mapStateMap is a convience type representing the actual structure mapping
+// mapStateMap is a convenience type representing the actual structure mapping
 // policymap keys to policymap entries.
 //
 // The `bitlpm.Trie` indexes the TrafficDirection, Protocol, and Port of
