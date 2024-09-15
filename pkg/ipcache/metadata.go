@@ -35,7 +35,7 @@ var (
 	injectLabelsControllerGroup = controller.NewGroup("ipcache-inject-labels")
 )
 
-// metadata contains the ipcache metadata. Mainily it holds a map which maps IP
+// metadata contains the ipcache metadata. Mainly it holds a map which maps IP
 // prefixes (x.x.x.x/32) to a set of information (prefixInfo).
 //
 // When allocating an identity to associate with each prefix, the
