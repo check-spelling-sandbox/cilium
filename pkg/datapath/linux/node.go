@@ -1200,7 +1200,7 @@ func (n *linuxNodeHandler) replaceHostRules() error {
 		}
 		rule.Mark = linux_defaults.RouteMarkEncrypt
 		if err := route.ReplaceRuleIPv6(rule); err != nil {
-			n.log.Error("Replace IPv6 route ecrypt rule failed", logfields.Error, err)
+			n.log.Error("Replace IPv6 route encrypt rule failed", logfields.Error, err)
 			return err
 		}
 	}

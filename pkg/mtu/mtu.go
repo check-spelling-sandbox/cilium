@@ -85,7 +85,7 @@ type Configuration struct {
 	// Similar to StandardMTU, this is a singleton for the process.
 	tunnelMTU int
 
-	// preEncrypMTU is the MTU used for configurations of a encryption route.
+	// preEncryptMTU is the MTU used for configurations of a encryption route.
 	// If tunneling is enabled the tunnelMTU is used which will include
 	// additional encryption overhead if needed.
 	preEncryptMTU int
