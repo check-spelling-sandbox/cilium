@@ -148,7 +148,7 @@ func (s *podToWorld2) Run(ctx context.Context, t *check.Test) {
 	}
 }
 
-// PodToWorldWithTLSIntercept sends an HTTPS request to one.one.one.one (default value of ExternalTarget) from from random client
+// PodToWorldWithTLSIntercept sends an HTTPS request to one.one.one.one (default value of ExternalTarget) from random client
 func PodToWorldWithTLSIntercept(curlOpts ...string) check.Scenario {
 	s := &podToWorldWithTLSIntercept{
 		curlOpts:     []string{"--cacert", "/tmp/test-ca.crt"}, // skip TLS verification as it will be our internal cert
