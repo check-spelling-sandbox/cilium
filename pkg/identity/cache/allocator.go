@@ -42,7 +42,7 @@ var (
 	IdentitiesPath = path.Join(kvstore.BaseKeyPrefix, "state", "identities", "v1")
 )
 
-// The filename for the local allocator checkpoont. This is periodically
+// The filename for the local allocator checkpoint. This is periodically
 // written, and restored on restart.
 // The full path is, by default, /run/cilium/state/local_allocator_state.json
 const CheckpointFile = "local_allocator_state.json"
