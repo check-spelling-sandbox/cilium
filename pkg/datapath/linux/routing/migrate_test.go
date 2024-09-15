@@ -394,7 +394,7 @@ func TestMigrateENIDatapathPartial(t *testing.T) {
 }
 
 // setUpRoutingTable initializes the routing table for this test suite. The
-// starting ifindex, tableID, and the priority are passed in to give contron to
+// starting ifindex, tableID, and the priority are passed in to give control to
 // the caller on the setupMigrateSuite. The two return values are:
 //  1. Map of string to int, representing a mapping from MAC addrs to
 //     interface numbers.
