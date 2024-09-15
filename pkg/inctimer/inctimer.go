@@ -13,7 +13,7 @@ import "time"
 // garbage collected until after it fires. Conversely,
 // IncTimer only uses one timer and correctly stops
 // the timer, clears its channel, and resets it
-// everytime that `After` is called.
+// every time that `After` is called.
 type IncTimer interface {
 	After(time.Duration) <-chan time.Time
 }
