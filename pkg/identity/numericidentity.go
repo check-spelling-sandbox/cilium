@@ -180,7 +180,7 @@ const (
 
 type wellKnownIdentities map[NumericIdentity]wellKnownIdentity
 
-// wellKnownIdentitity is an identity for well-known security labels for which
+// wellKnownIdentity is an identity for well-known security labels for which
 // a well-known numeric identity is reserved to avoid requiring a cluster wide
 // setup. Examples of this include kube-dns.
 type wellKnownIdentity struct {
