@@ -237,7 +237,7 @@ type identityNotifier interface {
 	UnregisterFQDNSelector(selector api.FQDNSelector)
 }
 
-// AddFQDNSelector adds the given api.FQDNSelector in to the selector cache. If
+// AddFQDNSelector adds the given api.FQDNSelector to the selector cache. If
 // an identical EndpointSelector has already been cached, the corresponding
 // CachedSelector is returned, otherwise one is created and added to the cache.
 func (sc *SelectorCache) AddFQDNSelector(user CachedSelectionUser, lbls labels.LabelArray, fqdnSelectorInput api.FQDNSelector) (cachedSelector CachedSelector, added bool) {
@@ -303,7 +303,7 @@ func (sc *SelectorCache) FindCachedIdentitySelector(selector api.EndpointSelecto
 	return idSel
 }
 
-// AddIdentitySelector adds the given api.EndpointSelector in to the
+// AddIdentitySelector adds the given api.EndpointSelector to the
 // selector cache. If an identical EndpointSelector has already been
 // cached, the corresponding CachedSelector is returned, otherwise one
 // is created and added to the cache.

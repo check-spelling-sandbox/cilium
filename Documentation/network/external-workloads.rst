@@ -13,7 +13,7 @@ Setting up Support for External Workloads (beta)
 *************************************************
 
 This is a step-by-step guide on how to add external workloads (such as
-VMs) in to your Kubernetes cluster and to enforce security policies to
+VMs) to your Kubernetes cluster and to enforce security policies to
 restrict access.
 
 .. include:: ../beta.rst

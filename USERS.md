@@ -89,7 +89,7 @@ Users (Alphabetically)
       L: https://products.docs.vshn.ch/products/appuio/managed/addon_cilium.html and https://www.appuio.cloud
 
     * N: ArangoDB Oasis
-      D: ArangoDB Oasis is using Cilium in to separate database deployments in our multi-tenant cloud environment
+      D: ArangoDB Oasis is using Cilium to separate database deployments in our multi-tenant cloud environment
       U: Networking, CiliumNetworkPolicy(cluster & local), Hubble, IPAM
       L: https://cloud.arangodb.com
       Q: @ewoutp @Robert-Stam

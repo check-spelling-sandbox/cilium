@@ -659,7 +659,7 @@ func TestRequestIdentity(t *testing.T) {
 		assert.EqualValues(t, nid, id.ID)
 	}
 
-	// Add 2 prefixes in to the ipcache, one requesting the first local identity
+	// Add 2 prefixes to the ipcache, one requesting the first local identity
 	IPIdentityCache.metadata.upsertLocked(inClusterPrefix, source.Restored, "daemon-uid", types.RequestedIdentity(identity.IdentityScopeLocal))
 	IPIdentityCache.metadata.upsertLocked(inClusterPrefix2, source.Restored, "daemon-uid", labels.Labels{})
 
