@@ -332,7 +332,7 @@ func TestUpdateLocalNode(t *testing.T) {
 // upgraded to the apiserver.
 //
 // This was intended to ensure we don't regress on GH-24502, but that is moot
-// now that identity restoration happens using the asynch apis.
+// now that identity restoration happens using the async apis.
 func TestInjectExisting(t *testing.T) {
 	cancel := setupTest(t)
 	defer cancel()
