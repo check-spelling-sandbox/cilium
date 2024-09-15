@@ -154,7 +154,7 @@ func (o *onDemandXdsStarter) startEmbeddedEnvoyInternal(config embeddedEnvoyConf
 
 	o.logger.Debug("Envoy: Starting embedded Envoy")
 
-	// make it a buffered channel, so we can not only
+	// make it a buffered channel, so we cannot only
 	// read the written value but also skip it in
 	// case no one reader reads it.
 	started := make(chan bool, 1)

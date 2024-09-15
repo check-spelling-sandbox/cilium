@@ -1432,7 +1432,7 @@ func TestMergeListenerPolicy(t *testing.T) {
 	td := newTestData(t, hivetest.Logger(t))
 
 	//
-	// no namespace (NodeFirewall policy): Can not refer to EnvoyConfig
+	// no namespace (NodeFirewall policy): Cannot refer to EnvoyConfig
 	//
 	egressRule := api.Rule{
 		NodeSelector: hostSelector,
@@ -1477,7 +1477,7 @@ func TestMergeListenerPolicy(t *testing.T) {
 	td.withIDs(identity.IdentityMap{idHost.ID: idHost.LabelArray})
 	td.repo.mustAdd(egressRule)
 	_, err := td.repo.resolvePolicyLocked(idHost)
-	require.ErrorContains(t, err, `Listener "test" in CCNP can not use Kind CiliumEnvoyConfig`)
+	require.ErrorContains(t, err, `Listener "test" in CCNP cannot use Kind CiliumEnvoyConfig`)
 
 	//
 	// no namespace in policyContext (Clusterwide policy): Must to ClusterwideEnvoyConfig

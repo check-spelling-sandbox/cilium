@@ -596,7 +596,7 @@ func (pr *PortRule) sanitize(ingress bool) error {
 	// Sanitize L7 rules
 	if !pr.Rules.IsEmpty() {
 		if haveZeroPort {
-			return errors.New("L7 rules can not be used when a port is 0")
+			return errors.New("L7 rules cannot be used when a port is 0")
 		}
 
 		if err := pr.Rules.sanitize(pr.Ports); err != nil {

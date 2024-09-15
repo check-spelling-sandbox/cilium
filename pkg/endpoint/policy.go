@@ -148,7 +148,7 @@ func (res *policyGenerateResult) release(logger *slog.Logger) {
 //
 // Policy generation may fail, and in that case we exit before actually changing
 // the policy in any way, so that the last policy remains fully in effect if the
-// new policy can not be implemented. This is done on a per endpoint-basis,
+// new policy cannot be implemented. This is done on a per endpoint-basis,
 // however, and it is possible that policy update succeeds for some endpoints,
 // while it fails for other endpoints.
 //

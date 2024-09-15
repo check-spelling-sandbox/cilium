@@ -2667,7 +2667,7 @@ func (c *DaemonConfig) Populate(logger *slog.Logger, vp *viper.Viper) {
 	// Convert IP strings into net.IPNet types
 	subnets, invalid := ip.ParseCIDRs(vp.GetStringSlice(IPv4PodSubnets))
 	if len(invalid) > 0 {
-		logger.Warn("IPv4PodSubnets parameter can not be parsed.",
+		logger.Warn("IPv4PodSubnets parameter cannot be parsed.",
 			logfields.Subnets, invalid,
 		)
 	}
@@ -2675,7 +2675,7 @@ func (c *DaemonConfig) Populate(logger *slog.Logger, vp *viper.Viper) {
 
 	subnets, invalid = ip.ParseCIDRs(vp.GetStringSlice(IPv6PodSubnets))
 	if len(invalid) > 0 {
-		logger.Warn("IPv6PodSubnets parameter can not be parsed.",
+		logger.Warn("IPv6PodSubnets parameter cannot be parsed.",
 			logfields.Subnets, invalid,
 		)
 	}

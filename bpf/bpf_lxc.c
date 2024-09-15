@@ -90,8 +90,8 @@ lxc_redirect_to_host(struct __ctx_buff *ctx, __u32 src_sec_identity,
 }
 #endif
 
-/* Per-packet LB is needed if all LB cases can not be handled in bpf_sock.
- * Most services with L7 LB flag can not be redirected to their proxy port
+/* Per-packet LB is needed if all LB cases cannot be handled in bpf_sock.
+ * Most services with L7 LB flag cannot be redirected to their proxy port
  * in bpf_sock, so we must check for those via per packet LB as well.
  * Furthermore, since SCTP cannot be handled as part of bpf_sock, also
  * enable per-packet LB is SCTP is enabled.
