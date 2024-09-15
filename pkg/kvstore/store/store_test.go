@@ -219,7 +219,7 @@ func testStoreLocalKeyProtection(t *testing.T) {
 	store, err := JoinSharedStore(Configuration{
 		Prefix:                  rand.String(12),
 		KeyCreator:              newTestType,
-		SynchronizationInterval: time.Hour, // ensure that periodic sync does not interfer
+		SynchronizationInterval: time.Hour, // ensure that periodic sync does not interfere
 		Observer:                &observer{},
 	})
 	require.NoError(t, err)
