@@ -264,7 +264,7 @@ func TestPolicyMapWildcarding(t *testing.T) {
 		// Get key
 		key := NewKey(tt.args.trafficDirection, tt.args.id, tt.args.proto, tt.args.dport, SinglePortPrefixLen)
 
-		// Compure entry & validate key and entry
+		// Compute entry & validate key and entry
 		var entry PolicyEntry
 		switch tt.args.op {
 		case allow:
