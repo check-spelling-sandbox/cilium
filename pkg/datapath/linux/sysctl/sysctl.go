@@ -285,7 +285,7 @@ func parameterPath(procFs string, name []string) (string, error) {
 	return filepath.Join(append([]string{procFs, "sys"}, name...)...), nil
 }
 
-// writeSysctl writes a value in a sysctl parameter loacated at path.
+// writeSysctl writes a value in a sysctl parameter located at path.
 //
 // It should by used directly only by binaries that do not rely on the
 // hive and cells framework, like cilium-cni and cilium-health.
