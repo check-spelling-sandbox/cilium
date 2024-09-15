@@ -188,7 +188,7 @@ func TestSpeakerOnDeleteService(t *testing.T) {
 	}
 
 	// confirm these are nil, they should not be set
-	// on a OnDeletService call.
+	// on a OnDeleteService call.
 	if rr.svc != nil {
 		t.Fatalf("got: %v, want: nil", rr.svc)
 	}
