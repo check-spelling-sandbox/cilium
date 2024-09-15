@@ -774,7 +774,7 @@ int cil_to_overlay(struct __ctx_buff *ctx)
 
 	/* This must be after above ctx_snat_done, since the MARK_MAGIC_CLUSTER_ID
 	 * is a super set of the MARK_MAGIC_SNAT_DONE. They will never be used together,
-	 * but SNAT check should always take presedence.
+	 * but SNAT check should always take precedence.
 	 */
 #ifdef ENABLE_CLUSTER_AWARE_ADDRESSING
 	cluster_id = ctx_get_cluster_id_mark(ctx);
