@@ -128,7 +128,7 @@ func InitEtcdLocal(log *slog.Logger) (returnErr error) {
 		err = os.RemoveAll(path.Join(etcdDataDir, d.Name()))
 		if err != nil {
 			log.Error(
-				"Failed to remove pre-existing file/directory in etcd data directory",
+				"Failed to remove preexisting file/directory in etcd data directory",
 				logfields.Error, err,
 				logfields.EtcdDataDir, etcdDataDir,
 				logfields.Path, d.Name(),
