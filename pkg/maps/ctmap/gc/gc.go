@@ -216,7 +216,7 @@ func (gc *GC) enableWithConfig(
 				gcStart = time.Now()
 
 				// aliveTime is offset to the future by ToFQDNsIdleConnectionGracePeriod
-				// (default 0), allowing previously active connections to be considerred
+				// (default 0), allowing previously active connections to be considered
 				// alive during idle periods of upto ToFQDNsIdleConnectionGracePeriod.
 				aliveTime = gcStart.Add(option.Config.ToFQDNsIdleConnectionGracePeriod)
 
