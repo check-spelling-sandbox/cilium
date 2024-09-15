@@ -659,7 +659,7 @@ func (ct *ConnectivityTest) detectNodeCIDRs(ctx context.Context) error {
 	}
 
 	if len(nodeIPs) == 0 {
-		return fmt.Errorf("detectNodeCIDRs failed: no node IPs disovered")
+		return fmt.Errorf("detectNodeCIDRs failed: no node IPs discovered")
 	}
 
 	// collapse set of IPs in to CIDRs
