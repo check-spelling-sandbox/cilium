@@ -588,7 +588,7 @@ type LookupIPsBySecIDFunc func(nid identity.NumericIdentity) []string
 // See DNSProxy.LookupEndpointIDByIP for usage.
 type NotifyOnDNSMsgFunc func(lookupTime time.Time, ep *endpoint.Endpoint, epIPPort string, serverID identity.NumericIdentity, serverAddr string, msg *dns.Msg, protocol string, allowed bool, stat *ProxyRequestContext) error
 
-// ErrFailedAcquireSemaphore is an an error representing the DNS proxy's
+// ErrFailedAcquireSemaphore is an error representing the DNS proxy's
 // failure to acquire the semaphore. This is error is treated like a timeout.
 type ErrFailedAcquireSemaphore struct {
 	parallel int
@@ -606,7 +606,7 @@ func (e ErrFailedAcquireSemaphore) Error() string {
 	)
 }
 
-// ErrTimedOutAcquireSemaphore is an an error representing the DNS proxy timing
+// ErrTimedOutAcquireSemaphore is an error representing the DNS proxy timing
 // out when acquiring the semaphore. It is treated the same as
 // ErrTimedOutAcquireSemaphore.
 type ErrTimedOutAcquireSemaphore struct {

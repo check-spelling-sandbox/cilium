@@ -22,7 +22,7 @@ type CidrSlice []string
 // ToAdvertisements converts the CidrSlice into metallb Advertisements.
 //
 // If a cidr cannot be parsed it is omitted from the array of Advertisements
-// returned an an error is logged.
+// returned an error is logged.
 func (cs CidrSlice) ToAdvertisements() []*metallbbgp.Advertisement {
 	l := log.WithFields(logrus.Fields{
 		"component": "CidrSlice.ToAdvertisements",
