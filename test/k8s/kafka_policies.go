@@ -35,12 +35,12 @@ var _ = SkipDescribeIf(helpers.RunsOn54Kernel, "K8sKafkaPolicyTest", func() {
 		topicDeathstarPlans = "deathstar-plans"
 		topicTest           = "test-topic"
 
-		prodHqAnnounce    = `sh -c "echo 'Happy 40th Birthday to General Tagge' | ./kafka-produce.sh --topic empire-announce"`
-		conOutpostAnnoune = `sh -c "./kafka-consume.sh --topic empire-announce --from-beginning --max-messages 1"`
-		prodHqDeathStar   = `sh -c "echo 'deathstar reactor design v3' | ./kafka-produce.sh --topic deathstar-plans"`
-		conOutDeathStar   = `sh -c "./kafka-consume.sh --topic deathstar-plans --from-beginning --max-messages 1"`
-		prodBackAnnounce  = `sh -c "echo 'Happy 40th Birthday to General Tagge' | ./kafka-produce.sh --topic empire-announce"`
-		prodOutAnnounce   = `sh -c "echo 'Vader Booed at Empire Karaoke Party' | ./kafka-produce.sh --topic empire-announce"`
+		prodHqAnnounce     = `sh -c "echo 'Happy 40th Birthday to General Tagge' | ./kafka-produce.sh --topic empire-announce"`
+		conOutpostAnnounce = `sh -c "./kafka-consume.sh --topic empire-announce --from-beginning --max-messages 1"`
+		prodHqDeathStar    = `sh -c "echo 'deathstar reactor design v3' | ./kafka-produce.sh --topic deathstar-plans"`
+		conOutDeathStar    = `sh -c "./kafka-consume.sh --topic deathstar-plans --from-beginning --max-messages 1"`
+		prodBackAnnounce   = `sh -c "echo 'Happy 40th Birthday to General Tagge' | ./kafka-produce.sh --topic empire-announce"`
+		prodOutAnnounce    = `sh -c "echo 'Vader Booed at Empire Karaoke Party' | ./kafka-produce.sh --topic empire-announce"`
 	)
 
 	AfterFailed(func() {
@@ -155,7 +155,7 @@ var _ = SkipDescribeIf(helpers.RunsOn54Kernel, "K8sKafkaPolicyTest", func() {
 			}
 			waitUntilSucceed(appPods[empireHqApp], prodHqAnnounce, "Failed to produce from empire-hq on topic empire-announce")
 
-			waitUntilSucceed(appPods[outpostApp], conOutpostAnnoune, "Failed to consume from outpost on topic empire-announce")
+			waitUntilSucceed(appPods[outpostApp], conOutpostAnnounce, "Failed to consume from outpost on topic empire-announce")
 
 			waitUntilSucceed(appPods[empireHqApp], prodHqDeathStar, "Failed to produce from empire-hq on topic deathstar-plans")
 
@@ -176,11 +176,11 @@ var _ = SkipDescribeIf(helpers.RunsOn54Kernel, "K8sKafkaPolicyTest", func() {
 
 			waitUntilSucceed(appPods[empireHqApp], prodHqAnnounce, "Failed to produce from empire-hq on topic empire-announce")
 
-			waitUntilSucceed(appPods[outpostApp], conOutpostAnnoune, "Failed to consume from outpost on topic empire-announce")
+			waitUntilSucceed(appPods[outpostApp], conOutpostAnnounce, "Failed to consume from outpost on topic empire-announce")
 
 			waitUntilSucceed(appPods[empireHqApp], prodHqDeathStar, "Failed to produce from empire-hq on topic deathstar-plans")
 
-			waitUntilSucceed(appPods[outpostApp], conOutpostAnnoune, "Failed to consume from outpost on topic empire-announce")
+			waitUntilSucceed(appPods[outpostApp], conOutpostAnnounce, "Failed to consume from outpost on topic empire-announce")
 
 			err = kubectl.ExecKafkaPodCmd(
 				helpers.DefaultNamespace, appPods[backupApp], prodBackAnnounce)
