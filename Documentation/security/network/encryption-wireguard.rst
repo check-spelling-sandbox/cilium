@@ -284,7 +284,7 @@ options:
   never accidentally locked out from the control plane. Note that even if
   WireGuard node-to-node encryption is disabled on those nodes, the Kubernetes
   control-plane itself is usually still encrypted by Kubernetes itself using
-  mTLS and that pod-to-pod traffic for any Cilium-manged pods on the
+  mTLS and that pod-to-pod traffic for any Cilium-managed pods on the
   control-plane nodes are also still encrypted via Cilium's WireGuard
   implementation.
 

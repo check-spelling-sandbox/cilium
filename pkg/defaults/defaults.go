@@ -271,7 +271,7 @@ const (
 	EnableIPSecEncryptedOverlay = false
 
 	// EncryptNode enables encrypting traffic from host networking applications
-	// which are not part of Cilium manged pods.
+	// which are not part of Cilium managed pods.
 	EncryptNode = false
 
 	// NodeEncryptionOptOutLabels contains the label selectors for nodes opting out of
