@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# check-logging-subsys-field.sh checks whether all logging entry instancs
+# check-logging-subsys-field.sh checks whether all logging entry instances
 # created from DefaultLogger contain the LogSubsys field. This is required for
 # proper labeling of error/warning Prometheus metric and helpful for debugging.
 # If any entry which writes any message doesn't contain the 'subsys' field,
