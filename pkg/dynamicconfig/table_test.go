@@ -124,7 +124,7 @@ func TestDynamicConfigMap(t *testing.T) {
 			for _, cm := range tc.cms {
 				_, err := cs.CoreV1().ConfigMaps(namespace).Create(ctx, cm, metav1.CreateOptions{})
 				if err != nil {
-					t.Errorf("creating CofigMap: %v", err)
+					t.Errorf("creating ConfigMap: %v", err)
 				}
 			}
 
@@ -137,7 +137,7 @@ func TestDynamicConfigMap(t *testing.T) {
 
 				return len(gotMap) == len(tc.expectedConfig)
 			}, 2*time.Second); err != nil {
-				t.Errorf("waiting for confing table: %v", err)
+				t.Errorf("waiting for config table: %v", err)
 			}
 
 			if !reflect.DeepEqual(gotMap, tc.expectedConfig) {
