@@ -164,7 +164,7 @@ func (m *metadata) enqueuePrefixUpdates(prefixes ...cmtypes.PrefixCluster) uint6
 	return m.queuedRevision
 }
 
-// setInjectectRevision updates the injected revision to a new value and
+// setInjectedRevision updates the injected revision to a new value and
 // wakes all waiters.
 func (m *metadata) setInjectedRevision(rev uint64) {
 	m.injectedRevisionCond.L.Lock()
