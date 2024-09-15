@@ -213,7 +213,7 @@ func Init() {
 		os.Setenv("HUBBLE_RELAY_TAG", config.CiliumTestConfig.HubbleRelayTag)
 	}
 
-	// Copy over envronment variables that are passed in.
+	// Copy over environment variables that are passed in.
 	for envVar, helmVar := range map[string]string{
 		"CILIUM_TAG":             "image.tag",
 		"CILIUM_IMAGE":           "image.repository",
