@@ -267,7 +267,7 @@ func Init() {
 		os.Setenv("SKIP_K8S_PROVISION", "true")
 	}
 
-	// Copy over envronment variables that are passed in.
+	// Copy over environment variables that are passed in.
 	for envVar, helmVar := range map[string]string{
 		"CILIUM_TAG":             "image.tag",
 		"CILIUM_IMAGE":           "image.repository",
