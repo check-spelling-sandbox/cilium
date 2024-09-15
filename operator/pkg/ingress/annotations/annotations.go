@@ -176,8 +176,8 @@ func GetAnnotationTLSPassthroughEnabled(ingress *networkingv1.Ingress) bool {
 //
 // The only valid values are:
 // - &true - the annotation is present and set to a truthy value
-// - &false - the annovation is present and set to a false value
-// - nil - the annotatation is not present
+// - &false - the annotation is present and set to a false value
+// - nil - the annotation is not present
 func GetAnnotationForceHTTPSEnabled(ingress *networkingv1.Ingress) *bool {
 	val, exists := annotation.Get(ingress, ForceHTTPSAnnotation)
 	if !exists {
