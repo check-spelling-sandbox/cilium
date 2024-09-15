@@ -57,7 +57,7 @@ type NameManager struct {
 
 	// restoredPrefixes contains all prefixes for which we have restored the
 	// IPCache metadata from previous Cilium v1.15 installation.
-	// Cleared by CompleteBoostrap
+	// Cleared by CompleteBootstrap
 	restoredPrefixes sets.Set[netip.Prefix]
 
 	manager *controller.Manager
