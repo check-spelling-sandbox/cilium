@@ -86,7 +86,7 @@ type Attributes struct {
 	LocalPort int32
 }
 
-// AnnotationMap coorelates a parsed Annotations structure with the local
+// AnnotationMap correlates a parsed Annotations structure with the local
 // ASN its annotating.
 type AnnotationMap map[int64]Attributes
 
