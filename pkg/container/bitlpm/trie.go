@@ -48,7 +48,7 @@ type Trie[K, T any] interface {
 	// Note: If the prefix argument exceeds the Trie's maximum
 	// prefix, it will be set to the Trie's maximum prefix.
 	Descendants(prefix uint, key K, fn func(uint, K, T) bool)
-	// Upsert updates or inserts the trie with a a prefix, key,
+	// Upsert updates or inserts the trie with a prefix, key,
 	// and value. The method returns true if the key is new, and
 	// false if the key already existed.
 	//
