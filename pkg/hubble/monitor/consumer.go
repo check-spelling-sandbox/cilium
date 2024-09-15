@@ -83,7 +83,7 @@ func (c *consumer) sendNumLostEvents() bool {
 
 	select {
 	case c.observer.GetEventsChannel() <- c.cachedLostNotification:
-		// We now now safely reset the counter, as at this point have
+		// We now safely reset the counter, as at this point have
 		// successfully notified the observer about the amount of events
 		// that were lost since the previous LostEvent message. Similarly,
 		// we reset the cached notification, so that a new one is created
