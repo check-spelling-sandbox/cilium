@@ -284,7 +284,7 @@ func benchmarkGCShouldSkipOutOfRangeIdentities(b *testing.B) {
 	_, err = allocator1.Release(context.Background(), shortKey1)
 	require.NoError(b, err)
 
-	// Alloctor2: with a non-overlapping range compared with allocator1
+	// Allocator2: with a non-overlapping range compared with allocator1
 	backend2, err := NewKVStoreBackend(KVStoreBackendConfiguration{randomTestName(), "a", TestAllocatorKey(""), kvstore.Client()})
 	require.NoError(b, err)
 
