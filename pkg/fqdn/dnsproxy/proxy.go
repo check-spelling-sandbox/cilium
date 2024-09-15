@@ -1223,7 +1223,7 @@ func (p *DNSProxy) GetBindPort() uint16 {
 }
 
 // ExtractMsgDetails extracts a canonical query name, any IPs in a response,
-// the lowest applicable TTL, rcode, anwer rr types and question types
+// the lowest applicable TTL, rcode, answer rr types and question types
 // When a CNAME is returned the chain is collapsed down, keeping the lowest TTL,
 // and CNAME targets are returned.
 func ExtractMsgDetails(msg *dns.Msg) (qname string, responseIPs []netip.Addr, TTL uint32, CNAMEs []string, rcode int, answerTypes []uint16, qTypes []uint16, err error) {
