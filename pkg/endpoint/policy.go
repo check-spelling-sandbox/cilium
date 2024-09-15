@@ -851,7 +851,7 @@ func (e *Endpoint) SetIdentity(identity *identityPkg.Identity, newEndpoint bool)
 	}
 
 	// Current security identity for endpoint is its old identity - delete its
-	// reference from global identity manager, add add a reference to the new
+	// reference from global identity manager, add a reference to the new
 	// identity for the endpoint.
 	if newEndpoint {
 		// TODO - GH-9354.

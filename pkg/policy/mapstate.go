@@ -1672,7 +1672,7 @@ func (changes *ChangeState) insertOldIfNotExists(key Key, entry MapStateEntry) b
 	return false
 }
 
-// ForEachKeyWithPortProto calls 'f' for each Key and MapStateEntry, where the Key has the same traffic direction and and L4 fields (protocol, destination port and mask).
+// ForEachKeyWithPortProto calls 'f' for each Key and MapStateEntry, where the Key has the same traffic direction and L4 fields (protocol, destination port and mask).
 func (msm *mapStateMap) ForEachKeyWithPortProto(key Key, f func(Key, MapStateEntry) bool) {
 	// 'Identity' field in 'key' is ignored on by ExactLookup
 	idSet, ok := msm.trie.ExactLookup(key.PrefixLength(), key)
