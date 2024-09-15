@@ -114,7 +114,7 @@
         "github.com/google/", // Google official org
         "github.com/go-openapi/", // Open API official org
         "github.com/hashicorp/", // Hashicorp's official org
-        "github.com/prometheus/", // Prometheu's official org
+        "github.com/prometheus/", // Prometheus' official org
         "go.etcd.io/etcd/", // etcd's official org
         "golang.org/x/", // Golang official experimental org
         "google.golang.org/", // Google official repo for api/genproto/grpc/protobuf
