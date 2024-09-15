@@ -2851,7 +2851,7 @@ func TestMapState_denyPreferredInsertWithSubnets(t *testing.T) {
 		{"deny-allow: b superset a L3L4, b L3L4", WithAllowAll, worldIPID, worldSubnetID, true, false, 80, 6, 80, 6, insertAllowAll | insertBoth},
 		{"deny-allow: b superset a L3L4, b L3L4; without allow-all", WithoutAllowAll, worldIPID, worldSubnetID, true, false, 80, 6, 80, 6, insertBoth},
 
-		// deny-deny insertions: Note: There is no dedundancy between different non-zero security IDs on the
+		// deny-deny insertions: Note: There is no redundancy between different non-zero security IDs on the
 		// datapath, even if one would be a CIDR subset of another. Situation would be different if we could
 		// completely remove (or not add in the first place) the redundant ID from the ipcache so that
 		// datapath could never assign that ID to a packet for policy enforcement.
