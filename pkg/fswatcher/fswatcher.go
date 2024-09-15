@@ -202,7 +202,7 @@ func hasParent(path, parent string) bool {
 	}
 }
 
-// loop filters and processes fsnoity events. It may generate artificial
+// loop filters and processes fsnotify events. It may generate artificial
 // `Create` events in case observes that files which did not exist before now
 // exist. This exits after w.Close() is called
 func (w *Watcher) loop() {
