@@ -164,7 +164,7 @@ type PerSelectorPolicy struct {
 	// isRedirect is 'true' when traffic must be redirected
 	isRedirect bool `json:"-"`
 
-	// Listener is an optional fully qualified name of a Envoy Listner defined in a CiliumEnvoyConfig CRD that should be
+	// Listener is an optional fully qualified name of a Envoy Listener defined in a CiliumEnvoyConfig CRD that should be
 	// used for this traffic instead of the default listener
 	Listener string `json:"listener,omitempty"`
 

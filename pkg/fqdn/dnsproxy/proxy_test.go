@@ -125,7 +125,7 @@ func setupDNSProxyTestSuite(tb testing.TB) *DNSProxyTestSuite {
 	require.Nil(tb, err, "error starting DNS Proxy")
 	s.proxy = proxy
 
-	// This is here because Listener or Listeer.Addr() was nil. The
+	// This is here because Listener or Listener.Addr() was nil. The
 	// lookupTargetDNSServer function doesn't need to change the target.
 	require.NotNil(tb, s.dnsServer.Listener, "DNS server missing a Listener")
 	DNSServerListenerAddr := (s.dnsServer.Listener.Addr()).(*net.TCPAddr)
