@@ -73,7 +73,7 @@ func EnableTracing() {
 }
 
 func mapLogLevel(agentLogLevel slog.Level, defaultEnvoyLogLevel string) string {
-	// Set Envoy loglevel to trace if debug AND verbose Engoy logging is enabled
+	// Set Envoy loglevel to trace if debug AND verbose Envoy logging is enabled
 	if agentLogLevel == slog.LevelDebug && tracing {
 		return envoyLogLevelTrace
 	}
