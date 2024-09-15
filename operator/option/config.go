@@ -99,7 +99,7 @@ const (
 
 	// AWS options
 
-	// AWSInstanceLimitMapping allows overwirting AWS instance limits defined in
+	// AWSInstanceLimitMapping allows overwriting AWS instance limits defined in
 	// pkg/aws/eni/limits.go
 	// e.g. {"a1.medium": "2,4,4", "a2.custom2": "4,5,6"}
 	AWSInstanceLimitMapping = "aws-instance-limit-mapping"
