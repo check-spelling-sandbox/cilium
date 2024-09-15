@@ -25,7 +25,7 @@
  *
  * cil_from_host will lead us to handle_ipv{4,6}_cont,
  * which rewrites the destination mac address to
- * CIILUM_NET_MAC to send the packet to the
+ * CILIUM_NET_MAC to send the packet to the
  * cilium_net interface.
  *
  * CILIUM_NET_MAC is set in node_config.h, so below we pull

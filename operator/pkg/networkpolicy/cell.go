@@ -61,7 +61,7 @@ type PolicyParams struct {
 }
 
 // The policyValidator validates network policy and reports the results in to the
-// policy's Status field. It validates both CiliumNetworkPolicy and CilumClusterwideNetworkPolicy
+// policy's Status field. It validates both CiliumNetworkPolicy and CiliumClusterwideNetworkPolicy
 type policyValidator struct {
 	params *PolicyParams
 }
