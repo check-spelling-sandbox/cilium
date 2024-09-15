@@ -25,7 +25,7 @@ var (
 	podNamespaceLabel = labels.NewLabel(k8sConst.PodNamespaceLabel, "", labels.LabelSourceK8s)
 )
 
-// scIdentity is the information we need about a an identity that rules can select
+// scIdentity is the information we need about an identity that rules can select
 type scIdentity struct {
 	NID       identity.NumericIdentity
 	lbls      labels.LabelArray
