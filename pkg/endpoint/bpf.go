@@ -899,7 +899,7 @@ func (e *Endpoint) runPreCompilationSteps(regenContext *regenerationContext, rul
 		// policy drops. During the first regen, at this point, the endpoint is still referencing
 		// the old IPCache's fd and the policy maps refer to those identities.
 		//
-		// Until GH-3897 is resolved, we should mininize the time that maps are skewed
+		// Until GH-3897 is resolved, we should minimize the time that maps are skewed
 		// in the event that an IP has flapped identities on restoration. The easiest way to
 		// do this to only call syncPolicyMap once, very close to the end of regeneration,
 		// after the new ipcache is being referenced.
