@@ -358,7 +358,7 @@ unmanaged
 world
     The world entity corresponds to all endpoints outside of the cluster.
     Allowing to world is identical to allowing to CIDR 0.0.0.0/0. An alternative
-    to allowing from and to world is to define fine grained DNS or CIDR based
+    to allowing from and to world is to define fine-grained DNS or CIDR based
     policies.
 all
     The all entity represents the combination of all known clusters as well
