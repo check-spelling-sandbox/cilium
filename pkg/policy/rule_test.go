@@ -2345,7 +2345,7 @@ func TestL4WildcardMerge(t *testing.T) {
 	require.EqualValues(t, expectedL7, filterL7)
 	require.Equal(t, L7ParserType("testparser"), filterL7.L7Parser)
 
-	// Second, test the expeicit allow at L3.
+	// Second, test the explicit allow at L3.
 	repo = td.resetRepo()
 	repo.MustAddList(api.Rules{&api.Rule{
 		EndpointSelector: endpointSelectorA,
