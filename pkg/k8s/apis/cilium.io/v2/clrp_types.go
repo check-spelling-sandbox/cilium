@@ -244,7 +244,7 @@ func (pInfo *PortInfo) SanitizePortInfo(checkNamedPort bool) (uint16, string, lb
 				"valid IANA_SVC_NAME", pInfo.Name)
 		}
 	}
-	pName = strings.ToLower(pInfo.Name) // Normalize for case insensitive comparison
+	pName = strings.ToLower(pInfo.Name) // Normalize for case-insensitive comparison
 
 	// Sanitize protocol
 	var err error

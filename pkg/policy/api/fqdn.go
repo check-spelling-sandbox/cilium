@@ -43,7 +43,7 @@ type FQDNSelector struct {
 	MatchName string `json:"matchName,omitempty"`
 
 	// MatchPattern allows using wildcards to match DNS names. All wildcards are
-	// case insensitive. The wildcards are:
+	// case-insensitive. The wildcards are:
 	// - "*" matches 0 or more DNS valid characters, and may occur anywhere in
 	// the pattern. As a special case a "*" as the leftmost character, without a
 	// following "." matches all subdomains as well as the name to the right.
