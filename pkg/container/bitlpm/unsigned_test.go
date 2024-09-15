@@ -908,7 +908,7 @@ func FuzzUint8(f *testing.F) {
 
 		seen := map[string]testEntry{}
 
-		// Insert every item in to the tree, recording the prefix in to a hash as well
+		// Insert every item into the tree, recording the prefix into a hash as well
 		// so we know what we've set
 		for i := 0; i < len(sequence)-1; i += 2 {
 			k := sequence[i]

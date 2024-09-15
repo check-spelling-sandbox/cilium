@@ -871,7 +871,7 @@ func (ipc *IPCache) handleLabelInjection(ctx context.Context) error {
 		cs = len(idsToModify)
 	}
 
-	// Split ipcache updates in to chunks to reduce resource spikes.
+	// Split ipcache updates into chunks to reduce resource spikes.
 	// InjectLabels releases all identities only at the end of processing, so
 	// it may allocate up to `chunkSize` additional identities.
 	for len(idsToModify) > 0 {

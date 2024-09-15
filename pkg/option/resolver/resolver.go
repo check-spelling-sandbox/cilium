@@ -147,7 +147,7 @@ func WriteConfigurations(ctx context.Context, destDir string, data map[string]st
 		return fmt.Errorf("failed to write ..data.tmp symlink: %w", err)
 	}
 	if err := os.Rename(filepath.Join(destDir, "..data.tmp"), filepath.Join(destDir, "..data")); err != nil {
-		return fmt.Errorf("failed to move ..data symlink in to place: %w", err)
+		return fmt.Errorf("failed to move ..data symlink into place: %w", err)
 	}
 
 	for k := range data {

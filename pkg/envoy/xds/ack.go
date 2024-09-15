@@ -14,7 +14,7 @@ import (
 	"github.com/cilium/cilium/pkg/logging/logfields"
 )
 
-// ProxyError wraps the error and the detail received from the proxy in to a new type
+// ProxyError wraps the error and the detail received from the proxy into a new type
 // that implements the error interface.
 type ProxyError struct {
 	Err    error

@@ -483,7 +483,7 @@ func (n *NameManager) maybeRemoveMetadata(maybeRemoved map[netip.Addr][]string) 
 // Serializing on names prevents this.
 //
 // Rather than having a potentially unbounded set of per-name locks, this
-// buckets names in to a set of locks. The lock count is configurable.
+// buckets names into a set of locks. The lock count is configurable.
 func (n *NameManager) LockName(name string) {
 	idx := nameLockIndex(name, option.Config.DNSProxyLockCount)
 	n.nameLocks[idx].Lock()

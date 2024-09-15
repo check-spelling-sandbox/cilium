@@ -289,7 +289,7 @@ func (e *Endpoint) regeneratePolicy(stats *regenerationStatistics) (*policyGener
 	}
 	repo.Mutex.RUnlock() // Done with policy repository; release this now as Consume() can be slow
 
-	// Consume converts a SelectorPolicy in to an EndpointPolicy
+	// Consume converts a SelectorPolicy into an EndpointPolicy
 	result.endpointPolicy = result.selectorPolicy.Consume(e)
 	return result, nil
 }
@@ -297,7 +297,7 @@ func (e *Endpoint) regeneratePolicy(stats *regenerationStatistics) (*policyGener
 // setDesiredPolicy updates the endpoint with the results of a policy calculation.
 //
 // The endpoint write lock must be held and not released until the desired policy has
-// been pushed in to the policymaps via `syncPolicyMap`. This is so that we block
+// been pushed into the policymaps via `syncPolicyMap`. This is so that we block
 // ApplyPolicyMapChanges, which has the effect of blocking the ipcache from updating
 // the ipcache bpf map. It is required that any pending changes are pushed in to
 // the policymap before the ipcache map, otherwise endpoints could experience transient

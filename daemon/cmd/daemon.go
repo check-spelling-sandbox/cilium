@@ -406,7 +406,7 @@ func newDaemon(ctx context.Context, cleaner *daemonCleanup, params *daemonParams
 	}
 
 	// Collect CIDR identities from the "old" bpf ipcache and restore them
-	// in to the metadata layer.
+	// into the metadata layer.
 	if option.Config.RestoreState && !option.Config.DryMode {
 		// this *must* be called before initMaps(), which will "hide"
 		// the "old" ipcache.

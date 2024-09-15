@@ -353,7 +353,7 @@ func TestInjectExisting(t *testing.T) {
 	assert.True(t, ok)
 	assert.Equal(t, wantID, id.ID)
 
-	// Simulate the first half of UpsertLabels -- insert the labels only in to the metadata cache
+	// Simulate the first half of UpsertLabels -- insert the labels only into the metadata cache
 	// This is to "force" a race condition
 	resource := types.NewResourceID(
 		types.ResourceKindEndpoint, "default", "kubernetes")
@@ -702,7 +702,7 @@ func TestInjectFailedAllocate(t *testing.T) {
 	require.Len(t, remaining, 1)
 }
 
-// Test that handleLabelInjection() correctly splits in to chunks
+// Test that handleLabelInjection() correctly splits into chunks
 // and handles error cases.
 func TestHandleLabelInjection(t *testing.T) {
 	oldChunkSize := chunkSize

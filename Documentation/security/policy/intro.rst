@@ -60,7 +60,7 @@ disabled are ignored when determining the default mode.
 For example, this policy causes all DNS traffic to be intercepted, but does not
 block any traffic, even if it is the first policy to apply to an endpoint. An
 administrator can safely apply this policy cluster-wide, without the risk that
-it transitions an endpoint in to default-deny and causes legitimate traffic to be dropped.
+it transitions an endpoint into default-deny and causes legitimate traffic to be dropped.
 
 .. code-block:: yaml
 

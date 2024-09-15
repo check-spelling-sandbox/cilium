@@ -38,7 +38,7 @@ func translateSelector(selector string) (string, error) {
 }
 
 // advanceToNextKey scans from the beginning of a selector to the next
-// key and writes everything before the start of the key from in to out.
+// key and writes everything before the start of the key from in into out.
 func advanceToNextKey(in *strings.Reader, out *strings.Builder) error {
 	for {
 		r, _, err := in.ReadRune()

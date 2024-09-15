@@ -151,7 +151,7 @@ var cniConfigs map[string]string = map[string]string{
 `,
 }
 
-// The CNI plugin config we inject in to the plugins[] array of existing AWS configs
+// The CNI plugin config we inject into the plugins[] array of existing AWS configs
 const chainedCNIEntry = `
 {
 	"type": "cilium-cni",
@@ -332,7 +332,7 @@ func (c *cniConfigManager) setupCNIConfFile() (err error) {
 
 // renderCNIConf renders the CNI configuration file based on the parameters.
 // It may generate a configuration file from scratch or inject Cilium
-// in to an existing CNI network.
+// into an existing CNI network.
 func (c *cniConfigManager) renderCNIConf() (cniConfig []byte, err error) {
 	if c.config.CNIChainingTarget != "" {
 		pluginConfig := c.renderCNITemplate(chainedCNIEntry)
@@ -378,7 +378,7 @@ func (c *cniConfigManager) mergeExistingCNIConfig(pluginConfig []byte) ([]byte, 
 		return true
 	})
 
-	// Inject cilium in to the plugins[] array, appending or overwriting if it
+	// Inject cilium into the plugins[] array, appending or overwriting if it
 	// already existed.
 	out, err := sjson.SetRawBytes(contents, fmt.Sprintf("plugins.%d", index), pluginConfig)
 	if err != nil {
@@ -455,7 +455,7 @@ func (c *cniConfigManager) findCNINetwork(wantNetwork string) ([]byte, error) {
 	sort.Strings(files)
 
 	for _, file := range files {
-		// Don't inject ourselves in to ourselves :-)
+		// Don't inject ourselves into ourselves :-)
 		if _, filename := path.Split(file); filename == c.cniConfFile {
 			continue
 		}
