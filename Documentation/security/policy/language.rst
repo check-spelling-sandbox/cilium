@@ -258,7 +258,7 @@ Services based
 
 .. note::
 
-	Services based rules rules will only take effect on Kubernetes services
+	Services based rules will only take effect on Kubernetes services
         without a selector.
 
 Traffic from pods to services running in your cluster can be allowed via
