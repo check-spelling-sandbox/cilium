@@ -89,7 +89,7 @@ func NewHashAllocator[T any](start, stop netip.Addr, caphint int) (*HashAllocato
 	}
 
 	if start.Compare(stop) > 0 {
-		return nil, fmt.Errorf("'start' must be less then or equal to 'stop'")
+		return nil, fmt.Errorf("'start' must be less than or equal to 'stop'")
 	}
 
 	block := block{from: start, to: stop}
