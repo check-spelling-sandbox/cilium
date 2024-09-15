@@ -2536,7 +2536,7 @@ func (c *DaemonConfig) Populate(logger *slog.Logger, vp *viper.Viper) {
 
 	tcFilterPrio := vp.GetUint32(TCFilterPriority)
 	if tcFilterPrio > math.MaxUint16 {
-		logging.Fatal(logger, fmt.Sprintf("%s cannot be higher than %d", TCFilterPriority, math.MaxUint16))
+		logging.Fatal(logger, fmt.Sprintf("%s cannot be greater than %d", TCFilterPriority, math.MaxUint16))
 	}
 	c.TCFilterPriority = uint16(tcFilterPrio)
 
