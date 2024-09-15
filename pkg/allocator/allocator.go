@@ -124,7 +124,7 @@ type Allocator struct {
 	// the primary kvstore connection
 	mainCache cache
 
-	// remoteCachesMutex protects accesse to remoteCaches
+	// remoteCachesMutex protects access to remoteCaches
 	remoteCachesMutex lock.RWMutex
 
 	// remoteCaches is the list of additional remote caches being watched
