@@ -138,7 +138,7 @@ $(eval $(call DOCKER_IMAGE_TEMPLATE,docker-clustermesh-apiserver-image,images/cl
 $(eval $(call DOCKER_IMAGE_TEMPLATE,docker-standalone-dns-proxy-image,images/standalone-dns-proxy/Dockerfile,standalone-dns-proxy,$(DOCKER_IMAGE_TAG),release))
 
 # docker-operator-images.
-# We eat the ending of "operator" in to the stem ('%') to allow this pattern
+# We eat the ending of "operator" into the stem ('%') to allow this pattern
 # to build also 'docker-operator-image', where the stem would be empty otherwise.
 $(eval $(call DOCKER_IMAGE_TEMPLATE,docker-opera%-image,images/operator/Dockerfile,opera%,$(DOCKER_IMAGE_TAG),release))
 $(eval $(call DOCKER_IMAGE_TEMPLATE,dev-docker-opera%-image,images/operator/Dockerfile,opera%,$(DOCKER_IMAGE_TAG),release))

@@ -16,7 +16,7 @@ type portMap map[uint32]uint32
 // FlowContext can carry state from one filter to another.
 type FlowContext struct {
 	// dstIP is used to match the destination IP on when the filter specifies it as a wildcard.
-	// This value is fixed when a wildcarded source port is filled in to the ports maps.
+	// This value is fixed when a wildcarded source port is filled into the ports maps.
 	dstIP string
 
 	// tcpPorts is filled in when matching a wildcarded source port for a TCP SYN.

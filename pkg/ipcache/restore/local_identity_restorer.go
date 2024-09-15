@@ -76,7 +76,7 @@ func newLocalIdentityRestorer(params localIdentityRestorerParams) *LocalIdentity
 //
 // Next, the outgoing ipcache bpf map is read. For any prefixes that
 // mapped to a CIDR-specific identity, the ipcache metadata is re-created
-// and inserted in to the ipcache.
+// and inserted into the ipcache.
 //
 // The purpose of this is to preserve stable local identities on agent
 // restart as much as possible. This helps prevent spurious policy drops
@@ -254,7 +254,7 @@ func (d *LocalIdentityRestorer) restoreIPCache(ipCache *ipcache.IPCache, localPr
 		}
 	}
 
-	// Insert the batched changes in to the ipcache.
+	// Insert the batched changes into the ipcache.
 	// Even though the ipcache map hasn't been initialized yet, this is
 	// safe to do so, because the ipcache's apply controller is currently
 	// paused.
@@ -268,7 +268,7 @@ func (d *LocalIdentityRestorer) restoreIPCache(ipCache *ipcache.IPCache, localPr
 }
 
 // ReleaseRestoredIdentities removes the placeholder state that was inserted
-// in to the ipcache and local identity allocators on restoration
+// into the ipcache and local identity allocators on restoration
 //
 // Any identities and prefixes actually in use will still exist after this.
 //
