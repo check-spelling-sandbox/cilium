@@ -770,7 +770,7 @@ const (
 	// IPSecKeyFileName is the name of the option for ipsec key file
 	IPSecKeyFileName = "ipsec-key-file"
 
-	// EnableIPSecEncrytpedOverlay is the name of the option which enables
+	// EnableIPSecEncryptedOverlay is the name of the option which enables
 	// the EncryptedOverlay feature.
 	//
 	// This feature will encrypt overlay traffic before it leaves the cluster.
