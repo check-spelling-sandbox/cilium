@@ -445,7 +445,7 @@ func TestUnsignedAncestorsRange(t *testing.T) {
 				})
 				if pr.start < rangeStart || pr.end > rangeEnd {
 					if gotEntry != "" {
-						t.Fatalf("Expected to get an emty entry from key-prefix %d/%d, got %q",
+						t.Fatalf("Expected to get an empty entry from key-prefix %d/%d, got %q",
 							pr.start, pr.prefix(), gotEntry)
 					}
 				} else {
