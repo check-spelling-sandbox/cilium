@@ -2366,7 +2366,7 @@ func (kub *Kubectl) WaitForKubeDNSEntry(serviceName, serviceNamespace string) er
 }
 
 // WaitTerminatingPods waits until all nodes that are in `Terminating`
-// state are deleted correctly in the platform. In case of excedding the
+// state are deleted correctly in the platform. In case of exceeding the
 // given timeout (in seconds) it returns an error.
 
 func (kub *Kubectl) WaitTerminatingPods(timeout time.Duration) error {
@@ -2374,14 +2374,14 @@ func (kub *Kubectl) WaitTerminatingPods(timeout time.Duration) error {
 }
 
 // WaitTerminatingPodsInNs waits until all nodes that are in `Terminating`
-// state are deleted correctly in the platform. In case of excedding the
+// state are deleted correctly in the platform. In case of exceeding the
 // given timeout (in seconds) it returns an error.
 func (kub *Kubectl) WaitTerminatingPodsInNs(ns string, timeout time.Duration) error {
 	return kub.WaitTerminatingPodsInNsWithFilter(ns, "", timeout)
 }
 
 // WaitTerminatingPodsInNs waits until all nodes that are in `Terminating`
-// state are deleted correctly in the platform. In case of excedding the
+// state are deleted correctly in the platform. In case of exceeding the
 // given timeout (in seconds) it returns an error.
 func (kub *Kubectl) WaitTerminatingPodsInNsWithFilter(ns, filter string, timeout time.Duration) error {
 	var innerErr error
