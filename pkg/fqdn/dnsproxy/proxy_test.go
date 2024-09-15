@@ -409,7 +409,7 @@ func TestRespondViaCorrectProtocol(t *testing.T) {
 
 	// Respond with an actual answer for the query. This also tests that the
 	// connection was forwarded via the correct protocol (tcp/udp) because we
-	// connet with TCP, and the server only listens on TCP.
+	// connect with TCP, and the server only listens on TCP.
 
 	name := "cilium.io."
 	l7map := policy.L7DataMap{
@@ -1066,7 +1066,7 @@ func TestRestoredEndpoint(t *testing.T) {
 
 	// Respond with an actual answer for the query. This also tests that the
 	// connection was forwarded via the correct protocol (tcp/udp) because we
-	// connet with TCP, and the server only listens on TCP.
+	// connect with TCP, and the server only listens on TCP.
 
 	name := "cilium.io."
 	pattern := "*.cilium.com."

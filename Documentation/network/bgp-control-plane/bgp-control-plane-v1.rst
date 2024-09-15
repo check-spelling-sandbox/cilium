@@ -549,9 +549,9 @@ possible values ``holdTimeSeconds=9`` and ``keepAliveTimeSeconds=3``.
        neighbors:
        - peerAddress: '10.0.0.1/32'
          peerASN: 64512
-         connetRetryTimeSeconds: 90 # <-- specify the ConnectRetryTimer
-         holdTimeSeconds: 9         # <-- specify the HoldTimer
-         keepAliveTimeSeconds: 3    # <-- specify the KeepaliveTimer
+         connectRetryTimeSeconds: 90 # <-- specify the ConnectRetryTimer
+         holdTimeSeconds: 9          # <-- specify the HoldTimer
+         keepAliveTimeSeconds: 3     # <-- specify the KeepaliveTimer
 
 eBGP Multihop
 ^^^^^^^^^^^^^
