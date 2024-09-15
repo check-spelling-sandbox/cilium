@@ -884,7 +884,7 @@ int nodeport_nat_fwd_reply_check(const struct __ctx_buff *ctx)
  * Even if the FIB lookup fails.
  */
 PKTGEN("tc", "tc_nodeport_nat_fwd_reply_no_fib")
-int nodepoirt_nat_fwd_reply_no_fib_pktgen(struct __ctx_buff *ctx)
+int nodeport_nat_fwd_reply_no_fib_pktgen(struct __ctx_buff *ctx)
 {
 	return build_reply(ctx);
 }
