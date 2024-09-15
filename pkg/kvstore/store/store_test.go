@@ -207,7 +207,7 @@ func TestStoreLocalKeyProtection(t *testing.T) {
 		Backend:                 client,
 		Prefix:                  rand.String(12),
 		KeyCreator:              newTestType,
-		SynchronizationInterval: time.Hour, // ensure that periodic sync does not interfer
+		SynchronizationInterval: time.Hour, // ensure that periodic sync does not interfere
 		Observer:                &observer{},
 	})
 	require.NoError(t, err)
