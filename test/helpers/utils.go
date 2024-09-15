@@ -122,7 +122,7 @@ type TimeoutConfig struct {
 	Timeout time.Duration // Limit for how long to spend in the command
 }
 
-// Validate ensuires that the parameters for the TimeoutConfig are reasonable
+// Validate ensures that the parameters for the TimeoutConfig are reasonable
 // for running in tests.
 func (c *TimeoutConfig) Validate() error {
 	if c.Timeout < 5*time.Second {
