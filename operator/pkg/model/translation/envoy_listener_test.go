@@ -17,32 +17,32 @@ import (
 
 func Test_getHostNetworkListenerAddresses(t *testing.T) {
 	testCases := []struct {
-		desc                       string
-		ports                      []uint32
-		ipv4Enabled                bool
-		ipv6Enabled                bool
-		expectedPrimaryAdress      *envoy_config_core_v3.Address
-		expectedAdditionalAdresses []*envoy_config_listener.AdditionalAddress
+		desc                        string
+		ports                       []uint32
+		ipv4Enabled                 bool
+		ipv6Enabled                 bool
+		expectedPrimaryAddress      *envoy_config_core_v3.Address
+		expectedAdditionalAddresses []*envoy_config_listener.AdditionalAddress
 	}{
 		{
-			desc:                       "No ports - no address",
-			ipv4Enabled:                true,
-			ipv6Enabled:                true,
-			expectedPrimaryAdress:      nil,
-			expectedAdditionalAdresses: nil,
+			desc:                        "No ports - no address",
+			ipv4Enabled:                 true,
+			ipv6Enabled:                 true,
+			expectedPrimaryAddress:      nil,
+			expectedAdditionalAddresses: nil,
 		},
 		{
-			desc:                       "No IP family - no address",
-			ports:                      []uint32{55555},
-			expectedPrimaryAdress:      nil,
-			expectedAdditionalAdresses: nil,
+			desc:                        "No IP family - no address",
+			ports:                       []uint32{55555},
+			expectedPrimaryAddress:      nil,
+			expectedAdditionalAddresses: nil,
 		},
 		{
 			desc:        "IPv4 only",
 			ports:       []uint32{55555},
 			ipv4Enabled: true,
 			ipv6Enabled: false,
-			expectedPrimaryAdress: &envoy_config_core_v3.Address{
+			expectedPrimaryAddress: &envoy_config_core_v3.Address{
 				Address: &envoy_config_core_v3.Address_SocketAddress{
 					SocketAddress: &envoy_config_core_v3.SocketAddress{
 						Protocol: envoy_config_core_v3.SocketAddress_TCP,
@@ -53,14 +53,14 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 					},
 				},
 			},
-			expectedAdditionalAdresses: nil,
+			expectedAdditionalAddresses: nil,
 		},
 		{
 			desc:        "IPv6 only",
 			ports:       []uint32{55555},
 			ipv4Enabled: false,
 			ipv6Enabled: true,
-			expectedPrimaryAdress: &envoy_config_core_v3.Address{
+			expectedPrimaryAddress: &envoy_config_core_v3.Address{
 				Address: &envoy_config_core_v3.Address_SocketAddress{
 					SocketAddress: &envoy_config_core_v3.SocketAddress{
 						Protocol: envoy_config_core_v3.SocketAddress_TCP,
@@ -71,14 +71,14 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 					},
 				},
 			},
-			expectedAdditionalAdresses: nil,
+			expectedAdditionalAddresses: nil,
 		},
 		{
 			desc:        "IPv4 & IPv6",
 			ports:       []uint32{55555},
 			ipv4Enabled: true,
 			ipv6Enabled: true,
-			expectedPrimaryAdress: &envoy_config_core_v3.Address{
+			expectedPrimaryAddress: &envoy_config_core_v3.Address{
 				Address: &envoy_config_core_v3.Address_SocketAddress{
 					SocketAddress: &envoy_config_core_v3.SocketAddress{
 						Protocol: envoy_config_core_v3.SocketAddress_TCP,
@@ -89,7 +89,7 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 					},
 				},
 			},
-			expectedAdditionalAdresses: []*envoy_config_listener.AdditionalAddress{
+			expectedAdditionalAddresses: []*envoy_config_listener.AdditionalAddress{
 				{
 					Address: &envoy_config_core_v3.Address{
 						Address: &envoy_config_core_v3.Address_SocketAddress{
@@ -110,7 +110,7 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 			ports:       []uint32{44444, 55555},
 			ipv4Enabled: true,
 			ipv6Enabled: false,
-			expectedPrimaryAdress: &envoy_config_core_v3.Address{
+			expectedPrimaryAddress: &envoy_config_core_v3.Address{
 				Address: &envoy_config_core_v3.Address_SocketAddress{
 					SocketAddress: &envoy_config_core_v3.SocketAddress{
 						Protocol: envoy_config_core_v3.SocketAddress_TCP,
@@ -121,7 +121,7 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 					},
 				},
 			},
-			expectedAdditionalAdresses: []*envoy_config_listener.AdditionalAddress{
+			expectedAdditionalAddresses: []*envoy_config_listener.AdditionalAddress{
 				{
 					Address: &envoy_config_core_v3.Address{
 						Address: &envoy_config_core_v3.Address_SocketAddress{
@@ -142,7 +142,7 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 			ports:       []uint32{44444, 55555},
 			ipv4Enabled: false,
 			ipv6Enabled: true,
-			expectedPrimaryAdress: &envoy_config_core_v3.Address{
+			expectedPrimaryAddress: &envoy_config_core_v3.Address{
 				Address: &envoy_config_core_v3.Address_SocketAddress{
 					SocketAddress: &envoy_config_core_v3.SocketAddress{
 						Protocol: envoy_config_core_v3.SocketAddress_TCP,
@@ -153,7 +153,7 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 					},
 				},
 			},
-			expectedAdditionalAdresses: []*envoy_config_listener.AdditionalAddress{
+			expectedAdditionalAddresses: []*envoy_config_listener.AdditionalAddress{
 				{
 					Address: &envoy_config_core_v3.Address{
 						Address: &envoy_config_core_v3.Address_SocketAddress{
@@ -174,7 +174,7 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 			ports:       []uint32{44444, 55555},
 			ipv4Enabled: true,
 			ipv6Enabled: true,
-			expectedPrimaryAdress: &envoy_config_core_v3.Address{
+			expectedPrimaryAddress: &envoy_config_core_v3.Address{
 				Address: &envoy_config_core_v3.Address_SocketAddress{
 					SocketAddress: &envoy_config_core_v3.SocketAddress{
 						Protocol: envoy_config_core_v3.SocketAddress_TCP,
@@ -185,7 +185,7 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 					},
 				},
 			},
-			expectedAdditionalAdresses: []*envoy_config_listener.AdditionalAddress{
+			expectedAdditionalAddresses: []*envoy_config_listener.AdditionalAddress{
 				{
 					Address: &envoy_config_core_v3.Address{
 						Address: &envoy_config_core_v3.Address_SocketAddress{
@@ -232,8 +232,8 @@ func Test_getHostNetworkListenerAddresses(t *testing.T) {
 		t.Run(tC.desc, func(t *testing.T) {
 			primaryAddress, additionalAddresses := getHostNetworkListenerAddresses(tC.ports, tC.ipv4Enabled, tC.ipv6Enabled)
 
-			assert.Equal(t, tC.expectedPrimaryAdress, primaryAddress)
-			assert.Equal(t, tC.expectedAdditionalAdresses, additionalAddresses)
+			assert.Equal(t, tC.expectedPrimaryAddress, primaryAddress)
+			assert.Equal(t, tC.expectedAdditionalAddresses, additionalAddresses)
 		})
 	}
 }
