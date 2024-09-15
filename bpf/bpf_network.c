@@ -32,7 +32,7 @@ int cil_from_network(struct __ctx_buff *ctx)
 	 * knows, no one touches to the ctx->mark before this
 	 * program.
 	 *
-	 * One exception is the case the packets are re-insearted
+	 * One exception is the case the packets are re-inserted
 	 * from the stack by xfrm. In that case, the packets should
 	 * be marked with MARK_MAGIC_DECRYPT.
 	 */
