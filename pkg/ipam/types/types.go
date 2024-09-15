@@ -561,7 +561,7 @@ func (m *InstanceMap) ForeachInterface(instanceID string, fn InterfaceIterator) 
 	return nil
 }
 
-// GetInterface returns returns a particular interface of an instance. The
+// GetInterface returns a particular interface of an instance. The
 // boolean indicates whether the interface was found or not.
 func (m *InstanceMap) GetInterface(instanceID, interfaceID string) (InterfaceRevision, bool) {
 	m.mutex.RLock()
