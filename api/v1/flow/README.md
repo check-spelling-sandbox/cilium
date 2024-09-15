@@ -1131,7 +1131,7 @@ This mirrors enum xlate_point in bpf/lib/trace_sock.h
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| UNKNOWN_POINT | 0 | Cilium treats 0 as TO_LXC, but its&#39;s something we should work to remove. This is intentionally set as unknown, so proto API can guarantee the observation point is always going to be present on trace events. |
+| UNKNOWN_POINT | 0 | Cilium treats 0 as TO_LXC, but it&#39;s something we should work to remove. This is intentionally set as unknown, so proto API can guarantee the observation point is always going to be present on trace events. |
 | TO_PROXY | 1 | TO_PROXY indicates network packets are transmitted towards the l7 proxy. |
 | TO_HOST | 2 | TO_HOST indicates network packets are transmitted towards the host namespace. |
 | TO_STACK | 3 | TO_STACK indicates network packets are transmitted towards the Linux kernel network stack on host machine. |
