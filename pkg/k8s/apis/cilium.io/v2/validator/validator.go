@@ -24,7 +24,7 @@ var (
 	// We can remove the check for this warning once 1.15 is the oldest supported Cilium version.
 	logInitPolicyCNP = "It seems you have a CiliumNetworkPolicy with a " +
 		"match on the 'reserved:init' labels. This label is not " +
-		"supported in CiliumNetworkPolicy any more. If you wish to " +
+		"supported in CiliumNetworkPolicy anymore. If you wish to " +
 		"define a policy for endpoints before they receive a full " +
 		"security identity, change the resource type for the policy " +
 		"to CiliumClusterwideNetworkPolicy."

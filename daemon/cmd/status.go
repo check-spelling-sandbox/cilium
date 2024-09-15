@@ -568,7 +568,7 @@ func (d *Daemon) startStatusCollector(cleaner *daemonCleanup) {
 		{
 			Name: "check-locks",
 			Probe: func(ctx context.Context) (interface{}, error) {
-				// nothing to do any more.
+				// nothing to do anymore.
 				return nil, nil
 			},
 			OnStatusUpdate: func(status status.Status) {
