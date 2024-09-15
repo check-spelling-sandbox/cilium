@@ -68,7 +68,7 @@ func retrieveNodeInformation(ctx context.Context, log logrus.FieldLogger, localN
 	return n
 }
 
-// useNodeCIDR sets the ipv4-range and ipv6-range values values from the
+// useNodeCIDR sets the ipv4-range and ipv6-range values from the
 // addresses defined in the given node.
 func useNodeCIDR(n *nodeTypes.Node) {
 	if n.IPv4AllocCIDR != nil && option.Config.EnableIPv4 {
