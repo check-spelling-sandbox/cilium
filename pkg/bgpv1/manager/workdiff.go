@@ -32,7 +32,7 @@ type reconcileDiff struct {
 	reconcile []int64
 }
 
-// newReconcileDiff constructs a new *reconcileDiff with all internal instructures
+// newReconcileDiff constructs a new *reconcileDiff with all internal structures
 // initialized.
 func newReconcileDiff(ciliumNode *v2api.CiliumNode) *reconcileDiff {
 	return &reconcileDiff{
