@@ -481,7 +481,7 @@ func isSpecialSymbol(ch byte) bool {
 }
 
 // Lexer represents the Lexer struct for label selector.
-// It contains necessary informationt to tokenize the input string
+// It contains necessary information to tokenize the input string
 type Lexer struct {
 	// s stores the string to be tokenized
 	s string
