@@ -424,7 +424,7 @@ func (m *VMManager) UpdateCiliumEndpointResource(name string, id *identity.Ident
 
 		mdl := ciliumv2.EndpointStatus{
 			ID: int64(1),
-			// ExternalIdentifiers: e.getModelEndpointIdentitiersRLocked(),
+			// ExternalIdentifiers: e.getModelEndpointIdentifiersRLocked(),
 			Identity: getEndpointIdentity(identitymodel.CreateModel(id)),
 			Networking: &ciliumv2.EndpointNetworking{
 				Addressing: addresses,
