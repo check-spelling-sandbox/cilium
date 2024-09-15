@@ -36,7 +36,7 @@ annotations:
       displayName: Cilium Clusterwide Network Policy
       description: |
         Cilium Clusterwide Network Policies support configuring network traffic
-        policiies across the entire cluster, including applying node firewalls.
+        policies across the entire cluster, including applying node firewalls.
     - kind: CiliumExternalWorkload
       version: v2
       name: ciliumexternalworkloads.cilium.io
