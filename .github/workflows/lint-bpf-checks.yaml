@@ -64,7 +64,7 @@ jobs:
         run: |
           make -C bpf checkpatch || (echo "Run 'make -C bpf checkpatch' locally to investigate reports"; exit 1)
 
-  # Runs only if code under bpf/ or contrib/coccinnelle/ is changed.
+  # Runs only if code under bpf/ or contrib/coccinelle/ is changed.
   coccicheck:
     needs: check_changes
     if: ${{ needs.check_changes.outputs.bpf-tree == 'true' || needs.check_changes.outputs.coccinelle == 'true' || needs.check_changes.outputs.workflow-description == 'true' }}
