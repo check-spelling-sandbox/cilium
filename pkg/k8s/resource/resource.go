@@ -904,7 +904,7 @@ func getUID(obj k8sRuntime.Object) types.UID {
 	meta, err := meta.Accessor(obj)
 	if err != nil {
 		// If we get here, it means the object does not implement ObjectMeta, and thus
-		// the Resource[T] has been instantianted with an unsuitable type T.
+		// the Resource[T] has been instantiated with an unsuitable type T.
 		// As this would be catched immediately during development, panicing is the
 		// way.
 		panic(fmt.Sprintf("BUG: meta.Accessor() failed on %T: %s", obj, err))
