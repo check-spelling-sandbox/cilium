@@ -367,7 +367,7 @@ func TestPrivilegedEgressGatewayManager(t *testing.T) {
 	assertEgressRules4(t, policyMap4, []egressRule{})
 	assertEgressRules6(t, policyMap6, []egressRule{})
 
-	// Restore the old endpoint lables in order for it to be a match
+	// Restore the old endpoint labels in order for it to be a match
 	id1 = updateEndpointAndIdentity(&ep1, id1, ep1Labels)
 	addEndpointAndReconcile(t, egressGatewayManager, k.endpoints, &ep1)
 
