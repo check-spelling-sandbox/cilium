@@ -4037,7 +4037,7 @@ var backupFileNames []string = []string{
 	"agent-runtime-config-2.json",
 }
 
-// StoreInFile stores the configuration in a the given directory under the file
+// StoreInFile stores the configuration in the given directory under the file
 // name 'daemon-config.json'. If this file already exists, it is renamed to
 // 'daemon-config-1.json', if 'daemon-config-1.json' also exists,
 // 'daemon-config-1.json' is renamed to 'daemon-config-2.json'
@@ -4137,7 +4137,7 @@ func (c *DaemonConfig) IsLocalRouterIP(ip string) bool {
 	return ip != "" && (c.LocalRouterIPv4 == ip || c.LocalRouterIPv6 == ip)
 }
 
-// StoreViperInFile stores viper's configuration in a the given directory under
+// StoreViperInFile stores viper's configuration in the given directory under
 // the file name 'viper-config.yaml'. If this file already exists, it is renamed
 // to 'viper-config-1.yaml', if 'viper-config-1.yaml' also exists,
 // 'viper-config-1.yaml' is renamed to 'viper-config-2.yaml'

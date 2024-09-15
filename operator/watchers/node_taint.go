@@ -201,7 +201,7 @@ func processNextCiliumPodItem(c kubernetes.Interface, nodeGetter slimNodeGetter,
 	return true
 }
 
-// nodeHasCiliumPod determines if a the node has a Cilium agent pod scheduled
+// nodeHasCiliumPod determines if the node has a Cilium agent pod scheduled
 // on it, and if it is running and ready.
 func nodeHasCiliumPod(nodeName string) (scheduled bool, ready bool) {
 	ciliumPodsInNode, err := ciliumPodsStore.ByIndex(hostnameIndexer, nodeName)

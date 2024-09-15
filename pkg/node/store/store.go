@@ -78,7 +78,7 @@ func ClusterNameValidator(clusterName string) nodeValidator {
 	}
 }
 
-// NameValidator returns a validator enforcing that the name of the the unmarshaled
+// NameValidator returns a validator enforcing that the name of the unmarshaled
 // node matches the kvstore key.
 func NameValidator() nodeValidator {
 	return func(key string, n *nodeTypes.Node) error {

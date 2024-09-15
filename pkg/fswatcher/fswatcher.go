@@ -221,7 +221,7 @@ func (w *Watcher) loop() {
 			created := event.Has(fsnotify.Create)
 			written := event.Has(fsnotify.Write)
 
-			// If a the eventPath has been removed or renamed, it can no longer
+			// If the eventPath has been removed or renamed, it can no longer
 			// be a valid watchPath. This is needed such that each trackedPath
 			// is updated with a new valid watchPath in the call
 			// to updateWatchedPath below.

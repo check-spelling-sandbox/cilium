@@ -46,7 +46,7 @@ if [ "$#" -eq 1 ] ; then
   image_tag="$(printf "%s" "${git_ls_tree}" | sed 's/^[0-7]\{6\} tree \([0-9a-f]\{40\}\).*/\1/')"
 else
   # if no arguments are given, attempt detecting if version tag is present,
-  # otherwise use the a short commit hash
+  # otherwise use the short commit hash
   image_dir="${root_dir}"
   git_tag="$(git name-rev --name-only --tags HEAD)"
   if printf "%s" "${git_tag}" | grep -q -E '^[v]?[0-9]+\.[0-9]+\.[0-9]+.*$' ; then

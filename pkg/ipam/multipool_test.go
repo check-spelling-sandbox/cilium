@@ -502,7 +502,7 @@ func (f *fakeK8sCiliumNodeAPIResource) Store(context.Context) (resource.Store[*c
 	return nil, errors.New("unimplemented")
 }
 
-// currentNode returns a the current snapshot of the node
+// currentNode returns the current snapshot of the node
 func (f *fakeK8sCiliumNodeAPIResource) currentNode() *ciliumv2.CiliumNode {
 	f.mutex.Lock()
 	defer f.mutex.Unlock()
