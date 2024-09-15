@@ -344,7 +344,7 @@ func (p *ProbeManager) KernelConfigAvailable() bool {
 }
 
 // HaveProgramHelper is a wrapper around features.HaveProgramHelper() to
-// check if a certain BPF program/helper copmbination is supported by the kernel.
+// check if a certain BPF program/helper combination is supported by the kernel.
 // On unexpected probe results this function will terminate with log.Fatal().
 func HaveProgramHelper(pt ebpf.ProgramType, helper asm.BuiltinFunc) error {
 	err := features.HaveProgramHelper(pt, helper)
