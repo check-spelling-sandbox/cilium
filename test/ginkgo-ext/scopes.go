@@ -217,7 +217,7 @@ func AfterAll(body func()) bool {
 	return true
 }
 
-// JustAfterEach runs the function just after each test, before all AfterEeach,
+// JustAfterEach runs the function just after each test, before all AfterEach,
 // AfterFailed and AfterAll
 func JustAfterEach(body func()) bool {
 	if currentScope != nil {
@@ -407,7 +407,7 @@ func afterEach(body func(), timeout ...float64) bool {
 	result := true
 	if cs.afterEach == nil {
 		// If no scope, register only one AfterEach in the scope, after that
-		// RunAfterEeach will run all afterEach functions registered in the
+		// RunAfterEach will run all afterEach functions registered in the
 		// scope.
 		fn := func() {
 			RunAfterEach(cs)
