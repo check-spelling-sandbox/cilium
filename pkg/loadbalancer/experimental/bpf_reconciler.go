@@ -79,7 +79,7 @@ type bpfOps struct {
 
 	// backendStates maps from backend address to associated state.
 	// This is used to track which frontends reference a specific backend
-	// in order to delete orphaned backeds.
+	// in order to delete orphaned backends.
 	backendStates map[loadbalancer.L3n4Addr]backendState
 
 	// backendReferences maps from frontend address to the set of referenced
