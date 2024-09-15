@@ -517,7 +517,7 @@ const (
 	// PolicyEgress is the value of Flags&PolicyNotifyFlagDirection for egress traffic
 	PolicyEgress = 2
 
-	// PolicyMatchNone is the value of MatchType indicatating no policy match
+	// PolicyMatchNone is the value of MatchType indicating no policy match
 	PolicyMatchNone = 0
 
 	// PolicyMatchL3Only is the value of MatchType indicating a L3-only match
