@@ -630,7 +630,7 @@ func (pp *PortProtocol) sanitize(hasDNSRules bool) (isZero bool, err error) {
 	// some legal numeric literals are no longer considered numbers, e.g,
 	// 0x10 is now considered a name rather than number 16.
 	if iana.IsSvcName(pp.Port) {
-		pp.Port = strings.ToLower(pp.Port) // Normalize for case insensitive comparison
+		pp.Port = strings.ToLower(pp.Port) // Normalize for case-insensitive comparison
 	} else if pp.Port != "" {
 		if pp.Port != "0" && (pp.Protocol == ProtoVRRP || pp.Protocol == ProtoIGMP) {
 			return isZero, errors.New("port must be empty or 0")
