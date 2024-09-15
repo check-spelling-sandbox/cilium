@@ -789,7 +789,7 @@ func (ms *mapState) Get(k Key) (MapStateEntry, bool) {
 	return ms.allows.Lookup(k)
 }
 
-// insert the Key and matcthing MapStateEntry into the
+// insert the Key and matching MapStateEntry into the
 // MapState
 func (ms *mapState) insert(k Key, v MapStateEntry, identities Identities) {
 	if k.DestPort == 0 && k.PortPrefixLen() > 0 {
