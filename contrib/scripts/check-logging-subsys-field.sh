@@ -3,7 +3,7 @@
 # check-logging-subsys-field.sh checks whether all logging entry instancs
 # created from DefaultLogger contain the LogSubsys field. This is required for
 # proper labeling of error/warning Prometheus metric and helpful for debugging.
-# If any entry which writes any message doesn't contaion the 'subsys' field,
+# If any entry which writes any message doesn't contain the 'subsys' field,
 # Prometheus metric logging hook (`pkg/metrics/logging_hook.go`) is going to
 # fail.
 
