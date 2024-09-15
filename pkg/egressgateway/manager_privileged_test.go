@@ -278,7 +278,7 @@ func TestEgressGatewayManager(t *testing.T) {
 
 	assertEgressRules(t, policyMap, []egressRule{})
 
-	// Restore the old endpoint lables in order for it to be a match
+	// Restore the old endpoint labels in order for it to be a match
 	id1 = updateEndpointAndIdentity(&ep1, id1, ep1Labels)
 	addEndpoint(t, k.endpoints, &ep1)
 	reconciliationEventsCount = waitForReconciliationRun(t, egressGatewayManager, reconciliationEventsCount)

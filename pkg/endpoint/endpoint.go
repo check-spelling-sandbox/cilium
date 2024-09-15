@@ -1923,9 +1923,9 @@ func (e *Endpoint) ModifyIdentityLabels(source string, addLabels, delLabels labe
 	// to remove endpoints in 'init' state if the containers were not
 	// started with any label.
 	if len(addLabels) == 0 && len(delLabels) == 0 && e.IsInit() {
-		idLabls := e.OpLabels.IdentityLabels()
-		delete(idLabls, labels.IDNameInit)
-		e.replaceIdentityLabels(source, idLabls)
+		idLabels := e.OpLabels.IdentityLabels()
+		delete(idLabels, labels.IDNameInit)
+		e.replaceIdentityLabels(source, idLabels)
 		changed = true
 	}
 	if changed {
@@ -2048,9 +2048,9 @@ func (e *Endpoint) UpdateLabels(ctx context.Context, sourceFilter string, identi
 		!identityLabels.HasInitLabel() &&
 		e.IsInit() {
 
-		idLabls := e.OpLabels.IdentityLabels()
-		delete(idLabls, labels.IDNameInit)
-		rev = e.replaceIdentityLabels(labels.LabelSourceAny, idLabls)
+		idLabels := e.OpLabels.IdentityLabels()
+		delete(idLabels, labels.IDNameInit)
+		rev = e.replaceIdentityLabels(labels.LabelSourceAny, idLabels)
 	}
 
 	e.unlock()
