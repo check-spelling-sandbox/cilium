@@ -36,7 +36,7 @@ vxlan_get_vni(const void *data, const void *data_end,
 }
 
 /*
- * Points 'inner' to the inner IPv4 header of a IPv4 VXLan excapsulated
+ * Points 'inner' to the inner IPv4 header of a IPv4 VXLan encapsulated
  * packet.
  *
  * The caller should be sure the VXLan packet is encapsulating IPv4 traffic
