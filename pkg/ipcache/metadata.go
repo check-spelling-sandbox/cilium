@@ -652,7 +652,7 @@ func (ipc *IPCache) resolveIdentity(ctx context.Context, prefix netip.Prefix, in
 		// the labels at runtime and instead opt to allocate new
 		// identities below.
 		//
-		// As an extra gotcha, we need need to merge all labels for all IPs
+		// As an extra gotcha, we need to merge all labels for all IPs
 		// that resolve to the reserved:host identity, otherwise we can
 		// flap identities labels depending on which prefix writes first. See GH-28259.
 		i := ipc.updateReservedHostLabels(prefix, lbls)
