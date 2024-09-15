@@ -229,7 +229,7 @@ Dev Container
 -------------
 
 Cilium provides `Dev Container <https://code.visualstudio.com/docs/devcontainers/containers>`_ configuration for Visual Studio Code Remote Containers
-and `Github Codespaces <https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers>`_.
+and `GitHub Codespaces <https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers>`_.
 This allows you to use a preconfigured development environment in the cloud or locally.
 The container is based on the official Cilium builder image and provides all the dependencies
 required to build Cilium.

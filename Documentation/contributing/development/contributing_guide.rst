@@ -251,7 +251,7 @@ Getting a pull request merged
    ``/test`` as described in :ref:`trigger_phrases`. If you are an
    `organization member`_, you can trigger the CI run yourself. CI consists of:
 
-   #. Static code analysis by Github Actions and Travis CI. Golang linter
+   #. Static code analysis by GitHub Actions and Travis CI. Golang linter
       suggestions are added in-line on PRs. For other failed jobs, please refer
       to build log for required action (e.g. Please run ``go mod tidy && go mod
       vendor`` and submit your changes, etc).

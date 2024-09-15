@@ -97,11 +97,11 @@ jobs:
       - name: Workaround CoreDNS for IPv6 airgapped
         if: ${{ matrix.ipFamily == 'ipv6' }}
         run: |
-          # Patch CoreDNS to work in Github CI
-          # 1. Github CI doesn´t offer IPv6 connectivity, so CoreDNS should be configured
+          # Patch CoreDNS to work in GitHub CI
+          # 1. GitHub CI doesn´t offer IPv6 connectivity, so CoreDNS should be configured
           # to work in an offline environment:
           # https://github.com/coredns/coredns/issues/2494#issuecomment-457215452
-          # 2. Github CI adds following domains to resolv.conf search field:
+          # 2. GitHub CI adds following domains to resolv.conf search field:
           # .net.
           # CoreDNS should handle those domains and answer with NXDOMAIN instead of SERVFAIL
           # otherwise pods stops trying to resolve the domain.

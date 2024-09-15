@@ -514,7 +514,7 @@ Only devices with ``Selected`` set to ``true`` can be used for L2 announcements.
 assigned to them will be considered selected. The ``--devices`` flag or ``devices`` Helm option can be used to filter
 out devices. If your desired device is in the list but not selected, check the devices flag/option to see if it filters it out.
 
-Please open a Github issue if your desired device doesn't appear in the list or it isn't selected while you believe it should be.
+Please open a GitHub issue if your desired device doesn't appear in the list or it isn't selected while you believe it should be.
 
 If the L2 state contains the IP and device combination but there are still connection issues, it's time to test ARP 
 within the cluster. Pick a cilium agent pod other than the lease holder on the same L2 network.
@@ -562,7 +562,7 @@ Unfortunately, L2 announcements isn't currently aware of this setting and will a
 matching policies. If a node without a pod receives traffic, it will drop it. To fix this, set the policy to 
 ``.Spec.ExternalTrafficPolicy: Cluster``.
 
-Please open a Github issue if none of the above steps helped you solve your issue.
+Please open a GitHub issue if none of the above steps helped you solve your issue.
 
 .. _l2_pod_announcements:
 
