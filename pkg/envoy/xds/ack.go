@@ -110,7 +110,7 @@ type AckingResourceMutatorWrapper struct {
 	pendingCompletions map[*completion.Completion]*pendingCompletion
 
 	// restoring controls waiting for acks. When 'true' updates do not wait for acks from the xDS client,
-	// as xDS caches are pre-populated before passing any resources to xDS clients.
+	// as xDS caches are prepopulated before passing any resources to xDS clients.
 	restoring bool
 }
 
