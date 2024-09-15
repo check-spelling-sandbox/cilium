@@ -596,7 +596,7 @@ static __always_inline int dsr_reply_icmp6(struct __ctx_buff *ctx,
 	__s32 l4_dport_offset;
 
 	/* DSR changes the destination address from service ip to pod ip and
-	 * destination port from service port to pod port. While resppnding
+	 * destination port from service port to pod port. While responding
 	 * back with ICMP error, it is necessary to set it to original ip and
 	 * port.
 	 */
@@ -2164,7 +2164,7 @@ static __always_inline int dsr_reply_icmp4(struct __ctx_buff *ctx,
 	__s32 l4_dport_offset;
 
 	/* DSR changes the destination address from service ip to pod ip and
-	 * destination port from service port to pod port. While resppnding
+	 * destination port from service port to pod port. While responding
 	 * back with ICMP error, it is necessary to set it to original ip and
 	 * port.
 	 * We do recompute the whole checksum here. Another way would be to
