@@ -337,7 +337,7 @@ func (c *Collector) GatherResourceUnstructured(ctx context.Context, r schema.Gro
 	return nil
 }
 
-// setupLogging sets up sysdump collector loggging.
+// setupLogging sets up sysdump collector logging.
 func (c *Collector) setupLogging(w io.Writer) error {
 	var err error
 	c.logFile, err = os.Create(filepath.Join(c.sysdumpDir, sysdumpLogFile))
