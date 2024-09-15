@@ -617,7 +617,7 @@ func getNextHopIP(nodeIP net.IP, link netlink.Link) (nextHopIP net.IP, err error
 
 		// Select a gw for the specified link if there are multi paths to the nodeIP
 		// For example, the nextHop to the nodeIP 9.9.9.9 from eth0 is 10.0.1.2,
-		// from eth1 is 10.0.2.2 as shown bellow.
+		// from eth1 is 10.0.2.2 as shown below.
 		//
 		// 9.9.9.9 proto bird metric 32
 		//        nexthop via 10.0.1.2 dev eth0 weight 1
