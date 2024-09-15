@@ -508,7 +508,7 @@ func (kub *Kubectl) DeleteResourcesInAnyNamespace(resource string, names []strin
 	for _, combinedName := range allNames {
 		parts := strings.SplitN(combinedName, "/", 2)
 		if len(parts) != 2 {
-			return fmt.Errorf("The %s idenfifier '%s' is not in the form <namespace>/<name>", resource, combinedName)
+			return fmt.Errorf("The %s identifier '%s' is not in the form <namespace>/<name>", resource, combinedName)
 		}
 		namespace, name := parts[0], parts[1]
 		if _, ok := namesMap[name]; ok {
