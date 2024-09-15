@@ -192,7 +192,7 @@ type IngressDenyRule struct {
 	// receive connections on.
 	//
 	// Example:
-	// Any endpoint with the label "app=httpd" can not accept incoming
+	// Any endpoint with the label "app=httpd" cannot accept incoming
 	// connections on port 80/tcp.
 	//
 	// +kubebuilder:validation:Optional
@@ -203,7 +203,7 @@ type IngressDenyRule struct {
 	// receive connections on.
 	//
 	// Example:
-	// Any endpoint with the label "app=httpd" can not accept incoming
+	// Any endpoint with the label "app=httpd" cannot accept incoming
 	// type 8 ICMP connections.
 	//
 	// +kubebuilder:validation:Optional

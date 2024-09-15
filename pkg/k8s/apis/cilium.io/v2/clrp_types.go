@@ -153,14 +153,14 @@ type RedirectBackend struct {
 // within a node.
 type CiliumLocalRedirectPolicySpec struct {
 	// RedirectFrontend specifies frontend configuration to redirect traffic from.
-	// It can not be empty.
+	// It cannot be empty.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:XValidation:rule="self == oldSelf", message="redirectFrontend is immutable"
 	RedirectFrontend RedirectFrontend `json:"redirectFrontend"`
 
 	// RedirectBackend specifies backend configuration to redirect traffic to.
-	// It can not be empty.
+	// It cannot be empty.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:XValidation:rule="self == oldSelf", message="redirectBackend is immutable"

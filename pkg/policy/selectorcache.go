@@ -294,7 +294,7 @@ func (sc *SelectorCache) addSelector(user CachedSelectionUser, lbls labels.Label
 }
 
 // FindCachedIdentitySelector finds the given api.EndpointSelector in the
-// selector cache, returning nil if one can not be found.
+// selector cache, returning nil if one cannot be found.
 func (sc *SelectorCache) FindCachedIdentitySelector(selector api.EndpointSelector) CachedSelector {
 	key := selector.CachedString()
 	sc.mutex.Lock()

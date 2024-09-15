@@ -32,7 +32,7 @@ framework. See the official `RBAC documentation
 <https://kubernetes.io/docs/reference/access-authn-authz/rbac/>`_.
 
 When policies are applied, matched pod traffic is redirected. If desired, RBAC
-configurations can be used such that application developers can not escape
+configurations can be used such that application developers cannot escape
 the redirection.
 
 Prerequisites

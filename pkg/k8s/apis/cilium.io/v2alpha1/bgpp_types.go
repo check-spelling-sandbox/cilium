@@ -264,7 +264,7 @@ type CiliumBGPNeighbor struct {
 	// +kubebuilder:default=90
 	HoldTimeSeconds *int32 `json:"holdTimeSeconds,omitempty"`
 	// KeepaliveTimeSeconds defines the initial value for the BGP KeepaliveTimer (RFC 4271, Section 8).
-	// It can not be larger than HoldTimeSeconds. Updating this value will cause a session reset.
+	// It cannot be larger than HoldTimeSeconds. Updating this value will cause a session reset.
 	//
 	// +kubebuilder:validation:Optional
 	// +kubebuilder:validation:Minimum=1
@@ -402,7 +402,7 @@ func (n *CiliumBGPNeighbor) SetDefaults() {
 }
 
 // Validate validates CiliumBGPNeighbor's configuration constraints
-// that can not be expressed using the kubebuilder validation markers.
+// that cannot be expressed using the kubebuilder validation markers.
 func (n *CiliumBGPNeighbor) Validate() error {
 	keepAliveTime := ptr.Deref[int32](n.KeepAliveTimeSeconds, DefaultBGPKeepAliveTimeSeconds)
 	holdTime := ptr.Deref[int32](n.HoldTimeSeconds, DefaultBGPHoldTimeSeconds)

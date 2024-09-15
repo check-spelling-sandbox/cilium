@@ -117,7 +117,7 @@ var unrealizedRedirect = errors.New("Proxy port for redirect not found")
 
 // LookupRedirectPort returns the redirect L4 proxy port for the given input parameters.
 // Returns 0 if not found or the filter doesn't require a redirect.
-// Returns an error if the redirect port can not be found.
+// Returns an error if the redirect port cannot be found.
 func (e *Endpoint) LookupRedirectPort(ingress bool, protocol string, port uint16, listener string) (uint16, error) {
 	redirects := e.GetRealizedRedirects()
 	proxyPort, exists := redirects[policy.ProxyID(e.ID, ingress, protocol, port, listener)]
@@ -170,7 +170,7 @@ type policyGenerateResult struct {
 //
 // Policy generation may fail, and in that case we exit before actually changing
 // the policy in any way, so that the last policy remains fully in effect if the
-// new policy can not be implemented. This is done on a per endpoint-basis,
+// new policy cannot be implemented. This is done on a per endpoint-basis,
 // however, and it is possible that policy update succeeds for some endpoints,
 // while it fails for other endpoints.
 //

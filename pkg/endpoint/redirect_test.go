@@ -430,7 +430,7 @@ func TestRedirectWithDeny(t *testing.T) {
 
 	// Redirect is still created, even if all MapState entries may have been overridden by a
 	// deny entry.  A new FQDN redirect may have no MapState entries as the associated CIDR
-	// identities may match no numeric IDs yet, so we can not count the number of added MapState
+	// identities may match no numeric IDs yet, so we cannot count the number of added MapState
 	// entries and make any conclusions from it.
 	require.Equal(t, 1, len(desiredRedirects))
 

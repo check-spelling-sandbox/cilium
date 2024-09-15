@@ -375,7 +375,7 @@ struct remote_endpoint_info {
  * 'protocol' is never partially wildcarded, so it is either fully wildcarded or
  * not wildcarded at all. 'dport' can be partially wildcarded, but only when
  * 'protocol' is fully specified. This follows the logic that the destination
- * port is a property of a transport protocol and can not be specified without
+ * port is a property of a transport protocol and cannot be specified without
  * also specifying the protocol.
  */
 struct policy_key {

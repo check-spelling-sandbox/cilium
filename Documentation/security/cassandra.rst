@@ -130,7 +130,7 @@ The Danger of a Compromised Cassandra Client
 
 But what if a rebel spy gains access to any of the remote outposts that act as a Cassandra client?
 Since every client has access to the Cassandra API on port 9042, it can do some bad stuff.
-For starters, the outpost container can not only add entries to the attendance.daily_reports table,
+For starters, the outpost container cannot only add entries to the attendance.daily_reports table,
 but it could read all entries as well.
 
 To see this, we can run the following command:

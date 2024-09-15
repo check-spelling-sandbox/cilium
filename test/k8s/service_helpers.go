@@ -120,7 +120,7 @@ func testCurlFromPodWithSourceIPCheck(kubectl *helpers.Kubectl, clientPodLabel, 
 
 			res := kubectl.ExecPodCmd(helpers.DefaultNamespace, pod, cmd)
 			ExpectWithOffset(1, res).Should(helpers.CMDSuccess(),
-				"Can not connect to url %q from pod(%s)", url, pod)
+				"Cannot connect to url %q from pod(%s)", url, pod)
 			if sourceIP != "" {
 				// Parse the IPs to avoid issues with 4-in-6 formats
 				ipStr := strings.TrimSpace(strings.Split(res.Stdout(), "=")[1])
@@ -198,7 +198,7 @@ func testCurlFromPodInHostNetNSExpectingHTTPCode(kubectl *helpers.Kubectl, url s
 	for i := 1; i <= count; i++ {
 		res := kubectl.ExecInHostNetNS(context.TODO(), fromPod, helpers.CurlWithHTTPCode(url))
 		ExpectWithOffset(1, res).Should(helpers.CMDSuccess(),
-			"%s host can not connect to service %q", fromPod, url)
+			"%s host cannot connect to service %q", fromPod, url)
 		res.ExpectContains(expectedCode, "Request from %s to %q returned HTTP Code %q, expected %q",
 			fromPod, url, res.GetStdOut(), expectedCode)
 	}
@@ -219,7 +219,7 @@ func testCurlFromOutsideWithLocalPort(kubectl *helpers.Kubectl, ni *helpers.Node
 		}
 		res := kubectl.ExecInHostNetNS(context.TODO(), ni.OutsideNodeName, cmd)
 		ExpectWithOffset(1, res).Should(helpers.CMDSuccess(),
-			"Can not connect to service %q from outside cluster (%d/%d)", url, i, count)
+			"Cannot connect to service %q from outside cluster (%d/%d)", url, i, count)
 		if checkSourceIP {
 			// Parse the IPs to avoid issues with 4-in-6 formats
 			ipStr := strings.TrimSpace(strings.Split(res.Stdout(), "=")[1])
@@ -396,11 +396,11 @@ func testNodePort(kubectl *helpers.Kubectl, ni *helpers.NodesInfo, bpfNodePort, 
 	serviceNameIPv6 := "test-nodeport-ipv6"
 
 	err = kubectl.Get(helpers.DefaultNamespace, fmt.Sprintf("service %s", serviceNameIPv4)).Unmarshal(&data)
-	ExpectWithOffset(1, err).Should(BeNil(), "Can not retrieve service %q", serviceNameIPv4)
+	ExpectWithOffset(1, err).Should(BeNil(), "Cannot retrieve service %q", serviceNameIPv4)
 
 	if helpers.DualStackSupported() {
 		err = kubectl.Get(helpers.DefaultNamespace, fmt.Sprintf("service %s", serviceNameIPv6)).Unmarshal(&v6Data)
-		ExpectWithOffset(1, err).Should(BeNil(), "Can not retrieve service %q", serviceNameIPv6)
+		ExpectWithOffset(1, err).Should(BeNil(), "Cannot retrieve service %q", serviceNameIPv6)
 	}
 
 	// These are going to be tested from pods running in their own net namespaces
@@ -586,7 +586,7 @@ func testExternalIPs(kubectl *helpers.Kubectl, ni *helpers.NodesInfo) {
 
 	for svcName, nodeIP := range services {
 		err := kubectl.Get(helpers.DefaultNamespace, fmt.Sprintf("service %s", svcName)).Unmarshal(&data)
-		ExpectWithOffset(1, err).Should(BeNil(), "Can not retrieve service %s", svcName)
+		ExpectWithOffset(1, err).Should(BeNil(), "Cannot retrieve service %s", svcName)
 		svcExternalIP := data.Spec.ExternalIPs[0]
 
 		// Append k8s1 IP addr to the external IPs for testing whether the svc
@@ -637,7 +637,7 @@ func testFailBind(kubectl *helpers.Kubectl, ni *helpers.NodesInfo) {
 	var data v1.Service
 
 	err := kubectl.Get(helpers.DefaultNamespace, "service test-nodeport").Unmarshal(&data)
-	ExpectWithOffset(1, err).Should(BeNil(), "Can not retrieve service")
+	ExpectWithOffset(1, err).Should(BeNil(), "Cannot retrieve service")
 
 	// Ensure the NodePort cannot be bound from any redirected address
 	failBind(kubectl, "127.0.0.1", data.Spec.Ports[0].NodePort, "tcp", ni.K8s1NodeName)
@@ -857,7 +857,7 @@ func testExternalTrafficPolicyLocal(kubectl *helpers.Kubectl, ni *helpers.NodesI
 		}
 
 		err = kubectl.Get(helpers.DefaultNamespace, fmt.Sprintf("service %s", node.k8s2LocalSvc)).Unmarshal(&data)
-		ExpectWithOffset(1, err).Should(BeNil(), "Can not retrieve service %s", node.k8s2LocalSvc)
+		ExpectWithOffset(1, err).Should(BeNil(), "Cannot retrieve service %s", node.k8s2LocalSvc)
 
 		// Checks that requests to k8s2 succeed where Pod is also running
 		httpURL = getHTTPLink(node.node2IP, data.Spec.Ports[0].NodePort)
@@ -914,7 +914,7 @@ func testHealthCheckNodePort(kubectl *helpers.Kubectl, ni *helpers.NodesInfo) {
 
 	// Service with HealthCheckNodePort that only has backends on k8s2
 	err := kubectl.Get(helpers.DefaultNamespace, "service test-lb-local-k8s2").Unmarshal(&data)
-	ExpectWithOffset(1, err).Should(BeNil(), "Can not retrieve service")
+	ExpectWithOffset(1, err).Should(BeNil(), "Cannot retrieve service")
 
 	count := 10
 

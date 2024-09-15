@@ -279,7 +279,7 @@ func (e *Endpoint) addNewRedirectsFromDesiredPolicy(ingress bool, desiredRedirec
 				pp := e.newProxyPolicy(l4, v, dstPort, dstProto)
 				proxyPort, err, finalizeFunc, revertFunc := e.proxy.CreateOrUpdateRedirect(e.aliveCtx, &pp, proxyID, e, proxyWaitGroup)
 				if err != nil {
-					// Skip redirects that can not be created or updated.  This
+					// Skip redirects that cannot be created or updated.  This
 					// can happen when a listener is missing, for example when
 					// restarting and k8s delivers the CNP before the related
 					// CEC.

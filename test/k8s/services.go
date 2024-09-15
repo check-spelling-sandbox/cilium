@@ -217,14 +217,14 @@ var _ = SkipDescribeIf(helpers.RunsOn54Kernel, "K8sDatapathServicesTest", func()
 
 			It("Tests TFTP from DNS Proxy Port", func() {
 				if DNSProxyPort2 == DNSProxyPort1 {
-					Skip(fmt.Sprintf("TFTP source port test can not be done when both nodes have the same proxy port (%d == %d)", DNSProxyPort1, DNSProxyPort2))
+					Skip(fmt.Sprintf("TFTP source port test cannot be done when both nodes have the same proxy port (%d == %d)", DNSProxyPort1, DNSProxyPort2))
 				}
 
 				applyPolicy(kubectl, demoPolicy)
 
 				var data v1.Service
 				err := kubectl.Get(helpers.DefaultNamespace, "service test-nodeport").Unmarshal(&data)
-				Expect(err).Should(BeNil(), "Can not retrieve service")
+				Expect(err).Should(BeNil(), "Cannot retrieve service")
 
 				// Since we address NodePort in k8s2 using the DNS proxy port of k8s2 as
 				// the source port from k8s1, one round is enough regardless of the backend
@@ -243,7 +243,7 @@ var _ = SkipDescribeIf(helpers.RunsOn54Kernel, "K8sDatapathServicesTest", func()
 
 				if helpers.DualStackSupported() {
 					err := kubectl.Get(helpers.DefaultNamespace, "service test-nodeport-ipv6").Unmarshal(&data)
-					Expect(err).Should(BeNil(), "Can not retrieve service")
+					Expect(err).Should(BeNil(), "Cannot retrieve service")
 
 					// Client from k8s1
 					clientPod, _ := kubectl.GetPodOnNodeLabeledWithOffset(helpers.K8s1, testDSClient, 0)
@@ -358,10 +358,10 @@ Secondary Interface %s :: IPv4: (%s, %s), IPv6: (%s, %s)`,
 			// "test-nodeport-local-k8s2" has the local external traffic
 			// policy.
 			err := kubectl.Get(helpers.DefaultNamespace, "svc test-nodeport-local-k8s2").Unmarshal(&data)
-			Expect(err).Should(BeNil(), "Can not retrieve service")
+			Expect(err).Should(BeNil(), "Cannot retrieve service")
 			svc1URL := getHTTPLink(ni.K8s2IP, data.Spec.Ports[0].NodePort)
 			err = kubectl.Get(helpers.DefaultNamespace, "svc test-nodeport-k8s2").Unmarshal(&data)
-			Expect(err).Should(BeNil(), "Can not retrieve service")
+			Expect(err).Should(BeNil(), "Cannot retrieve service")
 			svc2URL := getHTTPLink(ni.K8s2IP, data.Spec.Ports[0].NodePort)
 
 			// Send two requests from the same src IP and port to the endpoint
@@ -389,14 +389,14 @@ Secondary Interface %s :: IPv4: (%s, %s), IPv6: (%s, %s)`,
 			// works as expected in the case of the "backend local" case.
 			var data v1.Service
 			err := kubectl.Get(helpers.DefaultNamespace, "service test-nodeport-k8s2").Unmarshal(&data)
-			Expect(err).Should(BeNil(), "Can not retrieve service")
+			Expect(err).Should(BeNil(), "Cannot retrieve service")
 			svcAddrs := []string{
 				getHTTPLink(ni.K8s1IP, data.Spec.Ports[0].NodePort),
 				getHTTPLink(ni.K8s2IP, data.Spec.Ports[0].NodePort),
 			}
 			if helpers.DualStackSupported() {
 				err := kubectl.Get(helpers.DefaultNamespace, "service test-nodeport-k8s2-ipv6").Unmarshal(&data)
-				Expect(err).Should(BeNil(), "Can not retrieve service")
+				Expect(err).Should(BeNil(), "Cannot retrieve service")
 				svcAddrs = append(svcAddrs,
 					getHTTPLink(ni.PrimaryK8s1IPv6, data.Spec.Ports[0].NodePort),
 					getHTTPLink(ni.PrimaryK8s2IPv6, data.Spec.Ports[0].NodePort))

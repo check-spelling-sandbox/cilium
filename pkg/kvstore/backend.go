@@ -26,7 +26,7 @@ type backendOptions map[string]*backendOption
 
 type ClusterSizeDependantIntervalFunc func(baseInterval time.Duration) time.Duration
 
-// ExtraOptions represents any options that can not be represented in a textual
+// ExtraOptions represents any options that cannot be represented in a textual
 // format and need to be set programmatically.
 type ExtraOptions struct {
 	DialOption []grpc.DialOption

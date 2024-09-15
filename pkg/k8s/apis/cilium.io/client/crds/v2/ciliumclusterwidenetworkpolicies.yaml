@@ -761,7 +761,7 @@ spec:
                                             description: |-
                                               Value matches the exact value of the header. Can be specified either
                                               alone or together with "Secret"; will be used as the header value if the
-                                              secret can not be found in the latter case.
+                                              secret cannot be found in the latter case.
                                             type: string
                                         required:
                                         - name
@@ -2475,7 +2475,7 @@ spec:
                                             description: |-
                                               Value matches the exact value of the header. Can be specified either
                                               alone or together with "Secret"; will be used as the header value if the
-                                              secret can not be found in the latter case.
+                                              secret cannot be found in the latter case.
                                             type: string
                                         required:
                                         - name
@@ -3038,7 +3038,7 @@ spec:
                         receive connections on.
 
                         Example:
-                        Any endpoint with the label "app=httpd" can not accept incoming
+                        Any endpoint with the label "app=httpd" cannot accept incoming
                         type 8 ICMP connections.
                       items:
                         description: ICMPRule is a list of ICMP fields.
@@ -3099,7 +3099,7 @@ spec:
                         receive connections on.
 
                         Example:
-                        Any endpoint with the label "app=httpd" can not accept incoming
+                        Any endpoint with the label "app=httpd" cannot accept incoming
                         connections on port 80/tcp.
                       items:
                         description: |-
@@ -3955,7 +3955,7 @@ spec:
                                               description: |-
                                                 Value matches the exact value of the header. Can be specified either
                                                 alone or together with "Secret"; will be used as the header value if the
-                                                secret can not be found in the latter case.
+                                                secret cannot be found in the latter case.
                                               type: string
                                           required:
                                           - name
@@ -5671,7 +5671,7 @@ spec:
                                               description: |-
                                                 Value matches the exact value of the header. Can be specified either
                                                 alone or together with "Secret"; will be used as the header value if the
-                                                secret can not be found in the latter case.
+                                                secret cannot be found in the latter case.
                                               type: string
                                           required:
                                           - name
@@ -6234,7 +6234,7 @@ spec:
                           receive connections on.
 
                           Example:
-                          Any endpoint with the label "app=httpd" can not accept incoming
+                          Any endpoint with the label "app=httpd" cannot accept incoming
                           type 8 ICMP connections.
                         items:
                           description: ICMPRule is a list of ICMP fields.
@@ -6296,7 +6296,7 @@ spec:
                           receive connections on.
 
                           Example:
-                          Any endpoint with the label "app=httpd" can not accept incoming
+                          Any endpoint with the label "app=httpd" cannot accept incoming
                           connections on port 80/tcp.
                         items:
                           description: |-

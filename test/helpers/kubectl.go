@@ -2429,7 +2429,7 @@ func (kub *Kubectl) WaitTerminatingPodsInNsWithFilter(ns, filter string, timeout
 // DeployPatchStdIn deploys the original kubernetes descriptor with the given patch.
 func (kub *Kubectl) DeployPatchStdIn(original, patch string) error {
 	// debugYaml only dumps the full created yaml file to the test output if
-	// the cilium manifest can not be created correctly.
+	// the cilium manifest cannot be created correctly.
 	debugYaml := func(original, patch string) {
 		_ = kub.ExecShort(fmt.Sprintf(
 			`%s patch --filename='%s' --patch %s --local --dry-run -o yaml`,
@@ -2462,7 +2462,7 @@ func (kub *Kubectl) DeployPatchStdIn(original, patch string) error {
 // DeployPatch deploys the original kubernetes descriptor with the given patch.
 func (kub *Kubectl) DeployPatch(original, patchFileName string) error {
 	// debugYaml only dumps the full created yaml file to the test output if
-	// the cilium manifest can not be created correctly.
+	// the cilium manifest cannot be created correctly.
 	debugYaml := func(original, patch string) {
 		_ = kub.ExecShort(fmt.Sprintf(
 			`%s patch --filename='%s' --patch "$(cat '%s')" --local -o yaml`,
@@ -3784,7 +3784,7 @@ func (kub *Kubectl) GetNodeInfo(label string) (nodeName, nodeIP string) {
 	nodeName, err := kub.GetNodeNameByLabel(label)
 	gomega.ExpectWithOffset(1, err).To(gomega.BeNil(), "Cannot get node by label "+label)
 	nodeIP, err = kub.GetNodeIPByLabel(label, false)
-	gomega.ExpectWithOffset(1, err).Should(gomega.BeNil(), "Can not retrieve Node Internal IP for "+label)
+	gomega.ExpectWithOffset(1, err).Should(gomega.BeNil(), "Cannot retrieve Node Internal IP for "+label)
 	return nodeName, nodeIP
 }
 

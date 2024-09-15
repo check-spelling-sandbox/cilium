@@ -473,7 +473,7 @@ func (n *linuxNodeHandler) createNodeRouteSpec(prefix *cidr.CIDR, isLocalNode bo
 		}
 
 		// For ipv6, kernel will reject "ip r a $cidr via $ipv6_cilium_host dev cilium_host"
-		// with "Error: Gateway can not be a local address". Instead, we have to remove "via"
+		// with "Error: Gateway cannot be a local address". Instead, we have to remove "via"
 		// as "ip r a $cidr dev cilium_host" to make it work.
 		nexthop = nil
 		local = n.nodeConfig.CiliumInternalIPv6

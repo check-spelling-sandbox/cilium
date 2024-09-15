@@ -174,10 +174,10 @@ func getSanitizedLRPConfig(name, namespace string, uid types.UID, spec v2.Cilium
 	switch {
 	case addrMatcher == nil && svcMatcher == nil:
 		return nil, fmt.Errorf("both address and service" +
-			" matchers can not be empty")
+			" matchers cannot be empty")
 	case addrMatcher != nil && svcMatcher != nil:
 		return nil, fmt.Errorf("both address and service" +
-			" matchers can not be specified")
+			" matchers cannot be specified")
 	case addrMatcher != nil:
 		// LRP specifies IP/port tuple config for traffic that needs to be redirected.
 		addrCluster, err := cmtypes.ParseAddrCluster(addrMatcher.IP)

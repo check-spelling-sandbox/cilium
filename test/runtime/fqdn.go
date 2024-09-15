@@ -1082,7 +1082,7 @@ var _ = Describe("RuntimeAgentFQDNPolicies", func() {
 
 		By("Dumping IP cache before Cilium is stopped")
 		ipcacheBefore, err := vm.BpfIPCacheList(true)
-		Expect(err).To(BeNil(), "ipcache can not be dumped")
+		Expect(err).To(BeNil(), "ipcache cannot be dumped")
 		Expect(ipcacheBefore).NotTo(HaveLen(0), "ipcache does not have any local entries")
 		GinkgoPrint(fmt.Sprintf("Local scope identities in IP cache before Cilium restart: %v", ipcacheBefore))
 
@@ -1124,7 +1124,7 @@ var _ = Describe("RuntimeAgentFQDNPolicies", func() {
 
 		By("Dumping IP cache after Cilium is restarted")
 		ipcacheAfter, err := vm.BpfIPCacheList(true)
-		Expect(err).To(BeNil(), "ipcache can not be dumped")
+		Expect(err).To(BeNil(), "ipcache cannot be dumped")
 		GinkgoPrint(fmt.Sprintf("Local scope identities in IP cache after Cilium restart: %v", ipcacheAfter))
 		equal := assert.ObjectsAreEqualValues(ipcacheBefore, ipcacheAfter)
 		Expect(equal).To(BeTrue(), "CIDR identities were not restored correctly")
@@ -1145,7 +1145,7 @@ var _ = Describe("RuntimeAgentFQDNPolicies", func() {
 
 		By("Dumping IP cache after the DNS policy is imported after restart")
 		ipcacheAfterDNSPolicy, err := vm.BpfIPCacheList(true)
-		Expect(err).To(BeNil(), "ipcache can not be dumped")
+		Expect(err).To(BeNil(), "ipcache cannot be dumped")
 		equal = assert.ObjectsAreEqualValues(ipcacheBefore, ipcacheAfterDNSPolicy)
 		Expect(equal).To(BeTrue(), "CIDR identities changed after policy import")
 

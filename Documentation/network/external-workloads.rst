@@ -145,7 +145,7 @@ cluster:
 
 Note that the created script embeds the IP address for the
 ``clustermesh-apiserver`` service. If service type ``LoadBalancer``
-can not be used, this IP address will be the one of the first node in
+cannot be used, this IP address will be the one of the first node in
 your k8s cluster (for ``NodePort`` service type). If this node is
 removed from the cluster the above step for creating the installation
 script must be repeated and all the external workloads

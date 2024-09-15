@@ -125,7 +125,7 @@ func startEmbeddedEnvoy(config embeddedEnvoyConfig) (*EmbeddedEnvoy, error) {
 
 	log.Debugf("Envoy: Starting: %v", *envoy)
 
-	// make it a buffered channel, so we can not only
+	// make it a buffered channel, so we cannot only
 	// read the written value but also skip it in
 	// case no one reader reads it.
 	started := make(chan bool, 1)

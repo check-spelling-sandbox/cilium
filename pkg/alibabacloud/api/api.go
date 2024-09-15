@@ -216,7 +216,7 @@ func (c *Client) GetVPCs(ctx context.Context) (ipamTypes.VirtualNetworkMap, erro
 func (c *Client) GetInstanceTypes(ctx context.Context) ([]ecs.InstanceType, error) {
 	var result []ecs.InstanceType
 	req := ecs.CreateDescribeInstanceTypesRequest()
-	// When there are many instance types, some instance limits can not be queried,
+	// When there are many instance types, some instance limits cannot be queried,
 	// so use NextToken and MaxResults for paging query.
 	// MaxResults is the number of entries on each page, the maximum value of this parameter is 100.
 	// Ref: https://www.alibabacloud.com/help/en/elastic-compute-service/latest/describeinstancetypes

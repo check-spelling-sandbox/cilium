@@ -3321,7 +3321,7 @@ func (c *DaemonConfig) Populate(vp *viper.Viper) {
 		log.WithFields(
 			logrus.Fields{
 				"Subnets": invalid,
-			}).Warning("IPv4PodSubnets parameter can not be parsed.")
+			}).Warning("IPv4PodSubnets parameter cannot be parsed.")
 	}
 	c.IPv4PodSubnets = subnets
 
@@ -3330,7 +3330,7 @@ func (c *DaemonConfig) Populate(vp *viper.Viper) {
 		log.WithFields(
 			logrus.Fields{
 				"Subnets": invalid,
-			}).Warning("IPv6PodSubnets parameter can not be parsed.")
+			}).Warning("IPv6PodSubnets parameter cannot be parsed.")
 	}
 	c.IPv6PodSubnets = subnets
 

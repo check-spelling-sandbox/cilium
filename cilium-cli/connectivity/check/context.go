@@ -750,7 +750,7 @@ var multiClusterClientLock = lock.Mutex{}
 func (ct *ConnectivityTest) detectSingleNode(ctx context.Context) error {
 
 	if ct.params.MultiCluster != "" && ct.params.SingleNode {
-		return fmt.Errorf("single-node test can not be enabled with multi-cluster test")
+		return fmt.Errorf("single-node test cannot be enabled with multi-cluster test")
 	}
 
 	// single node explicitly defined by user.

@@ -350,7 +350,7 @@ func ParseEndpointSliceV1(ep *slim_discovery_v1.EndpointSlice) *Endpoints {
 				log.Debugf("discarding Endpoint on EndpointSlice %s: not Ready and EnableK8sTerminatingEndpoint %v", ep.Name, option.Config.EnableK8sTerminatingEndpoint)
 				continue
 			}
-			// filter not Serving endpoints since those can not receive traffic
+			// filter not Serving endpoints since those cannot receive traffic
 			if !isServing {
 				log.Debugf("discarding Endpoint on EndpointSlice %s: not Serving and EnableK8sTerminatingEndpoint %v", ep.Name, option.Config.EnableK8sTerminatingEndpoint)
 				continue

@@ -186,7 +186,7 @@ func CreatePolicy(name string, peerAddr netip.Addr, v4Prefixes, v6Prefixes types
 	}
 
 	// Due to a GoBGP limitation, we need to generate a separate statement for v4 and v6 prefixes, as families
-	// can not be mixed in a single statement. Nevertheless, they can be both part of the same Policy.
+	// cannot be mixed in a single statement. Nevertheless, they can be both part of the same Policy.
 	if len(v4Prefixes) > 0 {
 		policy.Statements = append(policy.Statements, policyStatement(peerAddr, v4Prefixes, localPref, communities, largeCommunities))
 	}

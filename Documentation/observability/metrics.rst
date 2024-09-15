@@ -943,7 +943,7 @@ This metric supports :ref:`Context Options<hubble_context_options>`.
 ~~~~~~~~
 
 Deprecated, use ``httpV2`` instead.
-These metrics can not be enabled at the same time as ``httpV2``.
+These metrics cannot be enabled at the same time as ``httpV2``.
 
 ================================= ======================================= ========== ==============================================
 Name                              Labels                                  Default    Description
@@ -970,7 +970,7 @@ This metric supports :ref:`Context Options<hubble_context_options>`.
 ~~~~~~~~~~
 
 ``httpV2`` is an updated version of the existing ``http`` metrics.
-These metrics can not be enabled at the same time as ``http``.
+These metrics cannot be enabled at the same time as ``http``.
 
 The main difference is that ``http_requests_total`` and
 ``http_responses_total`` have been consolidated, and use the response flow

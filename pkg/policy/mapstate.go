@@ -1206,7 +1206,7 @@ func (ms *mapState) denyPreferredInsertWithChanges(newKey Key, newEntry MapState
 
 	// Datapath matches security IDs exactly, or completely wildcards them (ID == 0). Datapath
 	// has no LPM/CIDR logic for security IDs. We use LPM/CIDR logic here to find out if allow
-	// entries are "covered" by deny entries and change them to deny entries if so. We can not
+	// entries are "covered" by deny entries and change them to deny entries if so. We cannot
 	// rely on the default deny as a broad allow could be added later.
 
 	// We cannot update the map while we are
@@ -1475,7 +1475,7 @@ func (ms *mapState) denyPreferredInsertWithChanges(newKey Key, newEntry MapState
 //  3. */proto/port
 //  4. ID/*/*
 //  5. ID/proto/*
-//     ( ID/proto/port can not be superset of anything )
+//     ( ID/proto/port cannot be superset of anything )
 func IsSuperSetOf(k, other Key) int {
 	if k.TrafficDirection() != other.TrafficDirection() {
 		return 0 // TrafficDirection must match for 'k' to be a superset of 'other'

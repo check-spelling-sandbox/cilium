@@ -43,7 +43,7 @@ func (l4rule *PerSelectorPolicy) covers(l3l4rule *PerSelectorPolicy) bool {
 		return false
 	}
 
-	// Can not skip if currentRule has an explicit auth type and wildcardRule does not or if
+	// Cannot skip if currentRule has an explicit auth type and wildcardRule does not or if
 	// both have different auth types.  In all other cases the auth type from the wildcardRule
 	// can be used also for the current rule.
 	// Note that the caller must deal with inheriting redirect from wildcardRule to currentRule,
@@ -57,10 +57,10 @@ func (l4rule *PerSelectorPolicy) covers(l3l4rule *PerSelectorPolicy) bool {
 	l3l4IsRedirect := l3l4rule.IsRedirect()
 	l4OnlyIsRedirect := l4rule.IsRedirect()
 	if l3l4IsRedirect && !l4OnlyIsRedirect {
-		// Can not skip if l3l4-rule is redirect while l4-only is not
+		// Cannot skip if l3l4-rule is redirect while l4-only is not
 		return false
 	} else if l3l4IsRedirect && l4OnlyIsRedirect && l3l4rule.Listener != l4rule.Listener {
-		// L3l4 rule has a different listener, it can not be skipped
+		// L3l4 rule has a different listener, it cannot be skipped
 		return false
 	}
 
@@ -405,7 +405,7 @@ func (from L7ParserType) canPromoteTo(to L7ParserType) bool {
 		return true
 	case ParserTypeTLS:
 		// ParserTypeTLS can be promoted to any other type, except for DNS or CRD,
-		// but ParserTypeTLS can not be demoted to ParserTypeNone
+		// but ParserTypeTLS cannot be demoted to ParserTypeNone
 		if to != ParserTypeNone && to != ParserTypeDNS && to != ParserTypeCRD {
 			return true
 		}
@@ -890,7 +890,7 @@ func createL4Filter(policyCtx PolicyContext, peerEndpoints api.EndpointSelectorS
 					// TODO: Catch this in rule validation once we have a
 					// validation context in there so that we can differentiate
 					// between CNP and CCNP at validation time.
-					return nil, fmt.Errorf("Listener %q in CCNP can not use Kind CiliumEnvoyConfig", pr.Listener.Name)
+					return nil, fmt.Errorf("Listener %q in CCNP cannot use Kind CiliumEnvoyConfig", pr.Listener.Name)
 				}
 			case "CiliumClusterwideEnvoyConfig":
 				// CNP refers to a cluster-scoped listener
