@@ -666,7 +666,7 @@ func TestRequestIdentity(t *testing.T) {
 	// Withhold the first local-scoped identity in the allocator
 	IPIdentityCache.IdentityAllocator.WithholdLocalIdentities([]identity.NumericIdentity{16777216})
 
-	// Upsert the second prefix first, ensuring it does not get the withheld identituy
+	// Upsert the second prefix first, ensuring it does not get the withheld identity
 	injectLabels(inClusterPrefix2)
 	injectLabels(inClusterPrefix)
 

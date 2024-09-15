@@ -965,7 +965,7 @@ const (
 	EnableLocalNodeRoute = "enable-local-node-route"
 
 	// EnableWellKnownIdentities enables the use of well-known identities.
-	// This is requires if identiy resolution is required to bring up the
+	// This is requires if identity resolution is required to bring up the
 	// control plane, e.g. when using the managed etcd feature
 	EnableWellKnownIdentities = "enable-well-known-identities"
 
@@ -2138,7 +2138,7 @@ type DaemonConfig struct {
 	AllowICMPFragNeeded bool
 
 	// EnableWellKnownIdentities enables the use of well-known identities.
-	// This is requires if identiy resolution is required to bring up the
+	// This is requires if identity resolution is required to bring up the
 	// control plane, e.g. when using the managed etcd feature
 	EnableWellKnownIdentities bool
 
