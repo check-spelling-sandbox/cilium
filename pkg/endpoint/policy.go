@@ -443,7 +443,7 @@ func (e *Endpoint) regenerate(ctx *regenerationContext) (retErr error) {
 			return
 		}
 
-		// Guarntee removal of temporary directory regardless of outcome of
+		// Guarantee removal of temporary directory regardless of outcome of
 		// build. If the build was successful, the temporary directory will
 		// have been moved to a new permanent location. If the build failed,
 		// the temporary directory will still exist and we will reomve it.
