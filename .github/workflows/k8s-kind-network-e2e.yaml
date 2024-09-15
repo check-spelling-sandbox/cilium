@@ -218,7 +218,7 @@ jobs:
 
           # Kubernetes e2e tests use ginkgo and tags to select the tests that should run based on two regex, focus and skip:
           # Focus tests:
-          # \[sig-network\]: sig-network tests are defined by sig-network to guarantee a consistent behavior on all the the k8s network implementations
+          # \[sig-network\]: sig-network tests are defined by sig-network to guarantee a consistent behavior on all the k8s network implementations
           # Skipped tests:
           # Disruptive|Serial : require to run in serial and perform disruptive operations on clusters (reboots, ...)
           # Federation|PerformanceDNS : unrelated sig-network tests
