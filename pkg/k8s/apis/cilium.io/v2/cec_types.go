@@ -162,7 +162,7 @@ func (u *XDSResource) UnmarshalJSON(b []byte) (err error) {
 	// xDS resources are not validated in K8s, recover from possible panics
 	defer func() {
 		if r := recover(); r != nil {
-			err = fmt.Errorf("CEC JSON decoding paniced: %v", r)
+			err = fmt.Errorf("CEC JSON decoding panicked: %v", r)
 		}
 	}()
 	u.Any = &anypb.Any{}
