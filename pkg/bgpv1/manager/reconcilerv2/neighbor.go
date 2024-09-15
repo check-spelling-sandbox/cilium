@@ -274,7 +274,7 @@ func (r *NeighborReconciler) Reconcile(ctx context.Context, p ReconcileParams) e
 		if err := p.BGPInstance.Router.RemoveNeighbor(ctx, types.NeighborRequest{
 			Peer: n.Peer,
 		}); err != nil {
-			return fmt.Errorf("failed to remove neigbhor %s from instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
+			return fmt.Errorf("failed to remove neighbor %s from instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
 		}
 		// update metadata
 		r.deleteMetadata(p.BGPInstance, p.DesiredConfig.Name, n)
@@ -289,7 +289,7 @@ func (r *NeighborReconciler) Reconcile(ctx context.Context, p ReconcileParams) e
 			PeerConfig: n.Config,
 			Password:   n.Password,
 		}); err != nil {
-			return fmt.Errorf("failed to update neigbhor %s in instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
+			return fmt.Errorf("failed to update neighbor %s in instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
 		}
 		// update metadata
 		r.upsertMetadata(p.BGPInstance, p.DesiredConfig.Name, n)
@@ -304,7 +304,7 @@ func (r *NeighborReconciler) Reconcile(ctx context.Context, p ReconcileParams) e
 			PeerConfig: n.Config,
 			Password:   n.Password,
 		}); err != nil {
-			return fmt.Errorf("failed to add neigbhor %s in instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
+			return fmt.Errorf("failed to add neighbor %s in instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
 		}
 		// update metadata
 		r.upsertMetadata(p.BGPInstance, p.DesiredConfig.Name, n)

@@ -1551,7 +1551,7 @@ func (n *linuxNodeHandler) NodeCleanNeighbors(migrateOnly bool) {
 		l, err := netlink.LinkByName(linkName)
 		if err != nil {
 			// If the link is not found we don't need to keep retrying cleaning
-			// up the neihbor entries so we can keep successClean=true
+			// up the neighbor entries so we can keep successClean=true
 			var linkNotFoundError netlink.LinkNotFoundError
 			if !errors.As(err, &linkNotFoundError) {
 				n.log.Error("Unable to remove PERM neighbor entries of network device",
