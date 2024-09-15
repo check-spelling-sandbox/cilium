@@ -962,7 +962,7 @@ func Test_addK8sSVCs_NodePort(t *testing.T) {
 func Test_addK8sSVCs_GH9576_1(t *testing.T) {
 	// Adding service without any endpoints and later on modifying the service,
 	// cilium should:
-	// 1) delete the non existing services from the datapath.
+	// 1) delete the nonexistent services from the datapath.
 
 	enableNodePortBak := option.Config.EnableNodePort
 	option.Config.EnableNodePort = true
@@ -1253,7 +1253,7 @@ func Test_addK8sSVCs_GH9576_1(t *testing.T) {
 func Test_addK8sSVCs_GH9576_2(t *testing.T) {
 	// Adding service without any endpoints and later on modifying the service,
 	// cilium should:
-	// 1) delete the non existing endpoints from the datapath, i.e., updating
+	// 1) delete the nonexistent endpoints from the datapath, i.e., updating
 	//    services without any backend.
 
 	enableNodePortBak := option.Config.EnableNodePort

@@ -693,7 +693,7 @@ func (n *linuxNodeHandler) insertNeighborCommon(ctx context.Context, nextHop Nex
 		// 2) Old entry was a dynamic + externally learned one. This
 		// is similar as the PERMANENT one if the entry was NUD_VALID
 		// before. The subsequent NTF_USE will trigger a new resolution.
-		// 3) Old entry was non-existent. Given we don't push down a
+		// 3) Old entry was nonexistent. Given we don't push down a
 		// corresponding lladdr, the neighbor entry gets created by the
 		// kernel, but given prior state was not NUD_VALID then the
 		// __neigh_update() will error out (EINVAL). However, the entry

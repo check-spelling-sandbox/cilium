@@ -4264,7 +4264,7 @@ func InitConfig(cmd *cobra.Command, programName, configName string, vp *viper.Vi
 
 		if Config.ConfigDir != "" {
 			if _, err := os.Stat(Config.ConfigDir); os.IsNotExist(err) {
-				log.Fatalf("Non-existent configuration directory %s", Config.ConfigDir)
+				log.Fatalf("Nonexistent configuration directory %s", Config.ConfigDir)
 			}
 
 			if m, err := ReadDirConfig(Config.ConfigDir); err != nil {

@@ -1024,7 +1024,7 @@ func (s *xdsServer) removeListener(name string, wg *completion.WaitGroup, isProx
 		}
 	} else {
 		// Bail out if this listener does not exist
-		log.Fatalf("Envoy: Attempt to remove non-existent listener: %s", name)
+		log.Fatalf("Envoy: Attempt to remove nonexistent listener: %s", name)
 	}
 	s.mutex.Unlock()
 

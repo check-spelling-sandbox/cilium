@@ -164,7 +164,7 @@ func (d *Daemon) dumpOldIPCache() (map[netip.Prefix]identity.NumericIdentity, er
 	ipcachemap.IPCacheMap().Close()
 
 	if err != nil {
-		// ignore non-existent cache
+		// ignore nonexistent cache
 		if errors.Is(err, fs.ErrNotExist) {
 			err = nil
 		}

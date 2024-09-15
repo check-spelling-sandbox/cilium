@@ -268,10 +268,10 @@ func Test_hasMatchingController(t *testing.T) {
 		require.True(t, res)
 	})
 
-	t.Run("gateway is linked to non-existent class", func(t *testing.T) {
+	t.Run("gateway is linked to nonexistent class", func(t *testing.T) {
 		res := fn(&gatewayv1.Gateway{
 			Spec: gatewayv1.GatewaySpec{
-				GatewayClassName: "non-existent",
+				GatewayClassName: "nonexistent",
 			},
 		})
 		require.False(t, res)

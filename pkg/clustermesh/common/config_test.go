@@ -194,9 +194,9 @@ func TestWatchConfigDirectory(t *testing.T) {
 	wl := watcher.watcher.WatchList()
 	require.ElementsMatch(t, wl, []string{baseDir})
 
-	// Attempting to watch a non existing directory should return an error
+	// Attempting to watch a nonexistent directory should return an error
 	_, err = createConfigDirectoryWatcher(filepath.Join(baseDir, "non-existing"), cm)
-	require.Error(t, err, "Attempting to watch a non existing directory should return an error")
+	require.Error(t, err, "Attempting to watch a nonexistent directory should return an error")
 }
 
 func TestIsEtcdConfigFile(t *testing.T) {

@@ -386,7 +386,7 @@ func TestReconcile(t *testing.T) {
 		require.True(t, k8sApiErrors.IsNotFound(err))
 	})
 
-	t.Run("Reconcile of a non-existent, potentially deleted, Cilium Ingress will try to cleanup any potentially existing shared resources", func(t *testing.T) {
+	t.Run("Reconcile of a nonexistent, potentially deleted, Cilium Ingress will try to cleanup any potentially existing shared resources", func(t *testing.T) {
 		fakeClient := fake.NewClientBuilder().
 			WithScheme(testScheme()).
 			WithObjects(
