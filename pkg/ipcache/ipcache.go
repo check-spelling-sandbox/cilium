@@ -486,7 +486,7 @@ func (ipc *IPCache) UpsertMetadataBatch(updates ...MU) (revision uint64) {
 //
 // This removes nothing:
 //
-//	RemoveMedata(pfx, resource)
+//	RemoveMetadata(pfx, resource)
 //
 // This removes all labels from the given resource:
 //
