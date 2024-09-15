@@ -624,7 +624,7 @@ func CreateIngressEndpoint(owner regeneration.Owner, policyGetter policyRepoGett
 	ep.isIngress = true
 	// An ingress endpoint is defined without a veth interface and no bpf
 	// programs or maps are created for it. Thus, we will set its properties
-	// to not have a bpf policy map nor a bpf datapath.
+	// to neither have a bpf policy map nor a bpf datapath.
 	ep.properties[PropertySkipBPFPolicy] = true
 	ep.properties[PropertyWithouteBPFDatapath] = true
 

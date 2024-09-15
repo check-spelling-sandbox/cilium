@@ -158,7 +158,7 @@ func ValidIPs(podStatus slim_corev1.PodStatus) []string {
 }
 
 // IsPodRunning returns true if the pod is considered to be in running state.
-// We consider a Running pod a pod that does not report a Failed nor a Succeeded
+// We consider a Running pod a pod that does reports neither a Failed nor a Succeeded
 // pod Phase.
 func IsPodRunning(status slim_corev1.PodStatus) bool {
 	switch status.Phase {

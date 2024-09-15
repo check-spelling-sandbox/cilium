@@ -698,7 +698,7 @@ Running End-To-End Tests In Other Environments via kubeconfig
 
 The end-to-end tests can be run with an arbitrary kubeconfig file. Normally the
 CI will use the kubernetes created via vagrant but this can be overridden with
-``--cilium.kubeconfig``. When used, ginkgo will not start a VM nor compile
+``--cilium.kubeconfig``. When used, ginkgo will neither start a VM nor compile
 cilium. It will also skip some setup tasks like labeling nodes for testing.
 
 This mode expects:

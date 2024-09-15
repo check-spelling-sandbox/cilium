@@ -162,7 +162,7 @@ func (w *identityWatcher) watch(events allocator.AllocatorEventRecvChan) {
 
 		More:
 			for {
-				// see if there is more, but do not wait nor stop
+				// see if there is more, but neither wait nor stop
 				select {
 				case event, ok := <-events:
 					if !ok {
