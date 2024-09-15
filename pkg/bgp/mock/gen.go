@@ -173,7 +173,7 @@ func GenTestServicePairs() (slim_corev1.Service, v1.Service, metallbspr.Service,
 }
 
 // GenTestEndpointsPair generates a k8s.Endpoints and a hardcoded conversion
-// to a metallbspr.Endpoints, along with a hardoced conversion to slim_corev1.Endpoints.
+// to a metallbspr.Endpoints, along with a hardcoded conversion to slim_corev1.Endpoints.
 //
 // Since the conversion are hardcoded, the returned types are useful for testing
 // any code which transforms one data structure to the other.
