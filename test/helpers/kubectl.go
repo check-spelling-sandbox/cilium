@@ -1430,7 +1430,7 @@ func (kub *Kubectl) NamespaceLabel(namespace string, label string) *CmdRes {
 
 // WaitforPods waits up until timeout seconds have elapsed for all pods in the
 // specified namespace that match the provided JSONPath filter to have their
-// containterStatuses equal to "ready". Returns true if all pods achieve
+// containerStatuses equal to "ready". Returns true if all pods achieve
 // the aforementioned desired state within timeout seconds. Returns false and
 // an error if the command failed or the timeout was exceeded.
 func (kub *Kubectl) WaitforPods(namespace string, filter string, timeout time.Duration) error {
@@ -1446,7 +1446,7 @@ func (kub *Kubectl) WaitforPods(namespace string, filter string, timeout time.Du
 
 // WaitForSinglePod waits up until timeout seconds have elapsed for a single pod
 // with name 'podname' in the specified namespace to have its
-// containterStatus equal to "ready". Returns true if the pods achieves
+// containerStatus equal to "ready". Returns true if the pods achieves
 // the aforementioned desired state within timeout seconds. Returns false and
 // an error if the command failed or the timeout was exceeded.
 func (kub *Kubectl) WaitForSinglePod(namespace, podname string, timeout time.Duration) error {
@@ -1492,7 +1492,7 @@ func checkReady(pod v1.Pod) bool {
 
 // WaitforNPodsRunning waits up until timeout duration has elapsed for at least
 // minRequired pods in the specified namespace that match the provided JSONPath
-// filter to have their containterStatuses equal to "running".
+// filter to have their containerStatuses equal to "running".
 // Returns no error if minRequired pods achieve the aforementioned desired
 // state within timeout seconds. Returns an error if the command failed or the
 // timeout was exceeded.
@@ -1511,7 +1511,7 @@ func (kub *Kubectl) WaitforNPodsRunning(namespace string, filter string, minRequ
 
 // WaitforNPods waits up until timeout seconds have elapsed for at least
 // minRequired pods in the specified namespace that match the provided JSONPath
-// filter to have their containterStatuses equal to "ready".
+// filter to have their containerStatuses equal to "ready".
 // Returns no error if minRequired pods achieve the aforementioned desired
 // state within timeout seconds. Returns an error if the command failed or the
 // timeout was exceeded.
