@@ -91,7 +91,7 @@ type Configuration struct {
 	preEncryptMTU int
 
 	// postEncryptMTU is the MTU used for configurations of a encryption
-	// route _after_ encryption tags have been addded. These will be used
+	// route _after_ encryption tags have been added. These will be used
 	// in the encryption routing table. The MTU accounts for the tunnel
 	// overhead, if any, but assumes packets are already encrypted.
 	postEncryptMTU int
