@@ -30,7 +30,7 @@ func maskedPort(port uint16, wildcardBits int) MaskedPort {
 }
 
 // PortRangeToMaskedPorts returns a slice of masked ports for the given port range.
-// If the end port is equal to or less then the start port than the start port is returned,
+// If the end port is equal to or less than the start port than the start port is returned,
 // as a fully masked port.
 // Ports are not returned in any particular order, so testing code needs to sort them
 // for consistency.
