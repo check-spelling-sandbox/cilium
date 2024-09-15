@@ -251,7 +251,7 @@ func TestWorkqueueSyncStoreWithWorkers(t *testing.T) {
 	require.Equal(t, NewKVPair("/foo/bar/key1", "value1"), eventually(backend.updated))
 
 	// Since the Update() and Delete() functions implemented by the fake backend
-	// block until we read from the correposponding channel, reading in reversed
+	// block until we read from the corresponding channel, reading in reversed
 	// order the elements from the two channels requires at least two workers
 	store.DeleteKey(ctx, NewKVPair("key1", "value1"))
 	store.UpsertKey(ctx, NewKVPair("key2", "value2"))
