@@ -72,8 +72,8 @@ func TestAnchoredMatchPatternMatching(t *testing.T) {
 		},
 		{
 			pattern: "*",
-			accept:  []string{".", "io.", "cilium.io.", "svc.cluster.local.", "service.namesace.svc.cluster.local.", "_foobar._tcp.cilium.io."}, // the last is for SRV RFC-2782 and DNS-SD RFC6763
-			reject:  []string{"", ".io.", ".cilium.io.", ".svc.cluster.local.", "cilium.io"},                                                    // note no final . on this last one
+			accept:  []string{".", "io.", "cilium.io.", "svc.cluster.local.", "service.namespace.svc.cluster.local.", "_foobar._tcp.cilium.io."}, // the last is for SRV RFC-2782 and DNS-SD RFC6763
+			reject:  []string{"", ".io.", ".cilium.io.", ".svc.cluster.local.", "cilium.io"},                                                     // note no final . on this last one
 		},
 		{
 			pattern: ".",
