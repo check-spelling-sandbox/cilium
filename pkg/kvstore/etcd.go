@@ -611,7 +611,7 @@ func (e *etcdClient) newExpBackoffRateLimiter(name string) backoff.Exponential {
 		Min:    50 * time.Millisecond,
 		Max:    1 * time.Minute,
 
-		NodeManager: backoff.NewNodeManager(e.extraOptions.ClusterSizeDependantInterval),
+		NodeManager: backoff.NewNodeManager(e.extraOptions.ClusterSizeDependentInterval),
 	}
 }
 

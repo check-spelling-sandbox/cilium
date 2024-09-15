@@ -39,8 +39,8 @@ type Configuration struct {
 	// NewRemoteCluster is a function returning a new implementation of the remote cluster business logic.
 	NewRemoteCluster RemoteClusterCreatorFunc
 
-	// ClusterSizeDependantInterval allows to calculate intervals based on cluster size.
-	ClusterSizeDependantInterval kvstore.ClusterSizeDependantIntervalFunc
+	// ClusterSizeDependentInterval allows to calculate intervals based on cluster size.
+	ClusterSizeDependentInterval kvstore.ClusterSizeDependentIntervalFunc
 
 	// Resolvers, if provided, are used to create a custom dialer to connect to etcd.
 	Resolvers []dial.Resolver
@@ -138,7 +138,7 @@ func (cm *clusterMesh) newRemoteCluster(name, path string) *remoteCluster {
 	rc := &remoteCluster{
 		name:                         name,
 		configPath:                   path,
-		clusterSizeDependantInterval: cm.conf.ClusterSizeDependantInterval,
+		clusterSizeDependentInterval: cm.conf.ClusterSizeDependentInterval,
 
 		resolvers: cm.conf.Resolvers,
 

@@ -56,8 +56,8 @@ type Configuration struct {
 
 	IPCache ipcache.IPCacher
 
-	// ClusterSizeDependantInterval allows to calculate intervals based on cluster size.
-	ClusterSizeDependantInterval kvstore.ClusterSizeDependantIntervalFunc
+	// ClusterSizeDependentInterval allows to calculate intervals based on cluster size.
+	ClusterSizeDependentInterval kvstore.ClusterSizeDependentIntervalFunc
 
 	// ServiceResolver, if not nil, is used to create a custom dialer for service resolution.
 	ServiceResolver dial.Resolver
@@ -141,7 +141,7 @@ func NewClusterMesh(lifecycle cell.Lifecycle, c Configuration) *ClusterMesh {
 		Config:                       c.Config,
 		ClusterInfo:                  c.ClusterInfo,
 		RemoteClientFactory:          c.RemoteClientFactory,
-		ClusterSizeDependantInterval: c.ClusterSizeDependantInterval,
+		ClusterSizeDependentInterval: c.ClusterSizeDependentInterval,
 
 		Resolvers: func() (out []dial.Resolver) {
 			if c.ServiceResolver != nil {
