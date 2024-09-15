@@ -4007,7 +4007,7 @@ func (kub *Kubectl) ciliumHostEndpointRegenerated() error {
 	return nil
 }
 
-// GetFilePath is a utility function which returns path to give fale relative to BasePath
+// GetFilePath is a utility function which returns path to give file relative to BasePath
 func (kub *Kubectl) GetFilePath(filename string) string {
 	return filepath.Join(kub.BasePath(), filename)
 }
