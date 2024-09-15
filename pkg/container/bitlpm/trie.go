@@ -243,7 +243,7 @@ func (t *trie[K, T]) traverse(prefixLen uint, k Key[K], fn func(currentNode *nod
 // key. If the match length is not exactly equal, or there is no child
 // to traverse to, or the node prefix is exactly equal to the
 // upsert prefix (these conditions are not mutually exclusive) then traversal
-// is finished. There are four possible insertion/replacement condtions
+// is finished. There are four possible insertion/replacement conditions
 // to consider:
 //  1. The node key is nil (that is, an empty children "slot"), in which
 //     case the previous key iterated over should be the upsert-key's
