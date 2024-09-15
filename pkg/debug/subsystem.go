@@ -17,7 +17,7 @@ type StatusFunc func() string
 // the subsystem name. The value is the subsystem debug status.
 type StatusMap map[string]string
 
-// StatusObject is the interface an object must impelement to be able to be
+// StatusObject is the interface an object must implement to be able to be
 // passed into RegisterStatusObject().
 type StatusObject interface {
 	// DebugStatus() is the equivalent of StatusFunc. It must return the
