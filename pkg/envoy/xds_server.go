@@ -145,23 +145,23 @@ type xdsServer struct {
 	mutex lock.RWMutex
 
 	// listenerMutator publishes listener updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	listenerMutator xds.AckingResourceMutator
 
 	// routeMutator publishes route updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	routeMutator xds.AckingResourceMutator
 
 	// clusterMutator publishes cluster updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	clusterMutator xds.AckingResourceMutator
 
 	// endpointMutator publishes endpoint updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	endpointMutator xds.AckingResourceMutator
 
 	// secretMutator publishes secret updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	secretMutator xds.AckingResourceMutator
 
 	// listeners is the set of names of listeners that have been added by
