@@ -16,7 +16,7 @@ struct csum_offset {
 };
 
 /**
- * Determins the L4 checksum field offset and required flags
+ * Determines the L4 checksum field offset and required flags
  * @arg nexthdr	L3 nextheader field
  * @arg off	Pointer to uninitialied struct csum_offset struct
  *
