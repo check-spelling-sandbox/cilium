@@ -1002,7 +1002,7 @@ func TestRequestHighVersionFromTheStart(t *testing.T) {
 	mutator.Upsert(typeURL, resources[0].Name, resources[0], []string{node0}, wg, callback1)
 	require.Condition(t, isNotCompletedComparison(comp1))
 
-	// Request all resources, with a version higher than the version currently
+	// Request all resources, with a version greater than the version currently
 	// in Cilium's cache. This happens after the server restarts but the
 	// xDS client survives and continues to request the same version.
 	req = &envoy_service_discovery.DiscoveryRequest{

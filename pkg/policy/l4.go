@@ -174,7 +174,7 @@ type PerSelectorPolicy struct {
 	// port number (10000-20000) is used as priority, so that traffic will be consistently
 	// redirected to the same listener.  If higher priority desired, a low unique number like 1,
 	// 2, or 3 should be explicitly specified here.  If a lower than default priority is needed,
-	// then a unique number higher than 20000 should be explicitly specified. Numbers on the
+	// then a unique number greater than 20000 should be explicitly specified. Numbers on the
 	// default range (10000-20000) are not allowed.
 	Priority uint16 `json:"priority,omitempty"`
 

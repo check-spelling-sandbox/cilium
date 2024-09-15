@@ -375,7 +375,7 @@ union bpf_iter_link_info {
  *
  *		Looks for the eBPF program with an id greater than *start_id*
  *		and updates *next_id* on success. If no other eBPF programs
- *		remain with ids higher than *start_id*, returns -1 and sets
+ *		remain with ids greater than *start_id*, returns -1 and sets
  *		*errno* to **ENOENT**.
  *
  *	Return
@@ -388,7 +388,7 @@ union bpf_iter_link_info {
  *
  *		Looks for the eBPF map with an id greater than *start_id*
  *		and updates *next_id* on success. If no other eBPF maps
- *		remain with ids higher than *start_id*, returns -1 and sets
+ *		remain with ids greater than *start_id*, returns -1 and sets
  *		*errno* to **ENOENT**.
  *
  *	Return
@@ -602,7 +602,7 @@ union bpf_iter_link_info {
  *
  *		Looks for the BTF object with an id greater than *start_id*
  *		and updates *next_id* on success. If no other BTF objects
- *		remain with ids higher than *start_id*, returns -1 and sets
+ *		remain with ids greater than *start_id*, returns -1 and sets
  *		*errno* to **ENOENT**.
  *
  *	Return
@@ -783,7 +783,7 @@ union bpf_iter_link_info {
  *
  *		Looks for the eBPF link with an id greater than *start_id*
  *		and updates *next_id* on success. If no other eBPF links
- *		remain with ids higher than *start_id*, returns -1 and sets
+ *		remain with ids greater than *start_id*, returns -1 and sets
  *		*errno* to **ENOENT**.
  *
  *	Return

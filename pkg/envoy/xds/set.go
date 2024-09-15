@@ -22,7 +22,7 @@ type ResourceSource interface {
 	GetResources(typeURL string, lastVersion uint64, nodeIP string, resourceNames []string) (*VersionedResources, error)
 
 	// EnsureVersion increases this resource set's version to be at least the
-	// given version. If the current version is already higher than the
+	// given version. If the current version is already greater than the
 	// given version, this has no effect.
 	EnsureVersion(typeURL string, version uint64)
 }
