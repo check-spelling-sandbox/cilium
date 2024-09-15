@@ -11,7 +11,7 @@ cilium-dbg policy wait <revision> [flags]
 ### Options
 
 ```
-      --fail-wait-time int   Wait time after which command fails if endpoint regeration fails (seconds) (default 60)
+      --fail-wait-time int   Wait time after which command fails if endpoint regeneration fails (seconds) (default 60)
   -h, --help                 help for wait
       --max-wait-time int    Wait time after which command fails (seconds) (default 360)
       --sleep-time int       Sleep interval between checks (seconds) (default 1)
