@@ -836,7 +836,7 @@ func (kub *Kubectl) CreateSecret(secretType, name, namespace, args string) *CmdR
 
 // CopyFileToPod copies a file to a pod's file-system.
 func (kub *Kubectl) CopyFileToPod(namespace string, pod string, fromFile, toFile string) *CmdRes {
-	kub.Logger().Debug(fmt.Sprintf("copyiong file %s to pod %s/%s:%s", fromFile, namespace, pod, toFile))
+	kub.Logger().Debug(fmt.Sprintf("copying file %s to pod %s/%s:%s", fromFile, namespace, pod, toFile))
 	return kub.Exec(fmt.Sprintf("%s cp %s %s/%s:%s", KubectlCmd, fromFile, namespace, pod, toFile))
 }
 
