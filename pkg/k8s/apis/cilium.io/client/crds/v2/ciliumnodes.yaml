@@ -226,7 +226,7 @@ spec:
                     additionalProperties:
                       type: string
                     description: |-
-                      SecurityGroupTags is the list of tags to use when evaliating what
+                      SecurityGroupTags is the list of tags to use when evaluating what
                       AWS security groups to use for the ENI.
                     type: object
                   security-groups:
