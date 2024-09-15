@@ -83,7 +83,7 @@ type CachingIdentityAllocator struct {
 	// for more info.
 	restoredIdentities map[identity.NumericIdentity]*identity.Identity
 
-	// checkpointPath is the file where local allocator state should be checkpoointed.
+	// checkpointPath is the file where local allocator state should be checkpointed.
 	// The default is /run/cilium/state/local_allocator_state.json, changed only for testing.
 	checkpointPath string
 }
