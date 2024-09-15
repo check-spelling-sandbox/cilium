@@ -174,7 +174,7 @@ func endpointSlicesFallbackDiscovery(client kubernetes.Interface) error {
 	// Discovery of API groups requires the API services of the apiserver to be
 	// healthy. Such API services can depend on the readiness of regular pods
 	// which require Cilium to function correctly. By treating failure to
-	// discover API groups as fatal, a critial loop can be entered in which
+	// discover API groups as fatal, a critical loop can be entered in which
 	// Cilium cannot start because the API groups can't be discovered.
 	//
 	// Here we acknowledge the lack of discovery ability as non Fatal and fall back to probing
