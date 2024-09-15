@@ -2975,7 +2975,7 @@ func (kub *Kubectl) CiliumExecContext(ctx context.Context, pod string, cmd strin
 	var res *CmdRes
 	// Sometimes Kubectl returns 126 exit code, It use to happen in Nightly
 	// tests when a lot of exec are in place (Cgroups issue). The upstream
-	// changes did not fix the isse, and we need to make this workaround to
+	// changes did not fix the issue, and we need to make this workaround to
 	// avoid Kubectl issue.
 	// https://github.com/openshift/origin/issues/16246
 	//
