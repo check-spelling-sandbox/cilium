@@ -89,7 +89,7 @@ assign_socket(struct __ctx_buff *ctx,
 
 /**
  * combine_ports joins the specified ports in a manner consistent with
- * pkg/monitor/dataapth_debug.go to report the ports ino monitor messages.
+ * pkg/monitor/datapath_debug.go to report the ports ino monitor messages.
  */
 static __always_inline __u32
 combine_ports(__u16 dport, __u16 sport)
