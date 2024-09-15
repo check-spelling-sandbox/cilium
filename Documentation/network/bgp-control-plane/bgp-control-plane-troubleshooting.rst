@@ -62,7 +62,7 @@ The existing BGP session went down immediately after applying the new CiliumBGPP
 
 A node may be selected by multiple ``CiliumBGPPeeringPolicy`` objects based on
 the configured ``nodeSelector`` fields. If multiple policies are applied, the
-BGP control plane will clear all pre-existing state configured on the node.
+BGP control plane will clear all preexisting state configured on the node.
 First, rollback the last applied ``CiliumBGPPeeringPolicy`` and check the logs
 of the node where the BGP session went down. If multiple policies were applied,
 there should be logs indicating this:

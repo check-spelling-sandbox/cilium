@@ -85,7 +85,7 @@ then
   echo "Disabling and stopping containerd"
   systemctl disable --now containerd
 
-  # Remove any pre-existing files in the CNI configuration directory. We skip
+  # Remove any preexisting files in the CNI configuration directory. We skip
   # any possibly existing Cilium configuration file for the obvious reasons.
   echo "Removing undesired CNI configuration files"
   find "${CNI_CONF_DIR}" -type f -not -name '*cilium*' -exec rm {} \;

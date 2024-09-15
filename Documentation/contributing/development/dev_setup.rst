@@ -136,7 +136,7 @@ For Linux only - with shorter development workflow time
 On Linux environments, or on environments where you can compile and run
 Cilium, it is possible to use "fast" targets. These fast targets will build
 Cilium in the local environment and mount that binary, as well the bpf source
-code, in an pre-existing running Cilium container.
+code, in an preexisting running Cilium container.
 
 * ``make kind-install-cilium-fast``: Installs Cilium into the cluster using the
   Cilium CLI with the volume mounts defined.
