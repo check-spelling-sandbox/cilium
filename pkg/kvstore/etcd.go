@@ -701,7 +701,7 @@ func newExpBackoffRateLimiter(e *etcdClient, name string) backoff.Exponential {
 	}
 
 	if e != nil && e.extraOptions != nil {
-		errLimiter.NodeManager = backoff.NewNodeManager(e.extraOptions.ClusterSizeDependantInterval)
+		errLimiter.NodeManager = backoff.NewNodeManager(e.extraOptions.ClusterSizeDependentInterval)
 	}
 	return errLimiter
 }

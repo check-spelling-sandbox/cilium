@@ -22,27 +22,27 @@ var log = logging.DefaultLogger.WithField(logfields.LogSubsys, "backoff")
 // NodeManager is the interface required to implement cluster size dependent
 // intervals
 type NodeManager interface {
-	ClusterSizeDependantInterval(baseInterval time.Duration) time.Duration
+	ClusterSizeDependentInterval(baseInterval time.Duration) time.Duration
 }
 
 // nodeManager is a wrapper to enable using a plain function as NodeManager to implement
 // cluster size dependent intervals
 type nodeManager struct {
-	clusterSizeDependantInterval func(baseInterval time.Duration) time.Duration
+	clusterSizeDependentInterval func(baseInterval time.Duration) time.Duration
 }
 
 // NewNodeManager returns a new NodeManager implementing cluster size dependent intervals
 // based on the given function. If the function is nil, then no tuning is performed.
-func NewNodeManager(clusterSizeDependantInterval func(baseInterval time.Duration) time.Duration) NodeManager {
-	return &nodeManager{clusterSizeDependantInterval: clusterSizeDependantInterval}
+func NewNodeManager(clusterSizeDependentInterval func(baseInterval time.Duration) time.Duration) NodeManager {
+	return &nodeManager{clusterSizeDependentInterval: clusterSizeDependentInterval}
 }
 
-func (n *nodeManager) ClusterSizeDependantInterval(baseInterval time.Duration) time.Duration {
-	if n.clusterSizeDependantInterval == nil {
+func (n *nodeManager) ClusterSizeDependentInterval(baseInterval time.Duration) time.Duration {
+	if n.clusterSizeDependentInterval == nil {
 		return baseInterval
 	}
 
-	return n.clusterSizeDependantInterval(baseInterval)
+	return n.clusterSizeDependentInterval(baseInterval)
 }
 
 // Exponential implements an exponential backoff
@@ -100,7 +100,7 @@ func CalculateDuration(min, max time.Duration, factor float64, jitter bool, fail
 	return time.Duration(t)
 }
 
-// ClusterSizeDependantInterval returns a time.Duration that is dependent on
+// ClusterSizeDependentInterval returns a time.Duration that is dependent on
 // the cluster size, i.e. the number of nodes that have been discovered. This
 // can be used to control sync intervals of shared or centralized resources to
 // avoid overloading these resources as the cluster grows.
@@ -124,7 +124,7 @@ func CalculateDuration(min, max time.Duration, factor float64, jitter bool, fail
 // 4096  | 8m19.080616652s
 // 8192  | 9m00.662124608s
 // 16384 | 9m42.247293667s
-func ClusterSizeDependantInterval(baseInterval time.Duration, numNodes int) time.Duration {
+func ClusterSizeDependentInterval(baseInterval time.Duration, numNodes int) time.Duration {
 	// no nodes are being managed, no work will be performed, return
 	// baseInterval to check again in a reasonable timeframe
 	if numNodes == 0 {
@@ -188,7 +188,7 @@ func (b *Exponential) Duration(attempt int) time.Duration {
 	t := CalculateDuration(min, b.Max, factor, b.Jitter, attempt)
 
 	if b.NodeManager != nil {
-		t = b.NodeManager.ClusterSizeDependantInterval(t)
+		t = b.NodeManager.ClusterSizeDependentInterval(t)
 	}
 
 	if b.Max != time.Duration(0) && t > b.Max {

@@ -622,7 +622,7 @@ func (d *Daemon) startStatusCollector(cleaner *daemonCleanup) {
 					return backoff.CalculateDuration(5*time.Second, 2*time.Minute, 2.0, false, failures)
 				}
 
-				// The base interval is dependant on the
+				// The base interval is dependent on the
 				// cluster size. One status interval does not
 				// automatically translate to an apiserver
 				// interaction as any regular apiserver
@@ -638,7 +638,7 @@ func (d *Daemon) startStatusCollector(cleaner *daemonCleanup) {
 				// 2048  | 1m15s
 				// 8192  | 1m30s
 				// 16384 | 1m32s
-				return d.nodeDiscovery.Manager.ClusterSizeDependantInterval(10 * time.Second)
+				return d.nodeDiscovery.Manager.ClusterSizeDependentInterval(10 * time.Second)
 			},
 			Probe: func(ctx context.Context) (interface{}, error) {
 				return d.getK8sStatus(), nil

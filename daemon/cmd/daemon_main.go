@@ -1588,7 +1588,7 @@ func initEnv(vp *viper.Viper) {
 
 func (d *Daemon) initKVStore(resolver *dial.ServiceResolver) {
 	goopts := &kvstore.ExtraOptions{
-		ClusterSizeDependantInterval: d.nodeDiscovery.Manager.ClusterSizeDependantInterval,
+		ClusterSizeDependentInterval: d.nodeDiscovery.Manager.ClusterSizeDependentInterval,
 	}
 
 	cg := controller.NewGroup("kvstore-locks-gc")

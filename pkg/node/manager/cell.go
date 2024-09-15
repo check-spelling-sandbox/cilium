@@ -63,11 +63,11 @@ type NodeManager interface {
 	// MeshNodeSync is called when the store completes the initial nodes listing including meshed nodes
 	MeshNodeSync()
 
-	// ClusterSizeDependantInterval returns a time.Duration that is dependent on
+	// ClusterSizeDependentInterval returns a time.Duration that is dependent on
 	// the cluster size, i.e. the number of nodes that have been discovered. This
 	// can be used to control sync intervals of shared or centralized resources to
 	// avoid overloading these resources as the cluster grows.
-	ClusterSizeDependantInterval(baseInterval time.Duration) time.Duration
+	ClusterSizeDependentInterval(baseInterval time.Duration) time.Duration
 
 	// StartNeighborRefresh spawns a controller which refreshes neighbor table
 	// by sending arping periodically.

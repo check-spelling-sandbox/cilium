@@ -36,8 +36,8 @@ type Configuration struct {
 	// nodeName is the name of the local node. This is used for logging and metrics
 	NodeName string
 
-	// ClusterSizeDependantInterval allows to calculate intervals based on cluster size.
-	ClusterSizeDependantInterval kvstore.ClusterSizeDependantIntervalFunc
+	// ClusterSizeDependentInterval allows to calculate intervals based on cluster size.
+	ClusterSizeDependentInterval kvstore.ClusterSizeDependentIntervalFunc
 
 	// ServiceResolver, if not nil, is used to create a custom dialer for service resolution.
 	ServiceResolver *dial.ServiceResolver
@@ -135,7 +135,7 @@ func (cm *clusterMesh) newRemoteCluster(name, path string) *remoteCluster {
 	rc := &remoteCluster{
 		name:                         name,
 		configPath:                   path,
-		clusterSizeDependantInterval: cm.conf.ClusterSizeDependantInterval,
+		clusterSizeDependentInterval: cm.conf.ClusterSizeDependentInterval,
 
 		resolvers: func() []dial.Resolver {
 			if cm.conf.ServiceResolver != nil {

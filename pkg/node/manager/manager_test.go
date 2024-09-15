@@ -417,7 +417,7 @@ func BenchmarkUpdateAndDeleteCycle(b *testing.B) {
 	b.StopTimer()
 }
 
-func TestClusterSizeDependantInterval(t *testing.T) {
+func TestClusterSizeDependentInterval(t *testing.T) {
 	setup(t)
 
 	ipcacheMock := newIPcacheMock()
@@ -438,7 +438,7 @@ func TestClusterSizeDependantInterval(t *testing.T) {
 			},
 		}}
 		mngr.NodeUpdated(n)
-		newInterval := mngr.ClusterSizeDependantInterval(time.Minute)
+		newInterval := mngr.ClusterSizeDependentInterval(time.Minute)
 		assert.Greater(t, newInterval, prevInterval)
 	}
 }

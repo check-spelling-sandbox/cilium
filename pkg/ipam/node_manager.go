@@ -177,12 +177,12 @@ type NodeManager struct {
 	prefixDelegation   bool
 }
 
-func (n *NodeManager) ClusterSizeDependantInterval(baseInterval time.Duration) time.Duration {
+func (n *NodeManager) ClusterSizeDependentInterval(baseInterval time.Duration) time.Duration {
 	n.mutex.RLock()
 	numNodes := len(n.nodes)
 	n.mutex.RUnlock()
 
-	return backoff.ClusterSizeDependantInterval(baseInterval, numNodes)
+	return backoff.ClusterSizeDependentInterval(baseInterval, numNodes)
 }
 
 // NewNodeManager returns a new NodeManager
