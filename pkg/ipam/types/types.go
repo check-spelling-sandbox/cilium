@@ -402,7 +402,7 @@ type Interface interface {
 	DeepCopyInterface() Interface
 }
 
-// InterfaceRevision is the configurationr revision of a network interface. It
+// InterfaceRevision is the configuration revision of a network interface. It
 // consists of a revision hash representing the current configuration version
 // and the resource itself.
 //
