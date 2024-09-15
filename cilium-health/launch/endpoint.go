@@ -339,7 +339,7 @@ func LaunchAsEndpoint(baseCtx context.Context,
 	// Set up the endpoint routes.
 	routes, err := getHealthRoutes(node.GetNodeAddressing(), mtuConfig)
 	if err != nil {
-		return nil, fmt.Errorf("Error while getting routes for containername %q: %w", info.ContainerName, err)
+		return nil, fmt.Errorf("Error while getting routes for container name %q: %w", info.ContainerName, err)
 	}
 
 	err = ns.Do(func() error {
