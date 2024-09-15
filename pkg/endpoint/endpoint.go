@@ -546,7 +546,7 @@ type DNSRulesAPI interface {
 }
 
 // EndpointSyncControllerName returns the controller name to synchronize
-// endpoint in to kubernetes.
+// endpoint in with kubernetes.
 func EndpointSyncControllerName(epID uint16) string {
 	return "sync-to-k8s-ciliumendpoint (" + strconv.FormatUint(uint64(epID), 10) + ")"
 }
