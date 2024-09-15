@@ -354,7 +354,7 @@ var _ = SkipDescribeIf(func() bool {
 				res := kubectl.ExecPodCmd(
 					namespaceForTest, appPods[helpers.App2],
 					helpers.Ping(app1PodIP))
-				res.ExpectFail("Ingrress ping connectivity should be denied for pod %q", helpers.App2)
+				res.ExpectFail("Ingress ping connectivity should be denied for pod %q", helpers.App2)
 			})
 
 			It("Tests proxy visibility with L7 default-allow rules", func() {
@@ -371,7 +371,7 @@ var _ = SkipDescribeIf(func() bool {
 				res := kubectl.ExecPodCmd(
 					namespaceForTest, appPods[helpers.App2],
 					helpers.Ping(app1PodIP))
-				res.ExpectSuccess("Ingrress ping connectivity should be allowed for pod %q", helpers.App2)
+				res.ExpectSuccess("Ingress ping connectivity should be allowed for pod %q", helpers.App2)
 
 			})
 		})
