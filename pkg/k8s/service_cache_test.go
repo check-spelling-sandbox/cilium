@@ -258,7 +258,7 @@ func testServiceCache(t *testing.T,
 	require.Equal(t, true, ready)
 	require.Equal(t, "2.2.2.2:8080/TCP", endpoints.String())
 
-	// Updating the service without chaning it should not result in an event
+	// Updating the service without changing it should not result in an event
 	svcCache.UpdateService(k8sSvc, swgSvcs)
 	time.Sleep(100 * time.Millisecond)
 	select {
