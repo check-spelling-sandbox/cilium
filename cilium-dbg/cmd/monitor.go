@@ -219,7 +219,7 @@ func validateEndpointsFilters() {
 		}
 	}
 
-	// exit if all filters are not not found
+	// exit if all filters are not found
 	if !validFilter {
 		os.Exit(1)
 	}
