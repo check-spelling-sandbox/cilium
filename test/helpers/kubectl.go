@@ -2069,7 +2069,7 @@ func (kub *Kubectl) ValidateServicePlumbing(namespace, service string) error {
 //   - The Kubernetes DNS deployment has at least one replica
 //   - All replicas are up-to-date and ready
 //   - All pods matching the deployment are represented by a CiliumEndpoint with an identity
-//   - The kube-system/kube-dns service is correctly pumbed in all Cilium agents
+//   - The kube-system/kube-dns service is correctly plumbed in all Cilium agents
 //   - The service "default/kubernetes" can be resolved via the KubernetesDNS
 //     and the IP returned matches the ClusterIP in the service
 func (kub *Kubectl) ValidateKubernetesDNS() error {
