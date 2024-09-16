@@ -249,7 +249,7 @@ func (ay *directSysctl) Read(name []string) (string, error) {
 
 	val, err := safeio.ReadAllLimit(f, safeio.KB)
 	if err != nil {
-		return "", fmt.Errorf("could not read the systctl file %s: %w", path, err)
+		return "", fmt.Errorf("could not read the sysctl file %s: %w", path, err)
 	}
 
 	return strings.TrimRight(string(val), "\n"), nil
@@ -316,7 +316,7 @@ func readSysctl(fs afero.Fs, path string) (string, error) {
 
 	val, err := safeio.ReadAllLimit(f, safeio.KB)
 	if err != nil {
-		return "", fmt.Errorf("could not read the systctl file %s: %w", path, err)
+		return "", fmt.Errorf("could not read the sysctl file %s: %w", path, err)
 	}
 
 	return strings.TrimRight(string(val), "\n"), nil
