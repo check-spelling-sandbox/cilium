@@ -638,7 +638,7 @@ func (n *Node) CreateInterface(ctx context.Context, allocation *ipam.AllocationA
 		attachmentID, err = n.manager.ec2api.AttachNetworkInterface(ctx, index, n.node.InstanceID(), eniID)
 
 		// The index is already in use, this can happen if the local
-		// list of ENIs is oudated.  Retry the attachment to avoid
+		// list of ENIs is outdated.  Retry the attachment to avoid
 		// having to delete the ENI
 		if !isAttachmentIndexConflict(err) {
 			break
