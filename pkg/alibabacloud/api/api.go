@@ -396,7 +396,7 @@ func (c *Client) AssignPrivateIPAddresses(ctx context.Context, eniID string, toA
 	return resp.AssignedPrivateIpAddressesSet.PrivateIpSet.PrivateIpAddress, nil
 }
 
-// PrUnassignivateIPAddresses unassign specified IP addresses from ENI
+// UnassignPrivateIPAddresses unassign specified IP addresses from ENI
 // should not provide Primary IP
 func (c *Client) UnassignPrivateIPAddresses(ctx context.Context, eniID string, addresses []string) error {
 	req := ecs.CreateUnassignPrivateIpAddressesRequest()
