@@ -77,7 +77,7 @@ func (s *SearchContext) String() string {
 		to = append(to, toLabel.String())
 	}
 	// We should avoid to use `fmt.Sprintf()` since
-	// it is well-known for not being opimal in terms of
+	// it is well-known for not being optimal in terms of
 	// CPU and memory allocations.
 	// See https://github.com/cilium/cilium/issues/19571
 	for _, dport := range s.DPorts {
