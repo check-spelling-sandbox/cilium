@@ -98,7 +98,7 @@ func BenchmarkRunLocksGC(b *testing.B) {
 
 	allocatorName := randomTestName()
 	maxID := idpool.ID(256 + b.N)
-	// FIXME: Did this previously use allocatorName := randomTestName() ? so TestAllocatorKey(randomeTestName())
+	// FIXME: Did this previously use allocatorName := randomTestName() ? so TestAllocatorKey(randomTestName())
 	backend1, err := NewKVStoreBackend(hivetest.Logger(b), KVStoreBackendConfiguration{allocatorName, "a", TestAllocatorKey(""), client})
 	require.NoError(b, err)
 	allocator, err := allocator.NewAllocator(hivetest.Logger(b), TestAllocatorKey(""), backend1, allocator.WithMax(maxID), allocator.WithoutGC())
@@ -198,7 +198,7 @@ func BenchmarkGC(b *testing.B) {
 
 	allocatorName := randomTestName()
 	maxID := idpool.ID(256 + b.N)
-	// FIXME: Did this previously use allocatorName := randomTestName() ? so TestAllocatorKey(randomeTestName())
+	// FIXME: Did this previously use allocatorName := randomTestName() ? so TestAllocatorKey(randomTestName())
 	backend, err := NewKVStoreBackend(hivetest.Logger(b), KVStoreBackendConfiguration{allocatorName, "a", TestAllocatorKey(""), client})
 	require.NoError(b, err)
 	allocator, err := allocator.NewAllocator(hivetest.Logger(b), TestAllocatorKey(""), backend, allocator.WithMax(maxID), allocator.WithoutGC())
