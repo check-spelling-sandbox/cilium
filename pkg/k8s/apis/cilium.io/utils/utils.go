@@ -58,7 +58,7 @@ func GetPolicyLabels(ns, name string, uid types.UID, derivedFrom string) labels.
 		labels.NewLabel(k8sConst.PolicyLabelName, name, labels.LabelSourceK8s),
 	}
 
-	// For clusterwide policy namespace will be empty.
+	// For cluster-wide policy namespace will be empty.
 	if ns != "" {
 		nsLabel := labels.NewLabel(k8sConst.PolicyLabelNamespace, ns, labels.LabelSourceK8s)
 		labelsArr = append(labelsArr, nsLabel)
@@ -90,7 +90,7 @@ func getEndpointSelector(namespace string, labelSelector *slim_metav1.LabelSelec
 	// able to match on those pods.
 	if !es.HasKey(podPrefixLbl) && !es.HasKey(podAnyPrefixLbl) {
 		if namespace == "" {
-			// For a clusterwide policy if a namespace is not specified in the labels we add
+			// For a cluster-wide policy if a namespace is not specified in the labels we add
 			// a selector to only match endpoints that contains a namespace label.
 			// This is to make sure that we are only allowing traffic for cilium managed k8s endpoints
 			// and even if a wildcard is provided in the selector we don't proceed with a truly

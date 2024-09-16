@@ -315,7 +315,7 @@ func (config *LRPConfig) policyConfigSelectsPod(pod *slimcorev1.Pod) bool {
 }
 
 // checkNamespace returns true if config namespace matches with the given namespace.
-// The namespace check isn't applicable for clusterwide LRPs.
+// The namespace check isn't applicable for cluster-wide LRPs.
 func (config *LRPConfig) checkNamespace(namespace string) bool {
 	if config.id.Namespace != "" {
 		return namespace == config.id.Namespace

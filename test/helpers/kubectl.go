@@ -3271,7 +3271,7 @@ func (kub *Kubectl) CiliumPolicyAction(namespace, filepath string, action Resour
 	return "", kub.waitNextPolicyRevisions(podRevisions, timeout)
 }
 
-// CiliumClusterwidePolicyAction applies a clusterwide policy action as described in action argument. It
+// CiliumClusterwidePolicyAction applies a cluster-wide policy action as described in action argument. It
 // then wait till timeout Duration for the policy to be applied to all the cilium endpoints.
 func (kub *Kubectl) CiliumClusterwidePolicyAction(filepath string, action ResourceLifeCycleAction, timeout time.Duration) (string, error) {
 	podRevisions, err := kub.getPodRevisions()

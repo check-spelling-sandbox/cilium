@@ -425,7 +425,7 @@ func Test_ParseToCiliumRule(t *testing.T) {
 			),
 		},
 		{
-			// For a clusterwide policy the namespace is empty but when a to/fromEndpoint
+			// For a cluster-wide policy the namespace is empty but when a to/fromEndpoint
 			// rule is added that represents a wildcard we add a match expression
 			// to account only for endpoints managed by cilium.
 			name: "wildcard-to-from-endpoints-with-ccnp",

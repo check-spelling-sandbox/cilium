@@ -105,7 +105,7 @@ type IPCache struct {
 	controllers *controller.Manager
 
 	// needNamedPorts is initially 'false', but will atomically be changed to 'true'
-	// when the clusterwide named port mappings are needed for network policy
+	// when the cluster-wide named port mappings are needed for network policy
 	// computation for the first time. This avoids the overhead of unnecessarily
 	// triggering policy updates when it is known not to be needed.
 	needNamedPorts atomic.Bool

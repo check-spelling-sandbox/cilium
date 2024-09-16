@@ -29,7 +29,7 @@ func k8sEventMetric(scope, action string) {
 }
 
 // enableCCNPWatcher is similar to enableCNPWatcher but handles the watch events for
-// clusterwide policies. Since, internally Clusterwide policies are implemented
+// cluster-wide policies. Since, internally Clusterwide policies are implemented
 // using CiliumNetworkPolicy itself, the entire implementation uses the methods
 // associated with CiliumNetworkPolicy.
 func enableCCNPWatcher(ctx context.Context, wg *sync.WaitGroup, clientset k8sClient.Clientset) error {

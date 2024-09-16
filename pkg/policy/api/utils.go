@@ -126,7 +126,7 @@ func ParseL4Proto(proto string) (L4Proto, error) {
 // '/' as a separator.
 //
 // If resourceName already has a slash, it must be of the form 'namespace/name', where namespace
-// usually is equal to 'namespace'. This also applies for clusterwide resources for which
+// usually is equal to 'namespace'. This also applies for cluster-wide resources for which
 // 'namespace' is empty.
 //
 // If 'resourceName' has no slash, it will be prepended with 'namespace/cecName' so that the

@@ -1151,8 +1151,8 @@ var _ = SkipDescribeIf(func() bool {
 			ExpectAllPodsTerminated(kubectl)
 		})
 
-		It("Test clusterwide connectivity with policies", func() {
-			By("Applying Egress deny all clusterwide policy")
+		It("Test cluster-wide connectivity with policies", func() {
+			By("Applying Egress deny all cluster-wide policy")
 			_, err := kubectl.CiliumClusterwidePolicyAction(
 				egressDenyAllPolicy, helpers.KubectlApply, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1178,13 +1178,13 @@ var _ = SkipDescribeIf(func() bool {
 				"host kubernetes.default.svc.cluster.local")
 			res.ExpectFail("Egress DNS connectivity should be denied for pod %q", helpers.App3)
 
-			By("Deleting Egress deny all clusterwide policy")
+			By("Deleting Egress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				egressDenyAllPolicy, helpers.KubectlDelete, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
 				"%q Clusterwide Policy cannot be deleted", egressDenyAllPolicy)
 
-			By("Applying Ingress deny all clusterwide policy")
+			By("Applying Ingress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				ingressDenyAllPolicy, helpers.KubectlApply, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1217,13 +1217,13 @@ var _ = SkipDescribeIf(func() bool {
 
 			// Apply both ingress deny and egress deny all policies and override the policies with
 			// global allow all policy.
-			By("Applying Egress deny all clusterwide policy")
+			By("Applying Egress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				egressDenyAllPolicy, helpers.KubectlApply, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
 				"%q Clusterwide Policy cannot be applied", egressDenyAllPolicy)
 
-			By("Applying Allow all clusterwide policy over ingress deny all and egress deny all")
+			By("Applying Allow all cluster-wide policy over ingress deny all and egress deny all")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				allowAllPolicy, helpers.KubectlApply, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1265,7 +1265,7 @@ var _ = SkipDescribeIf(func() bool {
 			Expect(err).Should(BeNil(),
 				"%q Clusterwide Policy cannot be applied", allowIngressPolicy)
 
-			By("Deleting Egress deny all clusterwide policy")
+			By("Deleting Egress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				egressDenyAllPolicy, helpers.KubectlDelete, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1302,7 +1302,7 @@ var _ = SkipDescribeIf(func() bool {
 			Expect(err).Should(BeNil(),
 				"%q Clusterwide Policy cannot be deleted", allowIngressPolicy)
 
-			By("Deleting Ingress deny all clusterwide policy")
+			By("Deleting Ingress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				ingressDenyAllPolicy, helpers.KubectlDelete, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),

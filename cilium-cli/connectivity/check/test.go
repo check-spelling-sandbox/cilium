@@ -471,7 +471,7 @@ func (t *Test) WithCiliumPolicy(policy string) *Test {
 }
 
 // WithCiliumClusterwidePolicy takes a string containing a YAML policy document
-// and adds the clusterwide polic(y)(ies) to the scope of the Test, to be applied
+// and adds the cluster-wide polic(y)(ies) to the scope of the Test, to be applied
 // when the test starts running. When calling this method, note that the CCNP
 // enabled feature requirement is applied directly here.
 func (t *Test) WithCiliumClusterwidePolicy(policy string) *Test {
