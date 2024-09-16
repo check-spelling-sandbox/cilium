@@ -141,7 +141,7 @@ type Identities interface {
 // TrafficDirection, Protocol, and Port. When identity is not indexed
 // then one policy will map to one key-prefix with a builtin map type
 // that associates each identity with a MapStateEntry. This strategy
-// greatly enhances the usefuleness of the Trie and improves lookup,
+// greatly enhances the usefulness of the Trie and improves lookup,
 // deletion, and insertion times.
 type mapStateMap struct {
 	// entries is the map containing the MapStateEntries
