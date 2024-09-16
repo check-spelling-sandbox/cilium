@@ -2007,7 +2007,7 @@ func startDaemon(d *Daemon, restoredEndpoints *endpointRestoreState, cleaner *da
 				// that may be modified via config patch events.
 				return option.Config.ValidateUnchanged()
 			},
-			// avoid synhronized run with other
+			// avoid synchronized run with other
 			// controllers started at same time
 			RunInterval: 61 * time.Second,
 			Context:     d.ctx,

@@ -2,7 +2,7 @@
 // Copyright Authors of Cilium
 
 // Package synced provides tools for tracking if k8s resources have
-// been initially sychronized with the k8s apiserver.
+// been initially synchronized with the k8s apiserver.
 package synced
 
 import (
