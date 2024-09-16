@@ -1289,7 +1289,7 @@ var _ = SkipDescribeIf(func() bool {
 				helpers.CurlFail(fmt.Sprintf("http://%s/public", firstNSclusterIP)))
 			res.ExpectFail("Ingress connectivity should be denied for service in %s namespace", firstNS)
 
-			By("Testing ingress connectivity from %q to %q across two namespacess", helpers.App3, helpers.App1)
+			By("Testing ingress connectivity from %q to %q across two namespaces", helpers.App3, helpers.App1)
 			res = kubectl.ExecPodCmd(
 				secondNS, appPodsSecondNS[helpers.App3],
 				helpers.CurlFail(fmt.Sprintf("http://%s/public", firstNSclusterIP)))
