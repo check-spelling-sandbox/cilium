@@ -55,7 +55,7 @@ var secretFixture = []client.Object{
 			Name:      "test-synced-secret-no-reference",
 			Labels: map[string]string{
 				secretsync.OwningSecretNamespace: "test",
-				secretsync.OwningSecretName:      "syced-secret-no-reference",
+				secretsync.OwningSecretName:      "synced-secret-no-reference",
 			},
 		},
 	},
