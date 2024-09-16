@@ -532,7 +532,7 @@ func (res *CmdRes) WaitUntilMatchFilterLineTimeout(filter, expected string, time
 
 // WaitUntilMatchFilterLine applies the JSONPath 'filter' to each line of
 // `CmdRes.stdout` and waits until a line matches the 'expected' output.
-// If helpers.HelperTimout is reached it will return an error.
+// If helpers.HelperTimeout is reached it will return an error.
 func (res *CmdRes) WaitUntilMatchFilterLine(filter, expected string) error {
 	return res.WaitUntilMatchFilterLineTimeout(filter, expected, HelperTimeout)
 }
