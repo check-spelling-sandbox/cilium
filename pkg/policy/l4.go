@@ -1621,7 +1621,7 @@ func (l4Policy *L4Policy) AccumulateMapChanges(l4 *L4Filter, cs CachedSelector, 
 				// This happens for new redirects that have not been realized
 				// yet. The accumulated changes should only be consumed after new
 				// redirects have been realized. ConsumeMapChanges then maps this
-				// invalid valut to the real redirect port before the entry is
+				// invalid value to the real redirect port before the entry is
 				// visible to the endpoint package.
 				proxyPort = unrealizedRedirectPort
 			}
