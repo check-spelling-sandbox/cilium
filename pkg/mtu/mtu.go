@@ -42,7 +42,7 @@ const (
 	// overhead is accounted for as:
 	//    Outer IP header:    20B
 	//    SPI:		   4B
-	//    Sequece Numbers:	   4B
+	//    Sequence Numbers:	   4B
 	//    Next Header:         1B
 	//    ICV:		  16B
 	//    Padding:            16B
