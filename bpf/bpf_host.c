@@ -846,7 +846,7 @@ skip_tunnel:
 		/* We have received a packet for which no ipcache entry exists,
 		 * we do not know what to do with this packet, drop it.
 		 *
-		 * The info == NULL test is soley to satisfy verifier requirements
+		 * The info == NULL test is solely to satisfy verifier requirements
 		 * as in Cilium case we'll always hit the 0.0.0.0/32 catch-all
 		 * entry. Therefore we need to test for WORLD_ID. It is clearly
 		 * wrong to route a ctx to cilium_host for which we don't know
