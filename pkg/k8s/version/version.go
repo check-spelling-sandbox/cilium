@@ -286,7 +286,7 @@ func Update(client kubernetes.Interface, apiDiscoveryEnabled bool) error {
 		if err != nil {
 			// It doesn't make sense to retry the retrieval of this
 			// information at a later point because the capabilities are
-			// primiarly used while the agent is starting up. Instead, fall
+			// primarily used while the agent is starting up. Instead, fall
 			// back to probing API endpoints directly.
 			log.WithError(err).Warning("Unable to discover API groups and resources")
 			if err := endpointSlicesFallbackDiscovery(client); err != nil {
