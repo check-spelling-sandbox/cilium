@@ -644,7 +644,7 @@ Passing ``-v -v`` supports deeper detail, for example:
     00000040  00 00 00 00 00 00 c0 a8  21 0b 00 00 8a d6 01 01  |........!.......|
     00000050  ae 45 75 73 11 04 00 00  00 00 00 00              |.Eus........|
     CPU 00: MARK 0x7dc2b704 FROM 3978 DEBUG: Handling ICMPv6 type=135
-    CPU 00: MARK 0x7dc2b704 FROM 3978 DEBUG: ICMPv6 neighbour soliciation for address b21a8c0:d68a0000
+    CPU 00: MARK 0x7dc2b704 FROM 3978 DEBUG: ICMPv6 neighbour solicitation for address b21a8c0:d68a0000
 
 
 One of the most common issues when developing datapath code is that the eBPF
