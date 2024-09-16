@@ -61,7 +61,7 @@ type Sysctl interface {
 }
 
 // reconcilingSysctl is a Sysctl implementation that uses reconciliation to
-// ensure that the desired state is applied. It is the preffered implementation
+// ensure that the desired state is applied. It is the preferred implementation
 // for any binary with hive infrastructure.
 type reconcilingSysctl struct {
 	db       *statedb.DB
