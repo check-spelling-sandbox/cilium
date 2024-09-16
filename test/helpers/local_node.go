@@ -250,7 +250,7 @@ func (s *LocalExecutor) BasePath() string {
 }
 
 // RenderTemplateToFile renders a text/template string into a target filename
-// with specific persmisions. Returns an error if the template cannot be
+// with specific permissions. Returns an error if the template cannot be
 // validated or the file cannot be created.
 func (s *LocalExecutor) RenderTemplateToFile(filename string, tmplt string, perm os.FileMode) error {
 	content, err := RenderTemplate(tmplt)
