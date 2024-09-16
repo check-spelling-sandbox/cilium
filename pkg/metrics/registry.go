@@ -144,7 +144,7 @@ func (r *Registry) Reinitialize() {
 		metricFlag = strings.TrimSpace(metricFlag)
 
 		// This is a temporary hack which allows us to get rid of the centralized metric config without refactoring the
-		// dynamic map pressure registration/unregistion mechanism.
+		// dynamic map pressure registration/unregistration mechanism.
 		// Long term the map pressure metric becomes a smarter component so this is no longer needed.
 		if metricFlag[1:] == "-"+Namespace+"_"+SubsystemBPF+"_map_pressure" {
 			BPFMapPressure = false
