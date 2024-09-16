@@ -44,7 +44,7 @@ const (
 	ciliumPoolIPsUsedCondition      = "cilium.io/IPsUsed"
 	ciliumPoolConflict              = "cilium.io/PoolConflict"
 
-	ciliumSvcLBISKCNWildward = "*"
+	ciliumSvcLBISKCNWildcard = "*"
 
 	// The string used in the FieldManager field on update options
 	ciliumFieldManager = "cilium-operator-lb-ipam"

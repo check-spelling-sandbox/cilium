@@ -364,7 +364,7 @@ func TestPortProtoString(t *testing.T) {
 			want: "TCP",
 		},
 		{
-			name: "Wildard proto / match upper 8 bits of port",
+			name: "Wildcard proto / match upper 8 bits of port",
 			args: args{
 				&PolicyKey{
 					Prefixlen:        StaticPrefixBits + NexthdrBits + DestPortBits/2,
