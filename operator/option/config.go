@@ -358,7 +358,7 @@ type OperatorConfig struct {
 	// for retrieving Azure API credentials
 	AzureUserAssignedIdentityID string
 
-	// AzureUsePrimaryAddress specify wether we should use or ignore the interface's
+	// AzureUsePrimaryAddress specify whether we should use or ignore the interface's
 	// primary IPConfiguration
 	AzureUsePrimaryAddress bool
 

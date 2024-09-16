@@ -1958,7 +1958,7 @@ type DaemonConfig struct {
 	// EnableEndpointRoutes enables use of per endpoint routes
 	EnableEndpointRoutes bool
 
-	// Specifies wheather to annotate the kubernetes nodes or not
+	// Specifies whether to annotate the kubernetes nodes or not
 	AnnotateK8sNode bool
 
 	// EnableNodePort enables k8s NodePort service implementation in BPF
