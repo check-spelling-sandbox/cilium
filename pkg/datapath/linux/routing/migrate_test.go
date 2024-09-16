@@ -404,7 +404,7 @@ func TestMigrateENIDatapathPartial(t *testing.T) {
 // (1) is used for the upgrade test cases where the GetInterfaceNumberByMAC
 // mock is used. (2) is used for the downgrade test cases where the
 // GetMACByInterfaceNumber mock is used. These maps are used in their
-// respectives mocks to return the desired result data depending on the test.
+// respective mocks to return the desired result data depending on the test.
 func setUpRoutingTable(t *testing.T, ifindex, tableID, priority int) (map[string]int, map[string]string) {
 	devIfNum := make(map[string]int)
 	devMAC := make(map[string]string)
