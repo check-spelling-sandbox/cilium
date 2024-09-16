@@ -59,7 +59,7 @@ VTEP integration test steps, You can also run install.sh for following steps
    # docker pull the image and load in kind
    docker pull cilium/cilium:<version>
    kind load docker-image cilium/cilium:<version>
-   # deploy busybox on kind control plaine node
+   # deploy busybox on kind control plain node
    kubectl label node kind-control-plane  dedicated=master
    kubectl taint nodes --all node-role.kubernetes.io/master-
    kubectl taint nodes --all node-role.kubernetes.io/control-plane-

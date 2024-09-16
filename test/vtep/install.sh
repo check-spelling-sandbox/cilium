@@ -23,7 +23,7 @@ helm install cilium cilium/cilium --version <cilium version> \
    --set vtep.mask="255.255.255.0" \
    --set vtep.mac="00:50:56:A0:7D:D8"
 
-# 3 deploy busybox on kind control plaine node
+# 3 deploy busybox on kind control plain node
 
 kubectl label node kind-control-plane  dedicated=master
 kubectl taint nodes --all node-role.kubernetes.io/master-
