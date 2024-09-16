@@ -1598,7 +1598,7 @@ func TestMergeListenerPolicy(t *testing.T) {
 	td.policyMapEquals(t, nil, expected, &egressRule)
 
 	//
-	// namespace in policyContext (Namespaced policy): Can refer to Cluster-socoped
+	// namespace in policyContext (Namespaced policy): Can refer to Cluster-scoped
 	// CiliumClusterwideEnvoyConfig
 	//
 	egressRule = api.Rule{
