@@ -9,7 +9,7 @@ import (
 	"github.com/cilium/cilium/pkg/lock"
 )
 
-// StatusFunc is a function returning the debug status of a subsytem. It is
+// StatusFunc is a function returning the debug status of a subsystem. It is
 // passed into RegisterStatusFunc().
 type StatusFunc func() string
 
