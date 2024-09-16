@@ -277,7 +277,7 @@ func TestL3WithIngressDenyWildcard(t *testing.T) {
 	require.EqualExportedValues(t, &expectedEndpointPolicy, policy)
 }
 
-func TestL3WithLocalHostWildcardd(t *testing.T) {
+func TestL3WithLocalHostWildcard(t *testing.T) {
 	logger := hivetest.Logger(t)
 	td := newTestData(t, logger)
 	td.addIdentitySelector(hostSelector)
