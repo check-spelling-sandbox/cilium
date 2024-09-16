@@ -58,23 +58,23 @@ well with Cilium. Some distributions require a few initial tweaks. Please make
 sure to read each distribution's specific notes below before attempting to
 run Cilium.
 
-========================== ====================
-Distribution               Minimum Version
-========================== ====================
-`Amazon Linux 2`_          all
-`Bottlerocket OS`_         all
-`CentOS`_                  >= 8.6
-`Container-Optimized OS`_  >= 85
-Debian_                    >= 10 Buster
-`Fedora CoreOS`_           >= 31.20200108.3.0
-Flatcar_                   all
-LinuxKit_                  all
-openSUSE_                  Tumbleweed, >=Leap 15.4
-`RedHat Enterprise Linux`_ >= 8.6
-`RedHat CoreOS`_           >= 4.12
-`Talos Linux`_             >= 1.5.0
-Ubuntu_                    >= 20.04
-========================== ====================
+=========================== ====================
+Distribution                Minimum Version
+=========================== ====================
+`Amazon Linux 2`_           all
+`Bottlerocket OS`_          all
+`CentOS`_                   >= 8.6
+`Container-Optimized OS`_   >= 85
+Debian_                     >= 10 Buster
+`Fedora CoreOS`_            >= 31.20200108.3.0
+Flatcar_                    all
+LinuxKit_                   all
+openSUSE_                   Tumbleweed, >=Leap 15.4
+`Red Hat Enterprise Linux`_ >= 8.6
+`Red Hat CoreOS`_           >= 4.12
+`Talos Linux`_              >= 1.5.0
+Ubuntu_                     >= 20.04
+=========================== ====================
 
 
 .. _Amazon Linux 2: https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html
@@ -84,8 +84,8 @@ Ubuntu_                    >= 20.04
 .. _Debian: https://www.debian.org/releases/
 .. _Flatcar: https://www.flatcar.org/releases
 .. _LinuxKit: https://github.com/linuxkit/linuxkit/tree/master/kernel
-.. _RedHat Enterprise Linux: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
-.. _RedHat CoreOS: https://access.redhat.com/articles/6907891
+.. _Red Hat Enterprise Linux: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
+.. _Red Hat CoreOS: https://access.redhat.com/articles/6907891
 .. _Ubuntu: https://www.releases.ubuntu.com/
 .. _openSUSE: https://en.opensuse.org/openSUSE:Roadmap
 .. _Bottlerocket OS: https://github.com/bottlerocket-os/bottlerocket
