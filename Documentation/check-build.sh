@@ -72,7 +72,7 @@ describe_redirect_errors() {
 }
 
 build_with_spellchecker() {
-    # The spell checker runs some Git commands to retreive the name of authors
+    # The spell checker runs some Git commands to retrieve the name of authors
     # and consider them as acceptable words.
     #
     # Recent Git versions refuse to work by default if the repository owner is
