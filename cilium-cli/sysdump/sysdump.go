@@ -2462,10 +2462,10 @@ func extractGopsPID(output string) (string, error) {
 }
 
 func extractGopsProfileData(output string) (string, error) {
-	splited := strings.Split(output, "\n")
+	split := strings.Split(output, "\n")
 	prefix := "saved to: "
 
-	for _, str := range splited {
+	for _, str := range split {
 		if strings.Contains(str, prefix) {
 			return strings.TrimSpace(strings.Split(str, prefix)[1]), nil
 		}
