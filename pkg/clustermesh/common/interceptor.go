@@ -88,7 +88,7 @@ func validateReply(cl *clusterLock, reply any) error {
 // provides validation for an etcd connection to ensure that it is only used
 // for the same etcd cluster it was initially connected to. This is to prevent
 // accidentally connecting to the wrong cluster in a high availability
-// configuration utilizing mutiple active clusters.
+// configuration utilizing multiple active clusters.
 type clusterLock struct {
 	etcdClusterID atomic.Uint64
 	errors        chan error
