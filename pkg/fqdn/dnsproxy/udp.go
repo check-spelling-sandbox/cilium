@@ -197,7 +197,7 @@ func (s *sessionUDP) LocalAddr() net.Addr { return s.laddr }
 // It uses the raw udp connections (IPv4 or IPv6) from its sessionUDPFactory.
 func (s *sessionUDP) WriteResponse(b []byte) (int, error) {
 	// Must give the UDP header to get the source port right.
-	// Reuse the msg buffer, figure out if golang can do gatter-scather IO
+	// Reuse the msg buffer, figure out if golang can do gather-scatter IO
 	// with raw sockets?
 	l := len(b)
 	bb := bytes.NewBuffer(s.m[:0])
