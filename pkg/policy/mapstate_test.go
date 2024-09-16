@@ -2388,7 +2388,7 @@ func TestMapState_AccumulateMapChangesOnVisibilityKeys(t *testing.T) {
 		adds      Keys
 		deletes   Keys
 	}{{
-		name: "test-1a - Adding identity to deny with visibilty",
+		name: "test-1a - Adding identity to deny with visibility",
 		setup: testMapState(MapStateMap{
 			AnyIngressKey():       allowEntry(0),
 			ingressL3OnlyKey(234): denyEntry(0, csFoo),
@@ -2726,7 +2726,7 @@ func TestMapState_AccumulateMapChangesOnVisibilityKeys(t *testing.T) {
 			Old:     make(MapStateMap),
 		}
 
-		// Visibilty redirects need to be re-applied after consumeMapChanges()
+		// Visibility redirects need to be re-applied after consumeMapChanges()
 		for _, arg := range tt.visArgs {
 			policyMapState.addVisibilityKeys(DummyOwner{}, arg.redirectPort, &arg.visMeta, selectorCache, changes)
 		}
