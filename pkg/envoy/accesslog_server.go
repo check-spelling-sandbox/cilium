@@ -225,7 +225,7 @@ func (s *AccessLogServer) logRecord(ctx context.Context, pblog *cilium.LogEntry)
 	// Response access logs from Envoy inherit the source/destination info from the request log
 	// message. Swap source/destination info here for the response logs so that they are
 	// correct.
-	// TODO (jrajahalme): Consider doing this at our Envoy filters instead?
+	// TODO(jrajahalme): Consider doing this at our Envoy filters instead?
 	var addrInfo accesslog.AddressingInfo
 	if flowType == accesslog.TypeResponse {
 		addrInfo.DstIPPort = pblog.SourceAddress

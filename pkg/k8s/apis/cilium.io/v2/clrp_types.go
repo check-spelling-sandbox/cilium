@@ -199,7 +199,7 @@ type CiliumLocalRedirectPolicySpec struct {
 
 // CiliumLocalRedirectPolicyStatus is the status of a Local Redirect Policy.
 type CiliumLocalRedirectPolicyStatus struct {
-	// TODO Define status(aditi)
+	// TODO(aditi) Define status
 	//
 	// +kubebuilder:validation:Optional
 	OK bool `json:"ok,omitempty"`
