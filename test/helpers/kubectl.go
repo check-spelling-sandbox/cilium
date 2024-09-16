@@ -3713,7 +3713,7 @@ func (kub *Kubectl) GatherLogs(ctx context.Context) {
 			reportCmds[key] = fmt.Sprintf("api-resource-%s.txt", line)
 		}
 	} else {
-		kub.Logger().Errorf("Cannot get api-resoureces: %s", res.GetDebugMessage())
+		kub.Logger().Errorf("Cannot get api-resources: %s", res.GetDebugMessage())
 	}
 
 	testPath, err := CreateReportDirectory()

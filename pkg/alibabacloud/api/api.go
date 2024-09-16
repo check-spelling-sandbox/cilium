@@ -444,12 +444,12 @@ func (c *Client) describeNetworkInterfacesFromInstances(ctx context.Context) ([]
 	var result []ecs.NetworkInterfaceSet
 
 	// Get filtered instance IDs
-	tagResouces, err := c.EcsListTagResources(ctx, c.instancesFilters)
+	tagResources, err := c.EcsListTagResources(ctx, c.instancesFilters)
 	if err != nil {
 		return nil, err
 	}
-	instanceIds := make([]string, 0, len(tagResouces))
-	for _, t := range tagResouces {
+	instanceIds := make([]string, 0, len(tagResources))
+	for _, t := range tagResources {
 		instanceIds = append(instanceIds, t.ResourceId)
 	}
 	// The response of ListTagResources can have duplicate instanceId
