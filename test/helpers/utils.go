@@ -68,7 +68,7 @@ func GetRunningCiliumVersion() string {
 // the new style (e.g. "0.0.0.0:53/TCP").
 func HasNewServiceOutput(ver string) bool {
 	cst, err := versioncheck.Version(ver)
-	// If the version is not parseable it is probably
+	// If the version is not parsable it is probably
 	// someone's custom build  or not set.
 	// Either way, it is probably using the new output
 	// format.

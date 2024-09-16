@@ -526,7 +526,7 @@ Users (Alphabetically)
     * N: Parseable
       D: Parseable uses Tertragon for collecting and ingesting eBPF logs for Kubernetes clusters.
       U: Security, eBPF, Tetragon
-      L: https://www.parseable.io/blog/ebpf-log-analytics
+      L: https://www.parsable.io/blog/ebpf-log-analytics
       Q: @nitisht
 
     * N: Pionative

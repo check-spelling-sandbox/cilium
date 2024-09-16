@@ -52,7 +52,7 @@ type HTTPListener struct {
 	// from.
 	Sources []FullyQualifiedResource
 	// IPAddress that the listener should listen on.
-	// The string must be parseable as an IP address.
+	// The string must be parsable as an IP address.
 	Address string
 	// Port on which the service can be expected to be accessed by clients.
 	Port uint32
@@ -113,7 +113,7 @@ type TLSPassthroughListener struct {
 	// from.
 	Sources []FullyQualifiedResource
 	// IPAddress that the listener should listen on.
-	// The string must be parseable as an IP address.
+	// The string must be parsable as an IP address.
 	Address string
 	// Port on which the service can be expected to be accessed by clients.
 	Port uint32
