@@ -1811,7 +1811,7 @@ func Test_parseNetworkPolicyPeer(t *testing.T) {
 }
 
 func TestGetPolicyLabelsv1(t *testing.T) {
-	uuid := "1bba160-ddca-11e8-b697-0800273b04ff"
+	uuid := "11bba160-ddca-11e8-b697-0800273b04ff"
 	tests := []struct {
 		np          *slim_networkingv1.NetworkPolicy // input network policy
 		name        string                           // expected extracted name
