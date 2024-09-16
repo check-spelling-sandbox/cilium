@@ -181,7 +181,7 @@ int ipv4_ipsec_from_host_check(__maybe_unused const struct __ctx_buff *ctx)
 
 	payload = (void *)l4 + sizeof(struct ip_esp_hdr);
 	if ((void *)payload + sizeof(default_data) > data_end)
-		test_fatal("paylaod out of bounds\n");
+		test_fatal("payload out of bounds\n");
 
 	if (memcmp(payload, default_data, sizeof(default_data)) != 0)
 		test_fatal("tcp payload was changed");
@@ -302,7 +302,7 @@ int ipv6_ipsec_from_host_check(__maybe_unused const struct __ctx_buff *ctx)
 
 	payload = (void *)l4 + sizeof(struct ip_esp_hdr);
 	if ((void *)payload + sizeof(default_data) > data_end)
-		test_fatal("paylaod out of bounds\n");
+		test_fatal("payload out of bounds\n");
 
 	if (memcmp(payload, default_data, sizeof(default_data)) != 0)
 		test_fatal("tcp payload was changed");
