@@ -18,7 +18,7 @@ ARG GOLANG_IMAGE=docker.io/library/golang:1.25.6@sha256:ce63a16e0f7063787ebb4eb2
 ARG ETCD_SERVER_IMAGE=gcr.io/etcd-development/etcd:v3.6.7@sha256:70cd5d29d2efcbc4c15f2a63183fd537aae77ddbc46b3b97a8a97bc8751ec3b4
 
 # BUILDPLATFORM is an automatic platform ARG enabled by Docker BuildKit.
-# Represents the plataform where the build is happening, do not mix with
+# Represents the platform where the build is happening, do not mix with
 # TARGETARCH
 FROM --platform=${BUILDPLATFORM} ${GOLANG_IMAGE} AS builder
 

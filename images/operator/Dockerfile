@@ -9,7 +9,7 @@ ARG ALPINE_IMAGE=docker.io/library/alpine:3.23.2@sha256:865b95f46d98cf867a156fe4
 ARG CILIUM_BUILDER_IMAGE=quay.io/cilium/cilium-builder:c104dd36846655d94a999b5aa0570c07d70c762e@sha256:6d16335ec3e810176374cc4f332a4ed44648b50d3143cb4e958b4650b97f7774
 
 # BUILDPLATFORM is an automatic platform ARG enabled by Docker BuildKit.
-# Represents the plataform where the build is happening, do not mix with
+# Represents the platform where the build is happening, do not mix with
 # TARGETARCH
 FROM --platform=${BUILDPLATFORM} ${CILIUM_BUILDER_IMAGE} AS builder
 
@@ -58,7 +58,7 @@ RUN for f in $(find /tmp/debug -type f -name '*.debug' -not -name 'debug-wrapper
     (echo Debug symbols are missing in ${f} - possibly due to incorrect build parameters && false); done
 
 # BUILDPLATFORM is an automatic platform ARG enabled by Docker BuildKit.
-# Represents the plataform where the build is happening, do not mix with
+# Represents the platform where the build is happening, do not mix with
 # TARGETARCH
 FROM --platform=${BUILDPLATFORM} ${ALPINE_IMAGE} AS certs
 RUN apk --update add ca-certificates
