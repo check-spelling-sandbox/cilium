@@ -378,8 +378,8 @@ func (d *Daemon) PolicyDelete(labels labels.LabelArray, opts *policy.DeleteOptio
 
 	res, ok := <-resChan
 	if ok {
-		ress := res.(*PolicyDeleteResult)
-		return ress.newRev, ress.err
+		policyDeleteResult := res.(*PolicyDeleteResult)
+		return policyDeleteResult.newRev, policyDeleteResult.err
 	}
 	return 0, fmt.Errorf("policy deletion event cancelled")
 }
