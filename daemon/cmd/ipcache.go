@@ -85,8 +85,8 @@ func (ipc *ipCacheDumpListener) OnIPIdentityCacheChange(modType ipcache.CacheMod
 			Source:    string(newID.Source),
 			Namespace: k8sMeta.Namespace,
 			Name:      k8sMeta.PodName,
-			// TODO (jrajahalme): Consider if named ports should be
-			//                    made visible in the model.
+			// TODO(jrajahalme): Consider if named ports should be
+			//                   made visible in the model.
 		}
 	}
 

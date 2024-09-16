@@ -1424,7 +1424,7 @@ func (k *K8sClusterMesh) ExternalWorkloadStatus(ctx context.Context, names []str
 }
 
 func log(format string, a ...interface{}) {
-	// TODO (ajs): make logger configurable
+	// TODO(ajs): make logger configurable
 	fmt.Fprintf(os.Stdout, format+"\n", a...)
 }
 
