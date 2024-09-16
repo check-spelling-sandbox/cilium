@@ -19,7 +19,7 @@ Reports metrics related to the Internet Control Message Protocol (ICMP) such as
 message counts.
 
 Metrics:
-  hubble_icmp_total  Number of ICMP messages by prorocol family and type
+  hubble_icmp_total  Number of ICMP messages by protocol family and type
 
 Options:` +
 		api.ContextOptionsHelp
