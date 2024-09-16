@@ -127,7 +127,7 @@ func (ds *DaemonSuite) testEndpointAddNoLabels(t *testing.T) {
 	require.Equal(t, identity.ReservedIdentityInit, secID.ID)
 
 	// Endpoint should transition from Regenerating -> Ready after we've
-	// waitied for its new identity. The presence of new labels triggers a
+	// waited for its new identity. The presence of new labels triggers a
 	// regeneration.
 	assertOnMetric(t, string(models.EndpointStateRegenerating), 0)
 	assertOnMetric(t, string(models.EndpointStateReady), 1)
