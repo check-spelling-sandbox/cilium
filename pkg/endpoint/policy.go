@@ -934,7 +934,7 @@ func (e *Endpoint) UpdateVisibilityPolicy(annoCB AnnotationsResolverCB) {
 }
 
 // UpdateBandwidthPolicy updates the egress bandwidth of this endpoint to
-// progagate the throttle rate to the BPF data path.
+// propagate the throttle rate to the BPF data path.
 func (e *Endpoint) UpdateBandwidthPolicy(bwm dptypes.BandwidthManager, annoCB AnnotationsResolverCB) {
 	ch, err := e.eventQueue.Enqueue(eventqueue.NewEvent(&EndpointPolicyBandwidthEvent{
 		bwm:    bwm,
