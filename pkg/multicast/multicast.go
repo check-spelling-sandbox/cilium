@@ -126,7 +126,7 @@ func IsInGroup(ifc string, maddr netip.Addr) (bool, error) {
 	return false, nil
 }
 
-// Address encapsulates the functionality to generate solicated node multicast address
+// Address encapsulates the functionality to generate solicited node multicast address
 type Address netip.Addr
 
 // Key takes the last 3 bytes of endpoint's IPv6 address and compile them in to
