@@ -73,7 +73,7 @@ func (r *PreflightReconciler) Reconcile(ctx context.Context, p ReconcileParams) 
 		return nil
 	}
 
-	l.Debugf("Begin preflight reoncilation for virtual router with ASN %v", p.DesiredConfig.LocalASN)
+	l.Debugf("Begin preflight reconciliation for virtual router with ASN %v", p.DesiredConfig.LocalASN)
 	bgpInfo, err := p.CurrentServer.Server.GetBGP(ctx)
 	if err != nil {
 		return fmt.Errorf("failed to retrieve BgpServer info for virtual router with ASN %v: %w", p.DesiredConfig.LocalASN, err)
