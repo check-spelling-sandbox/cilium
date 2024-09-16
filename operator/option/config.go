@@ -91,14 +91,6 @@ const (
 
 	// AWS options
 
-<<<<<<< HEAD
-=======
-	// AWSInstanceLimitMapping allows overwriting AWS instance limits defined in
-	// pkg/aws/eni/limits.go
-	// e.g. {"a1.medium": "2,4,4", "a2.custom2": "4,5,6"}
-	AWSInstanceLimitMapping = "aws-instance-limit-mapping"
-
->>>>>>> 37aa81e4f (spelling: overwriting)
 	// AWSReleaseExcessIPs allows releasing excess free IP addresses from ENI.
 	// Enabling this option reduces waste of IP addresses but may increase
 	// the number of API calls to AWS EC2 service.
