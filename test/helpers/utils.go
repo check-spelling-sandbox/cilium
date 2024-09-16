@@ -700,7 +700,7 @@ func (kub *Kubectl) GetNodeCILabel(nodeName string) string {
 	return res.SingleOut()
 }
 
-// IsNodeWithoutCilium returns true if node node doesn't run Cilium.
+// IsNodeWithoutCilium returns true if node doesn't run Cilium.
 func IsNodeWithoutCilium(node string) bool {
 	for _, n := range GetNodesWithoutCilium() {
 		if n == node {
