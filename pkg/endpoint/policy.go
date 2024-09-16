@@ -446,7 +446,7 @@ func (e *Endpoint) regenerate(ctx *regenerationContext) (retErr error) {
 		// Guarantee removal of temporary directory regardless of outcome of
 		// build. If the build was successful, the temporary directory will
 		// have been moved to a new permanent location. If the build failed,
-		// the temporary directory will still exist and we will reomve it.
+		// the temporary directory will still exist and we will remove it.
 		e.removeDirectory(tmpDir)
 
 		// Set to Ready, but only if no other changes are pending.
