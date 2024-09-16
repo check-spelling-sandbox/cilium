@@ -108,7 +108,7 @@ type Configuration struct {
 // specified, otherwise it will be automatically detected. if encapEnabled is
 // true, the MTU is adjusted to account for encapsulation overhead for all
 // routes involved in node to node communication.
-func NewConfiguration(authKeySize int, encryptEnabled bool, encapEnabled bool, wireguardEnabled bool, hsIpcacheDSRenabled bool, mtu int, mtuDetectIP net.IP, enableRouteMTUForCNIChaining bool) Configuration {
+func NewConfiguration(authKeySize int, encryptEnabled bool, encapEnabled bool, wireguardEnabled bool, hsIpcacheDsrEnabled bool, mtu int, mtuDetectIP net.IP, enableRouteMTUForCNIChaining bool) Configuration {
 	encryptOverhead := 0
 
 	if mtu == 0 {
@@ -132,7 +132,7 @@ func NewConfiguration(authKeySize int, encryptEnabled bool, encapEnabled bool, w
 	}
 
 	fullTunnelOverhead := TunnelOverhead
-	if hsIpcacheDSRenabled {
+	if hsIpcacheDsrEnabled {
 		fullTunnelOverhead += DsrTunnelOverhead
 	}
 
