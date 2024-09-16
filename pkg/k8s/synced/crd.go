@@ -154,7 +154,7 @@ func SyncCRDs(ctx context.Context, logger *slog.Logger, clientset client.Clients
 	)
 
 	// Create a context so that we can timeout after the configured CRD wait
-	// peroid.
+	// period.
 	ctx, cancel := context.WithTimeout(ctx, cfg.CRDWaitTimeout)
 	defer cancel()
 
