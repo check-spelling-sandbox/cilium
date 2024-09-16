@@ -2,7 +2,7 @@
 
 # consolidate_go_stacktrace.py collapses a go stacktrace by uniqueing each
 # stack. Addresses, goroutine ID and goroutine ages are ignored when determining
-# uniqeness. A sample of each unique trace is printed
+# uniqueness. A sample of each unique trace is printed
 
 import re
 import sys
