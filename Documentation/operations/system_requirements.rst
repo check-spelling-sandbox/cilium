@@ -69,12 +69,13 @@ Debian_                    >= 10 Buster
 `Fedora CoreOS`_           >= 31.20200108.3.0
 Flatcar_                   all
 LinuxKit_                  all
-Opensuse_                  Tumbleweed, >=Leap 15.4
+openSUSE_                  Tumbleweed, >=Leap 15.4
 `RedHat Enterprise Linux`_ >= 8.6
 `RedHat CoreOS`_           >= 4.12
 `Talos Linux`_             >= 1.5.0
 Ubuntu_                    >= 20.04
 ========================== ====================
+
 
 .. _Amazon Linux 2: https://docs.aws.amazon.com/AL2/latest/relnotes/relnotes-al2.html
 .. _CentOS: https://centos.org
@@ -86,7 +87,7 @@ Ubuntu_                    >= 20.04
 .. _RedHat Enterprise Linux: https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux
 .. _RedHat CoreOS: https://access.redhat.com/articles/6907891
 .. _Ubuntu: https://www.releases.ubuntu.com/
-.. _Opensuse: https://en.opensuse.org/openSUSE:Roadmap
+.. _openSUSE: https://en.opensuse.org/openSUSE:Roadmap
 .. _Bottlerocket OS: https://github.com/bottlerocket-os/bottlerocket
 .. _Talos Linux: https://www.talos.dev/
 
