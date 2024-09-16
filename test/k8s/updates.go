@@ -154,7 +154,7 @@ func removeCilium(kubectl *helpers.Kubectl) {
 
 // InstallAndValidateCiliumUpgrades installs and tests if the oldVersion can be
 // upgrade to the newVersion and if the newVersion can be downgraded to the
-// oldVersion.  It returns two callbacks, the first one is the assertfunction
+// oldVersion.  It returns two callbacks, the first one is the assert function
 // that need to run, and the second one are the cleanup actions
 func InstallAndValidateCiliumUpgrades(kubectl *helpers.Kubectl, oldHelmChartVersion, oldImageVersion, newHelmChartVersion, newImageVersion string) (func(), func()) {
 	var (
