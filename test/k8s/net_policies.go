@@ -1905,7 +1905,7 @@ func installDefaultDenyEgressPolicy(
 	)
 }
 
-// getMatcher returns a helper.CMDSucess() matcher for success or failure
+// getMatcher returns a helper.CMDSuccess() matcher for success or failure
 // situations.
 func getMatcher(val bool) types.GomegaMatcher {
 	if val {
