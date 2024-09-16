@@ -4,7 +4,7 @@
     Please use the official rendered version released here:
     https://docs.cilium.io
 
-.. _bgp_control_plane_troubeshooting:
+.. _bgp_control_plane_troubleshooting:
 
 BGP Control Plane Troubleshooting Guide
 =======================================
