@@ -135,7 +135,7 @@ type DNSCache struct {
 	perHostLimit int
 
 	// minTTL is the minimum TTL value that a cache entry can have, if the TTL
-	// sent in the Update is lower, the TTL will be owerwritten to this value.
+	// sent in the Update is lower, the TTL will be overwritten to this value.
 	// Due is only read-only is not protected by the mutex.
 	minTTL int
 }
