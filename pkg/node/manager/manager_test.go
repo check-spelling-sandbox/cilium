@@ -536,7 +536,7 @@ func TestIpcache(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 
@@ -565,7 +565,7 @@ func TestIpcache(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 }
@@ -613,7 +613,7 @@ func TestIpcacheHealthIP(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 
@@ -642,7 +642,7 @@ func TestIpcacheHealthIP(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 }
@@ -695,7 +695,7 @@ func TestNodeEncryption(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 
@@ -724,7 +724,7 @@ func TestNodeEncryption(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 }

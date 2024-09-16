@@ -604,7 +604,7 @@ func calculateCounters(s *scope, focusedOnly bool) (int, bool) {
 	for _, child := range s.children {
 		if child.focused {
 			if !child.isUnset() {
-				panic("unexepcted redundant recursive call")
+				panic("unexpected redundant recursive call")
 			}
 			child.setSafely(0)
 			c, _ := calculateCounters(child, false)
@@ -620,7 +620,7 @@ func calculateCounters(s *scope, focusedOnly bool) (int, bool) {
 	for _, child := range s.children {
 		if !child.focused {
 			if !child.isUnset() {
-				panic("unexepcted redundant recursive call")
+				panic("unexpected redundant recursive call")
 			}
 			child.setSafely(0)
 			c, f := calculateCounters(child, focusedOnly || haveFocused)
