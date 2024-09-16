@@ -216,9 +216,9 @@ func (s *metallbspeaker) handleNodeEvent(k nodeEvent) types.SyncState {
 	if r := s.speaker.SetNodeLabels(*k.labels); r != types.SyncStateSuccess {
 		switch r {
 		case types.SyncStateReprocessAll:
-			l.Errorf("MetalLB resync required, requeing event: MetalLB Sync State: %v.", r)
+			l.Errorf("MetalLB resync required, requeuing event: MetalLB Sync State: %v.", r)
 		case types.SyncStateError:
-			l.Errorf("Speaker resync required, requeing event: MetalLB Sync State: %v.", r)
+			l.Errorf("Speaker resync required, requeuing event: MetalLB Sync State: %v.", r)
 		default:
 			l.Errorf("Unknown sync state returned from Speaker: %v", r)
 		}
