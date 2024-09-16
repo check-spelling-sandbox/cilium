@@ -217,7 +217,7 @@ func (a *PerSelectorPolicy) GetListener() string {
 	return a.Listener
 }
 
-// GetPriority returns the pritority of the listener of the PerSelectorPolicy.
+// GetPriority returns the priority of the listener of the PerSelectorPolicy.
 func (a *PerSelectorPolicy) GetPriority() uint16 {
 	if a == nil {
 		return 0
