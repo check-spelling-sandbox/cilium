@@ -140,7 +140,7 @@ func (h *Handle) C() <-chan *Event {
 	return h.c // return read only channel to prevent closing outside of Close(...).
 }
 
-// Close allows for safaley closing of a handle.
+// Close allows for safely closing of a handle.
 func (h *Handle) Close() {
 	h.close(nil)
 }
