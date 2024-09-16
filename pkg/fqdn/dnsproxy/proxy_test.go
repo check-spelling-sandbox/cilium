@@ -439,7 +439,7 @@ func TestRespondMixedCaseInRequestResponse(t *testing.T) {
 	s := setupDNSProxyTestSuite(t)
 
 	// Test that mixed case query is allowed out and then back in to support
-	// high-order-bit query uniqueing schemes (and a data exfiltration
+	// high-order-bit query uniquing schemes (and a data exfiltration
 	// vector :( )
 	name := "cilium.io."
 	l7map := policy.L7DataMap{
