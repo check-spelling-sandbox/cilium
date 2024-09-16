@@ -366,7 +366,7 @@ func (p *Proxy) storeProxyPorts(reasons []string) {
 	log.Debug("Wrote proxy ports state")
 }
 
-// restore proxy ports from file created earlier by stroreProxyPorts
+// restore proxy ports from file created earlier by storeProxyPorts
 // must be called with mutex held
 func (p *Proxy) restoreProxyPortsFromFile() error {
 	log := log.WithField(logfields.Path, p.proxyPortsPath)
