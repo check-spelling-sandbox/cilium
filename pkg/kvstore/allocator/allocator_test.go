@@ -99,7 +99,7 @@ func BenchmarkRunLocksGC(b *testing.B) {
 func benchmarkRunLocksGC(b *testing.B, backendName string) {
 	allocatorName := randomTestName()
 	maxID := idpool.ID(256 + b.N)
-	// FIXME: Did this previously use allocatorName := randomTestName() ? so TestAllocatorKey(randomeTestName())
+	// FIXME: Did this previously use allocatorName := randomTestName() ? so TestAllocatorKey(randomTestName())
 	backend1, err := NewKVStoreBackend(KVStoreBackendConfiguration{allocatorName, "a", TestAllocatorKey(""), kvstore.Client()})
 	require.NoError(b, err)
 	allocator, err := allocator.NewAllocator(TestAllocatorKey(""), backend1, allocator.WithMax(maxID), allocator.WithoutGC())
@@ -209,7 +209,7 @@ func BenchmarkGC(b *testing.B) {
 func benchmarkGC(b *testing.B) {
 	allocatorName := randomTestName()
 	maxID := idpool.ID(256 + b.N)
-	// FIXME: Did this previously use allocatorName := randomTestName() ? so TestAllocatorKey(randomeTestName())
+	// FIXME: Did this previously use allocatorName := randomTestName() ? so TestAllocatorKey(randomTestName())
 	backend, err := NewKVStoreBackend(KVStoreBackendConfiguration{allocatorName, "a", TestAllocatorKey(""), kvstore.Client()})
 	require.NoError(b, err)
 	allocator, err := allocator.NewAllocator(TestAllocatorKey(""), backend, allocator.WithMax(maxID), allocator.WithoutGC())
