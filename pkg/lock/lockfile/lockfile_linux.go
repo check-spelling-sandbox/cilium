@@ -45,7 +45,7 @@ func (l *Lockfile) Close() error {
 	return fp.Close()
 }
 
-// TryLock will attempt to take a lock, returining error if it is not
+// TryLock will attempt to take a lock, returning error if it is not
 // possible to acquire the lock.
 // If exclusive is true, then it will attempt to obtain a write, or exclusive, lock
 func (l *Lockfile) TryLock(exclusive bool) error {
