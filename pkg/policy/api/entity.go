@@ -46,7 +46,7 @@ const (
 	// EntityIngress is an entity that represents envoy proxy
 	EntityIngress Entity = "ingress"
 
-	// EntityUnmanaged is an entity that represents unamanaged endpoints.
+	// EntityUnmanaged is an entity that represents unmanaged endpoints.
 	EntityUnmanaged Entity = "unmanaged"
 
 	// EntityRemoteNode is an entity that represents all remote nodes
