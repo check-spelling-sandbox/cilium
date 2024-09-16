@@ -1306,7 +1306,7 @@ enum {
 /* Create a map that is suitable to be an inner map with dynamic max entries */
 	BPF_F_INNER_MAP		= (1U << 12),
 
-/* Create a map that will be registered/unregesitered by the backed bpf_link */
+/* Create a map that will be registered/unregistered by the backed bpf_link */
 	BPF_F_LINK		= (1U << 13),
 
 /* Get path from provided FD in BPF_OBJ_PIN/BPF_OBJ_GET commands */
