@@ -17,7 +17,7 @@ filters = {'lock': ["lock", "Lock(", "RLock(", "Semacquire("]}
 
 def get_stacks(f):
     """
-    get_stacks parses file f and yields all lines in go stackrace as one array
+    get_stacks parses file f and yields all lines in go stacktrace as one array
     """
     accum = []
     for line in f:
