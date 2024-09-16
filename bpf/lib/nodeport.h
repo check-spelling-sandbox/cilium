@@ -2896,7 +2896,7 @@ static __always_inline int nodeport_svc_lb4(struct __ctx_buff *ctx,
 			src_sec_identity = WORLD_IPV4_ID;
 
 		 /* Before forwarding the identity, make sure it's not local,
-		  * as in that case the next hop would't understand it.
+		  * as in that case the next hop wouldn't understand it.
 		  */
 		if (identity_is_local(src_sec_identity))
 			return DROP_INVALID_IDENTITY;
