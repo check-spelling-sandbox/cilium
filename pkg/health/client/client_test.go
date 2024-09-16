@@ -225,10 +225,10 @@ func TestFormatNodeStatus(t *testing.T) {
 					Name:           name,
 				}
 				for _, printAllOpt := range printAllOptions {
-					for _, succintOpt := range succinctOptions {
+					for _, succinctOpt := range succinctOptions {
 						for _, verboseOpt := range verboseOptions {
 							for _, localhostOpt := range localhostOptions {
-								formatNodeStatus(w, ns, printAllOpt, succintOpt, verboseOpt, localhostOpt)
+								formatNodeStatus(w, ns, printAllOpt, succinctOpt, verboseOpt, localhostOpt)
 							}
 						}
 					}
