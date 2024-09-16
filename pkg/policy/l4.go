@@ -610,7 +610,7 @@ func (l4 *L4Filter) toMapState(p *EndpointPolicy, features policyFeatures, redir
 			proxyID := ProxyID(uint16(p.PolicyOwner.GetID()), l4.Ingress, string(l4.Protocol), port, listener)
 			proxyPort, exists = redirects[proxyID]
 			if !exists {
-				// Skip unrealized redirects; this happens routineously just
+				// Skip unrealized redirects; this happens routinely just
 				// before new redirects are realized. Once created, we are called
 				// again.
 				logger.WithField(logfields.EndpointSelector, cs).Debugf("Skipping unrealized redirect %s (%v)", proxyID, redirects)
