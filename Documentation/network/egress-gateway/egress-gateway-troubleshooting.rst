@@ -4,7 +4,7 @@
     Please use the official rendered version released here:
     https://docs.cilium.io
 
-.. _egress_gateway_troubeshooting:
+.. _egress_gateway_troubleshooting:
 
 Egress Gateway Advanced Troubleshooting
 =======================================
