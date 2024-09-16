@@ -104,7 +104,7 @@ func ValidateLabels(labels map[string]string, fldPath *field.Path) field.ErrorLi
 
 var FieldManagerMaxLength = 128
 
-// ValidateFieldManager valides that the fieldManager is the proper length and
+// ValidateFieldManager validates that the fieldManager is the proper length and
 // only has printable characters.
 func ValidateFieldManager(fieldManager string, fldPath *field.Path) field.ErrorList {
 	allErrs := field.ErrorList{}
