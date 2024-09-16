@@ -1275,7 +1275,7 @@ func TestMergeListenerPolicy(t *testing.T) {
 	require.Equal(t, ParserTypeCRD, l4Filter.L7Parser)
 
 	//
-	// namespace in policyContext (Namespaced policy): Can refer to Cluster-socoped
+	// namespace in policyContext (Namespaced policy): Can refer to Cluster-scoped
 	// CiliumClusterwideEnvoyConfig
 	//
 	egressRule = &rule{
