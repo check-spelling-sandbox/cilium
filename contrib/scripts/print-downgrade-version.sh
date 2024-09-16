@@ -9,7 +9,7 @@
 # whether an empty value should lead to an error or to skipping parts of a CI
 # job.
 #
-# To some extent, this script is taylored for Cilium's CI workflows, and is
+# To some extent, this script is tailored for Cilium's CI workflows, and is
 # probably not something you want to run for other purposes.
 #
 # Usage:
