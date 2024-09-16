@@ -240,8 +240,8 @@ type identityNotifier interface {
 // AddFQDNSelector adds the given api.FQDNSelector in to the selector cache. If
 // an identical EndpointSelector has already been cached, the corresponding
 // CachedSelector is returned, otherwise one is created and added to the cache.
-func (sc *SelectorCache) AddFQDNSelector(user CachedSelectionUser, lbls labels.LabelArray, fqdnSelec api.FQDNSelector) (cachedSelector CachedSelector, added bool) {
-	key := fqdnSelec.String()
+func (sc *SelectorCache) AddFQDNSelector(user CachedSelectionUser, lbls labels.LabelArray, fqdnSelectorInput api.FQDNSelector) (cachedSelector CachedSelector, added bool) {
+	key := fqdnSelectorInput.String()
 
 	sc.mutex.Lock()
 	defer sc.mutex.Unlock()
@@ -253,7 +253,7 @@ func (sc *SelectorCache) AddFQDNSelector(user CachedSelectionUser, lbls labels.L
 	}
 
 	source := &fqdnSelector{
-		selector: fqdnSelec,
+		selector: fqdnSelectorInput,
 	}
 
 	// Make the FQDN subsystem aware of this selector
