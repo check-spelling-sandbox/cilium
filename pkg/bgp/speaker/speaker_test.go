@@ -336,7 +336,7 @@ func TestSpeakerOnUpdateNode(t *testing.T) {
 	}
 
 	// when our mock has it's SetNodeLabel and PeerSession method calls these
-	// two functions wil delegate for them.
+	// two functions will delegate for them.
 	//
 	// we record the arguments and return our mock session object respectively.
 	mock := &mock.MockMetalLBSpeaker{
