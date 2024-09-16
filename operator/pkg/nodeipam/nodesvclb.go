@@ -202,7 +202,7 @@ func (r *nodeSvcLBReconciler) getEndpointSliceNodeNames(ctx context.Context, svc
 	return selectedNodes, nil
 }
 
-// getRelevantNodes gets all the nodes candidates for seletion by nodeipam
+// getRelevantNodes gets all the nodes candidates for selection by nodeipam
 func (r *nodeSvcLBReconciler) getRelevantNodes(ctx context.Context, svc *corev1.Service) ([]corev1.Node, error) {
 	scopedLog := r.Logger.WithFields(logrus.Fields{
 		logfields.Controller: "node-service-lb",
