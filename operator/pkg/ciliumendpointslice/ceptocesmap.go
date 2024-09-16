@@ -25,7 +25,7 @@ type CESToCEPMapping struct {
 }
 
 // CESData contains all CES data except endpoints.
-// CES is reconicled to have endpoints equal to CEPs mapped to it
+// CES is reconciled to have endpoints equal to CEPs mapped to it
 // and other fields set from the CESData.
 type CESData struct {
 	ns string
