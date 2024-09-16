@@ -60,7 +60,7 @@ var (
 	keysNullDat    = []byte("3 digest_null \"\" cipher_null \"\"\n")
 	keysAeadDat    = []byte("4 rfc4106(gcm(aes)) 44434241343332312423222114131211f4f3f2f1 128\n")
 	keysAeadDat256 = []byte("5 rfc4106(gcm(aes)) 44434241343332312423222114131211f4f3f2f144434241343332312423222114131211 128\n")
-	invalidKeysDat = []byte("6 test abcdefghijklmnopqrstuvwzyzABCDEF test abcdefghijklmnopqrstuvwzyzABCDEF\n")
+	invalidKeysDat = []byte("6 test abcdefghijklmnopqrstuvwxyzABCDEF test abcdefghijklmnopqrstuvwxyzABCDEF\n")
 	keysSameSpiDat = []byte("7 hmac(sha256) 0123456789abcdef0123456789abcdef cbc(aes) 0123456789abcdef0123456789abcdef\n7 digest_null \"\" cipher_null \"\"\n")
 
 	local  *net.IPNet
