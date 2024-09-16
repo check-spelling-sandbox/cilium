@@ -162,7 +162,7 @@ func pidFromProcess(proc *os.Process) string {
 
 // compile and optionally link a program.
 //
-// May output assembly or source code after prepocessing.
+// May output assembly or source code after preprocessing.
 func compile(ctx context.Context, logger *slog.Logger, prog *progInfo, dir *directoryInfo) (string, error) {
 	compileArgs := append(testIncludes,
 		fmt.Sprintf("-I%s", path.Join(dir.Runtime, "globals")),
