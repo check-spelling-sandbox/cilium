@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# consolidate_go_stacktrace.py collapses a go stacktrace by uniqueing each
+# consolidate_go_stacktrace.py collapses a go stacktrace by uniquing each
 # stack. Addresses, goroutine ID and goroutine ages are ignored when determining
 # uniqueness. A sample of each unique trace is printed
 
