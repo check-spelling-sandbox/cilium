@@ -91,7 +91,7 @@ var _ = SkipDescribeIf(helpers.RunsOn54Kernel, "K8sKafkaPolicyTest", func() {
 		})
 
 		AfterEach(func() {
-			// On aftereach don't make assertions to delete all.
+			// On after each don't make assertions to delete all.
 			_ = kubectl.Delete(demoPath)
 			_ = kubectl.Delete(l7Policy)
 
