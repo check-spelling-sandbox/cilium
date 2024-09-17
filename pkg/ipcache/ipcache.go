@@ -552,8 +552,8 @@ func (ipc *IPCache) RemovePrefixes(prefixes []netip.Prefix, src source.Source, r
 }
 
 // UpsertLabels upserts a given IP and its corresponding labels associated
-// with it into the ipcache metadata map. The given labels are not modified nor
-// is its reference saved, as they're copied when inserting into the map.
+// with it into the ipcache metadata map. The given labels are copied unmodified
+// when inserting into the map.
 // This will trigger asynchronous calculation of any local identity changes
 // that must occur to associate the specified labels with the prefix, and push
 // any datapath updates necessary to implement the logic associated with the
