@@ -429,9 +429,8 @@ func TestPrivilegedRespondViaCorrectProtocol(t *testing.T) {
 func TestPrivilegedRespondMixedCaseInRequestResponse(t *testing.T) {
 	s := setupDNSProxyTestSuite(t)
 
-	// Test that mixed case query is allowed out and then back in to support
-	// high-order-bit query uniquing schemes (and a data exfiltration
-	// vector :( )
+	// To support high-order-bit query uniquing schemes (and a data exfiltration
+	// vector :( ), test that mixed case query is allowed out and then back in.
 	name := "cilium.io."
 	l7map := policy.L7DataMap{
 		cachedDstID1Selector: &policy.PerSelectorPolicy{
