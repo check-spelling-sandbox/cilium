@@ -105,7 +105,7 @@ func TestParserTypeMerge(t *testing.T) {
 		{ParserTypeDNS, L7ParserType("foo"), ParserTypeNone, false},
 		{L7ParserType("foo"), ParserTypeDNS, ParserTypeNone, false},
 
-		// Proxylib parsers do not merge with other proxylib parsers nor with HTTP
+		// Proxylib parsers do not merge with other proxylib/HTTP parsers
 
 		{ParserTypeKafka, ParserTypeHTTP, ParserTypeNone, false},
 		{ParserTypeHTTP, ParserTypeKafka, ParserTypeNone, false},
