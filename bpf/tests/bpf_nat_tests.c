@@ -169,7 +169,7 @@ int test_nat4_icmp_error_tcp(__maybe_unused struct __ctx_buff *ctx)
 
 	int ret;
 
-	/* As a pre-requist we instruct the NAT table
+	/* As a prerequisite we instruct the NAT table
 	 * to simulate an ingress packet sent by
 	 * endpoint to the world.
 	 */
@@ -283,7 +283,7 @@ int test_nat4_icmp_error_udp(__maybe_unused struct __ctx_buff *ctx)
 
 	int ret;
 
-	/* As a pre-requist we instruct the NAT table
+	/* As a prerequisite we instruct the NAT table
 	 * to simulate an ingress packet sent by
 	 * endpoint to the world.
 	 */
@@ -397,7 +397,7 @@ int test_nat4_icmp_error_icmp(__maybe_unused struct __ctx_buff *ctx)
 
 	int ret;
 
-	/* As a pre-requist we instruct the NAT table
+	/* As a prerequisite we instruct the NAT table
 	 * to simulate an ingress packet sent by
 	 * endpoint to the world.
 	 */
@@ -498,7 +498,7 @@ int test_nat4_icmp_error_sctp(__maybe_unused struct __ctx_buff *ctx)
 
 	int ret;
 
-	/* As a pre-requist we instruct the NAT table
+	/* As a prerequisite we instruct the NAT table
 	 * to simulate an ingress packet sent by
 	 * endpoint to the world.
 	 */
@@ -564,7 +564,7 @@ int test_nat4_icmp_error_tcp_egress(__maybe_unused struct __ctx_buff *ctx)
 
 	int ret;
 
-	/* As a pre-requist we instruct the NAT table
+	/* As a prerequisite we instruct the NAT table
 	 * to simulate an egress packet sent by
 	 * endpoint to the world.
 	 */
@@ -683,7 +683,7 @@ int test_nat4_icmp_error_udp_egress(__maybe_unused struct __ctx_buff *ctx)
 
 	int ret;
 
-	/* As a pre-requist we instruct the NAT table
+	/* As a prerequisite we instruct the NAT table
 	 * to simulate an egress packet sent by
 	 * endpoint to the world.
 	 */
@@ -802,7 +802,7 @@ int test_nat4_icmp_error_icmp_egress(__maybe_unused struct __ctx_buff *ctx)
 
 	int ret;
 
-	/* As a pre-requist we instruct the NAT table
+	/* As a prerequisite we instruct the NAT table
 	 * to simulate an egress packet sent by
 	 * endpoint to the world.
 	 */
@@ -908,7 +908,7 @@ int test_nat4_icmp_error_sctp_egress(__maybe_unused struct __ctx_buff *ctx)
 
 	int ret;
 
-	/* As a pre-requist we instruct the NAT table
+	/* As a prerequisite we instruct the NAT table
 	 * to simulate an egress packet sent by
 	 * endpoint to the world.
 	 */
