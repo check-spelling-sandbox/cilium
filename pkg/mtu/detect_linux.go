@@ -148,7 +148,7 @@ func detectMTU(
 				"dev-mtu", dev.MTU,
 			)
 		} else if dev.MTU > runningMTU {
-			log.Warn("MTU on selected device is higher than the MTU Cilium has configured/detected, "+
+			log.Warn("MTU on selected device is greater than the MTU Cilium has configured/detected, "+
 				"restarting the agent or adjusting configuration may improve performance",
 				"running-mtu", runningMTU,
 				"dev", dev.Name,

@@ -13,7 +13,7 @@ import "time"
 // garbage collected until after it fires. Conversely,
 // IncTimer only uses one timer and correctly stops
 // the timer, clears its channel, and resets it
-// everytime that `After` is called.
+// every time that `After` is called.
 type IncTimer interface {
 	After(time.Duration) <-chan time.Time
 }
@@ -63,7 +63,7 @@ func (it *incTimer) After(d time.Duration) <-chan time.Time {
 	// Timer.Reset and need to create a new timer.
 	//
 	// [1] The reason why this small window occurs, is because the Go runtime
-	// will remove a timer from the heap and and mark it as deleted _before_
+	// will remove a timer from the heap and mark it as deleted _before_
 	// it actually executes the timer function f:
 	// https://github.com/golang/go/blob/go1.16/src/runtime/time.go#L876
 	// This causes t.Stop to report the timer as already expired while it is

@@ -864,7 +864,7 @@ type ServiceSpec struct {
 	// implementation is watching for Services with a matching class. Any default load balancer
 	// implementation (e.g. cloud providers) should ignore Services that set this field.
 	// This field can only be set when creating or updating a Service to type 'LoadBalancer'.
-	// Once set, it can not be changed. This field will be wiped when a service is updated to a non 'LoadBalancer' type.
+	// Once set, it cannot be changed. This field will be wiped when a service is updated to a non 'LoadBalancer' type.
 	// +optional
 	LoadBalancerClass *string `json:"loadBalancerClass,omitempty" protobuf:"bytes,21,opt,name=loadBalancerClass"`
 
@@ -1455,7 +1455,7 @@ const (
 	// BasicAuthPasswordKey is the key of the password or token for SecretTypeBasicAuth secrets
 	BasicAuthPasswordKey = "password"
 
-	// SecretTypeSSHAuth contains data needed for SSH authetication.
+	// SecretTypeSSHAuth contains data needed for SSH authentication.
 	//
 	// Required field:
 	// - Secret.Data["ssh-privatekey"] - private SSH key needed for authentication

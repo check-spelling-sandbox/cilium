@@ -502,7 +502,7 @@ func TestReconcileExistingConfigs(t *testing.T) {
 			expectedDeleted: []string{"ns1/config5", "ns1/config6"},
 		},
 		{
-			name: "Failures during updating individual configs should't abort",
+			name: "Failures during updating individual configs shouldn't abort",
 			configs: map[resource.Key]*config{
 				{Namespace: "ns1", Name: "config1"}: testConfig("ns1", "config1", map[string]string{"role": "infra", "node": "node1"}, false),
 				{Namespace: "ns1", Name: "config2"}: testConfig("ns1", "config2", map[string]string{"role": "infra", "node": "node1"}, false),
@@ -647,7 +647,7 @@ func TestHandleLocalNodeLabels(t *testing.T) {
 			expectedDeleted: []string{"ns1/config1"},
 		},
 		{
-			name: "Failures during updating individual configs should't result in any error - as it's only best effort",
+			name: "Failures during updating individual configs shouldn't result in any error - as it's only best effort",
 			configs: map[resource.Key]*config{
 				{Namespace: "ns1", Name: "config2"}: testConfig("ns1", "config2", map[string]string{"role": "infra", "node": "node1"}, false),
 			},

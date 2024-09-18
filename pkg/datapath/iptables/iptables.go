@@ -1333,7 +1333,7 @@ func (m *Manager) installMasqueradeRules(
 	// If this rule matches, none of the remaining rules in this chain
 	// are considered.
 
-	// Exclude proxy return traffic from the masquarade rules.
+	// Exclude proxy return traffic from the masquerade rules.
 	if err := prog.runProg([]string{
 		"-t", "nat",
 		"-A", ciliumPostNatChain,

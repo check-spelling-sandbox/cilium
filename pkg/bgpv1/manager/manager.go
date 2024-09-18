@@ -417,7 +417,7 @@ func (m *BGPRouterManager) withdrawAll(ctx context.Context, rd *reconcileDiff) e
 }
 
 // reconcile evaluates existing BgpServer(s), making changes if necessary, as
-// instructed by the provided reoncileDiff.
+// instructed by the provided reconcileDiff.
 func (m *BGPRouterManager) reconcile(ctx context.Context, rd *reconcileDiff) error {
 	l := log.WithFields(
 		logrus.Fields{

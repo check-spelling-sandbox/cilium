@@ -414,7 +414,7 @@ spec:
                             default: 30
                             description: |-
                               KeepaliveTimeSeconds defines the initial value for the BGP KeepaliveTimer (RFC 4271, Section 8).
-                              It can not be larger than HoldTimeSeconds. Updating this value will cause a session reset.
+                              It cannot be larger than HoldTimeSeconds. Updating this value will cause a session reset.
                             format: int32
                             maximum: 65535
                             minimum: 1

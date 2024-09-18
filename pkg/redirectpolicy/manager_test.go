@@ -628,7 +628,7 @@ func TestManager_AddrMatcherConfigDualStack(t *testing.T) {
 }
 
 // Tests add and update pod operations with namespace mismatched pods.
-func TestManager_OnAddandUpdatePod(t *testing.T) {
+func TestManager_OnAddAndUpdatePod(t *testing.T) {
 	m := setupManagerSuite(t)
 
 	configFe := configAddrType

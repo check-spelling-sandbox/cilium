@@ -329,7 +329,7 @@ func TestMigrateENIDatapathDowngradeFailure(t *testing.T) {
 func TestMigrateENIDatapathPartial(t *testing.T) {
 	// This test case will cover one case where we find a partial rule. It will
 	// be set up with a rule with the newer priority and the user has indicated
-	// compatbility=false, meaning they intend to upgrade. The fact that
+	// compatibility=false, meaning they intend to upgrade. The fact that
 	// there's already a rule with a newer priority indicates that a previous
 	// migration has taken place and potentially failed. This simulates Cilium
 	// starting up from a potentially failed previous migration.
@@ -393,9 +393,9 @@ func TestMigrateENIDatapathPartial(t *testing.T) {
 	})
 }
 
-// setUpRoutingTable initializes the routing table for this test suite. The
-// starting ifindex, tableID, and the priority are passed in to give contron to
-// the caller on the setupMigrateSuite. The two return values are:
+// setUpRoutingTable initializes the routing table for this test suite. To give control
+// to the caller on the setupMigrateSuite, the starting ifindex, tableID, and the
+// priority are passed in. The two return values are:
 //  1. Map of string to int, representing a mapping from MAC addrs to
 //     interface numbers.
 //  2. Map of string to string, representing a mapping from device name to MAC
@@ -404,7 +404,7 @@ func TestMigrateENIDatapathPartial(t *testing.T) {
 // (1) is used for the upgrade test cases where the GetInterfaceNumberByMAC
 // mock is used. (2) is used for the downgrade test cases where the
 // GetMACByInterfaceNumber mock is used. These maps are used in their
-// respectives mocks to return the desired result data depending on the test.
+// respective mocks to return the desired result data depending on the test.
 func setUpRoutingTable(t *testing.T, ifindex, tableID, priority int) (map[string]int, map[string]string) {
 	devIfNum := make(map[string]int)
 	devMAC := make(map[string]string)

@@ -131,7 +131,7 @@ func (AuthType) EnumDescriptor() ([]byte, []int) {
 type TraceObservationPoint int32
 
 const (
-	// Cilium treats 0 as TO_LXC, but its's something we should work to remove.
+	// Cilium treats 0 as TO_LXC, but it's something we should work to remove.
 	// This is intentionally set as unknown, so proto API can guarantee the
 	// observation point is always going to be present on trace events.
 	TraceObservationPoint_UNKNOWN_POINT TraceObservationPoint = 0
@@ -2339,7 +2339,7 @@ type IP struct {
 
 	Source string `protobuf:"bytes,1,opt,name=source,proto3" json:"source,omitempty"`
 	// source_xlated is the post translation source IP when the flow was SNATed
-	// (and in that case source is the the original source IP).
+	// (and in that case source is the original source IP).
 	SourceXlated string    `protobuf:"bytes,5,opt,name=source_xlated,json=sourceXlated,proto3" json:"source_xlated,omitempty"`
 	Destination  string    `protobuf:"bytes,2,opt,name=destination,proto3" json:"destination,omitempty"`
 	IpVersion    IPVersion `protobuf:"varint,3,opt,name=ipVersion,proto3,enum=flow.IPVersion" json:"ipVersion,omitempty"`

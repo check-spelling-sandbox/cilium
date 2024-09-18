@@ -326,7 +326,7 @@ func Test_authMapGarbageCollector_cleanupEndpoints(t *testing.T) {
 
 	err := gc.cleanupEndpoints(ctx)
 	assert.NoError(t, err)
-	assert.Len(t, authMap.entries, 1, "GC runs should delete all entries where the secrity ID no longer is in the endpoint map")
+	assert.Len(t, authMap.entries, 1, "GC runs should delete all entries where the security ID no longer is in the endpoint map")
 	assert.Contains(t, authMap.entries, authKey{localIdentity: 3, remoteIdentity: 1, remoteNodeID: 100, authType: policy.AuthTypeSpire})
 }
 
@@ -376,7 +376,7 @@ func Test_authMapGarbageCollector_cleanupEndpointsNoopCase(t *testing.T) {
 
 	err := gc.cleanupEndpoints(ctx)
 	assert.NoError(t, err)
-	assert.Len(t, authMap.entries, 3, "GC runs should not have deleted entries when all secrity IDs were stil in the endpoint map")
+	assert.Len(t, authMap.entries, 3, "GC runs should not have deleted entries when all security IDs were stil in the endpoint map")
 }
 
 func Test_authMapGarbageCollector_HandleNodeEventError(t *testing.T) {

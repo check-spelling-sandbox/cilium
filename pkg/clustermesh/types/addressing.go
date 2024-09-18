@@ -208,7 +208,7 @@ func (ac0 *AddrCluster) DeepEqual(ac1 *AddrCluster) bool {
 	return ac0.Equal(*ac1)
 }
 
-// DeepCopyInto copies in to out
+// DeepCopyInto copies in into out
 func (in *AddrCluster) DeepCopyInto(out *AddrCluster) {
 	if out == nil {
 		return

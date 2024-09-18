@@ -62,7 +62,7 @@ func getLabels(fileName string, cnp *cilium_v2.CiliumNetworkPolicy) labels.Label
 	}
 
 	ns := cnp.ObjectMeta.Namespace
-	// For clusterwide policy namespace will be empty.
+	// For cluster-wide policy namespace will be empty.
 	if ns != "" {
 		nsLabel := labels.NewLabel(k8sConst.PolicyLabelNamespace, ns, labels.LabelSourceDirectory)
 		labelsArr = append(labelsArr, nsLabel)

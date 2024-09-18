@@ -21,7 +21,7 @@
 
 /* We wanted to tail call handle_policy from bpf_lxc, but at present it's
  * impossible to #include both bpf_host.c and bpf_lxc.c at the same time.
- * Therefore, we created a stud, mock_hanle_policy, to simply check if the
+ * Therefore, we created a stud, mock_handle_policy, to simply check if the
  * our skb reaches there.
  */
 __section("mock-handle-policy")
@@ -190,7 +190,7 @@ int ipv4_l3_to_l2_fast_redirect_check(__maybe_unused const struct __ctx_buff *ct
 
 	payload = (void *)l4 + sizeof(struct tcphdr);
 	if ((void *)payload + sizeof(default_data) > data_end)
-		test_fatal("paylaod out of bounds\n");
+		test_fatal("payload out of bounds\n");
 
 	if (memcmp(payload, default_data, sizeof(default_data)) != 0)
 		test_fatal("tcp payload was changed");
@@ -318,7 +318,7 @@ int ipv6_l3_to_l2_fast_redirect_check(__maybe_unused const struct __ctx_buff *ct
 
 	payload = (void *)l4 + sizeof(struct tcphdr);
 	if ((void *)payload + sizeof(default_data) > data_end)
-		test_fatal("paylaod out of bounds\n");
+		test_fatal("payload out of bounds\n");
 
 	if (memcmp(payload, default_data, sizeof(default_data)) != 0)
 		test_fatal("tcp payload was changed");

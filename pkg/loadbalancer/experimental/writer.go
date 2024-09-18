@@ -180,7 +180,7 @@ func (w *Writer) UpsertServiceAndFrontends(txn WriteTxn, svc *Service, fes ...Fr
 }
 
 // TODO: Rework this by running a job that monitors the nodePortAddrs and updates the table when they
-// change. And keep the latest copy around to fill in to avoid allocating a new slice every time.
+// change. To avoid allocating a new slice every time, keep the latest copy around to fill in.
 // ... or alternatively make statedb's List() return a iter.Seq that can be iterated multiple times. Just
 // need to make sure it references minimal part of the radix tree to avoid holding on to too much
 // potentially stale data. Keeping [Writer] stateless would be nice.

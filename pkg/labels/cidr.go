@@ -80,7 +80,7 @@ func IPStringToLabel(ip string) (Label, error) {
 	}
 }
 
-// GetCIDRLabels turns a CIDR in to a specially formatted label, and returns
+// GetCIDRLabels turns a CIDR into a specially formatted label, and returns
 // a Labels including the CIDR-specific label and the appropriate world label.
 // e.g. "10.0.0.0/8" => ["cidr:10.0.0.0/8", "reserved:world-ipv4"]
 //

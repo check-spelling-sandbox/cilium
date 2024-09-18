@@ -2,7 +2,7 @@
 // Copyright Authors of Cilium
 
 // Package synced provides tools for tracking if k8s resources have
-// been initially sychronized with the k8s apiserver.
+// been initially synchronized with the k8s apiserver.
 package synced
 
 import (
@@ -132,7 +132,7 @@ func SyncCRDs(ctx context.Context, clientset client.Clientset, crdNames []string
 	)
 
 	// Create a context so that we can timeout after the configured CRD wait
-	// peroid.
+	// period.
 	ctx, cancel := context.WithTimeout(ctx, option.Config.CRDWaitTimeout)
 	defer cancel()
 
@@ -278,7 +278,7 @@ func newCRDState(crds []string) crdState {
 // we don't want each agent to fetch the full CRDs across the cluster, because
 // they potentially contain large validation schemas.
 //
-// This function also removes removes unnecessary calls from the upstream
+// This function also removes unnecessary calls from the upstream
 // version that set the namespace and the resource when performing `Get`.
 //
 //   - If the resource was set, the following error was observed:

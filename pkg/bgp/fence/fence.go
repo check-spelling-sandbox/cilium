@@ -16,7 +16,7 @@ import (
 // for each seen UUID (globally unique identifier for a resource producing an event.)
 type Fencer map[string]uint64
 
-// Fence evalutes the passed in meta and informs the caller
+// Fence evaluates the passed in meta and informs the caller
 // whether to not process the event (fence) or not process
 // the event (no fence)
 //
@@ -77,7 +77,7 @@ type metaGetter interface {
 func (m *Meta) FromObjectMeta(mg metaGetter) error {
 	rev, err := strconv.ParseUint(mg.GetResourceVersion(), 10, 64)
 	if err != nil {
-		return fmt.Errorf("ObjectMeta.ResourceVersion must be parsible to Uint64")
+		return fmt.Errorf("ObjectMeta.ResourceVersion must be parsable to Uint64")
 	}
 	(*m).Rev = rev
 	(*m).UUID = string(mg.GetUID())

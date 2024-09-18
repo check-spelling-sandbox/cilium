@@ -148,7 +148,7 @@ func ParseNode(k8sNode *slim_corev1.Node, source source.Source) *nodeTypes.Node 
 		return newNode
 	}
 
-	// Any code bellow this line will depend on k8s node annotations. If we are
+	// Any code below this line will depend on k8s node annotations. If we are
 	// not annotating the node then we should not use any annotations.
 
 	k8sNodeAddHostIP := func(key string, alias string) {

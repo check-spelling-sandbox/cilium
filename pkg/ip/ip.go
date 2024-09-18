@@ -117,7 +117,7 @@ func removeRedundantCIDRs(CIDRs []*net.IPNet) []*net.IPNet {
 			continue // Skip redundant CIDRs
 		}
 		for i, CIDR2 := range CIDRs {
-			// Skip checking CIDR aganst itself or if CIDR has already been deemed redundant.
+			// Skip checking CIDR against itself or if CIDR has already been deemed redundant.
 			if i == j || redundant[i] {
 				continue
 			}

@@ -70,7 +70,7 @@ spec:
         app: x-wing
     spec:
       containers:
-      - name: starfigher
+      - name: starfighter
         image: docker.io/library/alpine:3.12.7@sha256:36553b10a4947067b9fbb7d532951066293a68eae893beba1d9235f7d11a20ad
         command: ["sleep"]
         args: ["30000"]
@@ -90,7 +90,7 @@ spec:
         name: fleet-tracker
     spec:
       containers:
-      - name: starfigher
+      - name: starfighter
         image: docker.io/cilium/python-bmemcached:v0.0.2
         command: ["sleep"]
         args: ["30000"]

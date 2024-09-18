@@ -74,7 +74,7 @@ else
 endif
 
 #
-# Template for Docker images. Paramaters are:
+# Template for Docker images. Parameter are:
 # $(1) image target name
 # $(2) Dockerfile path
 # $(3) image name stem (e.g., cilium, cilium-operator, etc)
@@ -135,7 +135,7 @@ $(eval $(call DOCKER_IMAGE_TEMPLATE,docker-hubble-relay-image,images/hubble-rela
 $(eval $(call DOCKER_IMAGE_TEMPLATE,docker-clustermesh-apiserver-image,images/clustermesh-apiserver/Dockerfile,clustermesh-apiserver,$(DOCKER_IMAGE_TAG),release))
 
 # docker-operator-images.
-# We eat the ending of "operator" in to the stem ('%') to allow this pattern
+# We eat the ending of "operator" into the stem ('%') to allow this pattern
 # to build also 'docker-operator-image', where the stem would be empty otherwise.
 $(eval $(call DOCKER_IMAGE_TEMPLATE,docker-opera%-image,images/operator/Dockerfile,opera%,$(DOCKER_IMAGE_TAG),release))
 $(eval $(call DOCKER_IMAGE_TEMPLATE,dev-docker-opera%-image,images/operator/Dockerfile,opera%,$(DOCKER_IMAGE_TAG),release))

@@ -344,7 +344,7 @@ func (p *ProbeManager) KernelConfigAvailable() bool {
 }
 
 // HaveProgramHelper is a wrapper around features.HaveProgramHelper() to
-// check if a certain BPF program/helper copmbination is supported by the kernel.
+// check if a certain BPF program/helper combination is supported by the kernel.
 // On unexpected probe results this function will terminate with log.Fatal().
 func HaveProgramHelper(pt ebpf.ProgramType, helper asm.BuiltinFunc) error {
 	err := features.HaveProgramHelper(pt, helper)
@@ -527,7 +527,7 @@ func HaveOuterSourceIPSupport() (err error) {
 
 // HaveSKBAdjustRoomL2RoomMACSupport tests whether the kernel supports the `bpf_skb_adjust_room` helper
 // with the `BPF_ADJ_ROOM_MAC` mode. To do so, we create a program that requests the passed in SKB
-// to be expanded by 20 bytes. The helper checks the `mode` argument and will return -ENOSUPP if
+// to be expanded by 20 bytes. The helper checks the `mode` argument and will return -ENOTSUPP if
 // the mode is unknown. Otherwise it should resize the SKB by 20 bytes and return 0.
 func HaveSKBAdjustRoomL2RoomMACSupport() (err error) {
 	defer func() {

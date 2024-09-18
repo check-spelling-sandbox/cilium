@@ -132,7 +132,7 @@ func (elm *etcdLeaseManager) GetSession(ctx context.Context, key string) (*concu
 		elm.acquiring = make(chan struct{})
 	}
 
-	// Unlock, so that we don't block other paraller operations (e.g., releases)
+	// Unlock, so that we don't block other parallel operations (e.g., releases)
 	// while acquiring a new lease, since it might be a slow operation.
 	elm.mu.Unlock()
 

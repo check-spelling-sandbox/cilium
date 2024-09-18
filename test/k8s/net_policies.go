@@ -354,7 +354,7 @@ var _ = SkipDescribeIf(func() bool {
 				res := kubectl.ExecPodCmd(
 					namespaceForTest, appPods[helpers.App2],
 					helpers.Ping(app1PodIP))
-				res.ExpectFail("Ingrress ping connectivity should be denied for pod %q", helpers.App2)
+				res.ExpectFail("Ingress ping connectivity should be denied for pod %q", helpers.App2)
 			})
 
 			It("Tests proxy visibility with L7 default-allow rules", func() {
@@ -371,7 +371,7 @@ var _ = SkipDescribeIf(func() bool {
 				res := kubectl.ExecPodCmd(
 					namespaceForTest, appPods[helpers.App2],
 					helpers.Ping(app1PodIP))
-				res.ExpectSuccess("Ingrress ping connectivity should be allowed for pod %q", helpers.App2)
+				res.ExpectSuccess("Ingress ping connectivity should be allowed for pod %q", helpers.App2)
 
 			})
 		})
@@ -903,7 +903,7 @@ var _ = SkipDescribeIf(func() bool {
 
 			err := kubectl.WaitforPods(secondNS, "-l zgroup=testapp", helpers.HelperTimeout)
 			Expect(err).To(BeNil(),
-				"testapp pods are not ready after timeout in namspace %q", secondNS)
+				"testapp pods are not ready after timeout in namespace %q", secondNS)
 
 			err = kubectl.WaitforPods(helpers.DefaultNamespace, "-l zgroup=testapp", helpers.HelperTimeout)
 			Expect(err).To(BeNil(),
@@ -1123,14 +1123,14 @@ var _ = SkipDescribeIf(func() bool {
 			// timeout.
 			err := kubectl.WaitforPods(firstNS, "-l zgroup=testapp", helpers.HelperTimeout)
 			Expect(err).To(BeNil(),
-				"testapp pods are not ready after timeout in namspace %q", firstNS)
+				"testapp pods are not ready after timeout in namespace %q", firstNS)
 
 			res = kubectl.ApplyDefault(demoManifestNS2)
 			res.ExpectSuccess("unable to apply demo manifest")
 
 			err = kubectl.WaitforPods(secondNS, "-l zgroup=testapp", helpers.HelperTimeout)
 			Expect(err).To(BeNil(),
-				"testapp pods are not ready after timeout in namspace %q", secondNS)
+				"testapp pods are not ready after timeout in namespace %q", secondNS)
 
 			appPodsFirstNS = helpers.GetAppPods(apps, firstNS, kubectl, "id")
 			appPodsSecondNS = helpers.GetAppPods(apps, secondNS, kubectl, "id")
@@ -1151,8 +1151,8 @@ var _ = SkipDescribeIf(func() bool {
 			ExpectAllPodsTerminated(kubectl)
 		})
 
-		It("Test clusterwide connectivity with policies", func() {
-			By("Applying Egress deny all clusterwide policy")
+		It("Test cluster-wide connectivity with policies", func() {
+			By("Applying Egress deny all cluster-wide policy")
 			_, err := kubectl.CiliumClusterwidePolicyAction(
 				egressDenyAllPolicy, helpers.KubectlApply, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1178,13 +1178,13 @@ var _ = SkipDescribeIf(func() bool {
 				"host kubernetes.default.svc.cluster.local")
 			res.ExpectFail("Egress DNS connectivity should be denied for pod %q", helpers.App3)
 
-			By("Deleting Egress deny all clusterwide policy")
+			By("Deleting Egress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				egressDenyAllPolicy, helpers.KubectlDelete, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
 				"%q Clusterwide Policy cannot be deleted", egressDenyAllPolicy)
 
-			By("Applying Ingress deny all clusterwide policy")
+			By("Applying Ingress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				ingressDenyAllPolicy, helpers.KubectlApply, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1217,13 +1217,13 @@ var _ = SkipDescribeIf(func() bool {
 
 			// Apply both ingress deny and egress deny all policies and override the policies with
 			// global allow all policy.
-			By("Applying Egress deny all clusterwide policy")
+			By("Applying Egress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				egressDenyAllPolicy, helpers.KubectlApply, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
 				"%q Clusterwide Policy cannot be applied", egressDenyAllPolicy)
 
-			By("Applying Allow all clusterwide policy over ingress deny all and egress deny all")
+			By("Applying Allow all cluster-wide policy over ingress deny all and egress deny all")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				allowAllPolicy, helpers.KubectlApply, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1265,7 +1265,7 @@ var _ = SkipDescribeIf(func() bool {
 			Expect(err).Should(BeNil(),
 				"%q Clusterwide Policy cannot be applied", allowIngressPolicy)
 
-			By("Deleting Egress deny all clusterwide policy")
+			By("Deleting Egress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				egressDenyAllPolicy, helpers.KubectlDelete, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1289,7 +1289,7 @@ var _ = SkipDescribeIf(func() bool {
 				helpers.CurlFail(fmt.Sprintf("http://%s/public", firstNSclusterIP)))
 			res.ExpectFail("Ingress connectivity should be denied for service in %s namespace", firstNS)
 
-			By("Testing ingress connectivity from %q to %q across two namespacess", helpers.App3, helpers.App1)
+			By("Testing ingress connectivity from %q to %q across two namespaces", helpers.App3, helpers.App1)
 			res = kubectl.ExecPodCmd(
 				secondNS, appPodsSecondNS[helpers.App3],
 				helpers.CurlFail(fmt.Sprintf("http://%s/public", firstNSclusterIP)))
@@ -1302,7 +1302,7 @@ var _ = SkipDescribeIf(func() bool {
 			Expect(err).Should(BeNil(),
 				"%q Clusterwide Policy cannot be deleted", allowIngressPolicy)
 
-			By("Deleting Ingress deny all clusterwide policy")
+			By("Deleting Ingress deny all cluster-wide policy")
 			_, err = kubectl.CiliumClusterwidePolicyAction(
 				ingressDenyAllPolicy, helpers.KubectlDelete, helpers.HelperTimeout)
 			Expect(err).Should(BeNil(),
@@ -1905,7 +1905,7 @@ func installDefaultDenyEgressPolicy(
 	)
 }
 
-// getMatcher returns a helper.CMDSucess() matcher for success or failure
+// getMatcher returns a helper.CMDSuccess() matcher for success or failure
 // situations.
 func getMatcher(val bool) types.GomegaMatcher {
 	if val {

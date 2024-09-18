@@ -336,7 +336,7 @@ func TestNodeConditionIfCiliumIsNotReady(t *testing.T) {
 		},
 	}
 
-	// Cilium Pod is not ready thus we should not update the condition nor its
+	// Cilium Pod is not ready. Thus we should neither update the condition nor its
 	// node taint.
 	ciliumPodOnNode1 := &slim_corev1.Pod{
 		Spec: slim_corev1.PodSpec{

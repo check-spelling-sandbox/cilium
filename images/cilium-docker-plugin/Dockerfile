@@ -5,7 +5,7 @@ ARG BASE_IMAGE=scratch
 ARG GOLANG_IMAGE=docker.io/library/golang:1.23.0@sha256:613a108a4a4b1dfb6923305db791a19d088f77632317cfc3446825c54fb862cd
 
 # BUILDPLATFORM is an automatic platform ARG enabled by Docker BuildKit.
-# Represents the plataform where the build is happening, do not mix with
+# Represents the platform where the build is happening, do not mix with
 # TARGETARCH
 FROM --platform=${BUILDPLATFORM} ${GOLANG_IMAGE} AS builder
 

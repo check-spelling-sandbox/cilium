@@ -406,7 +406,7 @@ func newDaemon(ctx context.Context, cleaner *daemonCleanup, params *daemonParams
 	}
 
 	// Collect CIDR identities from the "old" bpf ipcache and restore them
-	// in to the metadata layer.
+	// into the metadata layer.
 	if option.Config.RestoreState && !option.Config.DryMode {
 		// this *must* be called before initMaps(), which will "hide"
 		// the "old" ipcache.
@@ -840,7 +840,7 @@ func newDaemon(ctx context.Context, cleaner *daemonCleanup, params *daemonParams
 		return nil, restoredEndpoints, fmt.Errorf("error while initializing daemon: %w", err)
 	}
 
-	// iptables rules can be updated only after d.init() intializes the iptables above.
+	// iptables rules can be updated only after d.init() initializes the iptables above.
 	err = d.updateDNSDatapathRules(d.ctx)
 	if err != nil {
 		log.WithError(err).Error("error encountered while updating DNS datapath rules.")

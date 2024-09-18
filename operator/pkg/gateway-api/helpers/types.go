@@ -67,7 +67,7 @@ func GetConcreteObject(schemaType schema.GroupVersionKind) runtime.Object {
 	case ServiceImportListKind:
 		return &mcsapiv1alpha1.ServiceImportList{}
 	default:
-		// panic is okay here because this is a progammer error
+		// panic is okay here because this is a programmer error
 		panic(fmt.Sprintf("Tried to get a concrete type that is not implemented, %s", schemaType.Kind))
 	}
 }

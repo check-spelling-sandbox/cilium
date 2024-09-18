@@ -402,7 +402,7 @@ type Interface interface {
 	DeepCopyInterface() Interface
 }
 
-// InterfaceRevision is the configurationr revision of a network interface. It
+// InterfaceRevision is the configuration revision of a network interface. It
 // consists of a revision hash representing the current configuration version
 // and the resource itself.
 //
@@ -412,7 +412,7 @@ type InterfaceRevision struct {
 	// Resource is the interface resource
 	Resource Interface
 
-	// Fingerprint is the fingerprint reprsenting the network interface
+	// Fingerprint is the fingerprint representing the network interface
 	// configuration. It is typically implemented as the result of a hash
 	// function calculated off the resource. This field is optional, not
 	// all IPAM backends make use of fingerprints.
@@ -561,7 +561,7 @@ func (m *InstanceMap) ForeachInterface(instanceID string, fn InterfaceIterator) 
 	return nil
 }
 
-// GetInterface returns returns a particular interface of an instance. The
+// GetInterface returns a particular interface of an instance. The
 // boolean indicates whether the interface was found or not.
 func (m *InstanceMap) GetInterface(instanceID, interfaceID string) (InterfaceRevision, bool) {
 	m.mutex.RLock()

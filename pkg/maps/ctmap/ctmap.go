@@ -944,7 +944,7 @@ func calculateInterval(prevInterval time.Duration, maxDeleteRatio float64) (inte
 }
 
 // CalculateCTMapPressure is a controller that calculates the BPF CT map
-// pressure and pubishes it as part of the BPF map pressure metric.
+// pressure and publishes it as part of the BPF map pressure metric.
 func CalculateCTMapPressure(mgr *controller.Manager, allMaps ...*Map) {
 	ctx, cancel := context.WithCancelCause(context.Background())
 	mgr.UpdateController("ct-map-pressure", controller.ControllerParams{

@@ -61,7 +61,7 @@ type Sysctl interface {
 }
 
 // reconcilingSysctl is a Sysctl implementation that uses reconciliation to
-// ensure that the desired state is applied. It is the preffered implementation
+// ensure that the desired state is applied. It is the preferred implementation
 // for any binary with hive infrastructure.
 type reconcilingSysctl struct {
 	db       *statedb.DB
@@ -249,7 +249,7 @@ func (ay *directSysctl) Read(name []string) (string, error) {
 
 	val, err := safeio.ReadAllLimit(f, safeio.KB)
 	if err != nil {
-		return "", fmt.Errorf("could not read the systctl file %s: %w", path, err)
+		return "", fmt.Errorf("could not read the sysctl file %s: %w", path, err)
 	}
 
 	return strings.TrimRight(string(val), "\n"), nil
@@ -285,7 +285,7 @@ func parameterPath(procFs string, name []string) (string, error) {
 	return filepath.Join(append([]string{procFs, "sys"}, name...)...), nil
 }
 
-// writeSysctl writes a value in a sysctl parameter loacated at path.
+// writeSysctl writes a value in a sysctl parameter located at path.
 //
 // It should by used directly only by binaries that do not rely on the
 // hive and cells framework, like cilium-cni and cilium-health.
@@ -316,7 +316,7 @@ func readSysctl(fs afero.Fs, path string) (string, error) {
 
 	val, err := safeio.ReadAllLimit(f, safeio.KB)
 	if err != nil {
-		return "", fmt.Errorf("could not read the systctl file %s: %w", path, err)
+		return "", fmt.Errorf("could not read the sysctl file %s: %w", path, err)
 	}
 
 	return strings.TrimRight(string(val), "\n"), nil

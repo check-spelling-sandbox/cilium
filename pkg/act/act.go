@@ -34,7 +34,7 @@ const (
 	// metricsTimeout specifies when a stale entry will be removed from the metrics endpoint
 	// (it will be no longer available to scrape).
 	metricsTimeout = 10 * time.Minute
-	// metricsCountSoftLimit specifies when metric series will be deleted more aggresively.
+	// metricsCountSoftLimit specifies when metric series will be deleted more aggressively.
 	metricsCountSoftLimit = 300
 	// metricsCountHardLimit specifies when new metrics series won't be allocated.
 	metricsCountHardLimit = 500

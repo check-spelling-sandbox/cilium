@@ -158,7 +158,7 @@ func NewEndpointFromChangeModel(ctx context.Context, owner regeneration.Owner, p
 	return ep, nil
 }
 
-func (e *Endpoint) getModelEndpointIdentitiersRLocked() *models.EndpointIdentifiers {
+func (e *Endpoint) getModelEndpointIdentifiersRLocked() *models.EndpointIdentifiers {
 	identifiers := &models.EndpointIdentifiers{
 		CniAttachmentID:  e.GetCNIAttachmentID(),
 		DockerEndpointID: e.dockerEndpointID,
@@ -246,7 +246,7 @@ func (e *Endpoint) GetModelRLocked() *models.Endpoint {
 			Identity:            identitymodel.CreateModel(e.SecurityIdentity),
 			Labels:              lblMdl,
 			Networking:          e.getModelNetworkingRLocked(),
-			ExternalIdentifiers: e.getModelEndpointIdentitiersRLocked(),
+			ExternalIdentifiers: e.getModelEndpointIdentifiersRLocked(),
 			// FIXME GH-3280 When we begin returning endpoint revisions this should
 			// change to return the configured and in-datapath policies.
 			Policy:      e.GetPolicyModel(),

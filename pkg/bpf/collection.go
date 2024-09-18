@@ -444,7 +444,7 @@ func inlineGlobalData(spec *ebpf.CollectionSpec, overrides map[string]uint64) er
 		constName := constantPrefix + name
 
 		if _, ok := values[constName]; !ok {
-			return fmt.Errorf("can't override non-existent constant %q", name)
+			return fmt.Errorf("can't override nonexistent constant %q", name)
 		}
 
 		values[constName] = value

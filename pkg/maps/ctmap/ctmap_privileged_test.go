@@ -733,7 +733,7 @@ func TestCount(t *testing.T) {
 	prev := option.Config.CTMapEntriesGlobalTCP
 	defer func() { option.Config.CTMapEntriesGlobalTCP = prev }()
 	option.Config.CTMapEntriesGlobalTCP = 524288
-	size := 8192 // choose a reasonbly large map that does not make test time too long.
+	size := 8192 // choose a reasonably large map that does not make test time too long.
 
 	m := newMap(MapNameTCP4Global+"_test", mapTypeIPv4TCPGlobal)
 	err := m.OpenOrCreate()

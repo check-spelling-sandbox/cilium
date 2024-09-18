@@ -460,18 +460,18 @@ func decodeTraceReason(tn *monitor.TraceNotify) pb.TraceReason {
 }
 
 func decodeSecurityIdentities(dn *monitor.DropNotify, tn *monitor.TraceNotify, pvn *monitor.PolicyVerdictNotify) (
-	sourceSecurityIdentiy, destinationSecurityIdentity uint32,
+	sourceSecurityIdentity, destinationSecurityIdentity uint32,
 ) {
 	switch {
 	case dn != nil:
-		sourceSecurityIdentiy = uint32(dn.SrcLabel)
+		sourceSecurityIdentity = uint32(dn.SrcLabel)
 		destinationSecurityIdentity = uint32(dn.DstLabel)
 	case tn != nil:
-		sourceSecurityIdentiy = uint32(tn.SrcLabel)
+		sourceSecurityIdentity = uint32(tn.SrcLabel)
 		destinationSecurityIdentity = uint32(tn.DstLabel)
 	case pvn != nil:
 		if pvn.IsTrafficIngress() {
-			sourceSecurityIdentiy = uint32(pvn.RemoteLabel)
+			sourceSecurityIdentity = uint32(pvn.RemoteLabel)
 		} else {
 			destinationSecurityIdentity = uint32(pvn.RemoteLabel)
 		}
@@ -508,7 +508,7 @@ func decodeTrafficDirection(srcEP uint32, dn *monitor.DropNotify, tn *monitor.Tr
 			switch {
 			// Although technically the corresponding packet is ingressing the
 			// stack (TraceReasonEncryptOverlay traces are TraceToStack), it is
-			// ultimately originating from the local node and destinated to a
+			// ultimately originating from the local node and destined to a
 			// remote node, so egress make more sense to expose at a high
 			// level.
 			case tn.TraceReason() == monitor.TraceReasonEncryptOverlay:

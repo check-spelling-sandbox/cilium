@@ -1504,7 +1504,7 @@ func TestPaginatedList(t *testing.T) {
 		}
 
 		if withParallelOps && found >= next {
-			t.Fatalf("Next revision (%d) is higher than the one of subsequent updates (%d)", found, next)
+			t.Fatalf("Next revision (%d) is greater than the one of subsequent updates (%d)", found, next)
 		}
 	}
 

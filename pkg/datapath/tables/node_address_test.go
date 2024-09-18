@@ -847,7 +847,7 @@ func (t testLocalNodeSync) SyncLocalNode(context.Context, *node.LocalNodeStore) 
 
 var _ node.LocalNodeSynchronizer = testLocalNodeSync{}
 
-// ipStrings converts net.IP to a string. Used to assert equalence without having to deal
+// ipStrings converts net.IP to a string. Used to assert equivalence without having to deal
 // with e.g. IPv4-mapped IPv6 presentation etc.
 func ipStrings(ips []net.IP) (ss []string) {
 	for i := range ips {

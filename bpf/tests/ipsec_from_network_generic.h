@@ -175,7 +175,7 @@ int ipv4_not_decrypted_ipsec_from_network_check(__maybe_unused const struct __ct
 
 	payload = (void *)l4 + sizeof(struct ip_esp_hdr);
 	if ((void *)payload + sizeof(default_data) > data_end)
-		test_fatal("paylaod out of bounds\n");
+		test_fatal("payload out of bounds\n");
 
 	if (memcmp(payload, default_data, sizeof(default_data)) != 0)
 		test_fatal("tcp payload was changed");
@@ -308,7 +308,7 @@ int ipv6_not_decrypted_ipsec_from_network_check(__maybe_unused const struct __ct
 
 	payload = (void *)l4 + sizeof(struct ip_esp_hdr);
 	if ((void *)payload + sizeof(default_data) > data_end)
-		test_fatal("paylaod out of bounds\n");
+		test_fatal("payload out of bounds\n");
 
 	if (memcmp(payload, default_data, sizeof(default_data)) != 0)
 		test_fatal("tcp payload was changed");
@@ -415,7 +415,7 @@ int ipv4_decrypted_ipsec_from_network_check(__maybe_unused const struct __ctx_bu
 
 	payload = (void *)l4 + sizeof(struct tcphdr);
 	if ((void *)payload + sizeof(default_data) > data_end)
-		test_fatal("paylaod out of bounds\n");
+		test_fatal("payload out of bounds\n");
 
 	if (memcmp(payload, default_data, sizeof(default_data)) != 0)
 		test_fatal("tcp payload was changed");
@@ -519,7 +519,7 @@ int ipv6_decrypted_ipsec_from_network_check(__maybe_unused const struct __ctx_bu
 
 	payload = (void *)l4 + sizeof(struct tcphdr);
 	if ((void *)payload + sizeof(default_data) > data_end)
-		test_fatal("paylaod out of bounds\n");
+		test_fatal("payload out of bounds\n");
 
 	if (memcmp(payload, default_data, sizeof(default_data)) != 0)
 		test_fatal("tcp payload was changed");

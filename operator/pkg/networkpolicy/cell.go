@@ -60,8 +60,8 @@ type PolicyParams struct {
 	CCNPResource resource.Resource[*cilium_api_v2.CiliumClusterwideNetworkPolicy]
 }
 
-// The policyValidator validates network policy and reports the results in to the
-// policy's Status field. It validates both CiliumNetworkPolicy and CilumClusterwideNetworkPolicy
+// The policyValidator validates network policy and reports the results in the
+// policy's Status field. It validates both CiliumNetworkPolicy and CiliumClusterwideNetworkPolicy
 type policyValidator struct {
 	params *PolicyParams
 }

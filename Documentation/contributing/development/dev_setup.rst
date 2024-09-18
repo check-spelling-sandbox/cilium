@@ -136,7 +136,7 @@ For Linux only - with shorter development workflow time
 On Linux environments, or on environments where you can compile and run
 Cilium, it is possible to use "fast" targets. These fast targets will build
 Cilium in the local environment and mount that binary, as well the bpf source
-code, in an pre-existing running Cilium container.
+code, in an preexisting running Cilium container.
 
 * ``make kind-install-cilium-fast``: Installs Cilium into the cluster using the
   Cilium CLI with the volume mounts defined.
@@ -229,7 +229,7 @@ Dev Container
 -------------
 
 Cilium provides `Dev Container <https://code.visualstudio.com/docs/devcontainers/containers>`_ configuration for Visual Studio Code Remote Containers
-and `Github Codespaces <https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers>`_.
+and `GitHub Codespaces <https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/introduction-to-dev-containers>`_.
 This allows you to use a preconfigured development environment in the cloud or locally.
 The container is based on the official Cilium builder image and provides all the dependencies
 required to build Cilium.
@@ -644,7 +644,7 @@ Passing ``-v -v`` supports deeper detail, for example:
     00000040  00 00 00 00 00 00 c0 a8  21 0b 00 00 8a d6 01 01  |........!.......|
     00000050  ae 45 75 73 11 04 00 00  00 00 00 00              |.Eus........|
     CPU 00: MARK 0x7dc2b704 FROM 3978 DEBUG: Handling ICMPv6 type=135
-    CPU 00: MARK 0x7dc2b704 FROM 3978 DEBUG: ICMPv6 neighbour soliciation for address b21a8c0:d68a0000
+    CPU 00: MARK 0x7dc2b704 FROM 3978 DEBUG: ICMPv6 neighbour solicitation for address b21a8c0:d68a0000
 
 
 One of the most common issues when developing datapath code is that the eBPF

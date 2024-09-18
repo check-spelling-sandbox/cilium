@@ -311,7 +311,7 @@ func TestGetRulesMatching(t *testing.T) {
 	require.Equal(t, true, ingressMatch)
 	require.Equal(t, false, egressMatch)
 
-	// Delete igress deny policy.
+	// Delete ingress deny policy.
 	repo.DeleteByLabels(tag)
 
 	// When egress deny policy is applied.

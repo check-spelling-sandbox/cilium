@@ -642,7 +642,7 @@ func (e *etcdClient) asyncConnectEtcdClient(errChan chan<- error) {
 
 	go func() {
 		// Report connection established to the caller and start the status
-		// checker only after successfully starting the heatbeat watcher, as
+		// checker only after successfully starting the heartbeat watcher, as
 		// additional sanity check. This also guarantees that there's already
 		// been an interaction with the target etcd instance at that point,
 		// and its corresponding cluster ID has been retrieved if using the
@@ -701,7 +701,7 @@ func newExpBackoffRateLimiter(e *etcdClient, name string) backoff.Exponential {
 	}
 
 	if e != nil && e.extraOptions != nil {
-		errLimiter.NodeManager = backoff.NewNodeManager(e.extraOptions.ClusterSizeDependantInterval)
+		errLimiter.NodeManager = backoff.NewNodeManager(e.extraOptions.ClusterSizeDependentInterval)
 	}
 	return errLimiter
 }
@@ -1020,7 +1020,7 @@ func (e *etcdClient) statusChecker() {
 	defer statusTimerDone()
 
 	e.RWMutex.Lock()
-	// Ensure that lastHearbeat is always set to a non-zero value when starting
+	// Ensure that lastHeartbeat is always set to a non-zero value when starting
 	// the status checker, to guarantee that we can correctly compute the time
 	// difference even in case we don't receive any heartbeat event. Indeed, we
 	// want to consider that as an heartbeat failure after the usual timeout.

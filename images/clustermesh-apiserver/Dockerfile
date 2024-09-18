@@ -7,16 +7,16 @@ ARG BASE_IMAGE=gcr.io/distroless/static-debian11:nonroot@sha256:63ebe035fbdd056e
 # These SHA256 digests are important for two reasons:
 # 1. They 'pin' the container image to a specific version. Unlike a tag that can be changed at any future point, a
 #    SHA265 hash cannot be modified. This increases the security of the build by protecting against a class of supply
-#    chain attacks where an attacker has write access to our 3rd party dependnecy image registries.
+#    chain attacks where an attacker has write access to our 3rd party dependency image registries.
 # 2. These digests must be to the *overall* digest, not the digest for a specific image. This is because the images will
-#    be architecture specific, but the overall digest will contiain all of the architectures.
+#    be architecture specific, but the overall digest will contain all of the architectures.
 ARG GOLANG_IMAGE=docker.io/library/golang:1.23.0@sha256:613a108a4a4b1dfb6923305db791a19d088f77632317cfc3446825c54fb862cd
-# We don't use ETCD_IMAGE because that's used in Makefile.defs to select a ETCD image approrpate for the *host platform*
+# We don't use ETCD_IMAGE because that's used in Makefile.defs to select a ETCD image appropriate for the *host platform*
 # to run tests with.
 ARG ETCD_SERVER_IMAGE=gcr.io/etcd-development/etcd:v3.5.15@sha256:9a01b7da0a3cde485c03fcf58fef9b2a09c81b4926b2b7d7ae6d1e9b20a2a192
 
 # BUILDPLATFORM is an automatic platform ARG enabled by Docker BuildKit.
-# Represents the plataform where the build is happening, do not mix with
+# Represents the platform where the build is happening, do not mix with
 # TARGETARCH
 FROM --platform=${BUILDPLATFORM} ${GOLANG_IMAGE} AS builder
 
@@ -41,7 +41,7 @@ RUN --mount=type=bind,readwrite,target=/go/src/github.com/cilium/cilium --mount=
     make GOARCH=${BUILDARCH} licenses-all && mv LICENSE.all /out/${TARGETOS}/${TARGETARCH}
 
 # BUILDPLATFORM is an automatic platform ARG enabled by Docker BuildKit.
-# Represents the plataform where the build is happening, do not mix with
+# Represents the platform where the build is happening, do not mix with
 # TARGETARCH
 FROM --platform=${BUILDPLATFORM} ${GOLANG_IMAGE} AS gops
 

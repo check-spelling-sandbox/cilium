@@ -38,7 +38,7 @@ fi
 
 AUTHORS="$(grep -ho "@[^)]*" "$SUMMARY" | grep -v "$(get_user)" | sort -u | tr '\n' ' ' | sed -e 's/@//g' -e 's/ $//')"
 
-# Github complains if we request a review by someone who is not a collaborator, thus filter the authors.
+# GitHub complains if we request a review by someone who is not a collaborator, thus filter the authors.
 REVIEWERS=""
 for author in $AUTHORS; do
     if [ $(is_collaborator "$author") == "yes" ]; then

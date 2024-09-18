@@ -93,6 +93,6 @@ func isCESPresent(cesName string, cesStore resource.Store[*cilium_v2a1.CiliumEnd
 func assertEqualIDs(t *testing.T, wantIdentities, gotIdentities map[string]bool) {
 	t.Helper()
 	if diff := cmp.Diff(wantIdentities, gotIdentities); diff != "" {
-		t.Errorf("Unexpected Identites in the CES store (-want +got): \n%s", diff)
+		t.Errorf("Unexpected Identities in the CES store (-want +got): \n%s", diff)
 	}
 }

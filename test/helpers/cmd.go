@@ -126,7 +126,7 @@ func (b *CmdStreamBuffer) FilterLinesJSONPath(filter *jsonpath.JSONPath) ([]Filt
 }
 
 // FilterLines works like Filter, but applies the JSONPath filter to each line
-// separately and returns returns a Buffer for each line. An error is
+// separately and returns a Buffer for each line. An error is
 // returned only for the first line which cannot be unmarshalled.
 func (b *CmdStreamBuffer) FilterLines(filter string) ([]FilterBuffer, error) {
 	parsedFilter := jsonpath.New("").AllowMissingKeys(true)
@@ -373,7 +373,7 @@ func (res *CmdRes) FilterLinesJSONPath(filter *jsonpath.JSONPath) ([]FilterBuffe
 }
 
 // FilterLines works like Filter, but applies the JSONPath filter to each line
-// separately and returns returns a buffer for each line. An error is
+// separately and returns a buffer for each line. An error is
 // returned only for the first line which cannot be unmarshalled.
 func (res *CmdRes) FilterLines(filter string) ([]FilterBuffer, error) {
 	return res.GetStdOut().FilterLines(filter)
@@ -532,7 +532,7 @@ func (res *CmdRes) WaitUntilMatchFilterLineTimeout(filter, expected string, time
 
 // WaitUntilMatchFilterLine applies the JSONPath 'filter' to each line of
 // `CmdRes.stdout` and waits until a line matches the 'expected' output.
-// If helpers.HelperTimout is reached it will return an error.
+// If helpers.HelperTimeout is reached it will return an error.
 func (res *CmdRes) WaitUntilMatchFilterLine(filter, expected string) error {
 	return res.WaitUntilMatchFilterLineTimeout(filter, expected, HelperTimeout)
 }

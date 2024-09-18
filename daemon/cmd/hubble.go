@@ -316,7 +316,7 @@ func (d *Daemon) launchHubble() {
 	if addr := option.Config.HubbleListenAddress; addr != "" {
 		port, err := getPort(option.Config.HubbleListenAddress)
 		if err != nil {
-			logger.WithError(err).WithField("address", addr).Warn("Hubble server will not pass port information in change notificantions on exposed Hubble peer service")
+			logger.WithError(err).WithField("address", addr).Warn("Hubble server will not pass port information in change notifications on exposed Hubble peer service")
 		} else {
 			peerServiceOptions = append(peerServiceOptions, serviceoption.WithHubblePort(port))
 		}

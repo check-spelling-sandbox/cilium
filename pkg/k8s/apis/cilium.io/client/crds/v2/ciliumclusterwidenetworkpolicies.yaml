@@ -342,7 +342,7 @@ spec:
                         for selected pods as-is (i.e. the list of IPs is not modified in any way).
                         Note: An explicit rule to allow for DNS traffic is needed for the pods, as
                         ToFQDN counts as an egress rule and will enforce egress policy when
-                        PolicyEnforcment=default.
+                        PolicyEnforcement=default.
                         Note: If the resolved IPs are IPs within the kubernetes cluster, the
                         ToFQDN rule will not apply to that IP.
                         Note: ToFQDN cannot occur in the same policy as other To* rules.
@@ -366,14 +366,14 @@ spec:
                           matchPattern:
                             description: |-
                               MatchPattern allows using wildcards to match DNS names. All wildcards are
-                              case insensitive. The wildcards are:
+                              case-insensitive. The wildcards are:
                               - "*" matches 0 or more DNS valid characters, and may occur anywhere in
                               the pattern. As a special case a "*" as the leftmost character, without a
                               following "." matches all subdomains as well as the name to the right.
                               A trailing "." is automatically added when missing.
 
                               Examples:
-                              `*.cilium.io` matches subomains of cilium at that level
+                              `*.cilium.io` matches subdomains of cilium at that level
                                 www.cilium.io and blog.cilium.io match, cilium.io and google.com do not
                               `*cilium.io` matches cilium.io and all subdomains ends with "cilium.io"
                                 except those containing "." separator, subcilium.io and sub-cilium.io match,
@@ -678,14 +678,14 @@ spec:
                                     matchPattern:
                                       description: |-
                                         MatchPattern allows using wildcards to match DNS names. All wildcards are
-                                        case insensitive. The wildcards are:
+                                        case-insensitive. The wildcards are:
                                         - "*" matches 0 or more DNS valid characters, and may occur anywhere in
                                         the pattern. As a special case a "*" as the leftmost character, without a
                                         following "." matches all subdomains as well as the name to the right.
                                         A trailing "." is automatically added when missing.
 
                                         Examples:
-                                        `*.cilium.io` matches subomains of cilium at that level
+                                        `*.cilium.io` matches subdomains of cilium at that level
                                           www.cilium.io and blog.cilium.io match, cilium.io and google.com do not
                                         `*cilium.io` matches cilium.io and all subdomains ends with "cilium.io"
                                           except those containing "." separator, subcilium.io and sub-cilium.io match,
@@ -761,7 +761,7 @@ spec:
                                             description: |-
                                               Value matches the exact value of the header. Can be specified either
                                               alone or together with "Secret"; will be used as the header value if the
-                                              secret can not be found in the latter case.
+                                              secret cannot be found in the latter case.
                                             type: string
                                         required:
                                         - name
@@ -2392,14 +2392,14 @@ spec:
                                     matchPattern:
                                       description: |-
                                         MatchPattern allows using wildcards to match DNS names. All wildcards are
-                                        case insensitive. The wildcards are:
+                                        case-insensitive. The wildcards are:
                                         - "*" matches 0 or more DNS valid characters, and may occur anywhere in
                                         the pattern. As a special case a "*" as the leftmost character, without a
                                         following "." matches all subdomains as well as the name to the right.
                                         A trailing "." is automatically added when missing.
 
                                         Examples:
-                                        `*.cilium.io` matches subomains of cilium at that level
+                                        `*.cilium.io` matches subdomains of cilium at that level
                                           www.cilium.io and blog.cilium.io match, cilium.io and google.com do not
                                         `*cilium.io` matches cilium.io and all subdomains ends with "cilium.io"
                                           except those containing "." separator, subcilium.io and sub-cilium.io match,
@@ -2475,7 +2475,7 @@ spec:
                                             description: |-
                                               Value matches the exact value of the header. Can be specified either
                                               alone or together with "Secret"; will be used as the header value if the
-                                              secret can not be found in the latter case.
+                                              secret cannot be found in the latter case.
                                             type: string
                                         required:
                                         - name
@@ -3038,7 +3038,7 @@ spec:
                         receive connections on.
 
                         Example:
-                        Any endpoint with the label "app=httpd" can not accept incoming
+                        Any endpoint with the label "app=httpd" cannot accept incoming
                         type 8 ICMP connections.
                       items:
                         description: ICMPRule is a list of ICMP fields.
@@ -3099,7 +3099,7 @@ spec:
                         receive connections on.
 
                         Example:
-                        Any endpoint with the label "app=httpd" can not accept incoming
+                        Any endpoint with the label "app=httpd" cannot accept incoming
                         connections on port 80/tcp.
                       items:
                         description: |-
@@ -3536,7 +3536,7 @@ spec:
                           for selected pods as-is (i.e. the list of IPs is not modified in any way).
                           Note: An explicit rule to allow for DNS traffic is needed for the pods, as
                           ToFQDN counts as an egress rule and will enforce egress policy when
-                          PolicyEnforcment=default.
+                          PolicyEnforcement=default.
                           Note: If the resolved IPs are IPs within the kubernetes cluster, the
                           ToFQDN rule will not apply to that IP.
                           Note: ToFQDN cannot occur in the same policy as other To* rules.
@@ -3560,14 +3560,14 @@ spec:
                             matchPattern:
                               description: |-
                                 MatchPattern allows using wildcards to match DNS names. All wildcards are
-                                case insensitive. The wildcards are:
+                                case-insensitive. The wildcards are:
                                 - "*" matches 0 or more DNS valid characters, and may occur anywhere in
                                 the pattern. As a special case a "*" as the leftmost character, without a
                                 following "." matches all subdomains as well as the name to the right.
                                 A trailing "." is automatically added when missing.
 
                                 Examples:
-                                `*.cilium.io` matches subomains of cilium at that level
+                                `*.cilium.io` matches subdomains of cilium at that level
                                   www.cilium.io and blog.cilium.io match, cilium.io and google.com do not
                                 `*cilium.io` matches cilium.io and all subdomains ends with "cilium.io"
                                   except those containing "." separator, subcilium.io and sub-cilium.io match,
@@ -3872,14 +3872,14 @@ spec:
                                       matchPattern:
                                         description: |-
                                           MatchPattern allows using wildcards to match DNS names. All wildcards are
-                                          case insensitive. The wildcards are:
+                                          case-insensitive. The wildcards are:
                                           - "*" matches 0 or more DNS valid characters, and may occur anywhere in
                                           the pattern. As a special case a "*" as the leftmost character, without a
                                           following "." matches all subdomains as well as the name to the right.
                                           A trailing "." is automatically added when missing.
 
                                           Examples:
-                                          `*.cilium.io` matches subomains of cilium at that level
+                                          `*.cilium.io` matches subdomains of cilium at that level
                                             www.cilium.io and blog.cilium.io match, cilium.io and google.com do not
                                           `*cilium.io` matches cilium.io and all subdomains ends with "cilium.io"
                                             except those containing "." separator, subcilium.io and sub-cilium.io match,
@@ -3955,7 +3955,7 @@ spec:
                                               description: |-
                                                 Value matches the exact value of the header. Can be specified either
                                                 alone or together with "Secret"; will be used as the header value if the
-                                                secret can not be found in the latter case.
+                                                secret cannot be found in the latter case.
                                               type: string
                                           required:
                                           - name
@@ -5588,14 +5588,14 @@ spec:
                                       matchPattern:
                                         description: |-
                                           MatchPattern allows using wildcards to match DNS names. All wildcards are
-                                          case insensitive. The wildcards are:
+                                          case-insensitive. The wildcards are:
                                           - "*" matches 0 or more DNS valid characters, and may occur anywhere in
                                           the pattern. As a special case a "*" as the leftmost character, without a
                                           following "." matches all subdomains as well as the name to the right.
                                           A trailing "." is automatically added when missing.
 
                                           Examples:
-                                          `*.cilium.io` matches subomains of cilium at that level
+                                          `*.cilium.io` matches subdomains of cilium at that level
                                             www.cilium.io and blog.cilium.io match, cilium.io and google.com do not
                                           `*cilium.io` matches cilium.io and all subdomains ends with "cilium.io"
                                             except those containing "." separator, subcilium.io and sub-cilium.io match,
@@ -5671,7 +5671,7 @@ spec:
                                               description: |-
                                                 Value matches the exact value of the header. Can be specified either
                                                 alone or together with "Secret"; will be used as the header value if the
-                                                secret can not be found in the latter case.
+                                                secret cannot be found in the latter case.
                                               type: string
                                           required:
                                           - name
@@ -6234,7 +6234,7 @@ spec:
                           receive connections on.
 
                           Example:
-                          Any endpoint with the label "app=httpd" can not accept incoming
+                          Any endpoint with the label "app=httpd" cannot accept incoming
                           type 8 ICMP connections.
                         items:
                           description: ICMPRule is a list of ICMP fields.
@@ -6296,7 +6296,7 @@ spec:
                           receive connections on.
 
                           Example:
-                          Any endpoint with the label "app=httpd" can not accept incoming
+                          Any endpoint with the label "app=httpd" cannot accept incoming
                           connections on port 80/tcp.
                         items:
                           description: |-

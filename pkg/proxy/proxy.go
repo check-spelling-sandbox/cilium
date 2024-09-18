@@ -197,7 +197,7 @@ func (p *Proxy) allocatePort(port, min, max uint16) (uint16, error) {
 	// TODO: Maybe not create a large permutation each time?
 	portRange := rand.Perm(int(max - min + 1))
 
-	// Allow reuse of previously used ports only if no ports are otherwise availeble.
+	// Allow reuse of previously used ports only if no ports are otherwise available.
 	// This allows the same port to be used again by a listener being reconfigured
 	// after deletion.
 	for _, reuse := range []bool{false, true} {
@@ -296,7 +296,7 @@ func (p *Proxy) findProxyPortByType(l7Type types.ProxyType, listener string, ing
 		if pp, ok := p.proxyPorts[listener]; ok && pp.ProxyType == types.ProxyTypeCRD && !pp.Ingress {
 			return listener, pp
 		}
-		log.Debugf("findProxyPortByType: can not find crd listener %s from %v", listener, p.proxyPorts)
+		log.Debugf("findProxyPortByType: cannot find crd listener %s from %v", listener, p.proxyPorts)
 		return "", nil
 	case types.ProxyTypeDNS, types.ProxyTypeHTTP:
 		// Look up by the given type
@@ -366,7 +366,7 @@ func (p *Proxy) storeProxyPorts(reasons []string) {
 	log.Debug("Wrote proxy ports state")
 }
 
-// restore proxy ports from file created earlier by stroreProxyPorts
+// restore proxy ports from file created earlier by storeProxyPorts
 // must be called with mutex held
 func (p *Proxy) restoreProxyPortsFromFile() error {
 	log := log.WithField(logfields.Path, p.proxyPortsPath)

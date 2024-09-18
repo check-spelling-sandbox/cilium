@@ -627,7 +627,7 @@ func (ct *ConnectivityTest) detectPodCIDRs() error {
 }
 
 // detectNodeCIDRs produces one or more CIDRs that cover all nodes in the cluster.
-// ipv4 addresses are collapsed in to one or more /24s, and v6 to one or more /64s
+// ipv4 addresses are collapsed into one or more /24s, and v6 to one or more /64s
 func (ct *ConnectivityTest) detectNodeCIDRs(ctx context.Context) error {
 	if len(ct.params.NodeCIDRs) > 0 {
 		return nil
@@ -659,10 +659,10 @@ func (ct *ConnectivityTest) detectNodeCIDRs(ctx context.Context) error {
 	}
 
 	if len(nodeIPs) == 0 {
-		return fmt.Errorf("detectNodeCIDRs failed: no node IPs disovered")
+		return fmt.Errorf("detectNodeCIDRs failed: no node IPs discovered")
 	}
 
-	// collapse set of IPs in to CIDRs
+	// collapse set of IPs into CIDRs
 	nodeCIDRs := netIPToCIDRs(nodeIPs)
 	cPCIDRs := netIPToCIDRs(cPIPs)
 
@@ -679,7 +679,7 @@ func (ct *ConnectivityTest) detectNodeCIDRs(ctx context.Context) error {
 }
 
 // detectK8sCIDR produces one CIDR that covers the kube-apiserver address.
-// ipv4 addresses are collapsed in to one or more /24s, and v6 to one or more /64s
+// ipv4 addresses are collapsed into one or more /24s, and v6 to one or more /64s
 func (ct *ConnectivityTest) detectK8sCIDR(ctx context.Context) error {
 	service, err := ct.client.GetService(ctx, "default", "kubernetes", metav1.GetOptions{})
 	if err != nil {
@@ -750,7 +750,7 @@ var multiClusterClientLock = lock.Mutex{}
 func (ct *ConnectivityTest) detectSingleNode(ctx context.Context) error {
 
 	if ct.params.MultiCluster != "" && ct.params.SingleNode {
-		return fmt.Errorf("single-node test can not be enabled with multi-cluster test")
+		return fmt.Errorf("single-node test cannot be enabled with multi-cluster test")
 	}
 
 	// single node explicitly defined by user.

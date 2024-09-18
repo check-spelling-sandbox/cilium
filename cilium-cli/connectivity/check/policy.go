@@ -87,7 +87,7 @@ func getCiliumPolicyRevision(ctx context.Context, pod Pod) (int, error) {
 	return revision, nil
 }
 
-// waitCiliumPolicyRevision waits for a Cilium pod to reach atleast a given policy revision.
+// waitCiliumPolicyRevision waits for a Cilium pod to reach at least a given policy revision.
 func waitCiliumPolicyRevision(ctx context.Context, pod Pod, rev int, timeout time.Duration) error {
 	timeoutStr := strconv.Itoa(int(timeout.Seconds()))
 	_, err := pod.K8sClient.ExecInPod(ctx, pod.Pod.Namespace, pod.Pod.Name,

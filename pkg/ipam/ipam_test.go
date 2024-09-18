@@ -126,7 +126,7 @@ func TestLock(t *testing.T) {
 	ipam.ConfigureAllocator()
 
 	// Since the IPs we have allocated to the endpoints might or might not
-	// be in the allocrange specified in cilium, we need to specify them
+	// be in the alloc range specified in cilium, we need to specify them
 	// manually on the endpoint based on the alloc range.
 	ipv4 := fakeIPv4AllocCIDRIP(fakeAddressing)
 	ipv4 = ipv4.Next()

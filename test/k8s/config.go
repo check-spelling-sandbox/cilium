@@ -75,11 +75,11 @@ var _ = SkipDescribeIf(func() bool {
 			podtonode, err := kubectl.GetPodsNodes(helpers.CiliumNamespace, helpers.CiliumSelector)
 			Expect(err).To(BeNil(), "error finding cilium pods")
 
-			ress, err := kubectl.ExecInPods(context.TODO(), helpers.CiliumNamespace, helpers.CiliumSelector,
+			execInPodsRes, err := kubectl.ExecInPods(context.TODO(), helpers.CiliumNamespace, helpers.CiliumSelector,
 				fmt.Sprintf("/bin/sh -c 'cat /tmp/cilium/config-map/%s || true'", key))
 			Expect(err).NotTo(HaveOccurred())
 			out := map[string]string{}
-			for p, res := range ress {
+			for p, res := range execInPodsRes {
 				Expect(res.GetErr(p)).NotTo(HaveOccurred())
 				out[podtonode[p]] = res.Stdout()
 			}
@@ -162,11 +162,11 @@ spec:
 			podtonode, err := kubectl.GetPodsNodes(helpers.CiliumNamespace, helpers.CiliumSelector)
 			Expect(err).To(BeNil(), "error finding cilium pods")
 
-			ress, err := kubectl.ExecInPods(context.TODO(), helpers.CiliumNamespace, helpers.CiliumSelector,
+			execInPodsRes, err := kubectl.ExecInPods(context.TODO(), helpers.CiliumNamespace, helpers.CiliumSelector,
 				fmt.Sprintf("/bin/sh -c 'cat /tmp/cilium/config-map/%s || true'", key))
 			Expect(err).NotTo(HaveOccurred())
 			out := map[string]string{}
-			for p, res := range ress {
+			for p, res := range execInPodsRes {
 				Expect(res.GetErr(p)).NotTo((HaveOccurred()))
 				out[podtonode[p]] = res.Stdout()
 			}

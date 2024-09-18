@@ -974,7 +974,7 @@ var ExpectedPerPortPoliciesTLSFullContext = []*cilium.PortNetworkPolicy{
 
 // TestGetNetworkPolicyFullTLSContextEnabled tests that when the useFullTLSContext flag is passed we propagate all keys
 // from the secret to the Envoy config, including a CA on terminatingTLS/downstreamTls and a cert/key on originatingTLS/
-// upstreamTls. This is likely *not* correct, but is supported as an option for backwards bug compatabality. See
+// upstreamTls. This is likely *not* correct, but is supported as an option for backwards bug compatibility. See
 // https://github.com/cilium/cilium/issues/31761 for full context.
 func TestGetNetworkPolicyFullTLSContextEnabled(t *testing.T) {
 	obtained := getNetworkPolicy(ep, nil, []string{IPv4Addr}, L4PolicyTLSFullContext, true, true, true)

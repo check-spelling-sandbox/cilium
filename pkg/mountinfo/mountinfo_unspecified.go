@@ -17,7 +17,7 @@ const (
 //   - whether the path is a mount point;
 //   - if yes, whether its filesystem type is mntType.
 //
-// Note that this function can not detect bind mounts,
+// Note that this function cannot detect bind mounts,
 // and is not working properly when path="/".
 func IsMountFS(mntType int64, path string) (bool, bool, error) {
 	return false, false, errors.New("not implemented")

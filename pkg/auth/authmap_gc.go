@@ -252,7 +252,7 @@ func (r *authMapGarbageCollector) handleIdentityChange(_ context.Context, e cach
 
 	switch e.Kind {
 	case cache.IdentityChangeUpsert:
-		// Upsert events need to be caputured as long as the first GC run uses them
+		// Upsert events need to be captured as long as the first GC run uses them
 		// and resets ciliumIdentitiesDiscovered to nil
 		if r.ciliumIdentitiesDiscovered != nil {
 			r.logger.

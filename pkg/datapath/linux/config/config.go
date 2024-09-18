@@ -756,7 +756,7 @@ func (h *HeaderfileWriter) WriteNodeConfig(w io.Writer, cfg *datapath.LocalNodeC
 
 	ephemeralMin, err := getEphemeralPortRangeMin(h.sysctl)
 	if err != nil {
-		return fmt.Errorf("getting ephemeral port range minimun: %w", err)
+		return fmt.Errorf("getting ephemeral port range minimum: %w", err)
 	}
 	cDefinesMap["EPHEMERAL_MIN"] = fmt.Sprintf("%d", ephemeralMin)
 

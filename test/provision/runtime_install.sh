@@ -22,7 +22,7 @@ sudo systemctl restart ssh
 sudo systemctl status systemd-resolved.service || true
 # Remove symlinked resolv.conf to systemd-resolved
 rm /etc/resolv.conf
-# Remove systemd-resolvd resolv.conf to avoid being read by docker
+# Remove systemd-resolved resolv.conf to avoid being read by docker
 rm /run/systemd/resolve/stub-resolv.conf || true
 # Explicitly set nameserver 1.1.1.1 for runtime tests
 # to avoid chases with Cilium DNS

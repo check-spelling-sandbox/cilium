@@ -65,7 +65,7 @@ To see which Envoy extensions are available, please have a look at
 the `Envoy extensions configuration
 file <https://github.com/cilium/proxy/blob/main/envoy_build_config/extensions_build_config.bzl>`_.
 Only the extensions that have not been commented out with ``#`` are
-built in to the Cilium Envoy image. We will evolve the list of built-in
+built into the Cilium Envoy image. We will evolve the list of built-in
 extensions based on user feedback.
 
 Examples

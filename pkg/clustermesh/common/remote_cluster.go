@@ -57,8 +57,8 @@ type remoteCluster struct {
 	// connect to the etcd cluster of the remote cluster
 	configPath string
 
-	// clusterSizeDependantInterval allows to calculate intervals based on cluster size.
-	clusterSizeDependantInterval kvstore.ClusterSizeDependantIntervalFunc
+	// clusterSizeDependentInterval allows to calculate intervals based on cluster size.
+	clusterSizeDependentInterval kvstore.ClusterSizeDependentIntervalFunc
 
 	// resolvers are the set of resolvers used to create the custom dialer.
 	resolvers []dial.Resolver
@@ -342,7 +342,7 @@ func (rc *remoteCluster) makeExtraOpts(clusterLock *clusterLock) kvstore.ExtraOp
 	return kvstore.ExtraOptions{
 		NoLockQuorumCheck:            true,
 		ClusterName:                  rc.name,
-		ClusterSizeDependantInterval: rc.clusterSizeDependantInterval,
+		ClusterSizeDependentInterval: rc.clusterSizeDependentInterval,
 		DialOption:                   dialOpts,
 		NoEndpointStatusChecks:       true,
 	}

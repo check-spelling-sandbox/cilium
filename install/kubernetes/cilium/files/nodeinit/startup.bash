@@ -85,7 +85,7 @@ then
   echo "Disabling and stopping containerd"
   systemctl disable --now containerd
 
-  # Remove any pre-existing files in the CNI configuration directory. We skip
+  # Remove any preexisting files in the CNI configuration directory. We skip
   # any possibly existing Cilium configuration file for the obvious reasons.
   echo "Removing undesired CNI configuration files"
   find "${CNI_CONF_DIR}" -type f -not -name '*cilium*' -exec rm {} \;
@@ -171,7 +171,7 @@ if [ -f /etc/cni/net.d/10-azure.conflist ]; then
 fi
 
 # The azure0 interface being present means the node was booted with azure-vnet configured
-# in bridge mode. This means there might be ebtables rules and neight entries interfering
+# in bridge mode. This means there might be ebtables rules and neigh entries interfering
 # with pod connectivity if we deploy with Azure IPAM.
 if ip l show dev azure0 >/dev/null 2>&1; then
 

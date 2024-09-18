@@ -585,7 +585,7 @@ for Pods. BBR is in particular suitable when Pods are exposed behind Kubernetes
 Services which face external clients from the Internet. BBR achieves higher
 bandwidths and lower latencies for Internet traffic, for example, it has been
 `shown <https://cloud.google.com/blog/products/networking/tcp-bbr-congestion-control-comes-to-gcp-your-internet-just-got-faster>`_
-that BBR's throughput can reach as much as 2,700x higher than today's best
+that BBR's throughput can reach as much as 2,700x greater than today's best
 loss-based congestion control and queueing delays can be 25x lower.
 
 In order for BBR to work reliably for Pods, it requires a 5.18 or higher kernel.

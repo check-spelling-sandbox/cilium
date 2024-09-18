@@ -308,10 +308,10 @@ func (k *K8sWatcher) InitK8sSubsystem(ctx context.Context, cachesSynced chan str
 	close(k.k8sPodWatcher.controllersStarted)
 
 	go func() {
-		log.Info("Waiting until all pre-existing resources have been received")
+		log.Info("Waiting until all preexisting resources have been received")
 		allResources := append(resources, cachesOnly...)
 		if err := k.k8sResourceSynced.WaitForCacheSyncWithTimeout(option.Config.K8sSyncTimeout, allResources...); err != nil {
-			log.WithError(err).Fatal("Timed out waiting for pre-existing resources to be received; exiting")
+			log.WithError(err).Fatal("Timed out waiting for preexisting resources to be received; exiting")
 		}
 		close(cachesSynced)
 	}()

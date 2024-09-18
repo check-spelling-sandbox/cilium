@@ -25,7 +25,7 @@ type fakeNodeManager struct {
 	nodes *int
 }
 
-func (f *fakeNodeManager) ClusterSizeDependantInterval(baseInterval time.Duration) time.Duration {
+func (f *fakeNodeManager) ClusterSizeDependentInterval(baseInterval time.Duration) time.Duration {
 	numNodes := *f.nodes
 
 	if numNodes == 0 {
@@ -38,13 +38,13 @@ func (f *fakeNodeManager) ClusterSizeDependantInterval(baseInterval time.Duratio
 
 func TestNewNodeManager(t *testing.T) {
 	mgr := NewNodeManager(func(baseInterval time.Duration) time.Duration { return 2 * baseInterval })
-	require.Equal(t, 2*time.Second, mgr.ClusterSizeDependantInterval(1*time.Second))
+	require.Equal(t, 2*time.Second, mgr.ClusterSizeDependentInterval(1*time.Second))
 
 	mgr = NewNodeManager(nil)
-	require.Equal(t, 1*time.Second, mgr.ClusterSizeDependantInterval(1*time.Second))
+	require.Equal(t, 1*time.Second, mgr.ClusterSizeDependentInterval(1*time.Second))
 }
 
-func TestClusterSizeDependantInterval(t *testing.T) {
+func TestClusterSizeDependentInterval(t *testing.T) {
 	var (
 		nnodes      = 0
 		nodeManager = fakeNodeManager{

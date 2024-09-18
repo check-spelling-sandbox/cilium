@@ -1262,7 +1262,7 @@ func (s *Service) RestoreServices() error {
 }
 
 // deleteOrphanAffinityMatchesLocked removes affinity matches which point to
-// non-existent svc ID and backend ID tuples.
+// nonexistent svc ID and backend ID tuples.
 func (s *Service) deleteOrphanAffinityMatchesLocked() error {
 	matches, err := s.lbmap.DumpAffinityMatches()
 	if err != nil {

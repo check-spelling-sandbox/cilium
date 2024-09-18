@@ -181,7 +181,7 @@ type CiliumBGPTimers struct {
 	HoldTimeSeconds *int32 `json:"holdTimeSeconds,omitempty"`
 
 	// KeepaliveTimeSeconds defines the initial value for the BGP KeepaliveTimer (RFC 4271, Section 8).
-	// It can not be larger than HoldTimeSeconds. Updating this value will cause a session reset.
+	// It cannot be larger than HoldTimeSeconds. Updating this value will cause a session reset.
 	//
 	// If not specified, defaults to 30 seconds.
 	//

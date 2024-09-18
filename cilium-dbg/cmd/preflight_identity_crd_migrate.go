@@ -83,7 +83,7 @@ func migrateIdentityCmd() *cobra.Command {
 // It is a little odd because it violates the cilium-agent assumption that only
 // 1 Backend is active at a time.
 // The steps are:
-// 1- Connect to the kvstore via a pkg/allocatore.Backend
+// 1- Connect to the kvstore via a pkg/allocator.Backend
 // 2- Connect to k8s
 //
 //	a- Create the ciliumidentity CRD if it is missing.

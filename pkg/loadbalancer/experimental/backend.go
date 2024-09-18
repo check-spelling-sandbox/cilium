@@ -59,7 +59,7 @@ type Backend struct {
 
 	// Instances of this backend. A backend is always linked to a specific
 	// service and the instances may call the backend by different name
-	// (PortName) or they may come from  differents sources.
+	// (PortName) or they may come from different sources.
 	Instances part.Map[loadbalancer.ServiceName, BackendInstance]
 
 	// Properties are additional untyped properties that can carry feature

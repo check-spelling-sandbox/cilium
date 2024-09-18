@@ -104,7 +104,7 @@ static inline bool ratelimit_check_and_take(struct ratelimit_key *key,
 	}
 
 	/* Note, the updates below are racy, this causes a bit of inaccuracy but isn't fatal,
-	 * a more accurare implementation would use atomic operations to update the bucket
+	 * a more accurate implementation would use atomic operations to update the bucket
 	 * but this would be bad for performance.
 	 */
 

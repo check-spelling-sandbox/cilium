@@ -190,7 +190,7 @@ func NewPolicyRepository(
 // NewStoppedPolicyRepository creates a new policy repository without starting
 // queues.
 //
-// Qeues must be allocated via [Repository.Start]. The function serves to
+// Queues must be allocated via [Repository.Start]. The function serves to
 // satisfy hive invariants.
 func NewStoppedPolicyRepository(
 	initialIDs identity.IdentityMap,

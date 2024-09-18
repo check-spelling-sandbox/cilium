@@ -216,7 +216,7 @@ func (c *Client) GetVPCs(ctx context.Context) (ipamTypes.VirtualNetworkMap, erro
 func (c *Client) GetInstanceTypes(ctx context.Context) ([]ecs.InstanceType, error) {
 	var result []ecs.InstanceType
 	req := ecs.CreateDescribeInstanceTypesRequest()
-	// When there are many instance types, some instance limits can not be queried,
+	// When there are many instance types, some instance limits cannot be queried,
 	// so use NextToken and MaxResults for paging query.
 	// MaxResults is the number of entries on each page, the maximum value of this parameter is 100.
 	// Ref: https://www.alibabacloud.com/help/en/elastic-compute-service/latest/describeinstancetypes
@@ -396,7 +396,7 @@ func (c *Client) AssignPrivateIPAddresses(ctx context.Context, eniID string, toA
 	return resp.AssignedPrivateIpAddressesSet.PrivateIpSet.PrivateIpAddress, nil
 }
 
-// PrUnassignivateIPAddresses unassign specified IP addresses from ENI
+// UnassignPrivateIPAddresses unassign specified IP addresses from ENI
 // should not provide Primary IP
 func (c *Client) UnassignPrivateIPAddresses(ctx context.Context, eniID string, addresses []string) error {
 	req := ecs.CreateUnassignPrivateIpAddressesRequest()
@@ -444,12 +444,12 @@ func (c *Client) describeNetworkInterfacesFromInstances(ctx context.Context) ([]
 	var result []ecs.NetworkInterfaceSet
 
 	// Get filtered instance IDs
-	tagResouces, err := c.EcsListTagResources(ctx, c.instancesFilters)
+	tagResources, err := c.EcsListTagResources(ctx, c.instancesFilters)
 	if err != nil {
 		return nil, err
 	}
-	instanceIds := make([]string, 0, len(tagResouces))
-	for _, t := range tagResouces {
+	instanceIds := make([]string, 0, len(tagResources))
+	for _, t := range tagResources {
 		instanceIds = append(instanceIds, t.ResourceId)
 	}
 	// The response of ListTagResources can have duplicate instanceId

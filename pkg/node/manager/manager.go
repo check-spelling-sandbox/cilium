@@ -351,7 +351,7 @@ func (m *manager) Stop(cell.HookContext) error {
 	return nil
 }
 
-// ClusterSizeDependantInterval returns a time.Duration that is dependant on
+// ClusterSizeDependentInterval returns a time.Duration that is dependent on
 // the cluster size, i.e. the number of nodes that have been discovered. This
 // can be used to control sync intervals of shared or centralized resources to
 // avoid overloading these resources as the cluster grows.
@@ -375,16 +375,16 @@ func (m *manager) Stop(cell.HookContext) error {
 // 4096  | 8m19.080616652s
 // 8192  | 9m00.662124608s
 // 16384 | 9m42.247293667s
-func (m *manager) ClusterSizeDependantInterval(baseInterval time.Duration) time.Duration {
+func (m *manager) ClusterSizeDependentInterval(baseInterval time.Duration) time.Duration {
 	m.mutex.RLock()
 	numNodes := len(m.nodes)
 	m.mutex.RUnlock()
 
-	return backoff.ClusterSizeDependantInterval(baseInterval, numNodes)
+	return backoff.ClusterSizeDependentInterval(baseInterval, numNodes)
 }
 
 func (m *manager) backgroundSyncInterval() time.Duration {
-	return m.ClusterSizeDependantInterval(baseBackgroundSyncInterval)
+	return m.ClusterSizeDependentInterval(baseBackgroundSyncInterval)
 }
 
 // backgroundSync ensures that local node has a valid datapath in-place for
@@ -1003,7 +1003,7 @@ func (m *manager) NodeDeleted(n nodeTypes.Node) {
 	var errs error
 	m.Iter(func(nh datapath.NodeHandler) {
 		if err := nh.NodeDelete(n); err != nil {
-			// For now we log the error and continue. Eventually we will want to encorporate
+			// For now we log the error and continue. Eventually we will want to incorporate
 			// this into the node managers health status.
 			// However this is a bit tricky - as leftover node deletes are not retries so this will
 			// need to be accompanied by some kind of retry mechanism.

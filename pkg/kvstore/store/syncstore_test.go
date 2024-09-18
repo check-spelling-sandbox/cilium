@@ -147,7 +147,7 @@ func TestWorkqueueSyncStore(t *testing.T) {
 	store.UpsertKey(ctx, NewKVPair("key3", "value3"))
 	require.Equal(t, NewKVPair("/foo/bar/key3", "value3"), eventually(backend.updated))
 
-	// Upserts for the same key should be coalescenced. In this case, it is guaranteed
+	// Upserts for the same key should be coalesced. In this case, it is guaranteed
 	// to happen since the first upsert blocks until we read from the channel.
 	store.UpsertKey(ctx, NewKVPair("key4", "value4"))
 	store.UpsertKey(ctx, NewKVPair("key1", "valueA"))
@@ -251,7 +251,7 @@ func TestWorkqueueSyncStoreWithWorkers(t *testing.T) {
 	require.Equal(t, NewKVPair("/foo/bar/key1", "value1"), eventually(backend.updated))
 
 	// Since the Update() and Delete() functions implemented by the fake backend
-	// block until we read from the correposponding channel, reading in reversed
+	// block until we read from the corresponding channel, reading in reversed
 	// order the elements from the two channels requires at least two workers
 	store.DeleteKey(ctx, NewKVPair("key1", "value1"))
 	store.UpsertKey(ctx, NewKVPair("key2", "value2"))
@@ -392,7 +392,7 @@ func TestWorkqueueSyncStoreMetrics(t *testing.T) {
 	store.UpsertKey(ctx, NewKVPair("key2", "value2"))
 	require.Equal(t, float64(2), testutil.ToFloat64(me.KVStoreSyncQueueSize.WithLabelValues("nodes/v1", "foo")))
 
-	// Upserting a different key shall increse the metric
+	// Upserting a different key shall increase the metric
 	store.UpsertKey(ctx, NewKVPair("key3", "value3"))
 	require.Equal(t, float64(3), testutil.ToFloat64(me.KVStoreSyncQueueSize.WithLabelValues("nodes/v1", "foo")))
 

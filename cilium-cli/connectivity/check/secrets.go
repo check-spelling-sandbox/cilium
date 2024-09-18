@@ -74,7 +74,7 @@ func (t *Test) deleteSecrets(ctx context.Context) error {
 		return nil
 	}
 
-	// Delete all the Test's secrers from all clients.
+	// Delete all the Test's secrets from all clients.
 	for _, secret := range t.secrets {
 		t.Infof("📜 Deleting secret '%s' from namespace '%s'..", secret.Name, secret.Namespace)
 		for _, client := range t.Context().clients.clients() {

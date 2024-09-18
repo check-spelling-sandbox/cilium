@@ -61,7 +61,7 @@ type CiliumExternalWorkloadSpec struct {
 	IPv6AllocCIDR string `json:"ipv6-alloc-cidr,omitempty"`
 }
 
-// CiliumExternalWorkloadStatus is the status of a the external Cilium workload.
+// CiliumExternalWorkloadStatus is the status of the external Cilium workload.
 type CiliumExternalWorkloadStatus struct {
 	// ID is the numeric identity allocated for the external workload.
 	ID uint64 `json:"id,omitempty"`

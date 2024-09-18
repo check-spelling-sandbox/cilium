@@ -199,7 +199,7 @@ external software and protocols:
 - `@cilium/sig-k8s <https://github.com/orgs/cilium/teams/sig-k8s>`__:
   Provide input on all interactions with Kubernetes, both for standard
   resources and CRDs. Ensure best practices are followed for the coordination
-  of clusterwide state in order to minimize memory usage.
+  of cluster-wide state in order to minimize memory usage.
 - `@cilium/sig-lb <https://github.com/orgs/cilium/teams/sig-lb>`__:
   Maintain the layers necessary to coordinate all load balancing
   configurations within the agent control plane, including Services,

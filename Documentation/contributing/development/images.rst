@@ -123,7 +123,7 @@ Cilium team. It is planned to convert the build process for all images based
 on GH actions.
 
 +-------------------------------+---------------------------------------------+-----------------------------------------------+-------------------------+-------------------+
-|     **Github Repository**     |                **Dockerfile**               |      **container image repository**           |   **Architectures**     | **Build process** |
+|     **GitHub Repository**     |                **Dockerfile**               |      **container image repository**           |   **Architectures**     | **Build process** |
 |                               |                                             |                                               +-----------+-------------+                   |
 |                               |                                             |                                               | **amd64** | **aarch64** |                   |
 +-------------------------------+---------------------------------------------+-----------------------------------------------+-----------+-------------+-------------------+

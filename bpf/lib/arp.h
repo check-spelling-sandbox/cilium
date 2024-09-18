@@ -37,7 +37,7 @@ arp_prepare_response(struct __ctx_buff *ctx, union macaddr *smac, __be32 sip,
 	if (eth_store_saddr(ctx, smac->addr, 0) < 0 ||
 	    eth_store_daddr(ctx, dmac->addr, 0) < 0 ||
 	    ctx_store_bytes(ctx, 20, &arpop, sizeof(arpop), 0) < 0 ||
-	    /* sizeof(macadrr)=8 because of padding, use ETH_ALEN instead */
+	    /* sizeof(macaddr)=8 because of padding, use ETH_ALEN instead */
 	    ctx_store_bytes(ctx, 22, smac, ETH_ALEN, 0) < 0 ||
 	    ctx_store_bytes(ctx, 28, &sip, sizeof(sip), 0) < 0 ||
 	    ctx_store_bytes(ctx, 32, dmac, ETH_ALEN, 0) < 0 ||

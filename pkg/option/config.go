@@ -86,7 +86,7 @@ const (
 	AllowLocalhostPolicy = "policy"
 
 	// AnnotateK8sNode enables annotating a kubernetes node while bootstrapping
-	// the daemon, which can also be disbled using this option.
+	// the daemon, which can also be disabled using this option.
 	AnnotateK8sNode = "annotate-k8s-node"
 
 	// ARPPingRefreshPeriod is the ARP entries refresher period
@@ -527,7 +527,7 @@ const (
 	MaxInternalTimerDelay = "max-internal-timer-delay"
 
 	// MonitorAggregationName specifies the MonitorAggregationLevel on the
-	// comandline.
+	// commandline.
 	MonitorAggregationName = "monitor-aggregation"
 
 	// MonitorAggregationInterval configures interval for monitor-aggregation
@@ -542,7 +542,7 @@ const (
 	// CNIChainingMode configures which CNI plugin Cilium is chained with.
 	CNIChainingMode = "cni-chaining-mode"
 
-	// CNIChainingTarget is the name of a CNI network in to which we should
+	// CNIChainingTarget is the name of a CNI network into which we should
 	// insert our plugin configuration
 	CNIChainingTarget = "cni-chaining-target"
 
@@ -653,7 +653,7 @@ const (
 	EgressGatewayPolicyMapEntriesName = "egress-gateway-policy-map-max"
 
 	// LogSystemLoadConfigName is the name of the option to enable system
-	// load loggging
+	// load logging
 	LogSystemLoadConfigName = "log-system-load"
 
 	// DisableCiliumEndpointCRDName is the name of the option to disable
@@ -770,7 +770,7 @@ const (
 	// IPSecKeyFileName is the name of the option for ipsec key file
 	IPSecKeyFileName = "ipsec-key-file"
 
-	// EnableIPSecEncrytpedOverlay is the name of the option which enables
+	// EnableIPSecEncryptedOverlay is the name of the option which enables
 	// the EncryptedOverlay feature.
 	//
 	// This feature will encrypt overlay traffic before it leaves the cluster.
@@ -794,7 +794,7 @@ const (
 	// EnableEncryptionStrictMode is the name of the option to enable strict encryption mode.
 	EnableEncryptionStrictMode = "enable-encryption-strict-mode"
 
-	// EncryptionStrictModeCIDR is the CIDR in which the strict ecryption mode should be enforced.
+	// EncryptionStrictModeCIDR is the CIDR in which the strict encryption mode should be enforced.
 	EncryptionStrictModeCIDR = "encryption-strict-mode-cidr"
 
 	// EncryptionStrictModeAllowRemoteNodeIdentities allows dynamic lookup of remote node identities.
@@ -965,7 +965,7 @@ const (
 	EnableLocalNodeRoute = "enable-local-node-route"
 
 	// EnableWellKnownIdentities enables the use of well-known identities.
-	// This is requires if identiy resolution is required to bring up the
+	// This is requires if identity resolution is required to bring up the
 	// control plane, e.g. when using the managed etcd feature
 	EnableWellKnownIdentities = "enable-well-known-identities"
 
@@ -1558,7 +1558,7 @@ type DaemonConfig struct {
 	MonitorAggregationInterval time.Duration
 
 	// MonitorAggregationFlags determines which TCP flags that the monitor
-	// aggregation ensures reports are generated for when monitor-aggragation
+	// aggregation ensures reports are generated for when monitor-aggregation
 	// is enabled. Network byte-order.
 	MonitorAggregationFlags uint16
 
@@ -1958,7 +1958,7 @@ type DaemonConfig struct {
 	// EnableEndpointRoutes enables use of per endpoint routes
 	EnableEndpointRoutes bool
 
-	// Specifies wheather to annotate the kubernetes nodes or not
+	// Specifies whether to annotate the kubernetes nodes or not
 	AnnotateK8sNode bool
 
 	// EnableNodePort enables k8s NodePort service implementation in BPF
@@ -2138,7 +2138,7 @@ type DaemonConfig struct {
 	AllowICMPFragNeeded bool
 
 	// EnableWellKnownIdentities enables the use of well-known identities.
-	// This is requires if identiy resolution is required to bring up the
+	// This is requires if identity resolution is required to bring up the
 	// control plane, e.g. when using the managed etcd feature
 	EnableWellKnownIdentities bool
 
@@ -2146,7 +2146,7 @@ type DaemonConfig struct {
 
 	// PolicyAuditMode enables non-drop mode for installed policies. In
 	// audit mode packets affected by policies will not be dropped.
-	// Policy related decisions can be checked via the poicy verdict messages.
+	// Policy related decisions can be checked via the policy verdict messages.
 	PolicyAuditMode bool
 
 	// PolicyAccounting enable policy accounting
@@ -3195,7 +3195,7 @@ func (c *DaemonConfig) Populate(vp *viper.Viper) {
 
 	tcFilterPrio := vp.GetUint32(TCFilterPriority)
 	if tcFilterPrio > math.MaxUint16 {
-		log.Fatalf("%s cannot be higher than %d", TCFilterPriority, math.MaxUint16)
+		log.Fatalf("%s cannot be greater than %d", TCFilterPriority, math.MaxUint16)
 	}
 	c.TCFilterPriority = uint16(tcFilterPrio)
 
@@ -3321,7 +3321,7 @@ func (c *DaemonConfig) Populate(vp *viper.Viper) {
 		log.WithFields(
 			logrus.Fields{
 				"Subnets": invalid,
-			}).Warning("IPv4PodSubnets parameter can not be parsed.")
+			}).Warning("IPv4PodSubnets parameter cannot be parsed.")
 	}
 	c.IPv4PodSubnets = subnets
 
@@ -3330,7 +3330,7 @@ func (c *DaemonConfig) Populate(vp *viper.Viper) {
 		log.WithFields(
 			logrus.Fields{
 				"Subnets": invalid,
-			}).Warning("IPv6PodSubnets parameter can not be parsed.")
+			}).Warning("IPv6PodSubnets parameter cannot be parsed.")
 	}
 	c.IPv6PodSubnets = subnets
 
@@ -4037,7 +4037,7 @@ var backupFileNames []string = []string{
 	"agent-runtime-config-2.json",
 }
 
-// StoreInFile stores the configuration in a the given directory under the file
+// StoreInFile stores the configuration in the given directory under the file
 // name 'daemon-config.json'. If this file already exists, it is renamed to
 // 'daemon-config-1.json', if 'daemon-config-1.json' also exists,
 // 'daemon-config-1.json' is renamed to 'daemon-config-2.json'
@@ -4137,7 +4137,7 @@ func (c *DaemonConfig) IsLocalRouterIP(ip string) bool {
 	return ip != "" && (c.LocalRouterIPv4 == ip || c.LocalRouterIPv6 == ip)
 }
 
-// StoreViperInFile stores viper's configuration in a the given directory under
+// StoreViperInFile stores viper's configuration in the given directory under
 // the file name 'viper-config.yaml'. If this file already exists, it is renamed
 // to 'viper-config-1.yaml', if 'viper-config-1.yaml' also exists,
 // 'viper-config-1.yaml' is renamed to 'viper-config-2.yaml'
@@ -4264,7 +4264,7 @@ func InitConfig(cmd *cobra.Command, programName, configName string, vp *viper.Vi
 
 		if Config.ConfigDir != "" {
 			if _, err := os.Stat(Config.ConfigDir); os.IsNotExist(err) {
-				log.Fatalf("Non-existent configuration directory %s", Config.ConfigDir)
+				log.Fatalf("Nonexistent configuration directory %s", Config.ConfigDir)
 			}
 
 			if m, err := ReadDirConfig(Config.ConfigDir); err != nil {

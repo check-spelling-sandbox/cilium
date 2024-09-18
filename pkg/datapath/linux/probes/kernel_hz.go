@@ -105,7 +105,7 @@ func (old ktime) interpolate(new ktime) (uint16, error) {
 		return 0, fmt.Errorf("old wall time %v is more recent than %v", old.t, new.t)
 	}
 	if old.k > new.k {
-		return 0, fmt.Errorf("old kernel timer %d is higher than %d", old.k, new.k)
+		return 0, fmt.Errorf("old kernel timer %d is greater than %d", old.k, new.k)
 	}
 
 	// Jiffy and duration delta.

@@ -32,7 +32,7 @@ int cil_from_network(struct __ctx_buff *ctx)
 	 * knows, no one touches to the ctx->mark before this
 	 * program.
 	 *
-	 * One exception is the case the packets are re-insearted
+	 * One exception is the case the packets are re-inserted
 	 * from the stack by xfrm. In that case, the packets should
 	 * be marked with MARK_MAGIC_DECRYPT.
 	 */
@@ -58,7 +58,7 @@ int cil_from_network(struct __ctx_buff *ctx)
  * do_decrypt marks them with MARK_MAGIC_DECRYPT.
  *
  * 2. will be traced without TRACE_REASON_ENCRYPTED, because
- * do_decrypt does't touch to mark.
+ * do_decrypt doesn't touch to mark.
  *
  * 3. will be traced without TRACE_REASON_ENCRYPTED, because
  * do_decrypt clears the mark.

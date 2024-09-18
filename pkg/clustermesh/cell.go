@@ -25,8 +25,8 @@ var Cell = cell.Module(
 	// Convert concrete objects into more restricted interfaces used by clustermesh.
 	cell.ProvidePrivate(func(sc *k8s.ServiceCache) ServiceMerger { return sc }),
 	cell.ProvidePrivate(func(ipcache *ipcache.IPCache) ipcache.IPCacher { return ipcache }),
-	cell.ProvidePrivate(func(mgr nodemanager.NodeManager) (nodeStore.NodeManager, kvstore.ClusterSizeDependantIntervalFunc) {
-		return mgr, mgr.ClusterSizeDependantInterval
+	cell.ProvidePrivate(func(mgr nodemanager.NodeManager) (nodeStore.NodeManager, kvstore.ClusterSizeDependentIntervalFunc) {
+		return mgr, mgr.ClusterSizeDependentInterval
 	}),
 	cell.ProvidePrivate(idsMgrProvider),
 

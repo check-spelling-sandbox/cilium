@@ -295,7 +295,7 @@ func eventLoop[T metaGetterObject](ctx context.Context, s *metallbspeaker, res r
 			existing = &node
 		case resource.Delete:
 			// When the speaker discovers the node that it is running on
-			// is shuttig down it will send a BGP message to its peer
+			// is shutting down it will send a BGP message to its peer
 			// instructing it to withdrawal all previously advertised
 			// routes.
 			node := ev.Object

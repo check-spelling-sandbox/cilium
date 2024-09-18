@@ -140,7 +140,7 @@ func (h *Handle) C() <-chan *Event {
 	return h.c // return read only channel to prevent closing outside of Close(...).
 }
 
-// Close allows for safaley closing of a handle.
+// Close allows for safely closing of a handle.
 func (h *Handle) Close() {
 	h.close(nil)
 }
@@ -165,7 +165,7 @@ func (h *Handle) isFull() bool {
 // eventsBuffer.
 //
 // To prevent blocking bpf.Map operations, subscribed events are buffered per client handle.
-// How fast subscribers will need to proceess events will depend on the event throughput.
+// How fast subscribers will need to process events will depend on the event throughput.
 // In this case, our throughput will be expected to be not above 100 events a second.
 // Therefore the consumer will have 10ms to process each event. The channel is also
 // given a constant buffer size in the case where events arrive at once (i.e. all 100 events

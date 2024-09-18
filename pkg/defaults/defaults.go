@@ -271,7 +271,7 @@ const (
 	EnableIPSecEncryptedOverlay = false
 
 	// EncryptNode enables encrypting traffic from host networking applications
-	// which are not part of Cilium manged pods.
+	// which are not part of Cilium managed pods.
 	EncryptNode = false
 
 	// NodeEncryptionOptOutLabels contains the label selectors for nodes opting out of
@@ -494,7 +494,7 @@ const (
 	// specified in the L7 policies.
 	CertsDirectory = RuntimePath + "/certs"
 
-	// IPAMExpiration is the timeout after which an IP subject to expiratio
+	// IPAMExpiration is the timeout after which an IP subject to expiration
 	// is being released again if no endpoint is being created in time.
 	IPAMExpiration = 10 * time.Minute
 

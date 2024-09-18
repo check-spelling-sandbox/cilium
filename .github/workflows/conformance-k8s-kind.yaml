@@ -98,11 +98,11 @@ jobs:
       - name: Workaround CoreDNS for IPv6 airgapped
         if: ${{ matrix.ipFamily == 'ipv6' }}
         run: |
-          # Patch CoreDNS to work in Github CI
-          # 1. Github CI doesn´t offer IPv6 connectivity, so CoreDNS should be configured
+          # Patch CoreDNS to work in GitHub CI
+          # 1. GitHub CI doesn´t offer IPv6 connectivity, so CoreDNS should be configured
           # to work in an offline environment:
           # https://github.com/coredns/coredns/issues/2494#issuecomment-457215452
-          # 2. Github CI adds following domains to resolv.conf search field:
+          # 2. GitHub CI adds following domains to resolv.conf search field:
           # .net.
           # CoreDNS should handle those domains and answer with NXDOMAIN instead of SERVFAIL
           # otherwise pods stops trying to resolve the domain.
@@ -178,7 +178,7 @@ jobs:
           # Kubernetes e2e tests use ginkgo and tags to select the tests that should run based on two regex, focus and skip:
           # Focus tests:
           # \[Conformance\]|\[sig-network\]: Conformance tests are defined by the project to guarantee a consistent behaviour and some mandatory features on all clusters
-          #                                  sig-network tests are defined by sig-networkto guarantee a consistent behaviour on all the the k8s network implementations
+          #                                  sig-network tests are defined by sig-networkto guarantee a consistent behaviour on all the k8s network implementations
           # Skipped tests:
           # Disruptive|Serial : require to run in serial and perform disruptive operations on clusters (reboots, ...)
           # Federation|PerformanceDNS : unrelated sig-network tests

@@ -153,14 +153,14 @@ type RedirectBackend struct {
 // within a node.
 type CiliumLocalRedirectPolicySpec struct {
 	// RedirectFrontend specifies frontend configuration to redirect traffic from.
-	// It can not be empty.
+	// It cannot be empty.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:XValidation:rule="self == oldSelf", message="redirectFrontend is immutable"
 	RedirectFrontend RedirectFrontend `json:"redirectFrontend"`
 
 	// RedirectBackend specifies backend configuration to redirect traffic to.
-	// It can not be empty.
+	// It cannot be empty.
 	//
 	// +kubebuilder:validation:Required
 	// +kubebuilder:validation:XValidation:rule="self == oldSelf", message="redirectBackend is immutable"
@@ -194,7 +194,7 @@ type CiliumLocalRedirectPolicySpec struct {
 
 // CiliumLocalRedirectPolicyStatus is the status of a Local Redirect Policy.
 type CiliumLocalRedirectPolicyStatus struct {
-	// TODO Define status(aditi)
+	// TODO(aditi) Define status
 	OK bool `json:"ok,omitempty"`
 }
 
@@ -244,7 +244,7 @@ func (pInfo *PortInfo) SanitizePortInfo(checkNamedPort bool) (uint16, string, lb
 				"valid IANA_SVC_NAME", pInfo.Name)
 		}
 	}
-	pName = strings.ToLower(pInfo.Name) // Normalize for case insensitive comparison
+	pName = strings.ToLower(pInfo.Name) // Normalize for case-insensitive comparison
 
 	// Sanitize protocol
 	var err error

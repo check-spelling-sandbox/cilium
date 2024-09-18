@@ -989,7 +989,7 @@ func (m *Map) scopedLogger() *logrus.Entry {
 }
 
 // DeleteAll deletes all entries of a map by traversing the map and deleting individual
-// entries. Note that if entries are added while the taversal is in progress,
+// entries. Note that if entries are added while the traversal is in progress,
 // such entries may survive the deletion process.
 func (m *Map) DeleteAll() error {
 	m.lock.Lock()

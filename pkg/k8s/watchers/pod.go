@@ -458,7 +458,7 @@ func (k *K8sPodWatcher) updateK8sPodV1(oldK8sPod, newK8sPod *slim_corev1.Pod) er
 			"old-annotations": oldK8sPod.GetObjectMeta().GetAnnotations(),
 			"new-labels":      newK8sPod.GetObjectMeta().GetLabels(),
 			"new-annotations": newK8sPod.GetObjectMeta().GetAnnotations(),
-		}).Debugf("Pod does not have any annotations nor labels changed")
+		}).Debugf("Pod has neither annotation nor label changes")
 		return err
 	}
 

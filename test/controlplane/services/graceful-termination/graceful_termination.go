@@ -53,7 +53,7 @@ func testGracefulTermination(t *testing.T) {
 		Eventually(func() error { return helpers.ValidateLBMapGoldenFile(abs("lbmap2.golden"), test.FakeLbMap) }).
 
 		// Step 3: Endpoint has now been removed from the endpoint slice.
-		// lbmap3.golden: The graceful-term-svc service no longer has any backeds
+		// lbmap3.golden: The graceful-term-svc service no longer has any backends
 		UpdateObjectsFromFile(abs("state3.yaml")).
 		Eventually(func() error { return helpers.ValidateLBMapGoldenFile(abs("lbmap3.golden"), test.FakeLbMap) }).
 		ClearEnvironment()

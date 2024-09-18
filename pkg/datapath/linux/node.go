@@ -473,7 +473,7 @@ func (n *linuxNodeHandler) createNodeRouteSpec(prefix *cidr.CIDR, isLocalNode bo
 		}
 
 		// For ipv6, kernel will reject "ip r a $cidr via $ipv6_cilium_host dev cilium_host"
-		// with "Error: Gateway can not be a local address". Instead, we have to remove "via"
+		// with "Error: Gateway cannot be a local address". Instead, we have to remove "via"
 		// as "ip r a $cidr dev cilium_host" to make it work.
 		nexthop = nil
 		local = n.nodeConfig.CiliumInternalIPv6
@@ -617,7 +617,7 @@ func getNextHopIP(nodeIP net.IP, link netlink.Link) (nextHopIP net.IP, err error
 
 		// Select a gw for the specified link if there are multi paths to the nodeIP
 		// For example, the nextHop to the nodeIP 9.9.9.9 from eth0 is 10.0.1.2,
-		// from eth1 is 10.0.2.2 as shown bellow.
+		// from eth1 is 10.0.2.2 as shown below.
 		//
 		// 9.9.9.9 proto bird metric 32
 		//        nexthop via 10.0.1.2 dev eth0 weight 1
@@ -693,7 +693,7 @@ func (n *linuxNodeHandler) insertNeighborCommon(ctx context.Context, nextHop Nex
 		// 2) Old entry was a dynamic + externally learned one. This
 		// is similar as the PERMANENT one if the entry was NUD_VALID
 		// before. The subsequent NTF_USE will trigger a new resolution.
-		// 3) Old entry was non-existent. Given we don't push down a
+		// 3) Old entry was nonexistent. Given we don't push down a
 		// corresponding lladdr, the neighbor entry gets created by the
 		// kernel, but given prior state was not NUD_VALID then the
 		// __neigh_update() will error out (EINVAL). However, the entry
@@ -1200,7 +1200,7 @@ func (n *linuxNodeHandler) replaceHostRules() error {
 		}
 		rule.Mark = linux_defaults.RouteMarkEncrypt
 		if err := route.ReplaceRuleIPv6(rule); err != nil {
-			n.log.Error("Replace IPv6 route ecrypt rule failed", logfields.Error, err)
+			n.log.Error("Replace IPv6 route encrypt rule failed", logfields.Error, err)
 			return err
 		}
 	}
@@ -1551,7 +1551,7 @@ func (n *linuxNodeHandler) NodeCleanNeighbors(migrateOnly bool) {
 		l, err := netlink.LinkByName(linkName)
 		if err != nil {
 			// If the link is not found we don't need to keep retrying cleaning
-			// up the neihbor entries so we can keep successClean=true
+			// up the neighbor entries so we can keep successClean=true
 			var linkNotFoundError netlink.LinkNotFoundError
 			if !errors.As(err, &linkNotFoundError) {
 				n.log.Error("Unable to remove PERM neighbor entries of network device",

@@ -744,7 +744,7 @@ func TestNodeManagerManyNodes(t *testing.T) {
 	}
 
 	// The above check returns as soon as the address requirements are met.
-	// The metrics may still be oudated, resync all nodes to update
+	// The metrics may still be outdated, resync all nodes to update
 	// metrics.
 	mngr.Resync(context.TODO(), time.Now())
 
@@ -792,7 +792,7 @@ func TestNodeManagerInstanceNotRunning(t *testing.T) {
 	require.NoError(t, err)
 	require.NotNil(t, mngr)
 
-	// Announce node, ENI attachement will fail
+	// Announce node, ENI attachment will fail
 	cn := newCiliumNode("node1", withTestDefaults(), withInstanceID(instanceID), withInstanceType("m4.large"),
 		withFirstInterfaceIndex(1), withIPAMPreAllocate(8))
 	mngr.Upsert(cn)

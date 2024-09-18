@@ -68,7 +68,7 @@ func GetRunningCiliumVersion() string {
 // the new style (e.g. "0.0.0.0:53/TCP").
 func HasNewServiceOutput(ver string) bool {
 	cst, err := versioncheck.Version(ver)
-	// If the version is not parseable it is probably
+	// If the version is not parsable it is probably
 	// someone's custom build  or not set.
 	// Either way, it is probably using the new output
 	// format.
@@ -102,7 +102,7 @@ func MakeUID() string {
 }
 
 // RenderTemplate renders a text/template string into a buffer.
-// Returns eturn an error if the template cannot be validated.
+// Returns an error if the template cannot be validated.
 func RenderTemplate(tmplt string) (*bytes.Buffer, error) {
 	t, err := template.New("").Parse(tmplt)
 	if err != nil {
@@ -122,7 +122,7 @@ type TimeoutConfig struct {
 	Timeout time.Duration // Limit for how long to spend in the command
 }
 
-// Validate ensuires that the parameters for the TimeoutConfig are reasonable
+// Validate ensures that the parameters for the TimeoutConfig are reasonable
 // for running in tests.
 func (c *TimeoutConfig) Validate() error {
 	if c.Timeout < 5*time.Second {
@@ -700,7 +700,7 @@ func (kub *Kubectl) GetNodeCILabel(nodeName string) string {
 	return res.SingleOut()
 }
 
-// IsNodeWithoutCilium returns true if node node doesn't run Cilium.
+// IsNodeWithoutCilium returns true if node doesn't run Cilium.
 func IsNodeWithoutCilium(node string) bool {
 	for _, n := range GetNodesWithoutCilium() {
 		if n == node {

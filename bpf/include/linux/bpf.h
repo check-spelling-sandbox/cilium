@@ -78,7 +78,7 @@ struct bpf_insn {
 	__s32	imm;		/* signed immediate constant */
 };
 
-/* Key of an a BPF_MAP_TYPE_LPM_TRIE entry */
+/* Key of a BPF_MAP_TYPE_LPM_TRIE entry */
 struct bpf_lpm_trie_key {
 	__u32	prefixlen;	/* up to 32 for AF_INET, 128 for AF_INET6 */
 	__u8	data[0];	/* Arbitrary size */
@@ -375,7 +375,7 @@ union bpf_iter_link_info {
  *
  *		Looks for the eBPF program with an id greater than *start_id*
  *		and updates *next_id* on success. If no other eBPF programs
- *		remain with ids higher than *start_id*, returns -1 and sets
+ *		remain with ids greater than *start_id*, returns -1 and sets
  *		*errno* to **ENOENT**.
  *
  *	Return
@@ -388,7 +388,7 @@ union bpf_iter_link_info {
  *
  *		Looks for the eBPF map with an id greater than *start_id*
  *		and updates *next_id* on success. If no other eBPF maps
- *		remain with ids higher than *start_id*, returns -1 and sets
+ *		remain with ids greater than *start_id*, returns -1 and sets
  *		*errno* to **ENOENT**.
  *
  *	Return
@@ -602,7 +602,7 @@ union bpf_iter_link_info {
  *
  *		Looks for the BTF object with an id greater than *start_id*
  *		and updates *next_id* on success. If no other BTF objects
- *		remain with ids higher than *start_id*, returns -1 and sets
+ *		remain with ids greater than *start_id*, returns -1 and sets
  *		*errno* to **ENOENT**.
  *
  *	Return
@@ -783,7 +783,7 @@ union bpf_iter_link_info {
  *
  *		Looks for the eBPF link with an id greater than *start_id*
  *		and updates *next_id* on success. If no other eBPF links
- *		remain with ids higher than *start_id*, returns -1 and sets
+ *		remain with ids greater than *start_id*, returns -1 and sets
  *		*errno* to **ENOENT**.
  *
  *	Return
@@ -1306,7 +1306,7 @@ enum {
 /* Create a map that is suitable to be an inner map with dynamic max entries */
 	BPF_F_INNER_MAP		= (1U << 12),
 
-/* Create a map that will be registered/unregesitered by the backed bpf_link */
+/* Create a map that will be registered/unregistered by the backed bpf_link */
 	BPF_F_LINK		= (1U << 13),
 
 /* Get path from provided FD in BPF_OBJ_PIN/BPF_OBJ_GET commands */
@@ -1448,7 +1448,7 @@ union bpf_attr {
 		__aligned_u64	fd_array;	/* array of FDs */
 		__aligned_u64	core_relos;
 		__u32		core_relo_rec_size; /* sizeof(struct bpf_core_relo) */
-		/* output: actual total log contents size (including termintaing zero).
+		/* output: actual total log contents size (including terminating zero).
 		 * It could be both larger than original log_size (if log was
 		 * truncated), or smaller (if log buffer wasn't filled completely).
 		 */
@@ -1560,7 +1560,7 @@ union bpf_attr {
 		__u32		btf_size;
 		__u32		btf_log_size;
 		__u32		btf_log_level;
-		/* output: actual total log contents size (including termintaing zero).
+		/* output: actual total log contents size (including terminating zero).
 		 * It could be both larger than original log_size (if log was
 		 * truncated), or smaller (if log buffer wasn't filled completely).
 		 */
@@ -6152,7 +6152,7 @@ struct bpf_xfrm_state {
  * provide backwards compatibility with existing SCHED_CLS and SCHED_ACT
  * programs.
  *
- * XDP is handled seprately, see XDP_*.
+ * XDP is handled separately, see XDP_*.
  */
 enum bpf_ret_code {
 	BPF_OK = 0,

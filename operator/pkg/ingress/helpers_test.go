@@ -114,7 +114,7 @@ func TestIsCiliumManagedIngress(t *testing.T) {
 			managed: true,
 		},
 		{
-			desc: "Legacy ingress class annotation takes presedence over ingressClassName field",
+			desc: "Legacy ingress class annotation takes precedence over ingressClassName field",
 			ingress: networkingv1.Ingress{
 				ObjectMeta: metav1.ObjectMeta{
 					Namespace: "test",
@@ -173,7 +173,7 @@ func TestIsCiliumManagedIngress(t *testing.T) {
 			managed: false,
 		},
 		{
-			desc: "Cilium isn't IngressClass (annotation missconfigured) and Ingress has no specific class set",
+			desc: "Cilium isn't IngressClass (annotation misconfigured) and Ingress has no specific class set",
 			ingress: networkingv1.Ingress{
 				ObjectMeta: metav1.ObjectMeta{
 					Namespace: "test",

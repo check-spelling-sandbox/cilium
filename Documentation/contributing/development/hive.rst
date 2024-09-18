@@ -411,7 +411,7 @@ returns a cell that "provides" the parsed configuration to the application:
 
     func (def MyConfig) Flags(flags *pflag.FlagSet) {
         // Register the "my-option" flag. This matched against the MyOption field
-        // by removing any dashes and doing case insensitive comparison.
+        // by removing any dashes and doing case-insensitive comparison.
         flags.String("my-option", def.MyOption, "My config option")
 
         // Flags are supported for representing complex types such as slices and maps.

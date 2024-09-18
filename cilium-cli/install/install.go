@@ -191,7 +191,7 @@ func getChainingMode(values map[string]interface{}) string {
 }
 
 func (k *K8sInstaller) preinstall(ctx context.Context) error {
-	// TODO (ajs): Note that we have our own implementation of helm MergeValues at internal/helm/MergeValues, used
+	// TODO(ajs): Note that we have our own implementation of helm MergeValues at internal/helm/MergeValues, used
 	//  e.g. in hubble.go. Does using the upstream HelmOpts.MergeValues here create inconsistencies with which
 	//  parameters take precedence? Test and determine which we should use here for expected behavior.
 	// Get Helm values to check if ipv4NativeRoutingCIDR value is specified via a Helm flag.

@@ -414,7 +414,7 @@ __ipv4_host_policy_egress(struct __ctx_buff *ctx, bool is_host_id __maybe_unused
 		ct_state_new.src_sec_id = HOST_ID;
 		ct_state_new.proxy_redirect = proxy_port > 0;
 
-		/* ext_err may contain a value from __eolicy_can_access, and
+		/* ext_err may contain a value from __policy_can_access, and
 		 * ct_create4 overwrites it only if it returns an error itself.
 		 * As the error from __policy_can_access is dropped in that
 		 * case, it's OK to return ext_err from ct_create4 along with

@@ -32,7 +32,7 @@ type KeyValue interface {
 }
 
 // StructBinaryMarshaler implements a BinaryMarshaler for a struct of
-// primitive fields. Same caviats apply as with cilium/ebpf when using a
+// primitive fields. Same caveats apply as with cilium/ebpf when using a
 // struct as key or value.
 // Example usage:
 //

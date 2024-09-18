@@ -69,7 +69,7 @@ send_policy_verdict_notify(struct __ctx_buff *ctx, __u32 remote_label, __u16 dst
 	 * preventing any policy verdict notification, as the logic to set it
 	 * is only wired up to endpoints.
 	 *
-	 * Insead of tweaking POLICY_VERDICT_LOG_FILTER and reloading bpf_host
+	 * Instead of tweaking POLICY_VERDICT_LOG_FILTER and reloading bpf_host
 	 * based on whether host firewall policies are present or not, just
 	 * always enable policy verdicts notifications, and filter out the ones
 	 * for default allow policies, to prevent a flood of notifications for

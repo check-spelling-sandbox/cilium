@@ -76,7 +76,7 @@ func runSet(cmd *cobra.Command, vp *viper.Viper, key, value string) error {
 			newVal, err = csv.NewReader(strings.NewReader(val)).Read()
 		}
 	default:
-		return fmt.Errorf("unhandeld type %s, please open an issue", typ)
+		return fmt.Errorf("unhandled type %s, please open an issue", typ)
 	}
 	if err != nil {
 		return fmt.Errorf("cannot assign value=%s for key=%s, expected type=%s: %w", value, key, typ, err)

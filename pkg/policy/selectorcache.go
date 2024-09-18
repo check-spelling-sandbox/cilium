@@ -19,7 +19,7 @@ import (
 	"github.com/cilium/cilium/pkg/policy/api"
 )
 
-// scIdentity is the information we need about a an identity that rules can select
+// scIdentity is the information we need about an identity that rules can select
 type scIdentity struct {
 	NID       identity.NumericIdentity
 	lbls      labels.LabelArray
@@ -202,7 +202,7 @@ func NewSelectorCache(ids identity.IdentityMap) *SelectorCache {
 // SelectorCache. Currently, this is used to inject the FQDN subsystem into
 // the SelectorCache so the SelectorCache can notify the FQDN subsystem when
 // it should be aware of a given FQDNSelector for which CIDR identities need
-// to be provided upon DNS lookups which corespond to said FQDNSelector.
+// to be provided upon DNS lookups which correspond to said FQDNSelector.
 func (sc *SelectorCache) SetLocalIdentityNotifier(pop identityNotifier) {
 	sc.localIdentityNotifier = pop
 }
@@ -237,11 +237,11 @@ type identityNotifier interface {
 	UnregisterFQDNSelector(selector api.FQDNSelector)
 }
 
-// AddFQDNSelector adds the given api.FQDNSelector in to the selector cache. If
+// AddFQDNSelector adds the given api.FQDNSelector to the selector cache. If
 // an identical EndpointSelector has already been cached, the corresponding
 // CachedSelector is returned, otherwise one is created and added to the cache.
-func (sc *SelectorCache) AddFQDNSelector(user CachedSelectionUser, lbls labels.LabelArray, fqdnSelec api.FQDNSelector) (cachedSelector CachedSelector, added bool) {
-	key := fqdnSelec.String()
+func (sc *SelectorCache) AddFQDNSelector(user CachedSelectionUser, lbls labels.LabelArray, fqdnSelectorInput api.FQDNSelector) (cachedSelector CachedSelector, added bool) {
+	key := fqdnSelectorInput.String()
 
 	sc.mutex.Lock()
 	defer sc.mutex.Unlock()
@@ -253,7 +253,7 @@ func (sc *SelectorCache) AddFQDNSelector(user CachedSelectionUser, lbls labels.L
 	}
 
 	source := &fqdnSelector{
-		selector: fqdnSelec,
+		selector: fqdnSelectorInput,
 	}
 
 	// Make the FQDN subsystem aware of this selector
@@ -294,7 +294,7 @@ func (sc *SelectorCache) addSelector(user CachedSelectionUser, lbls labels.Label
 }
 
 // FindCachedIdentitySelector finds the given api.EndpointSelector in the
-// selector cache, returning nil if one can not be found.
+// selector cache, returning nil if one cannot be found.
 func (sc *SelectorCache) FindCachedIdentitySelector(selector api.EndpointSelector) CachedSelector {
 	key := selector.CachedString()
 	sc.mutex.Lock()
@@ -303,7 +303,7 @@ func (sc *SelectorCache) FindCachedIdentitySelector(selector api.EndpointSelecto
 	return idSel
 }
 
-// AddIdentitySelector adds the given api.EndpointSelector in to the
+// AddIdentitySelector adds the given api.EndpointSelector to the
 // selector cache. If an identical EndpointSelector has already been
 // cached, the corresponding CachedSelector is returned, otherwise one
 // is created and added to the cache.

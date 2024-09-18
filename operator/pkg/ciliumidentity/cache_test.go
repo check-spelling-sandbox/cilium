@@ -22,10 +22,10 @@ import (
 )
 
 var (
-	k8sLables_A           = map[string]string{"a1": "1", "a2": "2"}
-	k8sLables_B           = map[string]string{"b1": "1", "b2": "2"}
-	k8sLables_B_duplicate = map[string]string{"b1": "1", "b2": "2"}
-	k8sLables_C           = map[string]string{"c1": "1", "c2": "2"}
+	k8sLabels_A           = map[string]string{"a1": "1", "a2": "2"}
+	k8sLabels_B           = map[string]string{"b1": "1", "b2": "2"}
+	k8sLabels_B_duplicate = map[string]string{"b1": "1", "b2": "2"}
+	k8sLabels_C           = map[string]string{"c1": "1", "c2": "2"}
 )
 
 func TestMain(m *testing.M) {
@@ -39,9 +39,9 @@ func TestCIDState(t *testing.T) {
 	// The subtests below share the same state to serially test insert, lookup and
 	// remove operations of CIDState.
 	state := NewCIDState(logger)
-	k1 := key.GetCIDKeyFromLabels(k8sLables_A, labels.LabelSourceK8s)
-	k2 := key.GetCIDKeyFromLabels(k8sLables_B, labels.LabelSourceK8s)
-	k3 := key.GetCIDKeyFromLabels(k8sLables_B_duplicate, labels.LabelSourceK8s)
+	k1 := key.GetCIDKeyFromLabels(k8sLabels_A, labels.LabelSourceK8s)
+	k2 := key.GetCIDKeyFromLabels(k8sLabels_B, labels.LabelSourceK8s)
+	k3 := key.GetCIDKeyFromLabels(k8sLabels_B_duplicate, labels.LabelSourceK8s)
 
 	t.Run("Insert into CID state", func(t *testing.T) {
 		state.Upsert("1", k1)
@@ -98,12 +98,12 @@ func TestCIDState(t *testing.T) {
 
 		cidKey, exists := state.LookupByID("1")
 		assert.Equal(t, true, exists, "cid 1 LookupByID - found")
-		assert.Equal(t, key.GetCIDKeyFromLabels(k8sLables_A, labels.LabelSourceK8s), cidKey, "cid 1 LookupByID - correct key")
+		assert.Equal(t, key.GetCIDKeyFromLabels(k8sLabels_A, labels.LabelSourceK8s), cidKey, "cid 1 LookupByID - correct key")
 
-		_, exists = state.LookupByKey(key.GetCIDKeyFromLabels(k8sLables_C, labels.LabelSourceK8s))
+		_, exists = state.LookupByKey(key.GetCIDKeyFromLabels(k8sLabels_C, labels.LabelSourceK8s))
 		assert.Equal(t, false, exists, "labels C LookupByKey - not found")
 
-		cidName, exists := state.LookupByKey(key.GetCIDKeyFromLabels(k8sLables_A, labels.LabelSourceK8s))
+		cidName, exists := state.LookupByKey(key.GetCIDKeyFromLabels(k8sLabels_A, labels.LabelSourceK8s))
 		assert.Equal(t, true, exists, "labels C LookupByKey - not found")
 		assert.Equal(t, "1", cidName, "labels C LookupByKey - correct CID")
 	})
@@ -150,8 +150,8 @@ func TestCIDStateThreadSafety(t *testing.T) {
 	// Multiple go routines in parallel continuously keep using CIDState.
 	state := NewCIDState(logger)
 
-	k := key.GetCIDKeyFromLabels(k8sLables_A, labels.LabelSourceK8s)
-	k2 := key.GetCIDKeyFromLabels(k8sLables_B, labels.LabelSourceK8s)
+	k := key.GetCIDKeyFromLabels(k8sLabels_A, labels.LabelSourceK8s)
+	k2 := key.GetCIDKeyFromLabels(k8sLabels_B, labels.LabelSourceK8s)
 
 	wg := sync.WaitGroup{}
 	queryStateFunc := func() {

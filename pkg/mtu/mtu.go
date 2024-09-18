@@ -42,7 +42,7 @@ const (
 	// overhead is accounted for as:
 	//    Outer IP header:    20B
 	//    SPI:		   4B
-	//    Sequece Numbers:	   4B
+	//    Sequence Numbers:	   4B
 	//    Next Header:         1B
 	//    ICV:		  16B
 	//    Padding:            16B
@@ -85,13 +85,13 @@ type Configuration struct {
 	// Similar to StandardMTU, this is a singleton for the process.
 	tunnelMTU int
 
-	// preEncrypMTU is the MTU used for configurations of a encryption route.
+	// preEncryptMTU is the MTU used for configurations of a encryption route.
 	// If tunneling is enabled the tunnelMTU is used which will include
 	// additional encryption overhead if needed.
 	preEncryptMTU int
 
 	// postEncryptMTU is the MTU used for configurations of a encryption
-	// route _after_ encryption tags have been addded. These will be used
+	// route _after_ encryption tags have been added. These will be used
 	// in the encryption routing table. The MTU accounts for the tunnel
 	// overhead, if any, but assumes packets are already encrypted.
 	postEncryptMTU int
@@ -108,7 +108,7 @@ type Configuration struct {
 // specified, otherwise it will be automatically detected. if encapEnabled is
 // true, the MTU is adjusted to account for encapsulation overhead for all
 // routes involved in node to node communication.
-func NewConfiguration(authKeySize int, encryptEnabled bool, encapEnabled bool, wireguardEnabled bool, hsIpcacheDSRenabled bool, mtu int, mtuDetectIP net.IP, enableRouteMTUForCNIChaining bool) Configuration {
+func NewConfiguration(authKeySize int, encryptEnabled bool, encapEnabled bool, wireguardEnabled bool, hsIpcacheDsrEnabled bool, mtu int, mtuDetectIP net.IP, enableRouteMTUForCNIChaining bool) Configuration {
 	encryptOverhead := 0
 
 	if mtu == 0 {
@@ -132,7 +132,7 @@ func NewConfiguration(authKeySize int, encryptEnabled bool, encapEnabled bool, w
 	}
 
 	fullTunnelOverhead := TunnelOverhead
-	if hsIpcacheDSRenabled {
+	if hsIpcacheDsrEnabled {
 		fullTunnelOverhead += DsrTunnelOverhead
 	}
 

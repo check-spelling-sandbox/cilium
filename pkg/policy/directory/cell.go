@@ -89,7 +89,7 @@ func (p *PolicyResourcesWatcher) WatchDirectoryPolicyResources(ctx context.Conte
 // newPolicyWatcher constructs a new policy watcher.
 // This constructor unfortunately cannot be started via the Hive lifecycle as
 // there exists a circular dependency between this watcher and the Daemon:
-// The constructor newDaemon cannot complete before all pre-existing
+// The constructor newDaemon cannot complete before all preexisting
 // Cilium Network Policy defined as yaml under specific directory have been added via the PolicyManager
 // (i.e. watchDirectory has observed the CNP file addition).
 // Because the PolicyManager interface itself is implemented by the Daemon

@@ -969,7 +969,7 @@ describe some of the differences for the BPF model:
   For the reasons already mentioned in point 1, BPF cannot have global variables
   as often used in normal C programs.
 
-  However, there is a work-around in that the program can simply use a BPF map
+  However, there is a workaround in that the program can simply use a BPF map
   of type ``BPF_MAP_TYPE_PERCPU_ARRAY`` with just a single slot of arbitrary
   value size. This works, because during execution, BPF programs are guaranteed
   to never get preempted by the kernel and therefore can use the single map entry

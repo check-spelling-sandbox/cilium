@@ -815,7 +815,7 @@ var (
 			},
 		},
 
-		// HTTPRoute with non-existent gateway
+		// HTTPRoute with nonexistent gateway
 		&gatewayv1.HTTPRoute{
 			ObjectMeta: metav1.ObjectMeta{
 				Name:      "http-route-with-nonexistent-gateway",
@@ -825,7 +825,7 @@ var (
 				CommonRouteSpec: gatewayv1.CommonRouteSpec{
 					ParentRefs: []gatewayv1.ParentReference{
 						{
-							Name: "non-existent-gateway",
+							Name: "nonexistent-gateway",
 						},
 					},
 				},

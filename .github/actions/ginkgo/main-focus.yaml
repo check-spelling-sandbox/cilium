@@ -51,7 +51,7 @@ include:
     cliFocus: "K8sAgentFQDNTest|K8sAgentPerNodeConfigTest"
 
   ###
-  # K8sAgentPolicyTest Clusterwide policies Test clusterwide connectivity with policies
+  # K8sAgentPolicyTest Clusterwide policies Test cluster-wide connectivity with policies
   # K8sAgentPolicyTest Clusterwide policies Tests connectivity with default-allow policies
   # K8sAgentPolicyTest External services To Services first endpoint creation
   # K8sAgentPolicyTest External services To Services first endpoint creation match service by labels

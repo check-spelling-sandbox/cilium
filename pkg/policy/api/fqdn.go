@@ -18,7 +18,7 @@ var (
 	allowedMatchNameChars = regexp.MustCompile("^[-a-zA-Z0-9_.]+$")
 
 	// allowedPatternChars tests that the MatchPattern field contains only the
-	// characters we want in our wilcard scheme.
+	// characters we want in our wildcard scheme.
 	allowedPatternChars = regexp.MustCompile("^[-a-zA-Z0-9_.*]+$") // the * inside the [] is a literal *
 
 	// FQDNMatchNameRegexString is a regex string which matches what's expected
@@ -43,14 +43,14 @@ type FQDNSelector struct {
 	MatchName string `json:"matchName,omitempty"`
 
 	// MatchPattern allows using wildcards to match DNS names. All wildcards are
-	// case insensitive. The wildcards are:
+	// case-insensitive. The wildcards are:
 	// - "*" matches 0 or more DNS valid characters, and may occur anywhere in
 	// the pattern. As a special case a "*" as the leftmost character, without a
 	// following "." matches all subdomains as well as the name to the right.
 	// A trailing "." is automatically added when missing.
 	//
 	// Examples:
-	// `*.cilium.io` matches subomains of cilium at that level
+	// `*.cilium.io` matches subdomains of cilium at that level
 	//   www.cilium.io and blog.cilium.io match, cilium.io and google.com do not
 	// `*cilium.io` matches cilium.io and all subdomains ends with "cilium.io"
 	//   except those containing "." separator, subcilium.io and sub-cilium.io match,

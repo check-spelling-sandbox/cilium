@@ -80,7 +80,7 @@ type ENISpec struct {
 	// +kubebuilder:validation:Optional
 	SecurityGroups []string `json:"security-groups,omitempty"`
 
-	// SecurityGroupTags is the list of tags to use when evaliating what
+	// SecurityGroupTags is the list of tags to use when evaluating what
 	// AWS security groups to use for the ENI.
 	//
 	// +kubebuilder:validation:Optional

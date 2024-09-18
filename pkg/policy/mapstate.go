@@ -126,7 +126,7 @@ type Identities interface {
 	GetPrefix(identity.NumericIdentity) netip.Prefix
 }
 
-// mapStateMap is a convience type representing the actual structure mapping
+// mapStateMap is a convenience type representing the actual structure mapping
 // policymap keys to policymap entries.
 //
 // The `bitlpm.Trie` indexes the TrafficDirection, Protocol, and Port of
@@ -141,7 +141,7 @@ type Identities interface {
 // TrafficDirection, Protocol, and Port. When identity is not indexed
 // then one policy will map to one key-prefix with a builtin map type
 // that associates each identity with a MapStateEntry. This strategy
-// greatly enhances the usefuleness of the Trie and improves lookup,
+// greatly enhances the usefulness of the Trie and improves lookup,
 // deletion, and insertion times.
 type mapStateMap struct {
 	// entries is the map containing the MapStateEntries
@@ -789,7 +789,7 @@ func (ms *mapState) Get(k Key) (MapStateEntry, bool) {
 	return ms.allows.Lookup(k)
 }
 
-// insert the Key and matcthing MapStateEntry into the
+// insert the Key and matching MapStateEntry into the
 // MapState
 func (ms *mapState) insert(k Key, v MapStateEntry, identities Identities) {
 	if k.DestPort == 0 && k.PortPrefixLen() > 0 {
@@ -1206,7 +1206,7 @@ func (ms *mapState) denyPreferredInsertWithChanges(newKey Key, newEntry MapState
 
 	// Datapath matches security IDs exactly, or completely wildcards them (ID == 0). Datapath
 	// has no LPM/CIDR logic for security IDs. We use LPM/CIDR logic here to find out if allow
-	// entries are "covered" by deny entries and change them to deny entries if so. We can not
+	// entries are "covered" by deny entries and change them to deny entries if so. We cannot
 	// rely on the default deny as a broad allow could be added later.
 
 	// We cannot update the map while we are
@@ -1429,7 +1429,7 @@ func (ms *mapState) denyPreferredInsertWithChanges(newKey Key, newEntry MapState
 			// If the new-entry is *only* superset of the iterated-deny-entry
 			// and the new-entry has a more specific port-protocol than the
 			// iterated-deny-entry then an additional copy of the iterated-deny-entry
-			// with the more specific port-porotocol of the new-entry must
+			// with the more specific port-protocol of the new-entry must
 			// be added.
 			denyKeyCpy := newKey
 			denyKeyCpy.Identity = k.Identity
@@ -1475,7 +1475,7 @@ func (ms *mapState) denyPreferredInsertWithChanges(newKey Key, newEntry MapState
 //  3. */proto/port
 //  4. ID/*/*
 //  5. ID/proto/*
-//     ( ID/proto/port can not be superset of anything )
+//     ( ID/proto/port cannot be superset of anything )
 func IsSuperSetOf(k, other Key) int {
 	if k.TrafficDirection() != other.TrafficDirection() {
 		return 0 // TrafficDirection must match for 'k' to be a superset of 'other'
@@ -1672,7 +1672,7 @@ func (changes *ChangeState) insertOldIfNotExists(key Key, entry MapStateEntry) b
 	return false
 }
 
-// ForEachKeyWithPortProto calls 'f' for each Key and MapStateEntry, where the Key has the same traffic direction and and L4 fields (protocol, destination port and mask).
+// ForEachKeyWithPortProto calls 'f' for each Key and MapStateEntry, where the Key has the same traffic direction and L4 fields (protocol, destination port and mask).
 func (msm *mapStateMap) ForEachKeyWithPortProto(key Key, f func(Key, MapStateEntry) bool) {
 	// 'Identity' field in 'key' is ignored on by ExactLookup
 	idSet, ok := msm.trie.ExactLookup(key.PrefixLength(), key)

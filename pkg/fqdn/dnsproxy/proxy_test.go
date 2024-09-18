@@ -125,7 +125,7 @@ func setupDNSProxyTestSuite(tb testing.TB) *DNSProxyTestSuite {
 	require.Nil(tb, err, "error starting DNS Proxy")
 	s.proxy = proxy
 
-	// This is here because Listener or Listeer.Addr() was nil. The
+	// This is here because Listener or Listener.Addr() was nil. The
 	// lookupTargetDNSServer function doesn't need to change the target.
 	require.NotNil(tb, s.dnsServer.Listener, "DNS server missing a Listener")
 	DNSServerListenerAddr := (s.dnsServer.Listener.Addr()).(*net.TCPAddr)
@@ -409,7 +409,7 @@ func TestRespondViaCorrectProtocol(t *testing.T) {
 
 	// Respond with an actual answer for the query. This also tests that the
 	// connection was forwarded via the correct protocol (tcp/udp) because we
-	// connet with TCP, and the server only listens on TCP.
+	// connect with TCP, and the server only listens on TCP.
 
 	name := "cilium.io."
 	l7map := policy.L7DataMap{
@@ -438,9 +438,8 @@ func TestRespondViaCorrectProtocol(t *testing.T) {
 func TestRespondMixedCaseInRequestResponse(t *testing.T) {
 	s := setupDNSProxyTestSuite(t)
 
-	// Test that mixed case query is allowed out and then back in to support
-	// high-order-bit query uniqueing schemes (and a data exfiltration
-	// vector :( )
+	// To support high-order-bit query uniquing schemes (and a data exfiltration
+	// vector :( ), test that mixed case query is allowed out and then back in.
 	name := "cilium.io."
 	l7map := policy.L7DataMap{
 		cachedDstID1Selector: &policy.PerSelectorPolicy{
@@ -1066,7 +1065,7 @@ func TestRestoredEndpoint(t *testing.T) {
 
 	// Respond with an actual answer for the query. This also tests that the
 	// connection was forwarded via the correct protocol (tcp/udp) because we
-	// connet with TCP, and the server only listens on TCP.
+	// connect with TCP, and the server only listens on TCP.
 
 	name := "cilium.io."
 	pattern := "*.cilium.com."

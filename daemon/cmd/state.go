@@ -140,7 +140,7 @@ func (d *Daemon) getPodForEndpoint(ep *endpoint.Endpoint) error {
 //
 // 2. restoreOldEndpoints(): validate endpoint data after k8s has been configured
 //   - IP allocation
-//   - some endpoints may be rejected and not regnerated in the 3rd step
+//   - some endpoints may be rejected and not regenerated in the 3rd step
 //
 // 3. regenerateRestoredEndpoints(): Regenerate the restored endpoints
 //   - recreate endpoint's policy, as well as bpf programs and maps

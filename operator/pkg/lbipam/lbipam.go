@@ -44,7 +44,7 @@ const (
 	ciliumPoolIPsUsedCondition      = "cilium.io/IPsUsed"
 	ciliumPoolConflict              = "cilium.io/PoolConflict"
 
-	ciliumSvcLBISKCNWildward = "*"
+	ciliumSvcLBISKCNWildcard = "*"
 
 	// The string used in the FieldManager field on update options
 	ciliumFieldManager = "cilium-operator-lb-ipam"
@@ -641,7 +641,7 @@ func (ipam *LBIPAM) stripOrImportIngresses(sv *ServiceView) (statusModified bool
 			err = lbRange.alloc.Alloc(ip, serviceViews)
 			if err != nil {
 				if errors.Is(err, ipalloc.ErrInUse) {
-					// The IP is already allocated, defer to regular allocation logic to deterime
+					// The IP is already allocated, defer to regular allocation logic to determine
 					// if this service can share the allocation.
 					continue
 				}

@@ -22,7 +22,7 @@ const (
 //   - whether the path is a mount point;
 //   - if yes, whether its filesystem type is mntType.
 //
-// Note that this function can not detect bind mounts,
+// Note that this function cannot detect bind mounts,
 // and is not working properly when path="/".
 func IsMountFS(mntType int64, path string) (bool, bool, error) {
 	var st, pst unix.Stat_t
@@ -30,7 +30,7 @@ func IsMountFS(mntType int64, path string) (bool, bool, error) {
 	err := unix.Lstat(path, &st)
 	if err != nil {
 		if errors.Is(err, unix.ENOENT) {
-			// non-existent path can't be a mount point
+			// nonexistent path can't be a mount point
 			return false, false, nil
 		}
 		return false, false, &os.PathError{Op: "lstat", Path: path, Err: err}

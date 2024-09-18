@@ -124,7 +124,7 @@ type Allocator struct {
 	// the primary kvstore connection
 	mainCache cache
 
-	// remoteCachesMutex protects accesse to remoteCaches
+	// remoteCachesMutex protects access to remoteCaches
 	remoteCachesMutex lock.RWMutex
 
 	// remoteCaches is the list of additional remote caches being watched
@@ -253,7 +253,7 @@ type Backend interface {
 	// have been created by other agents.
 	Get(ctx context.Context, key AllocatorKey) (idpool.ID, error)
 
-	// GetIfLocked behaves like Get, but but when lock is non-nil the
+	// GetIfLocked behaves like Get, but when lock is non-nil the
 	// operation proceeds only if it is still valid.
 	GetIfLocked(ctx context.Context, key AllocatorKey, lock kvstore.KVLocker) (idpool.ID, error)
 
@@ -276,7 +276,7 @@ type Backend interface {
 	// RunGC reaps stale or unused identities within the Backend and makes them
 	// available for reuse. It is used by the cilium-operator and is not invoked
 	// by cilium-agent.
-	// Note: not all Backend implemenations rely on this, such as the kvstore
+	// Note: not all Backend implementations rely on this, such as the kvstore
 	// backends, and may use leases to expire keys.
 	RunGC(ctx context.Context, rateLimit *rate.Limiter, staleKeysPrevRound map[string]uint64, minID idpool.ID, maxID idpool.ID) (map[string]uint64, *GCStats, error)
 
@@ -619,7 +619,7 @@ func (a *Allocator) lockedAllocate(ctx context.Context, key AllocatorKey) (idpoo
 	key2 := key
 	key, err = a.backend.AllocateIDIfLocked(ctx, id, key2, lock)
 	if err != nil {
-		// Creation failed. Another agent most likely beat us to allocting this
+		// Creation failed. Another agent most likely beat us to allocating this
 		// ID, retry.
 		releaseKeyAndID()
 		return 0, false, false, fmt.Errorf("unable to allocate ID %s for key %s: %w", strID, key2, err)

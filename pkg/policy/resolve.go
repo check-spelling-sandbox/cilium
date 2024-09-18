@@ -80,7 +80,7 @@ func newSelectorPolicy(selectorCache *SelectorCache) *selectorPolicy {
 }
 
 // insertUser adds a user to the L4Policy so that incremental
-// updates of the L4Policy may be fowarded.
+// updates of the L4Policy may be forwarded.
 func (p *selectorPolicy) insertUser(user *EndpointPolicy) {
 	p.L4Policy.insertUser(user)
 }
@@ -219,7 +219,7 @@ func (l4policy L4DirectionPolicy) toMapState(p *EndpointPolicy) {
 	})
 }
 
-// createRedirectsFunc returns 'nil' if map changes should not be applied immemdiately,
+// createRedirectsFunc returns 'nil' if map changes should not be applied immediately,
 // otherwise the returned map is to be used to find redirect ports for map updates.
 type createRedirectsFunc func(*L4Filter) map[string]uint16
 

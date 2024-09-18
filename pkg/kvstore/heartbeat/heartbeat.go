@@ -16,7 +16,7 @@ import (
 
 var log = logging.DefaultLogger.WithField(logfields.LogSubsys, "kvstore-heartbeat")
 
-// Heartbeat periodically updates the heatbeat path through the given client,
+// Heartbeat periodically updates the heartbeat path through the given client,
 // blocking until the context is canceled.
 func Heartbeat(ctx context.Context, backend kvstore.BackendOperations) {
 	log.WithField(logfields.Interval, kvstore.HeartbeatWriteInterval).Info("Starting to update heartbeat key")

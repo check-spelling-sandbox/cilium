@@ -151,7 +151,7 @@ enum AuthType {
 }
 
 enum TraceObservationPoint {
-    // Cilium treats 0 as TO_LXC, but its's something we should work to remove.
+    // Cilium treats 0 as TO_LXC, but it's something we should work to remove.
     // This is intentionally set as unknown, so proto API can guarantee the
     // observation point is always going to be present on trace events.
     UNKNOWN_POINT = 0;
@@ -276,7 +276,7 @@ message TCP {
 message IP {
     string source = 1;
     // source_xlated is the post translation source IP when the flow was SNATed
-    // (and in that case source is the the original source IP).
+    // (and in that case source is the original source IP).
     string source_xlated = 5;
     string destination = 2;
     IPVersion ipVersion = 3;

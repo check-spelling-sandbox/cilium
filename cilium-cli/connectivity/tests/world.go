@@ -72,7 +72,7 @@ func (s *podToWorld) Run(ctx context.Context, t *check.Test) {
 	}
 }
 
-// PodToWorld2 sends an HTTPS request to cilium.io from from random client
+// PodToWorld2 sends an HTTPS request to cilium.io from random client
 // Pods.
 func PodToWorld2() check.Scenario {
 	return &podToWorld2{}
@@ -110,7 +110,7 @@ func (s *podToWorld2) Run(ctx context.Context, t *check.Test) {
 	}
 }
 
-// PodToWorldWithTLSIntercept sends an HTTPS request to one.one.one.one (default value of ExternalTarget) from from random client
+// PodToWorldWithTLSIntercept sends an HTTPS request to one.one.one.one (default value of ExternalTarget) from random client
 func PodToWorldWithTLSIntercept(curlOpts ...string) check.Scenario {
 	s := &podToWorldWithTLSIntercept{
 		curlOpts: []string{"--cacert", "/tmp/test-ca.crt"}, // skip TLS verification as it will be our internal cert

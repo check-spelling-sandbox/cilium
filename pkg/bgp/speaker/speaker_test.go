@@ -94,7 +94,7 @@ func TestSpeakerOnUpdateService(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm we recorded the correct metallb service name
@@ -178,7 +178,7 @@ func TestSpeakerOnDeleteService(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm we recorded the correct metallb service name
@@ -188,7 +188,7 @@ func TestSpeakerOnDeleteService(t *testing.T) {
 	}
 
 	// confirm these are nil, they should not be set
-	// on a OnDeletService call.
+	// on a OnDeleteService call.
 	if rr.svc != nil {
 		t.Fatalf("got: %v, want: nil", rr.svc)
 	}
@@ -264,7 +264,7 @@ func TestSpeakerOnUpdateEndpoints(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm we recorded the correct metallb service name
@@ -336,7 +336,7 @@ func TestSpeakerOnUpdateNode(t *testing.T) {
 	}
 
 	// when our mock has it's SetNodeLabel and PeerSession method calls these
-	// two functions wil delegate for them.
+	// two functions will delegate for them.
 	//
 	// we record the arguments and return our mock session object respectively.
 	mock := &mock.MockMetalLBSpeaker{
@@ -380,7 +380,7 @@ func TestSpeakerOnUpdateNode(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm the recorded Labels and bgp advertisements
@@ -484,7 +484,7 @@ func TestSpeakerOnDeleteNode(t *testing.T) {
 		t.Fatal(errTimeout)
 	}
 
-	rr.Lock() // we'll do this just so race detector doen't bark at us.
+	rr.Lock() // we'll do this just so race detector doesn't bark at us.
 	defer rr.Unlock()
 
 	// confirm we recorded an empty slice of advertisements

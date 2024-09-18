@@ -140,7 +140,7 @@ func TestLabelSelectorFilter(t *testing.T) {
 			},
 		},
 		{
-			name: "complex label label filter",
+			name: "complex label filter",
 			args: args{
 				f: []*flowpb.FlowFilter{{SourceLabel: []string{"label1 in (val1, val2), label3 notin ()"}}},
 				ev: []*v1.Event{

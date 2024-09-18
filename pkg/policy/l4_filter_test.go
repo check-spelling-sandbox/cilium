@@ -1063,7 +1063,7 @@ func TestMergeListenerPolicy(t *testing.T) {
 	td := newTestData()
 
 	//
-	// no namespace in policyContext (Clusterwide policy): Can not refer to EnvoyConfig
+	// no namespace in policyContext (Clusterwide policy): Cannot refer to EnvoyConfig
 	//
 	egressRule := &rule{
 		Rule: api.Rule{
@@ -1110,7 +1110,7 @@ func TestMergeListenerPolicy(t *testing.T) {
 	state := traceState{}
 	res, err := egressRule.resolveEgressPolicy(td.testPolicyContext, &ctxFromFoo, &state, NewL4PolicyMap(), nil, nil)
 	t.Log(buffer)
-	require.ErrorContains(t, err, "Listener \"test\" in CCNP can not use Kind CiliumEnvoyConfig")
+	require.ErrorContains(t, err, "Listener \"test\" in CCNP cannot use Kind CiliumEnvoyConfig")
 	require.Nil(t, res)
 
 	//
@@ -1275,7 +1275,7 @@ func TestMergeListenerPolicy(t *testing.T) {
 	require.Equal(t, ParserTypeCRD, l4Filter.L7Parser)
 
 	//
-	// namespace in policyContext (Namespaced policy): Can refer to Cluster-socoped
+	// namespace in policyContext (Namespaced policy): Can refer to Cluster-scoped
 	// CiliumClusterwideEnvoyConfig
 	//
 	egressRule = &rule{

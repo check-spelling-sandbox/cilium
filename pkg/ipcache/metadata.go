@@ -35,7 +35,7 @@ var (
 	injectLabelsControllerGroup = controller.NewGroup("ipcache-inject-labels")
 )
 
-// metadata contains the ipcache metadata. Mainily it holds a map which maps IP
+// metadata contains the ipcache metadata. Mainly it holds a map which maps IP
 // prefixes (x.x.x.x/32) to a set of information (prefixInfo).
 //
 // When allocating an identity to associate with each prefix, the
@@ -145,7 +145,7 @@ func (m *metadata) enqueuePrefixUpdates(prefixes ...netip.Prefix) uint64 {
 	return m.queuedRevision
 }
 
-// setInjectectRevision updates the injected revision to a new value and
+// setInjectedRevision updates the injected revision to a new value and
 // wakes all waiters.
 func (m *metadata) setInjectedRevision(rev uint64) {
 	m.injectedRevisionCond.L.Lock()
@@ -652,7 +652,7 @@ func (ipc *IPCache) resolveIdentity(ctx context.Context, prefix netip.Prefix, in
 		// the labels at runtime and instead opt to allocate new
 		// identities below.
 		//
-		// As an extra gotcha, we need need to merge all labels for all IPs
+		// As an extra gotcha, we need to merge all labels for all IPs
 		// that resolve to the reserved:host identity, otherwise we can
 		// flap identities labels depending on which prefix writes first. See GH-28259.
 		i := ipc.updateReservedHostLabels(prefix, lbls)
@@ -871,7 +871,7 @@ func (ipc *IPCache) handleLabelInjection(ctx context.Context) error {
 		cs = len(idsToModify)
 	}
 
-	// Split ipcache updates in to chunks to reduce resource spikes.
+	// Split ipcache updates into chunks to reduce resource spikes.
 	// InjectLabels releases all identities only at the end of processing, so
 	// it may allocate up to `chunkSize` additional identities.
 	for len(idsToModify) > 0 {

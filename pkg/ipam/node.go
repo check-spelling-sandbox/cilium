@@ -280,7 +280,7 @@ func (n *Node) getMaxAllocate() int {
 	instanceMax := n.ops.GetMaximumAllocatableIPv4()
 	if n.resource.Spec.IPAM.MaxAllocate > 0 {
 		if n.resource.Spec.IPAM.MaxAllocate > instanceMax {
-			n.loggerLocked().Warningf("max-allocate (%d) is higher than the instance type limits (%d)", n.resource.Spec.IPAM.MaxAllocate, instanceMax)
+			n.loggerLocked().Warningf("max-allocate (%d) is greater than the instance type limits (%d)", n.resource.Spec.IPAM.MaxAllocate, instanceMax)
 		}
 		return n.resource.Spec.IPAM.MaxAllocate
 	}
@@ -331,7 +331,7 @@ func calculateNeededIPs(availableIPs, usedIPs, preAllocate, minAllocate, maxAllo
 		neededIPs = math.IntMax(neededIPs, minAllocate-availableIPs)
 	}
 
-	// If maxAllocate is set (> 0) and neededIPs is higher than the
+	// If maxAllocate is set (> 0) and neededIPs is greater than the
 	// maxAllocate value, we only return the amount of IPs that can
 	// still be allocated
 	if maxAllocate > 0 && (availableIPs+neededIPs) > maxAllocate {

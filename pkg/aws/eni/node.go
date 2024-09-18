@@ -271,7 +271,7 @@ func isSubnetAtPrefixCapacity(err error) bool {
 	return false
 }
 
-// AllocateIPs performs the ENI allocation oepration
+// AllocateIPs performs the ENI allocation operation
 func (n *Node) AllocateIPs(ctx context.Context, a *ipam.AllocationAction) error {
 	// Check if the interface to allocate on is prefix delegated
 	n.mutex.RLock()
@@ -478,7 +478,7 @@ func (n *Node) CreateInterface(ctx context.Context, allocation *ipam.AllocationA
 		attachmentID, err = n.manager.api.AttachNetworkInterface(ctx, index, n.node.InstanceID(), eniID)
 
 		// The index is already in use, this can happen if the local
-		// list of ENIs is oudated.  Retry the attachment to avoid
+		// list of ENIs is outdated.  Retry the attachment to avoid
 		// having to delete the ENI
 		if !isAttachmentIndexConflict(err) {
 			break
@@ -577,14 +577,14 @@ func (n *Node) ResyncInterfacesAndIPs(ctx context.Context, scopedLog *logrus.Ent
 
 			// 3. Finally, we iterate any already existing interfaces and add on any extra
 			//		capacity to account for leftover prefix delegated /28 ip slots.
-			leftoverPrefixCapcity, effectiveLimits := n.getEffectiveIPLimits(e, limits.IPv4)
+			leftoverPrefixCapacity, effectiveLimits := n.getEffectiveIPLimits(e, limits.IPv4)
 			if e.IsExcludedBySpec(n.k8sObj.Spec.ENI) {
 				// If this ENI is excluded by the CN Spec, we remove it from the total
 				// capacity.
 				stats.NodeCapacity -= effectiveLimits
 				return nil
 			} else {
-				stats.NodeCapacity += leftoverPrefixCapcity
+				stats.NodeCapacity += leftoverPrefixCapacity
 			}
 
 			availableOnENI := math.IntMax(effectiveLimits-len(e.Addresses), 0)

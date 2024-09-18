@@ -321,7 +321,7 @@ Triage process
 * ``CI-Bug, K8sValidatedPolicyTest: Namespaces, pod not ready, #9939``
 * ``Regression, k8s host policy, #1111``
 
-Disabling Github Actions Workflows
+Disabling GitHub Actions Workflows
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. warning::
@@ -329,7 +329,7 @@ Disabling Github Actions Workflows
     to disable GitHub Actions workflows. It makes it difficult to find out who
     disabled the workflows and why.
 
-Alternatives to Disabling Github Actions Workflows
+Alternatives to Disabling GitHub Actions Workflows
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Before proceeding, consider the following alternatives to disabling an entire

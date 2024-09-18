@@ -99,7 +99,7 @@ service-oriented architecture often referred to as *microservices*, wherein a
 large application is split into small independent services that communicate
 with each other via APIs using lightweight protocols like HTTP.  Microservices
 applications tend to be highly dynamic, with individual containers getting
-started or destroyed as the application scales out / in to adapt to load changes
+started or destroyed as the application scales in / out to adapt to load changes
 and during rolling updates that are deployed as part of continuous delivery.
 
 This shift toward highly dynamic microservices presents both a challenge and an

@@ -10,7 +10,7 @@ import (
 )
 
 // These definitions must contain and be compatible with the string
-// values defined for pkg/pollicy/api/L4Proto
+// values defined for pkg/policy/api/L4Proto
 
 const (
 	// ANY represents all protocols.

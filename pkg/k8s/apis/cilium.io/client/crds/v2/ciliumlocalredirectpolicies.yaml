@@ -58,7 +58,7 @@ spec:
               redirectBackend:
                 description: |-
                   RedirectBackend specifies backend configuration to redirect traffic to.
-                  It can not be empty.
+                  It cannot be empty.
                 properties:
                   localEndpointSelector:
                     description: LocalEndpointSelector selects node local pod(s) where
@@ -160,7 +160,7 @@ spec:
               redirectFrontend:
                 description: |-
                   RedirectFrontend specifies frontend configuration to redirect traffic from.
-                  It can not be empty.
+                  It cannot be empty.
                 oneOf:
                 - properties:
                     addressMatcher: {}

@@ -46,7 +46,7 @@ Installing kops
         chmod +x kops-linux-amd64
         sudo mv kops-linux-amd64 /usr/local/bin/kops
 
-  .. group-tab:: MacOS
+  .. group-tab:: macOS
 
     .. code-block:: shell-session
 

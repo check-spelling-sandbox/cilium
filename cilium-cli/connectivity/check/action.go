@@ -65,7 +65,7 @@ type Action struct {
 	// expEgress is the expected test result for egress from the source pod
 	expEgress Result
 
-	// expIngress is the expected test result for the ingress in to the destination pod
+	// expIngress is the expected test result for the ingress to the destination pod
 	expIngress Result
 
 	// flowsMu protects flows.

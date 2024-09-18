@@ -42,7 +42,7 @@ func TestCorrectDerivativeName(t *testing.T) {
 	require.NoError(t, err)
 	require.Equal(t, fmt.Sprintf("%s-groups-%s", name, cnp.ObjectMeta.UID), cnpDerivedPolicy.ObjectMeta.Name)
 
-	// Test clusterwide policy helper functions
+	// Test cluster-wide policy helper functions
 	ccnpName := "ccnp-test"
 	ccnp := getSamplePolicy(ccnpName, "")
 	ccnpDerivedPolicy, err := createDerivativeCCNP(context.TODO(), ccnp)

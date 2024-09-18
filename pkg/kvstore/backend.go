@@ -24,16 +24,16 @@ type backendOption struct {
 
 type backendOptions map[string]*backendOption
 
-type ClusterSizeDependantIntervalFunc func(baseInterval time.Duration) time.Duration
+type ClusterSizeDependentIntervalFunc func(baseInterval time.Duration) time.Duration
 
-// ExtraOptions represents any options that can not be represented in a textual
+// ExtraOptions represents any options that cannot be represented in a textual
 // format and need to be set programmatically.
 type ExtraOptions struct {
 	DialOption []grpc.DialOption
 
-	// ClusterSizeDependantInterval defines the function to calculate
+	// ClusterSizeDependentInterval defines the function to calculate
 	// intervals based on cluster size
-	ClusterSizeDependantInterval ClusterSizeDependantIntervalFunc
+	ClusterSizeDependentInterval ClusterSizeDependentIntervalFunc
 
 	// NoLockQuorumCheck disables the lock acquisition quorum check
 	NoLockQuorumCheck bool
@@ -71,8 +71,8 @@ func (e *ExtraOptions) StatusCheckInterval(allConnected bool) time.Duration {
 		interval = 5 * time.Second
 	}
 
-	if e != nil && e.ClusterSizeDependantInterval != nil {
-		interval = e.ClusterSizeDependantInterval(interval)
+	if e != nil && e.ClusterSizeDependentInterval != nil {
+		interval = e.ClusterSizeDependentInterval(interval)
 	}
 	return interval
 }

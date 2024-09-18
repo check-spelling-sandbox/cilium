@@ -900,7 +900,7 @@ func (a *crdAllocator) RestoreFinished() {
 	})
 }
 
-// NewIPNotAvailableInPoolError returns an error resprenting the given IP not
+// NewIPNotAvailableInPoolError returns an error representing the given IP not
 // being available in the IPAM pool.
 func NewIPNotAvailableInPoolError(ip net.IP) error {
 	return &ErrIPNotAvailableInPool{ip: ip}

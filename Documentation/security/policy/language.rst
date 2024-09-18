@@ -258,7 +258,7 @@ Services based
 
 .. note::
 
-	Services based rules rules will only take effect on Kubernetes services
+	Services based rules will only take effect on Kubernetes services
         without a selector.
 
 Traffic from pods to services running in your cluster can be allowed via
@@ -358,7 +358,7 @@ unmanaged
 world
     The world entity corresponds to all endpoints outside of the cluster.
     Allowing to world is identical to allowing to CIDR 0.0.0.0/0. An alternative
-    to allowing from and to world is to define fine grained DNS or CIDR based
+    to allowing from and to world is to define fine-grained DNS or CIDR based
     policies.
 all
     The all entity represents the combination of all known clusters as well

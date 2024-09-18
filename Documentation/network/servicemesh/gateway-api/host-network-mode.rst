@@ -31,7 +31,7 @@ Host network mode can be enabled via Helm:
 
 Once enabled, the host network port for a ``Gateway`` can be specified via
 ``spec.listeners.port``. The port must be unique per ``Gateway``
-resource and you should choose a port number higher than ``1023`` (see
+resource and you should choose a port number greater than ``1023`` (see
 `Bind to privileged port`_).
 
 .. warning::

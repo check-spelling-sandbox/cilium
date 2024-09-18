@@ -73,7 +73,7 @@ type sessionUDP struct {
 	oob   []byte
 }
 
-// Set the socket options needed for tranparent proxying for the listening socket
+// Set the socket options needed for transparent proxying for the listening socket
 // IP(V6)_TRANSPARENT allows socket to receive packets with any destination address/port
 // IP(V6)_RECVORIGDSTADDR tells the kernel to pass the original destination address/port on recvmsg
 // By design, a socket of a DNS Server can only receive IPv4 or IPv6 traffic.
@@ -197,7 +197,7 @@ func (s *sessionUDP) LocalAddr() net.Addr { return s.laddr }
 // It uses the raw udp connections (IPv4 or IPv6) from its sessionUDPFactory.
 func (s *sessionUDP) WriteResponse(b []byte) (int, error) {
 	// Must give the UDP header to get the source port right.
-	// Reuse the msg buffer, figure out if golang can do gatter-scather IO
+	// Reuse the msg buffer, figure out if golang can do gather-scatter IO
 	// with raw sockets?
 	l := len(b)
 	bb := bytes.NewBuffer(s.m[:0])

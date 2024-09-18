@@ -1016,7 +1016,7 @@ func testPodHTTPToOutside(kubectl *helpers.Kubectl, outsideURL string, expectNod
 		for i := 1; i <= 10; i++ {
 			res := kubectl.ExecPodCmd(namespace, pod, cmd)
 			ExpectWithOffset(1, res).Should(helpers.CMDSuccess(),
-				"Pod %q can not connect to %q", pod, outsideURL)
+				"Pod %q cannot connect to %q", pod, outsideURL)
 
 			if expectNodeIP || expectPodIP {
 				// Parse the IPs to avoid issues with 4-in-6 formats

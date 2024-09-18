@@ -30,7 +30,7 @@ type localIdentityCache struct {
 	// They are used during agent restart, where local identities are restored to prevent unnecessary
 	// ID flapping on restart.
 	//
-	// If an old nID is passed to lookupOrCreate(), then it is allowed to use a withhend entry here. Otherwise
+	// If an old nID is passed to lookupOrCreate(), then it is allowed to use a withheld entry here. Otherwise
 	// it must allocate a new ID not in this set.
 	withheldIdentities map[identity.NumericIdentity]struct{}
 }

@@ -43,7 +43,7 @@ func (l4rule *PerSelectorPolicy) covers(l3l4rule *PerSelectorPolicy) bool {
 		return false
 	}
 
-	// Can not skip if currentRule has an explicit auth type and wildcardRule does not or if
+	// Cannot skip if currentRule has an explicit auth type and wildcardRule does not or if
 	// both have different auth types.  In all other cases the auth type from the wildcardRule
 	// can be used also for the current rule.
 	// Note that the caller must deal with inheriting redirect from wildcardRule to currentRule,
@@ -57,10 +57,10 @@ func (l4rule *PerSelectorPolicy) covers(l3l4rule *PerSelectorPolicy) bool {
 	l3l4IsRedirect := l3l4rule.IsRedirect()
 	l4OnlyIsRedirect := l4rule.IsRedirect()
 	if l3l4IsRedirect && !l4OnlyIsRedirect {
-		// Can not skip if l3l4-rule is redirect while l4-only is not
+		// Cannot skip if l3l4-rule is redirect while l4-only is not
 		return false
 	} else if l3l4IsRedirect && l4OnlyIsRedirect && l3l4rule.Listener != l4rule.Listener {
-		// L3l4 rule has a different listener, it can not be skipped
+		// L3l4 rule has a different listener, it cannot be skipped
 		return false
 	}
 
@@ -164,7 +164,7 @@ type PerSelectorPolicy struct {
 	// isRedirect is 'true' when traffic must be redirected
 	isRedirect bool `json:"-"`
 
-	// Listener is an optional fully qualified name of a Envoy Listner defined in a CiliumEnvoyConfig CRD that should be
+	// Listener is an optional fully qualified name of a Envoy Listener defined in a CiliumEnvoyConfig CRD that should be
 	// used for this traffic instead of the default listener
 	Listener string `json:"listener,omitempty"`
 
@@ -174,7 +174,7 @@ type PerSelectorPolicy struct {
 	// port number (10000-20000) is used as priority, so that traffic will be consistently
 	// redirected to the same listener.  If higher priority desired, a low unique number like 1,
 	// 2, or 3 should be explicitly specified here.  If a lower than default priority is needed,
-	// then a unique number higher than 20000 should be explicitly specified. Numbers on the
+	// then a unique number greater than 20000 should be explicitly specified. Numbers on the
 	// default range (10000-20000) are not allowed.
 	Priority uint16 `json:"priority,omitempty"`
 
@@ -217,7 +217,7 @@ func (a *PerSelectorPolicy) GetListener() string {
 	return a.Listener
 }
 
-// GetPriority returns the pritority of the listener of the PerSelectorPolicy.
+// GetPriority returns the priority of the listener of the PerSelectorPolicy.
 func (a *PerSelectorPolicy) GetPriority() uint16 {
 	if a == nil {
 		return 0
@@ -405,7 +405,7 @@ func (from L7ParserType) canPromoteTo(to L7ParserType) bool {
 		return true
 	case ParserTypeTLS:
 		// ParserTypeTLS can be promoted to any other type, except for DNS or CRD,
-		// but ParserTypeTLS can not be demoted to ParserTypeNone
+		// but ParserTypeTLS cannot be demoted to ParserTypeNone
 		if to != ParserTypeNone && to != ParserTypeDNS && to != ParserTypeCRD {
 			return true
 		}
@@ -610,7 +610,7 @@ func (l4 *L4Filter) toMapState(p *EndpointPolicy, features policyFeatures, redir
 			proxyID := ProxyID(uint16(p.PolicyOwner.GetID()), l4.Ingress, string(l4.Protocol), port, listener)
 			proxyPort, exists = redirects[proxyID]
 			if !exists {
-				// Skip unrealized redirects; this happens routineously just
+				// Skip unrealized redirects; this happens routinely just
 				// before new redirects are realized. Once created, we are called
 				// again.
 				logger.WithField(logfields.EndpointSelector, cs).Debugf("Skipping unrealized redirect %s (%v)", proxyID, redirects)
@@ -890,7 +890,7 @@ func createL4Filter(policyCtx PolicyContext, peerEndpoints api.EndpointSelectorS
 					// TODO: Catch this in rule validation once we have a
 					// validation context in there so that we can differentiate
 					// between CNP and CCNP at validation time.
-					return nil, fmt.Errorf("Listener %q in CCNP can not use Kind CiliumEnvoyConfig", pr.Listener.Name)
+					return nil, fmt.Errorf("Listener %q in CCNP cannot use Kind CiliumEnvoyConfig", pr.Listener.Name)
 				}
 			case "CiliumClusterwideEnvoyConfig":
 				// CNP refers to a cluster-scoped listener
@@ -1621,7 +1621,7 @@ func (l4Policy *L4Policy) AccumulateMapChanges(l4 *L4Filter, cs CachedSelector, 
 				// This happens for new redirects that have not been realized
 				// yet. The accumulated changes should only be consumed after new
 				// redirects have been realized. ConsumeMapChanges then maps this
-				// invalid valut to the real redirect port before the entry is
+				// invalid value to the real redirect port before the entry is
 				// visible to the endpoint package.
 				proxyPort = unrealizedRedirectPort
 			}

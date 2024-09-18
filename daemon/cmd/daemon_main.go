@@ -1588,7 +1588,7 @@ func initEnv(vp *viper.Viper) {
 
 func (d *Daemon) initKVStore(resolver *dial.ServiceResolver) {
 	goopts := &kvstore.ExtraOptions{
-		ClusterSizeDependantInterval: d.nodeDiscovery.Manager.ClusterSizeDependantInterval,
+		ClusterSizeDependentInterval: d.nodeDiscovery.Manager.ClusterSizeDependentInterval,
 	}
 
 	cg := controller.NewGroup("kvstore-locks-gc")
@@ -1772,7 +1772,7 @@ func newDaemonPromise(params daemonParams) (promise.Promise[*Daemon], promise.Pr
 				}
 			}
 
-			// 'option.Config' is assumed to be stable at this point, execpt for
+			// 'option.Config' is assumed to be stable at this point, except for
 			// 'option.Config.Opts' that are explicitly deemed to be runtime-changeable
 			params.CfgResolver.Resolve(option.Config)
 			policyManagerResolver.Resolve(daemon)
@@ -2007,7 +2007,7 @@ func startDaemon(d *Daemon, restoredEndpoints *endpointRestoreState, cleaner *da
 				// that may be modified via config patch events.
 				return option.Config.ValidateUnchanged()
 			},
-			// avoid synhronized run with other
+			// avoid synchronized run with other
 			// controllers started at same time
 			RunInterval: 61 * time.Second,
 			Context:     d.ctx,

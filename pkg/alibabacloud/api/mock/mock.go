@@ -202,7 +202,7 @@ func (a *API) CreateNetworkInterface(ctx context.Context, secondaryPrivateIPCoun
 
 	vsw, ok := a.subnets[vSwitchID]
 	if !ok {
-		return "", nil, fmt.Errorf("can not found vSwitch by id %s", vSwitchID)
+		return "", nil, fmt.Errorf("cannot found vSwitch by id %s", vSwitchID)
 	}
 	if secondaryPrivateIPCount+1 > vsw.AvailableAddresses {
 		return "", nil, fmt.Errorf("vSwitch %s has not enough addresses available", vsw.ID)

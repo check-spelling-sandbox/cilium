@@ -132,7 +132,7 @@ func Test_MultiPoolManager(t *testing.T) {
 
 	// Allocation from an unknown pool should create a new pending allocation
 	jupiterIPv4CIDR := cidr.MustParseCIDR("192.168.1.0/16")
-	juptierIPv6CIDR := cidr.MustParseCIDR("fc00:33::/96")
+	jupiterIPv6CIDR := cidr.MustParseCIDR("fc00:33::/96")
 
 	faultyAllocation, err = c.allocateIP(net.ParseIP("192.168.1.1"), "jupiter-pod-0", "jupiter", IPv4, false)
 	assert.ErrorContains(t, err, "pool not (yet) available")
@@ -193,7 +193,7 @@ func Test_MultiPoolManager(t *testing.T) {
 			Pool: "jupiter",
 			CIDRs: []types.IPAMPodCIDR{
 				types.IPAMPodCIDR(jupiterIPv4CIDR.String()),
-				types.IPAMPodCIDR(juptierIPv6CIDR.String()),
+				types.IPAMPodCIDR(jupiterIPv6CIDR.String()),
 			},
 		},
 		{
@@ -224,7 +224,7 @@ func Test_MultiPoolManager(t *testing.T) {
 	assert.True(t, jupiterIP0.Equal(allocatedJupiterIP0.IP))
 	allocatedJupiterIP1, err := c.allocateNext("jupiter-pod-1", "jupiter", IPv6, false)
 	assert.Nil(t, err)
-	assert.True(t, juptierIPv6CIDR.Contains(allocatedJupiterIP1.IP))
+	assert.True(t, jupiterIPv6CIDR.Contains(allocatedJupiterIP1.IP))
 
 	// Release IPs from jupiter pool. This should fully remove it from both
 	// "requested" and "allocated"
@@ -502,7 +502,7 @@ func (f *fakeK8sCiliumNodeAPIResource) Store(context.Context) (resource.Store[*c
 	return nil, errors.New("unimplemented")
 }
 
-// currentNode returns a the current snapshot of the node
+// currentNode returns the current snapshot of the node
 func (f *fakeK8sCiliumNodeAPIResource) currentNode() *ciliumv2.CiliumNode {
 	f.mutex.Lock()
 	defer f.mutex.Unlock()

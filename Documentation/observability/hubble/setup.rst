@@ -116,7 +116,7 @@ Select the tab for your platform below and install the latest release of Hubble 
          sudo tar xzvfC hubble-linux-${HUBBLE_ARCH}.tar.gz /usr/local/bin
          rm hubble-linux-${HUBBLE_ARCH}.tar.gz{,.sha256sum}
 
-   .. group-tab:: MacOS
+   .. group-tab:: macOS
 
       Download the latest hubble release:
 

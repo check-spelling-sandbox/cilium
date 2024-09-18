@@ -577,7 +577,7 @@ func (s *SSHMeta) PolicyRenderAndImport(policy string) (int, error) {
 	return s.PolicyImportAndWait(path, HelperTimeout)
 }
 
-// GetFilePath is a utility function which returns path to give fale relative to BasePath
+// GetFilePath is a utility function which returns path to give file relative to BasePath
 func (s *SSHMeta) GetFilePath(filename string) string {
 	return fmt.Sprintf("%s/%s", s.basePath, filename)
 }

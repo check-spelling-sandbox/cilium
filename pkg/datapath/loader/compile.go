@@ -166,7 +166,7 @@ func pidFromProcess(proc *os.Process) string {
 
 // compile and optionally link a program.
 //
-// May output assembly or source code after prepocessing.
+// May output assembly or source code after preprocessing.
 func compile(ctx context.Context, prog *progInfo, dir *directoryInfo) (string, error) {
 	possibleCPUs, err := ebpf.PossibleCPU()
 	if err != nil {
@@ -221,7 +221,7 @@ func compile(ctx context.Context, prog *progInfo, dir *directoryInfo) (string, e
 		// return errors: "context cancelled" if the context is cancelled prior to the process
 		// starting and "signal: killed" if it is already running.
 		// This can mess up calling logging logic which expects the returned error to have
-		// context.Cancelled so we join this error in to fix that.
+		// context.Cancelled so we join this error to fix that.
 		if errors.Is(ctx.Err(), context.Canceled) &&
 			compileCmd.ProcessState != nil &&
 			!compileCmd.ProcessState.Exited() &&

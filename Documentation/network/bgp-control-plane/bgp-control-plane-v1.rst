@@ -177,7 +177,7 @@ PodCIDR prefixes assigned to the local node.
 
 .. _bgp_control_plane_multipool_ipam:
 
-MutliPool IPAM
+MultiPool IPAM
 ^^^^^^^^^^^^^^
 
 When :ref:`MultiPool IPAM <ipam_crd_multi_pool>` is used, specify the
@@ -549,9 +549,9 @@ possible values ``holdTimeSeconds=9`` and ``keepAliveTimeSeconds=3``.
        neighbors:
        - peerAddress: '10.0.0.1/32'
          peerASN: 64512
-         connetRetryTimeSeconds: 90 # <-- specify the ConnectRetryTimer
-         holdTimeSeconds: 9         # <-- specify the HoldTimer
-         keepAliveTimeSeconds: 3    # <-- specify the KeepaliveTimer
+         connectRetryTimeSeconds: 90 # <-- specify the ConnectRetryTimer
+         holdTimeSeconds: 9          # <-- specify the HoldTimer
+         keepAliveTimeSeconds: 3     # <-- specify the KeepaliveTimer
 
 eBGP Multihop
 ^^^^^^^^^^^^^

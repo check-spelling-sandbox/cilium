@@ -279,7 +279,7 @@ func (e *Endpoint) addNewRedirectsFromDesiredPolicy(ingress bool, desiredRedirec
 				pp := e.newProxyPolicy(l4, v, dstPort, dstProto)
 				proxyPort, err, finalizeFunc, revertFunc := e.proxy.CreateOrUpdateRedirect(e.aliveCtx, &pp, proxyID, e, proxyWaitGroup)
 				if err != nil {
-					// Skip redirects that can not be created or updated.  This
+					// Skip redirects that cannot be created or updated.  This
 					// can happen when a listener is missing, for example when
 					// restarting and k8s delivers the CNP before the related
 					// CEC.
@@ -731,7 +731,7 @@ func (e *Endpoint) runPreCompilationSteps(regenContext *regenerationContext, rul
 
 	// In the first ever regeneration of the endpoint, the conntrack table
 	// is cleaned from the new endpoint IPs as it is guaranteed that any
-	// pre-existing connections using that IP are now invalid.
+	// preexisting connections using that IP are now invalid.
 	if !e.ctCleaned {
 		go func() {
 			if !e.isProperty(PropertyFakeEndpoint) &&
@@ -899,7 +899,7 @@ func (e *Endpoint) runPreCompilationSteps(regenContext *regenerationContext, rul
 		// policy drops. During the first regen, at this point, the endpoint is still referencing
 		// the old IPCache's fd and the policy maps refer to those identities.
 		//
-		// Until GH-3897 is resolved, we should mininize the time that maps are skewed
+		// Until GH-3897 is resolved, we should minimize the time that maps are skewed
 		// in the event that an IP has flapped identities on restoration. The easiest way to
 		// do this to only call syncPolicyMap once, very close to the end of regeneration,
 		// after the new ipcache is being referenced.
@@ -1099,7 +1099,7 @@ func (e *Endpoint) scrubIPsInConntrackTable() {
 // SkipStateClean can be called on a endpoint before its first build to skip
 // the cleaning of state such as the conntrack table. This is useful when an
 // endpoint is being restored from state and the datapath state should not be
-// claned.
+// cleaned.
 //
 // The endpoint lock must NOT be held.
 func (e *Endpoint) SkipStateClean() {

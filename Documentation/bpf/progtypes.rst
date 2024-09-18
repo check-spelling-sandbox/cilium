@@ -790,7 +790,7 @@ implement the policy enforcement as well as load balancing and monitoring.
 
 * Slides: https://www.slideshare.net/ThomasGraf5/dockercon-2017-cilium-network-and-application-security-with-bpf-and-xdp
 * Video: https://youtu.be/ilKlmTDdFgk
-* Github: https://github.com/cilium/cilium
+* GitHub: https://github.com/cilium/cilium
 
 **Driver support**
 

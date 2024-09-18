@@ -48,7 +48,7 @@ type Trie[K, T any] interface {
 	// Note: If the prefix argument exceeds the Trie's maximum
 	// prefix, it will be set to the Trie's maximum prefix.
 	Descendants(prefix uint, key K, fn func(uint, K, T) bool)
-	// Upsert updates or inserts the trie with a a prefix, key,
+	// Upsert updates or inserts the trie with a prefix, key,
 	// and value. The method returns true if the key is new, and
 	// false if the key already existed.
 	//
@@ -194,7 +194,7 @@ func (t *trie[K, T]) Descendants(prefixLen uint, k Key[K], fn func(prefix uint, 
 //
 // traverse starts at the root node in the trie.
 // The key and prefix being searched (the "search" key and prefix) are
-// compared to the a trie node's key and prefix (the "node" key and
+// compared to the trie node's key and prefix (the "node" key and
 // prefix) to determine the extent to which the keys match (from MSB to
 // LSB) up to the **least** specific (or shortest) prefix of the two keys
 // (for example, if one of the keys has a prefix length of 2 and the other has
@@ -243,7 +243,7 @@ func (t *trie[K, T]) traverse(prefixLen uint, k Key[K], fn func(currentNode *nod
 // key. If the match length is not exactly equal, or there is no child
 // to traverse to, or the node prefix is exactly equal to the
 // upsert prefix (these conditions are not mutually exclusive) then traversal
-// is finished. There are four possible insertion/replacement condtions
+// is finished. There are four possible insertion/replacement conditions
 // to consider:
 //  1. The node key is nil (that is, an empty children "slot"), in which
 //     case the previous key iterated over should be the upsert-key's

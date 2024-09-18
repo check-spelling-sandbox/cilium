@@ -1129,7 +1129,7 @@ spec:
                   value: 20
               passThroughMode: false`
 
-func TestCiliumEnvoyConfigtHTTPHealthCheckFilter(t *testing.T) {
+func TestCiliumEnvoyConfigHTTPHealthCheckFilter(t *testing.T) {
 	logger := logrus.New()
 	logger.SetOutput(io.Discard)
 	parser := cecResourceParser{

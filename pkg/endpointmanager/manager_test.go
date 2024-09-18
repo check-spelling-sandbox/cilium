@@ -729,7 +729,7 @@ func TestUpdateReferences(t *testing.T) {
 				Addressing: &apiv1.AddressPair{
 					IPV4: "127.0.0.1",
 				},
-				ContainerName: "containername",
+				ContainerName: "container-name",
 			},
 			setupWant: func() want {
 				return want{

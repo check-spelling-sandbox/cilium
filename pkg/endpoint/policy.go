@@ -117,7 +117,7 @@ var unrealizedRedirect = errors.New("Proxy port for redirect not found")
 
 // LookupRedirectPort returns the redirect L4 proxy port for the given input parameters.
 // Returns 0 if not found or the filter doesn't require a redirect.
-// Returns an error if the redirect port can not be found.
+// Returns an error if the redirect port cannot be found.
 func (e *Endpoint) LookupRedirectPort(ingress bool, protocol string, port uint16, listener string) (uint16, error) {
 	redirects := e.GetRealizedRedirects()
 	proxyPort, exists := redirects[policy.ProxyID(e.ID, ingress, protocol, port, listener)]
@@ -170,7 +170,7 @@ type policyGenerateResult struct {
 //
 // Policy generation may fail, and in that case we exit before actually changing
 // the policy in any way, so that the last policy remains fully in effect if the
-// new policy can not be implemented. This is done on a per endpoint-basis,
+// new policy cannot be implemented. This is done on a per endpoint-basis,
 // however, and it is possible that policy update succeeds for some endpoints,
 // while it fails for other endpoints.
 //
@@ -289,7 +289,7 @@ func (e *Endpoint) regeneratePolicy(stats *regenerationStatistics) (*policyGener
 	}
 	repo.Mutex.RUnlock() // Done with policy repository; release this now as Consume() can be slow
 
-	// Consume converts a SelectorPolicy in to an EndpointPolicy
+	// Consume converts a SelectorPolicy into an EndpointPolicy
 	result.endpointPolicy = result.selectorPolicy.Consume(e)
 	return result, nil
 }
@@ -297,7 +297,7 @@ func (e *Endpoint) regeneratePolicy(stats *regenerationStatistics) (*policyGener
 // setDesiredPolicy updates the endpoint with the results of a policy calculation.
 //
 // The endpoint write lock must be held and not released until the desired policy has
-// been pushed in to the policymaps via `syncPolicyMap`. This is so that we block
+// been pushed into the policymaps via `syncPolicyMap`. This is so that we block
 // ApplyPolicyMapChanges, which has the effect of blocking the ipcache from updating
 // the ipcache bpf map. It is required that any pending changes are pushed in to
 // the policymap before the ipcache map, otherwise endpoints could experience transient
@@ -443,10 +443,10 @@ func (e *Endpoint) regenerate(ctx *regenerationContext) (retErr error) {
 			return
 		}
 
-		// Guarntee removal of temporary directory regardless of outcome of
+		// Guarantee removal of temporary directory regardless of outcome of
 		// build. If the build was successful, the temporary directory will
 		// have been moved to a new permanent location. If the build failed,
-		// the temporary directory will still exist and we will reomve it.
+		// the temporary directory will still exist and we will remove it.
 		e.removeDirectory(tmpDir)
 
 		// Set to Ready, but only if no other changes are pending.
@@ -742,7 +742,7 @@ func (e *Endpoint) startRegenerationFailureHandler() {
 			}
 
 			regenMetadata := &regeneration.ExternalRegenerationMetadata{
-				// TODO (ianvernon) - is there a way we can plumb a parent
+				// TODO(ianvernon) - is there a way we can plumb a parent
 				// context to a controller (e.g., endpoint.aliveCtx)?
 				ParentContext: ctx,
 				Reason:        reasonRegenRetry,
@@ -851,7 +851,7 @@ func (e *Endpoint) SetIdentity(identity *identityPkg.Identity, newEndpoint bool)
 	}
 
 	// Current security identity for endpoint is its old identity - delete its
-	// reference from global identity manager, add add a reference to the new
+	// reference from global identity manager, add a reference to the new
 	// identity for the endpoint.
 	if newEndpoint {
 		// TODO - GH-9354.
@@ -934,7 +934,7 @@ func (e *Endpoint) UpdateVisibilityPolicy(annoCB AnnotationsResolverCB) {
 }
 
 // UpdateBandwidthPolicy updates the egress bandwidth of this endpoint to
-// progagate the throttle rate to the BPF data path.
+// propagate the throttle rate to the BPF data path.
 func (e *Endpoint) UpdateBandwidthPolicy(bwm dptypes.BandwidthManager, annoCB AnnotationsResolverCB) {
 	ch, err := e.eventQueue.Enqueue(eventqueue.NewEvent(&EndpointPolicyBandwidthEvent{
 		bwm:    bwm,

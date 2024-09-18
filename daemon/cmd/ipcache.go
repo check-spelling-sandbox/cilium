@@ -85,8 +85,8 @@ func (ipc *ipCacheDumpListener) OnIPIdentityCacheChange(modType ipcache.CacheMod
 			Source:    string(newID.Source),
 			Namespace: k8sMeta.Namespace,
 			Name:      k8sMeta.PodName,
-			// TODO (jrajahalme): Consider if named ports should be
-			//                    made visible in the model.
+			// TODO(jrajahalme): Consider if named ports should be
+			//                   made visible in the model.
 		}
 	}
 
@@ -110,7 +110,7 @@ func containsSubnet(outer, inner net.IPNet) bool {
 //
 // Next, the outgoing ipcache bpf map is read. For any prefixes that
 // mapped to a CIDR-specific identity, the ipcache metadata is re-created
-// and inserted in to the ipcache.
+// and inserted into the ipcache.
 //
 // The purpose of this is to preserve stable local identities on agent
 // restart as much as possible. This helps prevent spurious policy drops
@@ -164,7 +164,7 @@ func (d *Daemon) dumpOldIPCache() (map[netip.Prefix]identity.NumericIdentity, er
 	ipcachemap.IPCacheMap().Close()
 
 	if err != nil {
-		// ignore non-existent cache
+		// ignore nonexistent cache
 		if errors.Is(err, fs.ErrNotExist) {
 			err = nil
 		}
@@ -284,7 +284,7 @@ func (d *Daemon) restoreIPCache(localPrefixes map[netip.Prefix]identity.NumericI
 		}
 	}
 
-	// Insert the batched changes in to the ipcache.
+	// Insert the batched changes into the ipcache.
 	// Even though the ipcache map hasn't been initialized yet, this is
 	// safe to do so, because the ipcache's apply controller is currently
 	// paused.
@@ -295,7 +295,7 @@ func (d *Daemon) restoreIPCache(localPrefixes map[netip.Prefix]identity.NumericI
 }
 
 // releaseRestoredIdentities removes the placeholder state that was inserted
-// in to the ipcache and local identity allocators on restoration
+// into the ipcache and local identity allocators on restoration
 //
 // Any identities and prefixes actually in use will still exist after this.
 //
@@ -332,7 +332,7 @@ func (d *Daemon) releaseRestoredIdentities() {
 			Prefix:   prefix,
 			Resource: restoredCIDRResource,
 			Metadata: []ipcache.IPMetadata{
-				ipcachetypes.RequestedIdentity(0), // remove requsted ID, if present
+				ipcachetypes.RequestedIdentity(0), // remove requested ID, if present
 				labels.Labels{},                   // remove labels, if present
 			},
 		})

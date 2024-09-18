@@ -390,5 +390,5 @@ and the `2-Clause BSD License <bsd-license_>`__
     :target: https://github.com/kubernetes-sigs/gateway-api/blob/main/conformance/reports/v1.0.0/cilium.yaml
 
 .. |codespaces| image:: https://img.shields.io/badge/Open_in_GitHub_Codespaces-gray?logo=github
-    :alt: Github Codespaces
+    :alt: GitHub Codespaces
     :target: https://github.com/codespaces/new?hide_repo_select=true&ref=master&repo=48109239&machine=standardLinux32gb&location=WestEurope

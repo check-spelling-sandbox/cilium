@@ -96,7 +96,7 @@ func (sv *ServiceView) isCompatible(osv *ServiceView) (bool, string) {
 	// This is for security reasons, otherwise a bad tenant could use a service in another namespace.
 	// We still allow cross-namespace sharing if specifically allowed on both services.
 	if sv.Namespace != osv.Namespace {
-		if !slices.Contains(sv.SharingCrossNamespace, osv.Namespace) && !slices.Contains(sv.SharingCrossNamespace, ciliumSvcLBISKCNWildward) || !slices.Contains(osv.SharingCrossNamespace, sv.Namespace) && !slices.Contains(osv.SharingCrossNamespace, ciliumSvcLBISKCNWildward) {
+		if !slices.Contains(sv.SharingCrossNamespace, osv.Namespace) && !slices.Contains(sv.SharingCrossNamespace, ciliumSvcLBISKCNWildcard) || !slices.Contains(osv.SharingCrossNamespace, sv.Namespace) && !slices.Contains(osv.SharingCrossNamespace, ciliumSvcLBISKCNWildcard) {
 			return false, "different and not permitted namespace"
 		}
 	}

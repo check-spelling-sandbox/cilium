@@ -118,7 +118,7 @@ func (rc *remoteCluster) Run(ctx context.Context, backend kvstore.BackendOperati
 			rc.serviceExports.watcher.Watch(ctx, backend, path.Join(adapter(mcsapitypes.ServiceExportStorePrefix), rc.name))
 		})
 	} else {
-		// Additionnally drain the service exports to remove stale entries if the
+		// Additionally drain the service exports to remove stale entries if the
 		// service exports was previously supported and is now not supported anymore.
 		rc.serviceExports.watcher.Drain()
 		// Also mimic that the service exports are synced if the remote cluster

@@ -45,7 +45,7 @@ func (r *NeighborReconciler) Name() string {
 	return "Neighbor"
 }
 
-// Priority of neighbor reconciler is higher than pod/service announcements.
+// Priority of neighbor reconciler is greater than pod/service announcements.
 // This is important for graceful restart case, where all expected routes are pushed
 // into gobgp RIB before neighbors are added. So, gobgp can send out all prefixes
 // within initial update message exchange with neighbors before sending EOR marker.

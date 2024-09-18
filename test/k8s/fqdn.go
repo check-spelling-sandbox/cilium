@@ -104,7 +104,7 @@ var _ = SkipDescribeIf(helpers.RunsOn54Kernel, "K8sAgentFQDNTest", func() {
 		// - When Cilium is not running) The DNS-proxy is not working, so the IP
 		// connectivity to an existing IP that was queried before will work,
 		// meanwhile connections using new DNS request will fail.
-		// - On restart) Cilium will restore the IPS that were white-listted in
+		// - On restart) Cilium will restore the IPS that were white-listed in
 		// the FQDN and connection will work as normal.
 
 		ciliumPodK8s1, err := kubectl.GetCiliumPodOnNode(helpers.K8s1)
@@ -237,7 +237,7 @@ var _ = SkipDescribeIf(helpers.RunsOn54Kernel, "K8sAgentFQDNTest", func() {
 		// local-identities will be added in the future.
 		//
 		// 2) On restore, the Kubernetes watcher is sending the CNP back to
-		// Cilium, and before the endoint is restored the CNP can be applied
+		// Cilium, and before the endpoint is restored the CNP can be applied
 		// without the ToCIDRSet, this means that there is no TOCIDR rule in
 		// the cilium policy and traffic will be drop.
 
