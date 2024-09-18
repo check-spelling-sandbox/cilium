@@ -17,9 +17,12 @@
 
 set -eu
 
-if grep -IPRns '(?!.*LogSubsys)log[ ]*= logging\.DefaultLogger.*' \
-        --exclude-dir={.git,_build,vendor,test,pkg/debugdetection} \
-        --include=*.go .; then
+files_missing_log_sub_system=$(mktemp)
+git ls-files '*.go' |
+    perl -ne 'next if m<(?:^|/)(?:vendor|test|pkg/debugdetection)/>;print' |
+    xargs -n1 perl -n -e 'print "$ARGV:$.:$_\n" if (/(?!.*LogSubsys)log[ ]*= logging\.DefaultLogger.*/);' > "$files_missing_log_sub_system"
+if [ -s "$files_missing_log_sub_system" ]; then
+    cat "$files_missing_log_sub_system"
     echo "Logging entry instances have to contain the LogSubsys field. Example of"
     echo "properly configured entry instance:"
     echo
