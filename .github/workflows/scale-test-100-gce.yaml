@@ -1,8 +1,8 @@
 name: 100 Nodes Scale Test (scale-100)
 
 on:
-  schedule:
-    - cron: '39 0 * * 1-5'
+#  schedule:
+#    - cron: '39 0 * * 1-5'
 
   workflow_dispatch:
     inputs:
