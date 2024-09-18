@@ -3,9 +3,9 @@ name: Image CI Cache Cleaner
 # Any change in triggers needs to be reflected in the concurrency group.
 on:
   workflow_dispatch:
-  schedule:
-    # Run the GC every Monday at 6am
-    - cron: "0 6 * * 1"
+  # schedule:
+  #   # Run the GC every Monday at 6am
+  #   - cron: "0 6 * * 1"
 
 permissions: read-all
 

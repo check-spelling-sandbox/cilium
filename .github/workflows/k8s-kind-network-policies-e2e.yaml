@@ -14,8 +14,8 @@ on:
       - 'Documentation/**'
       - 'test/**'
   # Run every 8 hours
-  schedule:
-    - cron: '0 4/8 * * *'
+  # schedule:
+  #   - cron: '0 4/8 * * *'
 
 permissions: read-all
 

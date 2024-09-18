@@ -1,8 +1,8 @@
 name: L7 Policy Perf Test (l7-perf)
 
 on:
-  schedule:
-    - cron: "27 0 * * 1-5"
+  # schedule:
+  #   - cron: "27 0 * * 1-5"
 
   workflow_dispatch:
     inputs:

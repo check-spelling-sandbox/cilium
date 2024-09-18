@@ -2,8 +2,8 @@ name: EKS Cluster Pool Manager
 
 # Run on schedule every 2 hours and allow manual triggering
 on:
-  schedule:
-    - cron: '0 */2 * * *'
+  # schedule:
+  #   - cron: '0 */2 * * *'
   workflow_dispatch:
     inputs:
       min_cluster_per_region:

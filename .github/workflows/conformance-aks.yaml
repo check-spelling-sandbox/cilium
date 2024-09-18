@@ -50,8 +50,8 @@ on:
         required: false
         default: '{}'
   # Run every 12 hours
-  schedule:
-    - cron:  '0 0/12 * * *'
+  # schedule:
+  #   - cron:  '0 0/12 * * *'
 
 # By specifying the access of one of the scopes, all of those that are not
 # specified are set to 'none'.

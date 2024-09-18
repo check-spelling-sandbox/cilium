@@ -26,8 +26,8 @@ on:
   pull_request:
     paths:
       - '.github/workflows/conformance-kubespray.yaml'
-  schedule:
-    - cron: '0 0 * * 0'
+  # schedule:
+  #   - cron: '0 0 * * 0'
 
 permissions:
   # To read actions state with catchpoint/workflow-telemetry-action

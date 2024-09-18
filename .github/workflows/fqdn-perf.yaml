@@ -1,8 +1,8 @@
 name: FQDN perf test (fqdn-perf)
 
 on:
-  schedule:
-    - cron: '39 6 * * 1-5'
+#  schedule:
+#    - cron: '39 6 * * 1-5'
 
   workflow_dispatch:
     inputs:
