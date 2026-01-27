@@ -1,138 +1,203 @@
 # See https://github.com/check-spelling/check-spelling/wiki/Configuration-Examples:-patterns
 
+^\s*path(?:|s-ignore-regex):.*(?:\\|\.\*).*
+
 # Automatically suggested patterns
 
-# hit-count: 18323 file-count: 1095
+# hit-count: 32268 file-count: 1905
 # version suffix <word>v#
 (?:(?<=[A-Z]{2})V|(?<=[a-z]{2}|[A-Z]{2})v)\d+(?:\b|(?=[a-zA-Z_]))
 
-# hit-count: 4142 file-count: 144
-# Compiler flags (Unix, Java/Scala)
-# Use if you have things like `-Pdocker` and want to treat them as `docker`
-(?:^|[\t ,>"'`=(])-(?:(?:J-|)[WX]|D(?!ROP)|f(?=sign|arg|no))(?=[A-Z]{2,}|[A-Z][a-z]|[a-z]{2,})
+# hit-count: 11505 file-count: 1591
+# golang print-f-style functions
+(?i)(?<=append|comma|debug|equal|err|error|exit|fatal|format|info|log|name|panic|print|skip|scan|string|trace|true|warn|warning|wrap|write)(?:f|ln)(?:[ (]|$)
 
-\\u[0-9a-f]{4}
-
-# hit-count: 2203 file-count: 166
-# hex digits including css/html color classes:
-(?:[\\0][xX]|[uU]\+|#x?|%23)[0-9_a-fA-FgGrR]*?[a-fA-FgGrR]{2,}[0-9_a-fA-FgGrR]*(?:[uUlL]{0,3}|[iu]\d+)\b
-
-# hit-count: 1377 file-count: 318
+# hit-count: 2000 file-count: 454
 # https/http/file urls
 (?:\b(?:https?|ftp|file)://)[-A-Za-z0-9+&@#/*%?=~_|!:,.;]+[-A-Za-z0-9+&@#/*%=~_|]
 
-# hit-count: 1142 file-count: 212
+# hit-count: 1259 file-count: 227
 # hex runs
-\b[0-9a-fA-F]{16,}\b
+\b(?=(?:[a-fA-F]{0,2}\d)*[a-fA-F]{3})[0-9a-fA-F]{16,}\b
 
-# hit-count: 377 file-count: 62
-# GitHub actions
-\buses:\s+[-\w.]+/[-\w./]+@[-\w.]+
+# hit-count: 968 file-count: 178
+# hex digits including css/html color classes:
+(?:[\\0][xX]|\\u\{?|[uU]\+|#x?|%23|&H)[0-9_a-fA-FgGrR]*?[a-fA-FgGrR]{2,}[0-9_a-fA-FgGrR]*(?:[uUlL]{0,3}|[iu]\d+)\b
 
-# hit-count: 265 file-count: 52
+# hit-count: 888 file-count: 245
+# #includes
+^\s*#include\s*(?:<.*?>|".*?")
+
+# hit-count: 787 file-count: 116
 # IPv6
 \b(?:[0-9a-fA-F]{0,4}:){3,7}[0-9a-fA-F]{0,4}\b
 
-# hit-count: 222 file-count: 32
-# in check-spelling@v0.0.22+, printf markers aren't automatically consumed
-# printf markers
-(?<!\\)\\[nrt](?=[a-z]{2,})
+# hit-count: 660 file-count: 95
+# GitHub actions
+\buses:\s+(['"]?)[-\w.]+/[-\w./]+@[-\w.]+\g{-1}
 
-# hit-count: 208 file-count: 64
-# uuid:
-\b[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}\b
-
-# hit-count: 184 file-count: 83
+# hit-count: 659 file-count: 244
 # C network byte conversions
 (?:\d|\bh)to(?!ken)(?=[a-z])|to(?=[adhiklpun]\()
 
-# hit-count: 95 file-count: 51
-# libraries
-(?:\b|_)lib(?:re(?=office)|)(?!era[lt]|ero|erty|rar(?:i(?:an|es)|y))(?=[a-z])
+# hit-count: 434 file-count: 86
+# sha
+sha\d+:[0-9a-f]*?[a-f]{3,}[0-9a-f]*
 
-# hit-count: 85 file-count: 26
+# hit-count: 384 file-count: 40
+# printf markers
+(?<!\\)\\[nrt](?=[a-z]{2,})
+
+# hit-count: 350 file-count: 110
+# uuid:
+\b[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}\b
+
+# hit-count: 299 file-count: 83
+# container images
+image: [-${}\s\w./:@]+
+
+# hit-count: 266 file-count: 6
+# Markdown anchor links
+\(#\S*?[a-zA-Z]\S*?\)
+
+# hit-count: 169 file-count: 30
+# AWS VPC
+vpc-\w+
+
+# hit-count: 106 file-count: 53
+# Library prefix
+# e.g., `lib`+`archive`, `lib`+`raw`, `lib`+`unwind`
+# (ignores some words that happen to start with `lib`)
+(?:\b|_)[Ll]ib(?!era[lt])(?:re(?=office)|era|)(?!ero|erty|rar(?:i(?:an|es)|y))(?=[a-z])
+
+# hit-count: 100 file-count: 24
 # kubernetes pod status lists
 # https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#pod-phase
 \w+(?:-\w+)+\s+\d+/\d+\s+(?:Running|Pending|Succeeded|Failed|Unknown)\s+
 
-# hit-count: 75 file-count: 44
-# sha
-sha\d+:[0-9]*[a-f]{3,}[0-9a-f]*
+# hit-count: 81 file-count: 25
+# nolint
+nolint:\s*[\w,]+
 
-# hit-count: 67 file-count: 36
-# IServiceProvider / isAThing
-(?:\b|_)(?:(?:ns|)I(?!P)|isA)(?=(?:[A-Z][a-z]{2,})+(?:[A-Z\d]|\b))
-
-# hit-count: 59 file-count: 19
+# hit-count: 69 file-count: 19
 # kubernetes object suffix
 -[0-9a-f]{10}-\w{5}\s
 
-# hit-count: 54 file-count: 12
-# AWS VPC
-vpc-\w+
-
-# hit-count: 25 file-count: 14
+# hit-count: 41 file-count: 26
 # tar arguments
-\b(?:\\n|)g?tar(?:\.exe|)(?:(?:\s+--[-a-zA-Z]+|\s+-[a-zA-Z]+|\s[ABGJMOPRSUWZacdfh-pr-xz]+\b)(?:=[^ ]*|))+
+\b(?:\\n|)g?tar(?:\.exe|)(?:\s-C \S+|(?:\s+--[-a-zA-Z]+|\s+-[a-zA-Z]+|\s[ABGJMOPRSUWZacdfh-pr-xz]+\b)(?:=[^ ]*|))+
 
-# hit-count: 21 file-count: 7
+# hit-count: 32 file-count: 25
+# imports
+^import\s+(?:(?:static|type)\s+|)(?:[\w.]|\{\s*\w*?(?:,\s*(?:\w*|\*))+\s*\})+(?:\s+from (['"]).*?\g{-1}|)
+
+# hit-count: 27 file-count: 11
 # curl arguments
 \b(?:\\n|)curl(?:\.exe|)(?:\s+-[a-zA-Z]{1,2}\b)*(?:\s+-[a-zA-Z]{3,})(?:\s+-[a-zA-Z]+)*
 
-# hit-count: 20 file-count: 14
+# hit-count: 25 file-count: 21
+# Go regular expressions
+regexp?\.MustCompile\((?:`[^`]*`|".*"|'.*')\)
+
+# hit-count: 24 file-count: 15
 # go install
 go install(?:\s+[a-z]+\.[-@\w/.]+)+
 
-# hit-count: 13 file-count: 7
+# hit-count: 21 file-count: 7
+# kubernetes crd patterns
+^\s*pattern: .*$
+
+# hit-count: 18 file-count: 2
+# ANSI color codes
+(?:\\(?:u00|x)1[Bb]|\\03[1-7]|\x1b|\\u\{1[Bb]\})\[(?:\d+(?:;\d+)*|)m
+
+# hit-count: 16 file-count: 10
 # This does not cover multiline strings, if your repository has them,
 # you'll want to remove the `(?=.*?")` suffix.
 # The `(?=.*?")` suffix should limit the false positives rate
 # printf
 %(?:(?:(?:hh?|ll?|[jzt])?[diuoxn]|l?[cs]|L?[fega]|p)(?=[a-z]{2,})|(?:X|L?[FEGA])(?=[a-zA-Z]{2,}))(?!%)(?=[_a-zA-Z]+(?!%)\b)(?=.*?['"])
 
-# hit-count: 11 file-count: 11
-# set arguments
-\b(?:bash|sh|set)(?:\s+-[abefimouxE]{1,2})*\s+-[abefimouxE]{3,}(?:\s+-[abefimouxE]+)*
+# hit-count: 16 file-count: 7
+# pki (base64)
+LS0tLS1CRUdJT.*
 
-# hit-count: 11 file-count: 5
-# regex choice
-\(\?:[^)]+\|[^)]+\)
+# hit-count: 16 file-count: 6
+# Dataframes / NumPy
+\b(?:df|np)\.\w{3,}
 
-# hit-count: 10 file-count: 3
-# Non-English
-[a-zA-Z]*[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3}[a-zA-ZÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]*|[a-zA-Z]{3,}[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]|[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3,}
+# hit-count: 16 file-count: 2
+# LaTeX
+\\\w{2,}\{
 
-# hit-count: 9 file-count: 3
+# hit-count: 14 file-count: 3
+# Google Cloud regions
+(?:us|(?:north|south)america|europe|asia|australia|me|africa)-(?:north|south|east|west|central){1,2}\d+
+
+# hit-count: 14 file-count: 2
+# Lorem
+# Update Lorem based on your content (requires `ge` and `w` from https://github.com/jsoref/spelling; and `review` from https://github.com/check-spelling/check-spelling/wiki/Looking-for-items-locally )
+# grep '^[^#].*lorem' .github/actions/spelling/patterns.txt|perl -pne 's/.*i..\?://;s/\).*//' |tr '|' "\n"|sort -f |xargs -n1 ge|perl -pne 's/^[^:]*://'|sort -u|w|sed -e 's/ .*//'|w|review -
+# Warning, while `(?i)` is very neat and fancy, if you have some binary files that aren't proper unicode, you might run into:
+# ... Operation "substitution (s///)" returns its argument for non-Unicode code point 0x1C19AE (the code point will vary).
+# ... You could manually change `(?i)X...` to use `[Xx]...`
+# ... or you could add the files to your `excludes` file (a version after 0.0.19 should identify the file path)
+(?:(?:\w|\s|[,.])*\b(?i)(?:amet|consectetur|cursus|dolor|eros|ipsum|lacus|libero|ligula|lorem|magna|neque|nulla|suscipit|tempus)\b(?:\w|\s|[,.])*)
+
+# hit-count: 13 file-count: 2
 # tput arguments -- https://man7.org/linux/man-pages/man5/terminfo.5.html -- technically they can be more than 5 chars long...
 \btput\s+(?:(?:-[SV]|-T\s*\w+)\s+)*\w{3,5}\b
 
-# hit-count: 7 file-count: 5
-# scala imports
-^import (?:[\w.]|\{\w*?(?:,\s*(?:\w*|\*))+\})+
+# hit-count: 12 file-count: 10
+# set arguments
+\b(?:bash|(?<!\.)sh|set)(?:\s+[-+][abefimouxE]{1,2})*\s+[-+][abefimouxE]{3,}(?:\s+[-+][abefimouxE]+)*
+
+# hit-count: 11 file-count: 5
+# kubernetes applications
+\.apps/[-\w]+
+
+# hit-count: 11 file-count: 4
+# AWS ARN
+arn:aws:[-/:\w]+
+
+# hit-count: 8 file-count: 4
+# Python string prefix / binary prefix
+# Note that there's a high false positive rate, remove the `?=` and search for the regex to see if the matches seem like reasonable strings
+(?<!['"])\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)['"](?=[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})
+
+# hit-count: 8 file-count: 2
+# Non-English
+# Even repositories expecting pure English content can unintentionally have Non-English content... People will occasionally mistakenly enter [homoglyphs](https://en.wikipedia.org/wiki/Homoglyph) which are essentially typos, and using this pattern will mean check-spelling will not complain about them.
+# .
+# If the content to be checked should be written in English and the only Non-English items will be people's names, then you can consider adding this.
+# .
+# Alternatively, if you're using check-spelling v0.0.25+, and you would like to _check_ the Non-English content for spelling errors, you can. For information on how to do so, see:
+# https://docs.check-spelling.dev/Feature:-Configurable-word-characters.html#unicode
+[a-zA-Z]*[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3}[a-zA-ZÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]*|[a-zA-Z]{3,}[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź]|[ÀÁÂÃÄÅÆČÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝßàáâãäåæčçèéêëìíîïðñòóôõöøùúûüýÿĀāŁłŃńŅņŒœŚśŠšŜŝŸŽžź][a-zA-Z]{3,}
 
 # hit-count: 7 file-count: 1
 # integrity
 integrity=(['"])(?:\s*sha\d+-[-a-zA-Z=;:/0-9+]{40,})+\g{-1}
 
-# hit-count: 6 file-count: 6
-# Go regular expressions
-regexp?\.MustCompile\(`[^`]*`\)
+# hit-count: 7 file-count: 1
+# proto
+^\s*(\w+)\s\g{-1} =
 
-# hit-count: 5 file-count: 3
-# Docker images
-^\s*FROM\s+\S+:\S+(?:\s+AS\s+\S+|)
+# hit-count: 4 file-count: 4
+# golang regular expression
+(?<!")\br".+?"
 
-# hit-count: 5 file-count: 2
-# python
-PyGithub|\b(?i)py(?!gments|gmy|lon|ramid|ro|th)(?=[a-z]{2,})
+# hit-count: 4 file-count: 2
+# file permissions
+(?:^|['"`\s])(?!-+\s)[-bcdLlpsw](?:[-r][-w][-Ssx]){2}[-r][-w][-SsTtx]\+?['"`\s]
+
+# hit-count: 3 file-count: 3
+# getopts
+\bgetopts\s+(?:"[^"]+"|'[^']+')
 
 # hit-count: 3 file-count: 2
 # git index header
 index (?:[0-9a-z]{7,40},|)[0-9a-z]{7,40}\.\.[0-9a-z]{7,40}
-
-# hit-count: 3 file-count: 2
-# file permissions
-['"`\s][-bcdLlpsw](?:[-r][-w][-Ssx]){2}[-r][-w][-SsTtx]\+?['"`\s]
 
 # hit-count: 3 file-count: 2
 # go.sum
@@ -143,66 +208,28 @@ index (?:[0-9a-z]{7,40},|)[0-9a-z]{7,40}\.\.[0-9a-z]{7,40}
 GHSA(?:-[0-9a-z]{4}){3}
 
 # hit-count: 2 file-count: 1
-# Python string prefix / binary prefix
-# Note that there's a high false positive rate, remove the `?=` and search for the regex to see if the matches seem like reasonable strings
-(?<!['"])\b(?:B|BR|Br|F|FR|Fr|R|RB|RF|Rb|Rf|U|UR|Ur|b|bR|br|f|fR|fr|r|rB|rF|rb|rf|u|uR|ur)['"](?=[A-Z]{3,}|[A-Z][a-z]{2,}|[a-z]{3,})
+# patch hunk comments
+^@@ -\d+(?:,\d+|) \+\d+(?:,\d+|) @@ .*
+
+# hit-count: 2 file-count: 1
+# sched
+\b[a-z0-9]+\.sched\.com\b
+
+# hit-count: 1 file-count: 1
+# css fonts
+\bfont(?:-family(?:[-\w+]*)|):[^;}]+
 
 # hit-count: 1 file-count: 1
 # data url
-\bdata:[-a-zA-Z=;:/0-9+]*,\S*
+\bdata:[-a-zA-Z=;:/0-9+_]*,\S*
 
 # hit-count: 1 file-count: 1
-# getopts
-\bgetopts\s+(?:"[^"]+"|'[^']+')
+# Docker images
+^\s*(?i)FROM\s+\S+:\S+(?:\s+AS\s+\S+|)
 
 # hit-count: 1 file-count: 1
-# Lorem
-# Update Lorem based on your content (requires `ge` and `w` from https://github.com/jsoref/spelling; and `review` from https://github.com/check-spelling/check-spelling/wiki/Looking-for-items-locally )
-# grep '^[^#].*lorem' .github/actions/spelling/patterns.txt|perl -pne 's/.*i..\?://;s/\).*//' |tr '|' "\n"|sort -f |xargs -n1 ge|perl -pne 's/^[^:]*://'|sort -u|w|sed -e 's/ .*//'|w|review -
-# Warning, while `(?i)` is very neat and fancy, if you have some binary files that aren't proper unicode, you might run into:
-# ... Operation "substitution (s///)" returns its argument for non-Unicode code point 0x1C19AE (the code point will vary).
-# ... You could manually change `(?i)X...` to use `[Xx]...`
-# ... or you could add the files to your `excludes` file (a version after 0.0.19 should identify the file path)
-(?:(?:\w|\s|[,.])*\b(?i)(?:amet|consectetur|cursus|dolor|eros|ipsum|lacus|libero|ligula|lorem|magna|neque|nulla|suscipit|tempus)\b(?:\w|\s|[,.])*)
-
-# container images
-image(?:: |=)[-\w./:@]+
-
-# gcr
-``gcr\..*?``
-
-\bip a a\b
-
-CILIUM(?=[A-Za-z])|[Cc]ilium(?:bgp|cluster|config|envoy|node|peer(?:ing|)|wide)*(?=[a-z])
-
-\b(?:\w+-){2,}[0-9a-f]+-\w{5}\b
-
-# TCPFlags
-\| \w{3} \| \[bool\]\(#bool\) \|  \|  \|
-
-Hostname: [-\w.]+\b$
-"uid": ".*?"
-
-"public-key": ".*?"
-
-notMatching := .*$
-
-^\s*[7f][0-9a-f]+ (?:\w{2,} \(.*?\)|\w \w+(?:|\s+\[.*?\]))
-(?:|[-\w]+\s+\d+/\d+\s+)[-\w]+\s+[-\w]+\s+\d+d\d+h
-
-^\s+[QL]: \@.*$
-
-[-\w]+/[-w\w]+(?::\d+|)\s+\(\w+(?::\d+)\)
-
-# dated log lines
-^\s*(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) [ \d]\d (?:\d\d:){2}\d\d\.\d{3}:.*
-
-Key\s+=\s+".*?"
-
-lxc[0-9a-f]+
-
-# CODEOWNERS
-^(?:[-*]|/[-\w/_.*]+)(?:\s+@\w+/[-\w]+)+
+# macOS temp folders
+/var/folders/\w\w/[+\w]+/(?:T|-Caches-)/
 
 # Questionably acceptable forms of `in to`
 # Personally, I prefer `log into`, but people object
@@ -212,24 +239,27 @@ lxc[0-9a-f]+
 # to opt in
 \bto opt in\b
 
+# pass(ed|ing) in
+\bpass(?:ed|ing) in\b
+
 # acceptable duplicates
 # ls directory listings
 [-bcdlpsw](?:[-r][-w][-SsTtx]){3}[\.+*]?\s+\d+\s+\S+\s+\S+\s+[.\d]+(?:[KMGT]|)\s+
 # mount
 \bmount\s+-t\s+(\w+)\s+\g{-1}\b
 # C types and repeated CSS values
-\s(auto|buffalo|center|div|inherit|long|LONG|nil|none|normal|root|SCTP|Socket|solid|status|TCP|thin|transparent|UDP|very)(?: \g{-1})+\s
-# C struct
-\bstruct\s+(\w+)\s+\g{-1}\b
+\s(auto|await|buffalo|center|div|inherit|long|LONG|none|normal|solid|thin|transparent|very)(?:\s\g{-1})+\s
+# C enum and struct
+\b(?:enum|struct)\s+(\w+)\s+\g{-1}\b
 # go templates
-\s(\w+)\s+\g{-1}\s+\`(?:graphql|group|inject|json|protobuf|yaml):
+\s(\w+)\s+\g{-1}\s+\`(?:graphql|inject|json|yaml):
 # doxygen / javadoc / .net
-(?:[\\@](?:arg|brief|defgroup|groupname|link|t?param|return|retval)|(?:public|private|\[Parameter(?:\(.+\)|)\])(?:\s+(?:static|override|readonly|required|virtual))*)(?:\s+\{\w+\}|)\s+(\w+)\s+\g{-1}\s
-# go struct type descriptions
-^// (\w+)\s\g{-1}\b
+(?:[\\@](?:brief|defgroup|groupname|link|t?param|return|retval)|(?:public|private|\[Parameter(?:\(.+\)|)\])(?:\s+(?:static|override|readonly|required|virtual))*)(?:\s+\{\w+\}|)\s+(\w+)\s+\g{-1}\s
+# C# getter/setter
+\s(\w+)\s+\g{-1}\s*\{\s*[gs]et;
 
 # macOS file path
-/MacOS
+(?:Contents\W+|(?!iOS)/)MacOS\b
 
 # Python package registry has incorrect spelling for macOS / Mac OS X
 "Operating System :: MacOS :: MacOS X"
