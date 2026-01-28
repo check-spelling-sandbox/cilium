@@ -454,7 +454,7 @@ const (
 	MaxInternalTimerDelay = "max-internal-timer-delay"
 
 	// MonitorAggregationName specifies the MonitorAggregationLevel on the
-	// comandline.
+	// commandline.
 	MonitorAggregationName = "monitor-aggregation"
 
 	// MonitorAggregationInterval configures interval for monitor-aggregation
@@ -469,7 +469,7 @@ const (
 	// CNIChainingMode configures which CNI plugin Cilium is chained with.
 	CNIChainingMode = "cni-chaining-mode"
 
-	// CNIChainingTarget is the name of a CNI network in to which we should
+	// CNIChainingTarget is the name of a CNI network into which we should
 	// insert our plugin configuration
 	CNIChainingTarget = "cni-chaining-target"
 
@@ -2536,7 +2536,7 @@ func (c *DaemonConfig) Populate(logger *slog.Logger, vp *viper.Viper) {
 
 	tcFilterPrio := vp.GetUint32(TCFilterPriority)
 	if tcFilterPrio > math.MaxUint16 {
-		logging.Fatal(logger, fmt.Sprintf("%s cannot be higher than %d", TCFilterPriority, math.MaxUint16))
+		logging.Fatal(logger, fmt.Sprintf("%s cannot be greater than %d", TCFilterPriority, math.MaxUint16))
 	}
 	c.TCFilterPriority = uint16(tcFilterPrio)
 
@@ -2667,7 +2667,7 @@ func (c *DaemonConfig) Populate(logger *slog.Logger, vp *viper.Viper) {
 	// Convert IP strings into net.IPNet types
 	subnets, invalid := ip.ParseCIDRs(vp.GetStringSlice(IPv4PodSubnets))
 	if len(invalid) > 0 {
-		logger.Warn("IPv4PodSubnets parameter can not be parsed.",
+		logger.Warn("IPv4PodSubnets parameter cannot be parsed.",
 			logfields.Subnets, invalid,
 		)
 	}
@@ -2675,7 +2675,7 @@ func (c *DaemonConfig) Populate(logger *slog.Logger, vp *viper.Viper) {
 
 	subnets, invalid = ip.ParseCIDRs(vp.GetStringSlice(IPv6PodSubnets))
 	if len(invalid) > 0 {
-		logger.Warn("IPv6PodSubnets parameter can not be parsed.",
+		logger.Warn("IPv6PodSubnets parameter cannot be parsed.",
 			logfields.Subnets, invalid,
 		)
 	}
@@ -3262,7 +3262,7 @@ var backupFileNames []string = []string{
 	"agent-runtime-config-2.json",
 }
 
-// StoreInFile stores the configuration in a the given directory under the file
+// StoreInFile stores the configuration in the given directory under the file
 // name 'daemon-config.json'. If this file already exists, it is renamed to
 // 'daemon-config-1.json', if 'daemon-config-1.json' also exists,
 // 'daemon-config-1.json' is renamed to 'daemon-config-2.json'
@@ -3365,7 +3365,7 @@ func (c *DaemonConfig) IsLocalRouterIP(ip string) bool {
 	return ip != "" && (c.LocalRouterIPv4 == ip || c.LocalRouterIPv6 == ip)
 }
 
-// StoreViperInFile stores viper's configuration in a the given directory under
+// StoreViperInFile stores viper's configuration in the given directory under
 // the file name 'viper-config.yaml'. If this file already exists, it is renamed
 // to 'viper-config-1.yaml', if 'viper-config-1.yaml' also exists,
 // 'viper-config-1.yaml' is renamed to 'viper-config-2.yaml'
@@ -3493,7 +3493,7 @@ func InitConfig(logger *slog.Logger, cmd *cobra.Command, programName, configName
 
 		if Config.ConfigDir != "" {
 			if _, err := os.Stat(Config.ConfigDir); os.IsNotExist(err) {
-				logging.Fatal(logger, fmt.Sprintf("Non-existent configuration directory %s", Config.ConfigDir))
+				logging.Fatal(logger, fmt.Sprintf("Nonexistent configuration directory %s", Config.ConfigDir))
 			}
 
 			if m, err := ReadDirConfig(logger, Config.ConfigDir); err != nil {

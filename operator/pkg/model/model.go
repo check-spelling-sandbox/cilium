@@ -56,7 +56,7 @@ type HTTPListener struct {
 	// from.
 	Sources []FullyQualifiedResource `json:"sources,omitempty"`
 	// IPAddress that the listener should listen on.
-	// The string must be parseable as an IP address.
+	// The string must be parsable as an IP address.
 	Address string `json:"address,omitempty"`
 	// Port on which the service can be expected to be accessed by clients.
 	Port uint32 `json:"port,omitempty"`
@@ -124,7 +124,7 @@ type TLSPassthroughListener struct {
 	// from.
 	Sources []FullyQualifiedResource `json:"sources,omitempty"`
 	// IPAddress that the listener should listen on.
-	// The string must be parseable as an IP address.
+	// The string must be parsable as an IP address.
 	Address string `json:"address,omitempty"`
 	// Port on which the service can be expected to be accessed by clients.
 	Port uint32 `json:"port,omitempty"`

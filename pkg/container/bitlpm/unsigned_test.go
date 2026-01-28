@@ -298,14 +298,14 @@ func TestUnsignedExactLookup(t *testing.T) {
 				if pref > 0 {
 					_, ok := ut.ExactLookup(pref-1, pr.start)
 					if ok {
-						t.Fatalf("ExactLookup returned a non-existent key-entry for prefix (%d), key (%d)", pr.prefix()-1, pr.start)
+						t.Fatalf("ExactLookup returned a nonexistent key-entry for prefix (%d), key (%d)", pr.prefix()-1, pr.start)
 					}
 				}
 				// check if one-more than an exact prefix returns anything
 				if pref < 16 {
 					_, ok := ut.ExactLookup(pref+1, pr.start)
 					if ok {
-						t.Fatalf("ExactLookup returned a non-existent key-entry for prefix (%d), key (%d)", pr.prefix()+1, pr.start)
+						t.Fatalf("ExactLookup returned a nonexistent key-entry for prefix (%d), key (%d)", pr.prefix()+1, pr.start)
 					}
 				}
 				// check if an exact lookup works
@@ -444,7 +444,7 @@ func TestUnsignedAncestorsRange(t *testing.T) {
 				})
 				if pr.start < rangeStart || pr.end > rangeEnd {
 					if gotEntry != "" {
-						t.Fatalf("Expected to get an emty entry from key-prefix %d/%d, got %q",
+						t.Fatalf("Expected to get an empty entry from key-prefix %d/%d, got %q",
 							pr.start, pr.prefix(), gotEntry)
 					}
 				} else {

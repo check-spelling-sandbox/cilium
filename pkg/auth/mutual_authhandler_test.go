@@ -292,7 +292,7 @@ func Test_mutualAuthHandler_GetCertificateForIncomingConnection(t *testing.T) {
 			wantErr: false,
 		},
 		{
-			name: "no certificate for non existing endpoint identity",
+			name: "no certificate for nonexistent endpoint identity",
 			args: args{
 				info: &tls.ClientHelloInfo{
 					ServerName: "1002.spiffe.cilium",
@@ -301,7 +301,7 @@ func Test_mutualAuthHandler_GetCertificateForIncomingConnection(t *testing.T) {
 			wantErr: true,
 		},
 		{
-			name: "no certificate for non existing security identity",
+			name: "no certificate for nonexistent security identity",
 			args: args{
 				info: &tls.ClientHelloInfo{
 					ServerName: "9999.spiffe.cilium",
@@ -310,7 +310,7 @@ func Test_mutualAuthHandler_GetCertificateForIncomingConnection(t *testing.T) {
 			wantErr: true,
 		},
 		{
-			name: "no certificate for random non existing domain",
+			name: "no certificate for random nonexistent domain",
 			args: args{
 				info: &tls.ClientHelloInfo{
 					ServerName: "www.example.com",

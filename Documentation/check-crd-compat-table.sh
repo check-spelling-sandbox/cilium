@@ -174,8 +174,8 @@ if [[ "$#" -lt 1 ]] || [[ "$#" -gt 2 ]]; then
   exit 1
 fi
 
-release_ersion="$(echo $1 | sed 's/^v//')"
-release_version="v$release_ersion"
+release_version="$(echo $1 | sed 's/^v//')"
+release_version="v$release_version"
 release_branch="$(branch_or_main $release_version)"
 
 create_file ${release_version} "${dst_file}" "${release_branch}"

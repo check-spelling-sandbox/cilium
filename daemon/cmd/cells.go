@@ -378,7 +378,7 @@ func configureAPIServer(cfg *option.DaemonConfig, s *server.Server, db *statedb.
 	const msg = "Required API option is disabled. This may prevent Cilium from operating correctly"
 	hint := "Consider enabling this API in " + server.AdminEnableFlag
 	for _, requiredAPI := range []string{
-		"GetConfig",        // CNI: Used to detect detect IPAM mode
+		"GetConfig",        // CNI: Used to detect IPAM mode
 		"GetHealthz",       // Kubelet: daemon health checks
 		"PutEndpointID",    // CNI: Provision the network for a new Pod
 		"DeleteEndpointID", // CNI: Clean up networking for a deleted Pod

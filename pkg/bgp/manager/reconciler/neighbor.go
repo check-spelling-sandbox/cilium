@@ -106,7 +106,7 @@ func (r *NeighborReconciler) Name() string {
 	return NeighborReconcilerName
 }
 
-// Priority of neighbor reconciler is higher than pod/service announcements.
+// Priority of neighbor reconciler is greater than pod/service announcements.
 // This is important for graceful restart case, where all expected routes are pushed
 // into gobgp RIB before neighbors are added. So, gobgp can send out all prefixes
 // within initial update message exchange with neighbors before sending EOR marker.
@@ -263,7 +263,7 @@ func (r *NeighborReconciler) Reconcile(ctx context.Context, p ReconcileParams) e
 		l.Info("Removing peer", types.PeerLogField, n.Peer.Name)
 
 		if err := p.BGPInstance.Router.RemoveNeighbor(ctx, types.ToNeighborV2(n.Peer, n.Config, "")); err != nil {
-			return fmt.Errorf("failed to remove neigbhor %s from instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
+			return fmt.Errorf("failed to remove neighbor %s from instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
 		}
 		// update metadata
 		r.deleteMetadata(p.BGPInstance, n)
@@ -274,7 +274,7 @@ func (r *NeighborReconciler) Reconcile(ctx context.Context, p ReconcileParams) e
 		l.Info("Updating peer", types.PeerLogField, n.Peer.Name)
 
 		if err := p.BGPInstance.Router.UpdateNeighbor(ctx, types.ToNeighborV2(n.Peer, n.Config, n.Password)); err != nil {
-			return fmt.Errorf("failed to update neigbhor %s in instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
+			return fmt.Errorf("failed to update neighbor %s in instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
 		}
 		// update metadata
 		r.upsertMetadata(p.BGPInstance, n)
@@ -285,7 +285,7 @@ func (r *NeighborReconciler) Reconcile(ctx context.Context, p ReconcileParams) e
 		l.Info("Adding peer", types.PeerLogField, n.Peer.Name)
 
 		if err := p.BGPInstance.Router.AddNeighbor(ctx, types.ToNeighborV2(n.Peer, n.Config, n.Password)); err != nil {
-			return fmt.Errorf("failed to add neigbhor %s in instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
+			return fmt.Errorf("failed to add neighbor %s in instance %s: %w", n.Peer.Name, p.DesiredConfig.Name, err)
 		}
 		// update metadata
 		r.upsertMetadata(p.BGPInstance, n)

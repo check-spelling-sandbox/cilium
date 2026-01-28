@@ -10,14 +10,15 @@
 package flow
 
 import (
+	reflect "reflect"
+	sync "sync"
+	unsafe "unsafe"
+
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	anypb "google.golang.org/protobuf/types/known/anypb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	wrapperspb "google.golang.org/protobuf/types/known/wrapperspb"
-	reflect "reflect"
-	sync "sync"
-	unsafe "unsafe"
 )
 
 const (
@@ -132,7 +133,7 @@ func (AuthType) EnumDescriptor() ([]byte, []int) {
 type TraceObservationPoint int32
 
 const (
-	// Cilium treats 0 as TO_LXC, but its's something we should work to remove.
+	// Cilium treats 0 as TO_LXC, but it's something we should work to remove.
 	// This is intentionally set as unknown, so proto API can guarantee the
 	// observation point is always going to be present on trace events.
 	TraceObservationPoint_UNKNOWN_POINT TraceObservationPoint = 0

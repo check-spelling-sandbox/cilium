@@ -347,7 +347,7 @@ func TestPolicyMapWildcarding(t *testing.T) {
 
 		key := newKey(tt.args.trafficDirection, tt.args.id, tt.args.proto, tt.args.dport, tt.args.dportPrefixLen)
 
-		// Compure entry & validate key and entry
+		// Compute entry & validate key and entry
 		var entry PolicyEntry
 		switch tt.args.op {
 		case allow:
@@ -452,7 +452,7 @@ func TestPortProtoString(t *testing.T) {
 			want: "TCP",
 		},
 		{
-			name: "Wildard proto / match upper 8 bits of port",
+			name: "Wildcard proto / match upper 8 bits of port",
 			args: args{
 				&PolicyKey{
 					Prefixlen:        StaticPrefixBits + uint32(NexthdrBits+DestPortBits/2),

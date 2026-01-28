@@ -17,7 +17,7 @@ import (
 	"github.com/cilium/cilium/pkg/logging/logfields"
 )
 
-// ProxyError wraps the error and the detail received from the proxy in to a new type
+// ProxyError wraps the error and the detail received from the proxy into a new type
 // that implements the error interface.
 type ProxyError struct {
 	Err    error
@@ -58,7 +58,7 @@ type AckingResourceMutatorRevertFunc func(completion *completion.Completion)
 type AckingResourceMutatorRevertFuncList []AckingResourceMutatorRevertFunc
 
 func (rl AckingResourceMutatorRevertFuncList) Revert(wg *completion.WaitGroup) {
-	// Revert the listed funcions in reverse order
+	// Revert the listed functions in reverse order
 	for i := len(rl) - 1; i >= 0; i-- {
 		var c *completion.Completion
 		if wg != nil {
@@ -126,7 +126,7 @@ type AckingResourceMutatorWrapper struct {
 	pendingCompletions map[*completion.Completion]*pendingCompletion
 
 	// restoring controls waiting for acks. When 'true' updates do not wait for acks from the xDS client,
-	// as xDS caches are pre-populated before passing any resources to xDS clients.
+	// as xDS caches are prepopulated before passing any resources to xDS clients.
 	restoring bool
 
 	metrics Metrics
@@ -487,7 +487,7 @@ func (m *AckingResourceMutatorWrapper) HandleResourceVersionAck(ackVersion uint6
 						delete(pending.remainingNodesResources, nodeIP)
 					}
 					if len(pending.remainingNodesResources) == 0 {
-						// completedComparision. Notify and remove from pending list.
+						// completedComparison. Notify and remove from pending list.
 						if pending.version <= ackVersion {
 							m.metrics.IncreaseACK(typeURL)
 							scopedLogger.Debug(fmt.Sprintf("completing ACK: %v", pending))

@@ -26,7 +26,7 @@ func k8sEventMetric(scope, action string) {
 }
 
 // startCCNPWatcher is similar to startCNPWatcher but handles the watch events for
-// clusterwide policies. Since, internally Clusterwide policies are implemented
+// cluster-wide policies. Since, internally Clusterwide policies are implemented
 // using CiliumNetworkPolicy itself, the entire implementation uses the methods
 // associated with CiliumNetworkPolicy.
 func (c *policyDerivativeController) startCCNPWatcher() {

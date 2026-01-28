@@ -73,7 +73,7 @@ func EnableTracing() {
 }
 
 func mapLogLevel(agentLogLevel slog.Level, defaultEnvoyLogLevel string) string {
-	// Set Envoy loglevel to trace if debug AND verbose Engoy logging is enabled
+	// Set Envoy loglevel to trace if debug AND verbose Envoy logging is enabled
 	if agentLogLevel == slog.LevelDebug && tracing {
 		return envoyLogLevelTrace
 	}
@@ -154,7 +154,7 @@ func (o *onDemandXdsStarter) startEmbeddedEnvoyInternal(config embeddedEnvoyConf
 
 	o.logger.Debug("Envoy: Starting embedded Envoy")
 
-	// make it a buffered channel, so we can not only
+	// make it a buffered channel, so we cannot only
 	// read the written value but also skip it in
 	// case no one reader reads it.
 	started := make(chan bool, 1)

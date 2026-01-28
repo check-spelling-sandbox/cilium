@@ -142,23 +142,23 @@ type xdsServer struct {
 	mutex lock.RWMutex
 
 	// listenerMutator publishes listener updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	listenerMutator xds.AckingResourceMutator
 
 	// routeMutator publishes route updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	routeMutator xds.AckingResourceMutator
 
 	// clusterMutator publishes cluster updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	clusterMutator xds.AckingResourceMutator
 
 	// endpointMutator publishes endpoint updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	endpointMutator xds.AckingResourceMutator
 
 	// secretMutator publishes secret updates to Envoy proxies.
-	// Manages it's own locking
+	// Manages its own locking
 	secretMutator xds.AckingResourceMutator
 
 	// listenerCount is the set of names of listeners that have been added by
@@ -1062,7 +1062,7 @@ func (s *xdsServer) removeListener(name string, wg *completion.WaitGroup, isProx
 		}
 	} else {
 		// Bail out if this listener does not exist
-		s.logger.Error("Envoy: Attempt to remove non-existent listener",
+		s.logger.Error("Envoy: Attempt to remove nonexistent listener",
 			logfields.Listener, name,
 		)
 	}
@@ -2102,7 +2102,7 @@ func (s *xdsServer) UpdateEnvoyResources(ctx context.Context, old, new Resources
 	// Do not wait for the deletion of routes, clusters, endpoints, or
 	// secrets as there are no quarantees that these deletions will be
 	// acked. For example, if the listener referring to was already deleted
-	// earlier, there are no references to the deleted resources any more,
+	// earlier, there are no references to the deleted resources anymore,
 	// in which case we could wait forever for the ACKs. This could also
 	// happen if there is no listener referring to these other named
 	// resources to begin with.

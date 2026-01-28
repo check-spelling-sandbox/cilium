@@ -129,7 +129,7 @@ type Options struct {
 	CNIConfigMapName string
 	// The labels used to target Tetragon pods.
 	TetragonLabelSelector string
-	// The labels used to target Tetragon oeprator pods.
+	// The labels used to target Tetragon operator pods.
 	TetragonOperatorLabelSelector string
 	// The namespace Namespace is running in.
 	TetragonNamespace string
@@ -382,7 +382,7 @@ func (c *Collector) GatherResourceUnstructured(ctx context.Context, r schema.Gro
 	return nil
 }
 
-// setupLogging sets up sysdump collector loggging.
+// setupLogging sets up sysdump collector logging.
 func (c *Collector) setupLogging(w io.Writer) error {
 	var err error
 	c.logFile, err = os.Create(filepath.Join(c.sysdumpDir, sysdumpLogFile))
@@ -2554,10 +2554,10 @@ func extractGopsPID(output string) (string, error) {
 }
 
 func extractGopsProfileData(output string) (string, error) {
-	splited := strings.Split(output, "\n")
+	split := strings.Split(output, "\n")
 	prefix := "saved to: "
 
-	for _, str := range splited {
+	for _, str := range split {
 		if strings.Contains(str, prefix) {
 			return strings.TrimSpace(strings.Split(str, prefix)[1]), nil
 		}

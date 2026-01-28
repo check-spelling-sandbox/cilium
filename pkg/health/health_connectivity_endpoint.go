@@ -366,7 +366,7 @@ func (h *ciliumHealthManager) launchAsEndpoint(baseCtx context.Context, endpoint
 	// Set up the endpoint routes.
 	routes, err := h.getHealthRoutes(baseCtx, mtuConfig)
 	if err != nil {
-		return nil, fmt.Errorf("Error while getting routes for containername %q: %w", info.ContainerName, err)
+		return nil, fmt.Errorf("Error while getting routes for container name %q: %w", info.ContainerName, err)
 	}
 
 	err = ns.Do(func() error {

@@ -198,7 +198,7 @@ func TestWatchConfigDirectory(t *testing.T) {
 
 	// Attempting to watch a non existing directory should return an error
 	_, err = createConfigDirectoryWatcher(hivetest.Logger(t), filepath.Join(baseDir, "non-existing"), cm)
-	require.Error(t, err, "Attempting to watch a non existing directory should return an error")
+	require.Error(t, err, "Attempting to watch a nonexistent directory should return an error")
 }
 
 func TestIsEtcdConfigFile(t *testing.T) {

@@ -213,7 +213,7 @@ func Init() {
 		os.Setenv("HUBBLE_RELAY_TAG", config.CiliumTestConfig.HubbleRelayTag)
 	}
 
-	// Copy over envronment variables that are passed in.
+	// Copy over environment variables that are passed in.
 	for envVar, helmVar := range map[string]string{
 		"CILIUM_TAG":             "image.tag",
 		"CILIUM_IMAGE":           "image.repository",
@@ -454,7 +454,7 @@ func (kub *Kubectl) DeleteResourcesInAnyNamespace(resource string, names []strin
 	for _, combinedName := range allNames {
 		parts := strings.SplitN(combinedName, "/", 2)
 		if len(parts) != 2 {
-			return fmt.Errorf("The %s idenfifier '%s' is not in the form <namespace>/<name>", resource, combinedName)
+			return fmt.Errorf("The %s identifier '%s' is not in the form <namespace>/<name>", resource, combinedName)
 		}
 		namespace, name := parts[0], parts[1]
 		if _, ok := namesMap[name]; ok {
@@ -1258,7 +1258,7 @@ func (kub *Kubectl) DeleteAllInNamespace(name string) error {
 
 // WaitforPods waits up until timeout seconds have elapsed for all pods in the
 // specified namespace that match the provided JSONPath filter to have their
-// containterStatuses equal to "ready". Returns true if all pods achieve
+// containerStatuses equal to "ready". Returns true if all pods achieve
 // the aforementioned desired state within timeout seconds. Returns false and
 // an error if the command failed or the timeout was exceeded.
 func (kub *Kubectl) WaitforPods(namespace string, filter string, timeout time.Duration) error {
@@ -1274,7 +1274,7 @@ func (kub *Kubectl) WaitforPods(namespace string, filter string, timeout time.Du
 
 // WaitForSinglePod waits up until timeout seconds have elapsed for a single pod
 // with name 'podname' in the specified namespace to have its
-// containterStatus equal to "ready". Returns true if the pods achieves
+// containerStatus equal to "ready". Returns true if the pods achieves
 // the aforementioned desired state within timeout seconds. Returns false and
 // an error if the command failed or the timeout was exceeded.
 func (kub *Kubectl) WaitForSinglePod(namespace, podname string, timeout time.Duration) error {
@@ -1320,7 +1320,7 @@ func checkReady(pod v1.Pod) bool {
 
 // WaitforNPodsRunning waits up until timeout duration has elapsed for at least
 // minRequired pods in the specified namespace that match the provided JSONPath
-// filter to have their containterStatuses equal to "running".
+// filter to have their containerStatuses equal to "running".
 // Returns no error if minRequired pods achieve the aforementioned desired
 // state within timeout seconds. Returns an error if the command failed or the
 // timeout was exceeded.
@@ -1339,7 +1339,7 @@ func (kub *Kubectl) WaitforNPodsRunning(namespace string, filter string, minRequ
 
 // WaitforNPods waits up until timeout seconds have elapsed for at least
 // minRequired pods in the specified namespace that match the provided JSONPath
-// filter to have their containterStatuses equal to "ready".
+// filter to have their containerStatuses equal to "ready".
 // Returns no error if minRequired pods achieve the aforementioned desired
 // state within timeout seconds. Returns an error if the command failed or the
 // timeout was exceeded.
@@ -1889,7 +1889,7 @@ func (kub *Kubectl) ValidateServicePlumbing(namespace, service string) error {
 //   - The Kubernetes DNS deployment has at least one replica
 //   - All replicas are up-to-date and ready
 //   - All pods matching the deployment are represented by a CiliumEndpoint with an identity
-//   - The kube-system/kube-dns service is correctly pumbed in all Cilium agents
+//   - The kube-system/kube-dns service is correctly plumbed in all Cilium agents
 //   - The service "default/kubernetes" can be resolved via the KubernetesDNS
 //     and the IP returned matches the ClusterIP in the service
 func (kub *Kubectl) ValidateKubernetesDNS() error {
@@ -2167,7 +2167,7 @@ func (kub *Kubectl) WaitForKubeDNSEntry(serviceName, serviceNamespace string) er
 }
 
 // WaitTerminatingPods waits until all nodes that are in `Terminating`
-// state are deleted correctly in the platform. In case of excedding the
+// state are deleted correctly in the platform. In case of exceeding the
 // given timeout (in seconds) it returns an error.
 
 func (kub *Kubectl) WaitTerminatingPods(timeout time.Duration) error {
@@ -2175,14 +2175,14 @@ func (kub *Kubectl) WaitTerminatingPods(timeout time.Duration) error {
 }
 
 // WaitTerminatingPodsInNs waits until all nodes that are in `Terminating`
-// state are deleted correctly in the platform. In case of excedding the
+// state are deleted correctly in the platform. In case of exceeding the
 // given timeout (in seconds) it returns an error.
 func (kub *Kubectl) WaitTerminatingPodsInNs(ns string, timeout time.Duration) error {
 	return kub.WaitTerminatingPodsInNsWithFilter(ns, "", timeout)
 }
 
 // WaitTerminatingPodsInNs waits until all nodes that are in `Terminating`
-// state are deleted correctly in the platform. In case of excedding the
+// state are deleted correctly in the platform. In case of exceeding the
 // given timeout (in seconds) it returns an error.
 func (kub *Kubectl) WaitTerminatingPodsInNsWithFilter(ns, filter string, timeout time.Duration) error {
 	var innerErr error
@@ -2617,7 +2617,7 @@ func (kub *Kubectl) CiliumExecContext(ctx context.Context, pod string, cmd strin
 	var res *CmdRes
 	// Sometimes Kubectl returns 126 exit code, It use to happen in Nightly
 	// tests when a lot of exec are in place (Cgroups issue). The upstream
-	// changes did not fix the isse, and we need to make this workaround to
+	// changes did not fix the issue, and we need to make this workaround to
 	// avoid Kubectl issue.
 	// https://github.com/openshift/origin/issues/16246
 	//
@@ -2820,7 +2820,7 @@ func (kub *Kubectl) CiliumPolicyAction(namespace, filepath string, action Resour
 	return "", kub.waitNextPolicyRevisions(podRevisions, timeout)
 }
 
-// CiliumClusterwidePolicyAction applies a clusterwide policy action as described in action argument. It
+// CiliumClusterwidePolicyAction applies a cluster-wide policy action as described in action argument. It
 // then wait till timeout Duration for the policy to be applied to all the cilium endpoints.
 func (kub *Kubectl) CiliumClusterwidePolicyAction(filepath string, action ResourceLifeCycleAction, timeout time.Duration) (string, error) {
 	podRevisions, err := kub.getPodRevisions()
@@ -3215,7 +3215,7 @@ func (kub *Kubectl) GatherLogs(ctx context.Context) {
 			reportCmds[key] = fmt.Sprintf("api-resource-%s.txt", line)
 		}
 	} else {
-		kub.Logger().Errorf("Cannot get api-resoureces: %s", res.GetDebugMessage())
+		kub.Logger().Errorf("Cannot get api-resources: %s", res.GetDebugMessage())
 	}
 
 	testPath, err := CreateReportDirectory()
@@ -3286,7 +3286,7 @@ func (kub *Kubectl) GetNodeInfo(label string) (nodeName, nodeIP string) {
 	nodeName, err := kub.GetNodeNameByLabel(label)
 	gomega.ExpectWithOffset(1, err).To(gomega.BeNil(), "Cannot get node by label "+label)
 	nodeIP, err = kub.GetNodeIPByLabel(label, false)
-	gomega.ExpectWithOffset(1, err).Should(gomega.BeNil(), "Can not retrieve Node Internal IP for "+label)
+	gomega.ExpectWithOffset(1, err).Should(gomega.BeNil(), "Cannot retrieve Node Internal IP for "+label)
 	return nodeName, nodeIP
 }
 
@@ -3508,7 +3508,7 @@ func (kub *Kubectl) ciliumHostEndpointRegenerated() error {
 	return nil
 }
 
-// GetFilePath is a utility function which returns path to give fale relative to BasePath
+// GetFilePath is a utility function which returns path to give file relative to BasePath
 func (kub *Kubectl) GetFilePath(filename string) string {
 	return filepath.Join(kub.BasePath(), filename)
 }

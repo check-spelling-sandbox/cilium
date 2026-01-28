@@ -578,15 +578,15 @@ func (pr *PortRule) sanitize(ingress bool) error {
 
 	listener := pr.Listener
 	if listener != nil {
-		// For now we have only tested custom listener support on the egress path.  TODO
-		// (jrajahalme): Lift this limitation in follow-up work once proper testing has been
+		// For now we have only tested custom listener support on the egress path.
+		// TODO(jrajahalme): Lift this limitation in follow-up work once proper testing has been
 		// done on the ingress path.
 		if ingress && !TestAllowIngressListener {
 			return fmt.Errorf("Listener is not allowed on ingress (%s)", listener.Name)
 		}
 		// There is no quarantee that Listener will support Cilium policy enforcement.  Even
 		// now proxylib-based enforcement (e.g, Kafka) may work, but has not been tested.
-		// TODO (jrajahalme): Lift this limitation in follow-up work for proxylib based
+		// TODO(jrajahalme): Lift this limitation in follow-up work for proxylib based
 		// parsers if needed and when tested.
 		if !pr.Rules.IsEmpty() {
 			return fmt.Errorf("Listener is not allowed with L7 rules (%s)", listener.Name)
@@ -596,7 +596,7 @@ func (pr *PortRule) sanitize(ingress bool) error {
 	// Sanitize L7 rules
 	if !pr.Rules.IsEmpty() {
 		if haveZeroPort {
-			return errors.New("L7 rules can not be used when a port is 0")
+			return errors.New("L7 rules cannot be used when a port is 0")
 		}
 
 		if err := pr.Rules.sanitize(pr.Ports); err != nil {
@@ -630,7 +630,7 @@ func (pp *PortProtocol) sanitize(hasDNSRules bool) (isZero bool, err error) {
 	// some legal numeric literals are no longer considered numbers, e.g,
 	// 0x10 is now considered a name rather than number 16.
 	if iana.IsSvcName(pp.Port) {
-		pp.Port = strings.ToLower(pp.Port) // Normalize for case insensitive comparison
+		pp.Port = strings.ToLower(pp.Port) // Normalize for case-insensitive comparison
 	} else if pp.Port != "" {
 		if pp.Port != "0" && (pp.Protocol == ProtoVRRP || pp.Protocol == ProtoIGMP) {
 			return isZero, errors.New("port must be empty or 0")

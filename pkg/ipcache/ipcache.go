@@ -129,7 +129,7 @@ type IPCache struct {
 	controllers *controller.Manager
 
 	// needNamedPorts is initially 'false', but will atomically be changed to 'true'
-	// when the clusterwide named port mappings are needed for network policy
+	// when the cluster-wide named port mappings are needed for network policy
 	// computation for the first time. This avoids the overhead of unnecessarily
 	// triggering policy updates when it is known not to be needed.
 	needNamedPorts atomic.Bool
@@ -546,7 +546,7 @@ func (ipc *IPCache) UpsertMetadataBatch(updates ...MU) (revision uint64) {
 //
 // This removes nothing:
 //
-//	RemoveMedata(pfx, resource)
+//	RemoveMetadata(pfx, resource)
 //
 // This removes all labels from the given resource:
 //
@@ -824,7 +824,7 @@ func (ipc *IPCache) lookupByIPRLocked(IP string) (Identity, bool) {
 // identity as well as whether the entry exists in the IPCache.
 func (ipc *IPCache) LookupByPrefixRLocked(prefix string) (identity Identity, exists bool) {
 	if _, cidr, err := net.ParseCIDR(prefix); err == nil {
-		// If it's a fully specfied prefix, attempt to find the host
+		// If it's a fully specified prefix, attempt to find the host
 		ones, bits := cidr.Mask.Size()
 		if ones == bits {
 			identity, exists = ipc.ipToIdentityCache[cidr.IP.String()]

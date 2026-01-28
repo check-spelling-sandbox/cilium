@@ -48,7 +48,7 @@ type HeaderMatch struct {
 
 	// Value matches the exact value of the header. Can be specified either
 	// alone or together with "Secret"; will be used as the header value if the
-	// secret can not be found in the latter case.
+	// secret cannot be found in the latter case.
 	//
 	// +kubebuilder:validation:Optional
 	Value string `json:"value,omitempty"`

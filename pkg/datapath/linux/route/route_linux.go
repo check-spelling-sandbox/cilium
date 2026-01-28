@@ -236,7 +236,7 @@ func deleteNexthopRoute(route Route, link netlink.Link, routerNet *net.IPNet) er
 // nexthop is not available immediately and the prefix route can fail with
 // EINVAL if the Netlink calls are issued in short order.
 //
-// An error is returned if the route can not be added or updated.
+// An error is returned if the route cannot be added or updated.
 func Upsert(logger *slog.Logger, route Route) error {
 	var nexthopRouteCreated bool
 

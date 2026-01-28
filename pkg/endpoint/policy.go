@@ -148,7 +148,7 @@ func (res *policyGenerateResult) release(logger *slog.Logger) {
 //
 // Policy generation may fail, and in that case we exit before actually changing
 // the policy in any way, so that the last policy remains fully in effect if the
-// new policy can not be implemented. This is done on a per endpoint-basis,
+// new policy cannot be implemented. This is done on a per endpoint-basis,
 // however, and it is possible that policy update succeeds for some endpoints,
 // while it fails for other endpoints.
 //
@@ -286,7 +286,7 @@ func (e *Endpoint) regeneratePolicy(stats *regenerationStatistics, datapathRegen
 // setDesiredPolicy updates the endpoint with the results of a policy calculation.
 //
 // The endpoint write lock must be held and not released until the desired policy has
-// been pushed in to the policymaps via `syncPolicyMapWith`. This is so that we block
+// been pushed into the policymaps via `syncPolicyMapWith`. This is so that we block
 // ApplyPolicyMapChanges, which has the effect of blocking the ipcache from updating
 // the ipcache bpf map. It is required that any pending changes are pushed in to
 // the policymap before the ipcache map, otherwise endpoints could experience transient
@@ -489,10 +489,10 @@ func (e *Endpoint) regenerate(ctx *regenerationContext) (retErr error) {
 			return
 		}
 
-		// Guarntee removal of temporary directory regardless of outcome of
+		// Guarantee removal of temporary directory regardless of outcome of
 		// build. If the build was successful, the temporary directory will
 		// have been moved to a new permanent location. If the build failed,
-		// the temporary directory will still exist and we will reomve it.
+		// the temporary directory will still exist and we will remove it.
 		e.removeDirectory(tmpDir)
 
 		// Set to Ready, but only if no other changes are pending.
@@ -1190,7 +1190,7 @@ func (e *Endpoint) UpdateNoTrackRules(noTrackPort string) {
 }
 
 // UpdateBandwidthPolicy updates the egress/ingress bandwidth of this endpoint to
-// progagate the throttle rate to the BPF data path.
+// propagate the throttle rate to the BPF data path.
 func (e *Endpoint) UpdateBandwidthPolicy(bandwidthEgress, bandwidthIngress, priority string) {
 	ch, err := e.eventQueue.Enqueue(eventqueue.NewEvent(&EndpointPolicyBandwidthEvent{
 		ep:               e,

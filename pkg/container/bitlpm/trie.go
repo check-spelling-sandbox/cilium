@@ -81,7 +81,7 @@ type Trie[K Key[K], T any] interface {
 	// that can be used to produce the 'Next' key/value pair in sequence,
 	// starting from the key with the shortest common prefix with 'key'.
 	DescendantShortestPrefixFirstIterator(prefix uint, key K) descendantSPFIterator[K, T]
-	// Upsert updates or inserts the trie with a a prefix, key,
+	// Upsert updates or inserts the trie with a prefix, key,
 	// and value. The method returns true if the key is new, and
 	// false if the key already existed.
 	//
@@ -444,7 +444,7 @@ func (t *trie[K, T]) DescendantsShortestPrefixFirst(prefixLen uint, k K, fn func
 // traverse starts at the root node in the trie.
 //
 // The key and prefix being searched (the "search" key and prefix) are
-// compared to the a trie node's key and prefix (the "node" key and
+// compared to the trie node's key and prefix (the "node" key and
 // prefix) to determine the extent to which the keys match (from MSB to
 // LSB) up to the **least** specific (or shortest) prefix of the two keys
 // (for example, if one of the keys has a prefix length of 2 and the other has

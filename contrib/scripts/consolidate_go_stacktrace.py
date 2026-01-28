@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-# consolidate_go_stacktrace.py collapses a go stacktrace by uniqueing each
+# consolidate_go_stacktrace.py collapses a go stacktrace by uniquing each
 # stack. Addresses, goroutine ID and goroutine ages are ignored when determining
-# uniqeness. A sample of each unique trace is printed
+# uniqueness. A sample of each unique trace is printed
 
 import re
 import sys
@@ -17,7 +17,7 @@ filters = {'lock': ["lock", "Lock(", "RLock(", "Semacquire("]}
 
 def get_stacks(f):
     """
-    get_stacks parses file f and yields all lines in go stackrace as one array
+    get_stacks parses file f and yields all lines in go stacktrace as one array
     """
     accum = []
     for line in f:
@@ -171,7 +171,7 @@ if __name__ == "__main__":
                 else:
                     skipped[pkg] = 1
                 continue
-        print("{} occurences. Sample stack trace:".format(len(stack)))
+        print("{} occurrences. Sample stack trace:".format(len(stack)))
         print("\n".join(stack[0]).replace(cilium_source, source_dir))
 
     if len(skipped) > 0:

@@ -1158,7 +1158,7 @@ spec:
                   value: 20
               passThroughMode: false`
 
-func TestCiliumEnvoyConfigtHTTPHealthCheckFilter(t *testing.T) {
+func TestCiliumEnvoyConfigHTTPHealthCheckFilter(t *testing.T) {
 	parser := CECResourceParser{
 		logger:        hivetest.Logger(t),
 		portAllocator: NewMockPortAllocator(),

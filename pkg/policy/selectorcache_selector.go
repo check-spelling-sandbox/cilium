@@ -33,7 +33,7 @@ type SelectorRevision = types.SelectorRevision
 //
 // 1. When policy rules are changed these are added and/or deleted
 // depending on what selectors the rules contain. Cached selections of
-// new identitySelectors are pre-populated from the set of currently
+// new identitySelectors are prepopulated from the set of currently
 // known identities.
 //
 // 2. When reachable identities appear or disappear, either via local

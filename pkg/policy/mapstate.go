@@ -89,7 +89,7 @@ var (
 // TrafficDirection, Protocol, and Port. When identity is not indexed
 // then one policy will map to one key-prefix with a builtin map type
 // that associates each identity with a mapStateEntry. This strategy
-// greatly enhances the usefuleness of the Trie and improves lookup,
+// greatly enhances the usefulness of the Trie and improves lookup,
 // deletion, and insertion times.
 type mapState struct {
 	logger *slog.Logger

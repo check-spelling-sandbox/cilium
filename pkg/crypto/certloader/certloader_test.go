@@ -447,7 +447,7 @@ func k8sUpdate(t *testing.T, dir string, hubbleServerCert, hubbleServerKey, hubb
 func k8Setup(t *testing.T, dir string) {
 	k8sUpdate(t, dir, initialHubbleServerCertificate, initialHubbleServerPrivkey, initialHubbleServerCA)
 
-	// create intital symlinks
+	// create initial symlinks
 	if err := os.Symlink("..data/hubble", filepath.Join(dir, "hubble")); err != nil {
 		t.Fatal("os.Symlink", err)
 	}

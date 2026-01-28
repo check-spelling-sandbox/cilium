@@ -104,7 +104,7 @@ Users (Alphabetically)
       L: https://products.docs.vshn.ch/products/appuio/managed/addon_cilium.html and https://www.appuio.cloud
 
     * N: ArangoDB Oasis
-      D: ArangoDB Oasis is using Cilium in to separate database deployments in our multi-tenant cloud environment
+      D: ArangoDB Oasis is using Cilium to separate database deployments in our multi-tenant cloud environment
       U: Networking, CiliumNetworkPolicy(cluster & local), Hubble, IPAM
       L: https://cloud.arangodb.com
       Q: @ewoutp @Robert-Stam
@@ -409,7 +409,7 @@ Users (Alphabetically)
 
     * N: IKEA IT AB
       D: IKEA IT AB is using Cilium for production and non-production environments (self-hosted, bare-metal, private cloud)
-      U: Networking, CiliumclusterWideNetworkPolicy, CiliumNetworkPolicy, kube-proxy replacement, Hubble, Direct routing, egress gateway, hubble-otel, Multi Nic XDP, BGP advertisements, Bandwidth Manager, Service Load Balancing, Cluster Mesh
+      U: Networking, CiliumclusterWideNetworkPolicy, CiliumNetworkPolicy, kube-proxy replacement, Hubble, Direct routing, egress gateway, hubble-otel, Multi NIC XDP, BGP advertisements, Bandwidth Manager, Service Load Balancing, Cluster Mesh
       L: https://www.ingka.com/
 
     * N: Immerok

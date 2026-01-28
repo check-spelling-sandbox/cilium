@@ -20,7 +20,7 @@ func TestParseAddrCluster(t *testing.T) {
 		{"valid IPv4 address and valid cluster-id", "10.0.0.1@1", false},
 		{"invalid IPv4 address and valid cluster-id", "257.0.0.1@1", true},
 		{"valid IPv4 address and invalid cluster-id", "10.0.0.1@foo", true},
-		{"valid IPv4 address and enpty cluster-id", "10.0.0.1@", true},
+		{"valid IPv4 address and empty cluster-id", "10.0.0.1@", true},
 
 		{"valid bare IPv6 address", "a::1", false},
 		{"invalid bare IPv6 address", "g::1", true},
@@ -28,7 +28,7 @@ func TestParseAddrCluster(t *testing.T) {
 		{"valid IPv6 address and valid cluster-id", "a::1@1", false},
 		{"invalid IPv6 address and valid cluster-id", "g::1@1", true},
 		{"valid IPv6 address and invalid cluster-id", "a::1@foo", true},
-		{"valid IPv6 address and enpty cluster-id", "a::1@", true},
+		{"valid IPv6 address and empty cluster-id", "a::1@", true},
 
 		{"unspecified IPv4 address", "0.0.0.0", false},
 		{"unspecified IPv6 address", "::", false},

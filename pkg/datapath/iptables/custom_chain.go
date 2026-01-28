@@ -90,7 +90,7 @@ func (c *customChain) exists(prog runnable) (bool, error) {
 			return false, nil
 		}
 
-		// with iptables-nft >= 1.8.7, when we try to list the rules of a non existing
+		// with iptables-nft >= 1.8.7, when we try to list the rules of a nonexistent
 		// chain, the command will return an error in the format:
 		//
 		//     chain `$chain' in table `$chain' is incompatible, use 'nft' tool.

@@ -142,7 +142,7 @@ func (csu *cachedSelectionUser) AddIdentitySelector(sel api.EndpointSelector) Ca
 	require.Equal(csu.t, !exists, added)
 	csu.selections[cached] = cached.GetSelections()
 
-	// Pre-existing selections are not notified as updates
+	// Preexisting selections are not notified as updates
 	require.False(csu.t, csu.sc.haveUserNotifications())
 
 	return cached
@@ -163,7 +163,7 @@ func (csu *cachedSelectionUser) AddFQDNSelector(sel api.FQDNSelector) CachedSele
 	require.Equal(csu.t, !exists, added)
 	csu.selections[cached] = cached.GetSelections()
 
-	// Pre-existing selections are not notified as updates
+	// Preexisting selections are not notified as updates
 	require.False(csu.t, csu.sc.haveUserNotifications())
 
 	return cached

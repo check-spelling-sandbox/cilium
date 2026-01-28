@@ -546,7 +546,7 @@ type DNSRulesAPI interface {
 }
 
 // EndpointSyncControllerName returns the controller name to synchronize
-// endpoint in to kubernetes.
+// endpoint in with kubernetes.
 func EndpointSyncControllerName(epID uint16) string {
 	return "sync-to-k8s-ciliumendpoint (" + strconv.FormatUint(uint64(epID), 10) + ")"
 }
@@ -1982,9 +1982,9 @@ func (e *Endpoint) ModifyIdentityLabels(source string, addLabels, delLabels labe
 	// to remove endpoints in 'init' state if the containers were not
 	// started with any label.
 	if len(addLabels) == 0 && len(delLabels) == 0 && e.IsInit() {
-		idLabls := e.labels.IdentityLabels()
-		delete(idLabls, labels.IDNameInit)
-		e.replaceIdentityLabels(source, idLabls)
+		idLabels := e.labels.IdentityLabels()
+		delete(idLabels, labels.IDNameInit)
+		e.replaceIdentityLabels(source, idLabels)
 		changed = true
 	}
 	if changed {
@@ -2106,9 +2106,9 @@ func (e *Endpoint) UpdateLabels(ctx context.Context, sourceFilter string, identi
 		!identityLabels.HasInitLabel() &&
 		e.IsInit() {
 
-		idLabls := e.labels.IdentityLabels()
-		delete(idLabls, labels.IDNameInit)
-		rev = e.replaceIdentityLabels(labels.LabelSourceAny, idLabls)
+		idLabels := e.labels.IdentityLabels()
+		delete(idLabels, labels.IDNameInit)
+		rev = e.replaceIdentityLabels(labels.LabelSourceAny, idLabels)
 	}
 
 	e.unlock()
@@ -2250,8 +2250,8 @@ func (e *Endpoint) identityLabelsChanged(ctx context.Context) (regenTriggered bo
 	// identity is new, then this will start updating the policy for other
 	// co-located endpoints without having to wait for that RTT.
 	//
-	// This must happen before triggering regeration, as this ID must be
-	// plumbed in to the SelectorCache in order for policy to correctly apply
+	// This must happen before triggering regeneration, as this ID must be
+	// plumbed into the SelectorCache in order for policy to correctly apply
 	// to this endpoint. Fortunately AllocateIdentity() will synchronously
 	// update the SelectorCache, so there are no problems here.
 	notifySelectorCache := true
@@ -2300,7 +2300,7 @@ func (e *Endpoint) identityLabelsChanged(ctx context.Context) (regenTriggered bo
 		// The identity of the endpoint is changing, delay the use of
 		// the identity by a grace period to give all other cluster
 		// nodes a chance to adjust their policies first. This requires
-		// to unlock the endpoit and then lock it again.
+		// to unlock the endpoint and then lock it again.
 		//
 		// If the identity change is from init -> *, don't delay the
 		// use of the identity as we want the init duration to be as

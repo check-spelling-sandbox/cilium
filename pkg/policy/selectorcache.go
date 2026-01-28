@@ -25,7 +25,7 @@ var (
 	podNamespaceLabel = labels.NewLabel(k8sConst.PodNamespaceLabel, "", labels.LabelSourceK8s)
 )
 
-// scIdentity is the information we need about a an identity that rules can select
+// scIdentity is the information we need about an identity that rules can select
 type scIdentity struct {
 	NID       identity.NumericIdentity
 	lbls      labels.LabelArray
@@ -461,7 +461,7 @@ func (sc *SelectorCache) RegisterMetrics() {
 // SelectorCache. Currently, this is used to inject the FQDN subsystem into
 // the SelectorCache so the SelectorCache can notify the FQDN subsystem when
 // it should be aware of a given FQDNSelector for which CIDR identities need
-// to be provided upon DNS lookups which corespond to said FQDNSelector.
+// to be provided upon DNS lookups which correspond to said FQDNSelector.
 func (sc *SelectorCache) SetLocalIdentityNotifier(pop identityNotifier) {
 	sc.localIdentityNotifier = pop
 }

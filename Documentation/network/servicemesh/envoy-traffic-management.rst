@@ -81,7 +81,7 @@ Notice that Hubble shows all the flows between these pods as being either
 traffic marked as flowing to or from the proxy at this stage. (This assumes
 you don't already have any Layer 7 policies in place affecting this traffic.)
 
-Verify that you get a 404 error response if you curl to the non-existent URL
+Verify that you get a 404 error response if you curl to the nonexistent URL
 ``/foo`` on these services:
 
 .. code-block:: shell-session

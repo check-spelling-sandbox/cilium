@@ -59,7 +59,7 @@ Actions from their corresponding Github repositories. All images are `multi-plat
 with support for both ``linux/amd64`` and ``linux/arm64`` platforms.
 
 +-------------------------------+---------------------------------------------+-----------------------------------------------+
-|     **Github Repository**     |                **Dockerfile**               |      **Container image repository**           |
+|     **GitHub Repository**     |                **Dockerfile**               |      **Container image repository**           |
 |                               |                                             |                                               +
 |                               |                                             |                                               |
 +-------------------------------+---------------------------------------------+-----------------------------------------------+

@@ -337,7 +337,7 @@ func TestUpdateLocalNode(t *testing.T) {
 // upgraded to the apiserver.
 //
 // This was intended to ensure we don't regress on GH-24502, but that is moot
-// now that identity restoration happens using the asynch apis.
+// now that identity restoration happens using the async apis.
 func TestInjectExisting(t *testing.T) {
 	s := setupIPCacheTestSuite(t)
 	t.Parallel()
@@ -358,7 +358,7 @@ func TestInjectExisting(t *testing.T) {
 	assert.True(t, ok)
 	assert.Equal(t, wantID, id.ID)
 
-	// Simulate the first half of UpsertMetadata -- insert the labels only in to the metadata cache
+	// Simulate the first half of UpsertMetadata -- insert the labels only into the metadata cache
 	// This is to "force" a race condition
 	resource := types.NewResourceID(
 		types.ResourceKindEndpoint, "default", "kubernetes")
@@ -693,14 +693,14 @@ func TestRequestIdentity(t *testing.T) {
 		assert.Equal(t, nid, id.ID)
 	}
 
-	// Add 2 prefixes in to the ipcache, one requesting the first local identity
+	// Add 2 prefixes to the ipcache, one requesting the first local identity
 	s.IPIdentityCache.metadata.upsertLocked(inClusterPrefix, source.Restored, "daemon-uid", types.RequestedIdentity(identity.IdentityScopeLocal))
 	s.IPIdentityCache.metadata.upsertLocked(inClusterPrefix2, source.Restored, "daemon-uid", labels.Labels{})
 
 	// Withhold the first local-scoped identity in the allocator
 	s.IPIdentityCache.IdentityAllocator.WithholdLocalIdentities([]identity.NumericIdentity{16777216})
 
-	// Upsert the second prefix first, ensuring it does not get the withheld identituy
+	// Upsert the second prefix first, ensuring it does not get the withheld identity
 	injectLabels(inClusterPrefix2)
 	injectLabels(inClusterPrefix)
 
@@ -736,7 +736,7 @@ func TestInjectFailedAllocate(t *testing.T) {
 	require.Len(t, remaining, 1)
 }
 
-// Test that handleLabelInjection() correctly splits in to chunks
+// Test that handleLabelInjection() correctly splits into chunks
 // and handles error cases.
 func TestHandleLabelInjection(t *testing.T) {
 	oldChunkSize := chunkSize

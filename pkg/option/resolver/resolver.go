@@ -164,7 +164,7 @@ func WriteConfigurations(ctx context.Context, logger *slog.Logger, destDir strin
 		return fmt.Errorf("failed to write ..data.tmp symlink: %w", err)
 	}
 	if err := os.Rename(filepath.Join(destDir, "..data.tmp"), filepath.Join(destDir, "..data")); err != nil {
-		return fmt.Errorf("failed to move ..data symlink in to place: %w", err)
+		return fmt.Errorf("failed to move ..data symlink into place: %w", err)
 	}
 
 	for k := range data {
@@ -282,7 +282,7 @@ func readNodeConfigsAllVersions(ctx context.Context, logger *slog.Logger, client
 		return nil, nil, errv2alpha1
 	}
 
-	// Copiying values from a map into a nil map results in a panic, please refer to https://github.com/golang/go/issues/64390
+	// Copying values from a map into a nil map results in a panic, please refer to https://github.com/golang/go/issues/64390
 	if nodeConfigv2alpha1 == nil {
 		nodeConfigv2alpha1 = nodeConfigv2
 	} else {

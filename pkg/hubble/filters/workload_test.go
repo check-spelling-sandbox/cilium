@@ -370,7 +370,7 @@ func TestWorkloadFilterInclude(t *testing.T) {
 					{
 						SourceWorkload: []*flowpb.Workload{
 							{
-								Kind: "ReplicatSet",
+								Kind: "ReplicaSet",
 								Name: "hubble-relay",
 							},
 						},
@@ -394,7 +394,7 @@ func TestWorkloadFilterInclude(t *testing.T) {
 					{
 						DestinationWorkload: []*flowpb.Workload{
 							{
-								Kind: "ReplicatSet",
+								Kind: "ReplicaSet",
 								Name: "hubble-relay",
 							},
 						},
@@ -466,7 +466,7 @@ func TestWorkloadFilterInclude(t *testing.T) {
 					{
 						SourceWorkload: []*flowpb.Workload{
 							{
-								Kind: "ReplicatSet",
+								Kind: "ReplicaSet",
 								Name: "hubble-relay-78bcd57c9c-c4wsl",
 							},
 						},
@@ -490,7 +490,7 @@ func TestWorkloadFilterInclude(t *testing.T) {
 					{
 						DestinationWorkload: []*flowpb.Workload{
 							{
-								Kind: "ReplicatSet",
+								Kind: "ReplicaSet",
 								Name: "hubble-relay-78bcd57c9c-c4wsl",
 							},
 						},

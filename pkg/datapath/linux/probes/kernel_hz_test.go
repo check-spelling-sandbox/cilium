@@ -44,7 +44,7 @@ func TestNearest(t *testing.T) {
 			want:   0,
 		},
 		{
-			name:   "in higher than last value",
+			name:   "in greater than last value",
 			in:     20,
 			values: []uint16{0, 10},
 			want:   10,

@@ -124,10 +124,10 @@ func Hint(err error) error {
 }
 
 func GetConnectivityStatusType(cs *models.ConnectivityStatus) ConnectivityStatusType {
-	// If the connecticity status is nil, it means that there was no
+	// If the connectivity status is nil, it means that there was no
 	// successful probe, but also no failed probe with a concrete reason. In
 	// that case, the status is unknown and it usually means that the new
-	// is still in the beginning of the bootstraping process.
+	// is still in the beginning of the bootstrapping process.
 	if cs == nil {
 		return ConnStatusUnknown
 	}

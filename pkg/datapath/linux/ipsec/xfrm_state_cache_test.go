@@ -70,7 +70,7 @@ func TestPrivilegedXfrmStateListCache(t *testing.T) {
 	require.NoError(t, err)
 	require.Empty(t, stateList)
 
-	// Create new xfrm state and check that cache is atomatically updated
+	// Create new xfrm state and check that cache is automatically updated
 	require.True(t, xfrmStateCache.isExpired(), "Cache should be expired when list is empty")
 	err = xfrmStateCache.XfrmStateAdd(state)
 	require.NoError(t, err)

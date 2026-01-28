@@ -46,7 +46,7 @@ var configGetCmd = &cobra.Command{
 		readWriteConfigMap = mapKeysToLowerCase(readWriteConfigMap)
 		readOnlyConfigMap = mapKeysToLowerCase(readOnlyConfigMap)
 
-		// conifgMap holds both read-only and read-write configurations
+		// configMap holds both read-only and read-write configurations
 		configMap := mergeMaps(readOnlyConfigMap, readWriteConfigMap)
 
 		if value, ok := configMap[configName]; ok {

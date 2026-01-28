@@ -28,7 +28,7 @@ func (c rootDirCheck) Run() (checkResult, string) {
 		return checkError, fmt.Sprintf("cannot get working directory: %s", err)
 	}
 
-	// Search upward through through parent directories to find the .git directory.
+	// Search upward through parent directories to find the .git directory.
 	for {
 		info, err := os.Stat(path.Join(dir, ".git"))
 		switch {

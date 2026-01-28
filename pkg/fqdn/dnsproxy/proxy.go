@@ -847,7 +847,7 @@ func (p *DNSProxy) CheckAllowed(endpointID uint64, destPortProto restore.PortPro
 //     or after a timeout of a few milliseconds. This would be something we currently don't do and
 //     is prone to socket bind errors, so this is left for a later exercise.
 //
-//   - So the client socket can not be left lingering around, as it causes network traffic destined
+//   - So the client socket cannot be left lingering around, as it causes network traffic destined
 //     for the source pod to be intercepted to the dnsproxy, which is exactly what we want but only
 //     until a DNS response has been received.
 func setSoMarks(fd int, ipFamily ipfamily.IPFamily, secId identity.NumericIdentity) error {
@@ -1201,7 +1201,7 @@ func (p *DNSProxy) GetBindPort() uint16 {
 }
 
 // ExtractMsgDetails extracts a canonical query name, any IPs in a response,
-// the lowest applicable TTL, rcode, anwer rr types and question types
+// the lowest applicable TTL, rcode, answer rr types and question types
 // When a CNAME is returned the chain is collapsed down, keeping the lowest TTL,
 // and CNAME targets are returned.
 func ExtractMsgDetails(msg *dns.Msg) (

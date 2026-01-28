@@ -422,7 +422,7 @@ func (from L7ParserType) canPromoteTo(to L7ParserType) bool {
 		return true
 	case ParserTypeTLS:
 		// ParserTypeTLS can be promoted to any other type, except for DNS or CRD,
-		// but ParserTypeTLS can not be demoted to ParserTypeNone
+		// but ParserTypeTLS cannot be demoted to ParserTypeNone
 		if to != ParserTypeNone && to != ParserTypeDNS && to != ParserTypeCRD {
 			return true
 		}
@@ -1048,7 +1048,7 @@ func createL4Filter(policyCtx PolicyContext, entry *types.PolicyEntry, portRule 
 					// TODO: Catch this in rule validation once we have a
 					// validation context in there so that we can differentiate
 					// between CNP and CCNP at validation time.
-					return nil, fmt.Errorf("Listener %q in CCNP can not use Kind CiliumEnvoyConfig", pr.Listener.Name)
+					return nil, fmt.Errorf("Listener %q in CCNP cannot use Kind CiliumEnvoyConfig", pr.Listener.Name)
 				}
 			case "CiliumClusterwideEnvoyConfig":
 				// CNP refers to a cluster-scoped listener

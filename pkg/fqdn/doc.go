@@ -102,7 +102,7 @@
 // that are also selected in a DNS L3 rule matchPattern or matchName have a /32
 // or /128 CIDR identity created. This occurs when they are first passed to the
 // toFQDN selectors from NameManager. These identities are not special in any
-// way and can overlap with toCIDR rules in policiies. They are placed in the
+// way and can overlap with toCIDR rules in policies. They are placed in the
 // node-local ipcache and in the policy map of each endpoint that is allowed to
 // connect to them (i.e. defined in the L3 DNS rule).
 // Notes:

@@ -440,7 +440,7 @@ func BenchmarkUpdateAndDeleteCycle(b *testing.B) {
 	b.StopTimer()
 }
 
-func TestClusterSizeDependantInterval(t *testing.T) {
+func TestClusterSizeDependentInterval(t *testing.T) {
 	logger := hivetest.Logger(t)
 
 	ipcacheMock := newIPcacheMock()
@@ -461,7 +461,7 @@ func TestClusterSizeDependantInterval(t *testing.T) {
 			},
 		}}
 		mngr.NodeUpdated(n)
-		newInterval := mngr.ClusterSizeDependantInterval(time.Minute)
+		newInterval := mngr.ClusterSizeDependentInterval(time.Minute)
 		assert.Greater(t, newInterval, prevInterval)
 	}
 }
@@ -606,7 +606,7 @@ func TestIpcache(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 
@@ -677,7 +677,7 @@ func TestIpcache(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 }
@@ -709,7 +709,7 @@ func TestIpcacheHealthIP(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 
@@ -721,7 +721,7 @@ func TestIpcacheHealthIP(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 }
@@ -798,7 +798,7 @@ func TestNodeEncryption(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 
@@ -845,7 +845,7 @@ func TestNodeEncryption(t *testing.T) {
 
 	select {
 	case event := <-ipcacheMock.events:
-		t.Errorf("unexected ipcache interaction %+v", event)
+		t.Errorf("unexpected ipcache interaction %+v", event)
 	default:
 	}
 }

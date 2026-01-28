@@ -642,7 +642,7 @@ static __always_inline int dsr_reply_icmp6(struct __ctx_buff *ctx,
 	__s32 l4_dport_offset;
 
 	/* DSR changes the destination address from service ip to pod ip and
-	 * destination port from service port to pod port. While resppnding
+	 * destination port from service port to pod port. While responding
 	 * back with ICMP error, it is necessary to set it to original ip and
 	 * port.
 	 */
@@ -2059,7 +2059,7 @@ static __always_inline int dsr_reply_icmp4(struct __ctx_buff *ctx,
 	__s32 l4_dport_offset;
 
 	/* DSR changes the destination address from service ip to pod ip and
-	 * destination port from service port to pod port. While resppnding
+	 * destination port from service port to pod port. While responding
 	 * back with ICMP error, it is necessary to set it to original ip and
 	 * port.
 	 * We do recompute the whole checksum here. Another way would be to
@@ -2860,7 +2860,7 @@ static __always_inline int nodeport_svc_lb4(struct __ctx_buff *ctx,
 			src_sec_identity = WORLD_IPV4_ID;
 
 		 /* Before forwarding the identity, make sure it's not local,
-		  * as in that case the next hop would't understand it.
+		  * as in that case the next hop wouldn't understand it.
 		  */
 		if (identity_is_local(src_sec_identity))
 			return DROP_INVALID_IDENTITY;

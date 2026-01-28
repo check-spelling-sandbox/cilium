@@ -27,7 +27,7 @@ import (
 // endpointSliceCleanupFactory returns a function used as a hook when no service are found in
 // EndpointSlice controller. Usually EndpointSlice get cleaned up via OwnerReference whenever
 // the service is deleted, but for the clustermesh case the Service could still
-// exist but should no longer sync the remote cluster EndpintSlice, so we need to make
+// exist but should no longer sync the remote cluster EndpointSlice, so we need to make
 // sure the existing EndpointSlice from remote clusters are properly deleted.
 func endpointSliceCleanupFactory(ctx context.Context, discoveryClient discoveryv1.DiscoveryV1Interface, endpointSliceLister discoverylisters.EndpointSliceLister) func(namespace, name string) error {
 	return func(namespace, name string) error {
